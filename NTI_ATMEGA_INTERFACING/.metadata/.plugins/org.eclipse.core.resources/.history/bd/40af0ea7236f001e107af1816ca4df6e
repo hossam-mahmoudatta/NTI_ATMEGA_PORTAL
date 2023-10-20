@@ -1,0 +1,127 @@
+/******************************************************************************
+ *
+ * Application
+ *
+ * File Name: HMI_main.c
+ *
+ * Description: Application file for this HMI ECU in the final project
+ *
+ * Author: Hossam Mahmoud
+ *
+ *******************************************************************************/
+
+
+/*******************************************************************************
+ *                              					 Application Libraries                                					  *
+ *******************************************************************************/
+
+//#include <util/delay.h>
+#include <avr/io.h>
+#include <util/delay.h>
+#include <avr/interrupt.h>
+
+/*******************************************************************************
+ *                              						  Modules Drivers                                  					  *
+ *******************************************************************************/
+
+//#include "../MCAL/ADC_DRIVER/ADC.h"
+//#include "../MCAL/I2C_DRIVER/I2C.h"
+//#include "../MCAL/ICU_DRIVER/ICU.h"
+//#include "../MCAL/SPI_DRIVER/SPI.h"
+//#include "../MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT.h"
+
+#include "../MCAL/TIMER_DRIVER/TIMER.h" // I will need this driver for this ECU Driver
+
+/*******************************************************************************/
+
+//#include "../ECUAL/EEPROM_DRIVER/EEPROM.h"
+//#include "../ECUAL/LM35_DRIVER/LM35.h"
+//#include "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h"
+//#include "../ECUAL/BUTTON_DRIVER/BUTTON.h"
+
+#include "../ECUAL/BUZZER_DRIVER/BUZZER.h"
+#include "../ECUAL/KEYPAD_DRIVER/KEYPAD.h" // I will need this driver for this ECU Driver
+#include "../ECUAL/LCD_DRIVER/LCD.h" // I will need this driver for this ECU Driver
+#include "../ECUAL/LED_DRIVER/LED.h" // I will need this driver for this ECU Driver
+
+/*******************************************************************************
+ *                              						Application Execution                              					  *
+ *******************************************************************************/
+
+/*
+ * The LCD should start with a hello message for 3 seconds
+ * 1. then should display the "enter password'
+ * password should be of 5 characters
+ * the password should be displayed as ***** on the LCD for security
+ * enter button as any button on the keypad
+ * re enter password for confirmation
+ * the ecu will send the 2 passwords to check the matching through USART
+ * if matching, then will save it in the EEPROM
+ * if unmatched, repeat from step one
+ */
+
+/*
+ISR(TIMER0_COMP_vect) {
+	compadreMatches++;
+	LED_Toggle(PORT_C, PIN_0);
+
+	if(compareMatches == 2) {
+		LED_Toggle(PORT_C, PIN_1);
+	}
+	else if(compareMatches == 4) {
+		LED_Toggle(PORT_C, PIN_1);
+		LED_Toggle(PORT_C, PIN_2);
+		compareMatches = 0;
+	}
+}
+*/
+
+ISR(TIMER0_COMP_vect) {
+
+}
+
+int main(void) {
+	LCD_Init(); //sd
+	Buzzer_Init(PORT_B, PIN_2);
+	KEYPAD_Init();
+//	USART_ConfigType *USARTConfig;
+//	USARTConfig -> bitData = USART_BAUDRATE_9600;
+//	USARTConfig  -> stopBit = USART_STOP_1_BIT;
+//	USARTConfig -> parity = USART_PARITY_DISABLED;
+//	USART_Init(USARTConfig);
+
+	LCD_moveCursor(0, 0);
+	LCD_displayString("Enter Password: ");
+	LCD_moveCursor(1, 0);
+	//_delay_ms(1000);
+	uint8 passLength = 5;
+	int i = 0;
+
+
+	LCD_displayString("Whyat?");
+//			LCD_displayCharacter(KEYPAD_Value);
+
+		//for (int i = 0 ; i < passLength ; i++) {
+
+	while (1) {
+		uint8 KEYPAD_Value = 100;
+		KEYPAD_Value =  KEYPAD_getPressedKey();
+		_delay_ms(50);
+		if (i < passLength) {
+			if((KEYPAD_Value >= 0) && (KEYPAD_Value <= 9)) {
+				LCD_moveCursor(1, i);
+				LCD_intgerToString(KEYPAD_Value);
+			}
+		}
+		else if (i >= passLength) {
+			i = 0;
+		}
+		i++;
+	}
+
+
+
+
+
+}
+

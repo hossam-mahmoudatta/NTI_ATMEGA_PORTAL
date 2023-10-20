@@ -1,0 +1,1606 @@
+12:25:43 **** Clean-only build of configuration Debug for project TASK1 ****
+make clean 
+rm -rf  TASK1.hex  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o  TASK1.eep  sizedummy  TASK1.lss  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.d  ./ECUAL/LED_DRIVER/LED.d  ./APP/TASK1_main.d  TASK1.elf
+ 
+12:25:45 **** Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/GPIO_DRIVER/GPIO_PROGRAM.d" -MT"MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" -c -o "MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" "../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c"
+In file included from ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:15:
+../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h:56: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'GPIO_readPin'
+../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h:84: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'GPIO_readPort'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPinDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:34: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:98: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_togglePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:156: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:198: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPortDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:263: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:301: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:334: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: error: invalid type argument of 'unary *' (have 'int')
+make: *** [MCAL/GPIO_DRIVER/GPIO_PROGRAM.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+12:31:20 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/GPIO_DRIVER/GPIO_PROGRAM.d" -MT"MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" -c -o "MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" "../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c"
+In file included from ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:15:
+../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h:56: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'GPIO_readPin'
+../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h:84: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'GPIO_readPort'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPinDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:34: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:98: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_togglePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:156: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:198: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPortDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:263: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:301: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:334: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: error: invalid type argument of 'unary *' (have 'int')
+make: *** [MCAL/GPIO_DRIVER/GPIO_PROGRAM.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+12:31:46 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/GPIO_DRIVER/GPIO_PROGRAM.d" -MT"MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" -c -o "MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" "../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c"
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPinDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:34: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:98: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_togglePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:156: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:198: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPortDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:263: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:301: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:334: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: error: invalid type argument of 'unary *' (have 'int')
+make: *** [MCAL/GPIO_DRIVER/GPIO_PROGRAM.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+12:31:50 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/GPIO_DRIVER/GPIO_PROGRAM.d" -MT"MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" -c -o "MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" "../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c"
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPinDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:34: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:56: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:70: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:73: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:78: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:81: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:98: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:121: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:129: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:137: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_togglePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:156: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:167: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:170: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:173: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:176: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:198: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:221: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:237: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPortDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:263: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:275: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:278: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:281: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:284: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:301: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:309: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:312: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:315: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:318: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:334: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:343: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:346: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:349: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:352: error: invalid type argument of 'unary *' (have 'int')
+make: *** [MCAL/GPIO_DRIVER/GPIO_PROGRAM.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:55:38 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/GPIO_DRIVER/GPIO_PROGRAM.d" -MT"MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" -c -o "MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" "../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c"
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPinDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: error: 'pin_num' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: error: (Each undeclared identifier is reported only once
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: error: for each function it appears in.)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:36: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:36: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:36: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:40: error: 'direction' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:41: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:41: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:41: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:45: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:45: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:45: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:50: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:50: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:50: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:53: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:58: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:58: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:58: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:61: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:65: error: 'GPIO_Driver_Checker' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:77: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:92: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:92: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:92: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:95: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:95: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:95: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:100: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:100: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:100: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:103: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:103: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:103: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:108: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:108: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:108: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:111: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:111: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:111: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:116: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:119: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:119: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:119: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:125: warning: 'return' with a value, in function returning void
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_togglePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:135: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:146: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:146: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:146: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:149: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:149: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:149: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:152: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:152: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:152: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:155: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:155: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:155: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:160: warning: 'return' with a value, in function returning void
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:177: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:192: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:192: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:192: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:200: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:200: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:200: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:208: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:208: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:208: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:216: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:216: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:216: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPortDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:242: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:254: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:254: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:254: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:257: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:257: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:257: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:260: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:260: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:260: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:263: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:263: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:263: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:268: warning: 'return' with a value, in function returning void
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:280: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:288: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:288: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:288: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:291: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:291: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:291: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:294: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:294: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:294: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:297: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:297: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:297: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:302: warning: 'return' with a value, in function returning void
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:313: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:322: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:322: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:322: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:325: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:325: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:325: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:328: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:328: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:328: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:331: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:331: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:331: error: invalid type argument of 'unary *' (have 'int')
+make: *** [MCAL/GPIO_DRIVER/GPIO_PROGRAM.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:59:10 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/GPIO_DRIVER/GPIO_PROGRAM.d" -MT"MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" -c -o "MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" "../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c"
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPinDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:36: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:36: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:36: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:41: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:41: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:41: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:44: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:44: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:44: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:49: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:49: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:49: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:52: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:52: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:52: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:57: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:57: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:57: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:60: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:60: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:60: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:74: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:89: error: 'PORTA' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:89: error: (Each undeclared identifier is reported only once
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:89: error: for each function it appears in.)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:97: error: 'PORTB' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:105: error: 'PORTC' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:113: error: 'PORTD' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:122: warning: 'return' with a value, in function returning void
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_togglePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:143: error: 'PORTA' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:146: error: 'PORTB' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:149: error: 'PORTC' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:152: error: 'PORTD' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:157: warning: 'return' with a value, in function returning void
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:174: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:189: error: 'PINA' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:197: error: 'PINB' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:205: error: 'PINC' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:213: error: 'PIND' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_setupPortDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:239: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:251: error: 'DDRA' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:254: error: 'DDRB' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:257: error: 'DDRC' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:260: error: 'DDRD' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:265: warning: 'return' with a value, in function returning void
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_writePort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:277: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:285: error: 'PORTA' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:288: error: 'PORTB' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:291: error: 'PORTC' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:294: error: 'PORTD' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:299: warning: 'return' with a value, in function returning void
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_readPort':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:310: warning: initialization makes integer from pointer without a cast
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:319: error: 'PINA' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:322: error: 'PINB' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:325: error: 'PINC' undeclared (first use in this function)
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:328: error: 'PIND' undeclared (first use in this function)
+make: *** [MCAL/GPIO_DRIVER/GPIO_PROGRAM.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:31:06 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/GPIO_DRIVER/GPIO_PROGRAM.d" -MT"MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" -c -o "MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" "../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c"
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_vidSetPinDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:33: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:36: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:36: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:36: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:41: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:41: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:41: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:44: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:44: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:44: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:49: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:49: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:49: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:52: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:52: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:52: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:57: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:57: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:57: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:60: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:60: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:60: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_vidSetPinValue':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:79: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:79: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:79: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:82: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:82: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:82: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:87: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:87: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:87: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:90: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:90: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:90: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:95: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:95: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:95: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:98: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:98: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:98: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:103: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:103: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:103: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:106: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:106: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:106: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_u8GetPinValue':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:124: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:132: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:140: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:148: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:148: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:148: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_vidTogglePin':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:168: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:168: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:168: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:171: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:171: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:171: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:174: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:174: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:174: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:177: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:177: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:177: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_vidSetPortDirection':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:197: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:197: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:197: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:200: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:200: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:200: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:203: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:203: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:203: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:206: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:206: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:206: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_vidSetPortValue':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:223: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:223: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:223: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:226: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:226: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:226: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:229: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:232: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:232: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:232: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c: In function 'GPIO_u8GetPortValue':
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:249: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:249: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:249: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:252: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:252: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:252: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:255: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:255: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:255: error: invalid type argument of 'unary *' (have 'int')
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:258: error: expected ')' before 'uint8_t'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:258: warning: type defaults to 'int' in declaration of 'type name'
+../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c:258: error: invalid type argument of 'unary *' (have 'int')
+make: *** [MCAL/GPIO_DRIVER/GPIO_PROGRAM.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:34:50 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/GPIO_DRIVER/GPIO_PROGRAM.d" -MT"MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" -c -o "MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" "../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c"
+Finished building: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+ 
+Building file: ../ECUAL/LED_DRIVER/LED.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"ECUAL/LED_DRIVER/LED.d" -MT"ECUAL/LED_DRIVER/LED.o" -c -o "ECUAL/LED_DRIVER/LED.o" "../ECUAL/LED_DRIVER/LED.c"
+In file included from ../ECUAL/LED_DRIVER/LED.c:13:
+../ECUAL/LED_DRIVER/LED.h:16:41: error: ../../MCAL/GPIO_DRIVER/GPIO.h: No such file or directory
+In file included from ../ECUAL/LED_DRIVER/LED.c:13:
+../ECUAL/LED_DRIVER/LED.h:50: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.h:58: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.h:66: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.h:75: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:21: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:48: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:74: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:95: error: expected ')' before 'port_num'
+make: *** [ECUAL/LED_DRIVER/LED.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:36:14 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/GPIO_DRIVER/GPIO_PROGRAM.d" -MT"MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" -c -o "MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" "../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c"
+Finished building: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+ 
+Building file: ../ECUAL/LED_DRIVER/LED.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"ECUAL/LED_DRIVER/LED.d" -MT"ECUAL/LED_DRIVER/LED.o" -c -o "ECUAL/LED_DRIVER/LED.o" "../ECUAL/LED_DRIVER/LED.c"
+In file included from ../ECUAL/LED_DRIVER/LED.c:13:
+../ECUAL/LED_DRIVER/LED.h:50: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.h:58: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.h:66: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.h:75: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:21: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:48: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:74: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:95: error: expected ')' before 'port_num'
+make: *** [ECUAL/LED_DRIVER/LED.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:39:13 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/LED_DRIVER/LED.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"ECUAL/LED_DRIVER/LED.d" -MT"ECUAL/LED_DRIVER/LED.o" -c -o "ECUAL/LED_DRIVER/LED.o" "../ECUAL/LED_DRIVER/LED.c"
+In file included from ../ECUAL/LED_DRIVER/LED.c:13:
+../ECUAL/LED_DRIVER/LED.h:56: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.h:64: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.h:73: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Init':
+../ECUAL/LED_DRIVER/LED.c:27: error: 'uint8_t' undeclared (first use in this function)
+../ECUAL/LED_DRIVER/LED.c:27: error: (Each undeclared identifier is reported only once
+../ECUAL/LED_DRIVER/LED.c:27: error: for each function it appears in.)
+../ECUAL/LED_DRIVER/LED.c:27: error: expected ';' before 'LED_Driver_Checker'
+../ECUAL/LED_DRIVER/LED.c:29: error: 'LED_Driver_Checker' undeclared (first use in this function)
+../ECUAL/LED_DRIVER/LED.c:40: warning: control reaches end of non-void function
+../ECUAL/LED_DRIVER/LED.c: At top level:
+../ECUAL/LED_DRIVER/LED.c:48: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:74: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:95: error: expected ')' before 'port_num'
+make: *** [ECUAL/LED_DRIVER/LED.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:39:28 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/LED_DRIVER/LED.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"ECUAL/LED_DRIVER/LED.d" -MT"ECUAL/LED_DRIVER/LED.o" -c -o "ECUAL/LED_DRIVER/LED.o" "../ECUAL/LED_DRIVER/LED.c"
+In file included from ../ECUAL/LED_DRIVER/LED.c:13:
+../ECUAL/LED_DRIVER/LED.h:56: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.h:64: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.h:73: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Init':
+../ECUAL/LED_DRIVER/LED.c:27: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: At top level:
+../ECUAL/LED_DRIVER/LED.c:48: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:74: error: expected ')' before 'port_num'
+../ECUAL/LED_DRIVER/LED.c:95: error: expected ')' before 'port_num'
+make: *** [ECUAL/LED_DRIVER/LED.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:46:12 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/LED_DRIVER/LED.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"ECUAL/LED_DRIVER/LED.d" -MT"ECUAL/LED_DRIVER/LED.o" -c -o "ECUAL/LED_DRIVER/LED.o" "../ECUAL/LED_DRIVER/LED.c"
+In file included from ../ECUAL/LED_DRIVER/LED.c:13:
+../ECUAL/LED_DRIVER/LED.h:73: warning: parameter names (without types) in function declaration
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Init':
+../ECUAL/LED_DRIVER/LED.c:27: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_On':
+../ECUAL/LED_DRIVER/LED.c:50: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Off':
+../ECUAL/LED_DRIVER/LED.c:76: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Toggle':
+../ECUAL/LED_DRIVER/LED.c:95: warning: type of 'copy_u8portID' defaults to 'int'
+../ECUAL/LED_DRIVER/LED.c:95: warning: type of 'copy_u8pinID' defaults to 'int'
+../ECUAL/LED_DRIVER/LED.c:97: error: 'uint8_t' undeclared (first use in this function)
+../ECUAL/LED_DRIVER/LED.c:97: error: (Each undeclared identifier is reported only once
+../ECUAL/LED_DRIVER/LED.c:97: error: for each function it appears in.)
+../ECUAL/LED_DRIVER/LED.c:97: error: expected ';' before 'LED_Driver_Checker'
+../ECUAL/LED_DRIVER/LED.c:99: error: 'LED_Driver_Checker' undeclared (first use in this function)
+../ECUAL/LED_DRIVER/LED.c:106: warning: parameter names (without types) in function declaration
+../ECUAL/LED_DRIVER/LED.c:106: error: conflicting types for 'GPIO_vidTogglePin'
+../ECUAL/LED_DRIVER/LED.c:106: note: an argument type that has a default promotion can't match an empty parameter name list declaration
+../ECUAL/LED_DRIVER/../../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h:48: error: previous declaration of 'GPIO_vidTogglePin' was here
+../ECUAL/LED_DRIVER/LED.c:110: warning: control reaches end of non-void function
+make: *** [ECUAL/LED_DRIVER/LED.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:46:28 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/LED_DRIVER/LED.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"ECUAL/LED_DRIVER/LED.d" -MT"ECUAL/LED_DRIVER/LED.o" -c -o "ECUAL/LED_DRIVER/LED.o" "../ECUAL/LED_DRIVER/LED.c"
+In file included from ../ECUAL/LED_DRIVER/LED.c:13:
+../ECUAL/LED_DRIVER/LED.h:73: warning: parameter names (without types) in function declaration
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Init':
+../ECUAL/LED_DRIVER/LED.c:27: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_On':
+../ECUAL/LED_DRIVER/LED.c:50: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Off':
+../ECUAL/LED_DRIVER/LED.c:76: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Toggle':
+../ECUAL/LED_DRIVER/LED.c:95: warning: type of 'copy_u8portID' defaults to 'int'
+../ECUAL/LED_DRIVER/LED.c:95: warning: type of 'copy_u8pinID' defaults to 'int'
+../ECUAL/LED_DRIVER/LED.c:97: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c:106: warning: parameter names (without types) in function declaration
+../ECUAL/LED_DRIVER/LED.c:106: error: conflicting types for 'GPIO_vidTogglePin'
+../ECUAL/LED_DRIVER/LED.c:106: note: an argument type that has a default promotion can't match an empty parameter name list declaration
+../ECUAL/LED_DRIVER/../../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h:48: error: previous declaration of 'GPIO_vidTogglePin' was here
+make: *** [ECUAL/LED_DRIVER/LED.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:46:56 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/LED_DRIVER/LED.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"ECUAL/LED_DRIVER/LED.d" -MT"ECUAL/LED_DRIVER/LED.o" -c -o "ECUAL/LED_DRIVER/LED.o" "../ECUAL/LED_DRIVER/LED.c"
+In file included from ../ECUAL/LED_DRIVER/LED.c:13:
+../ECUAL/LED_DRIVER/LED.h:73: warning: parameter names (without types) in function declaration
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Init':
+../ECUAL/LED_DRIVER/LED.c:27: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_On':
+../ECUAL/LED_DRIVER/LED.c:50: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Off':
+../ECUAL/LED_DRIVER/LED.c:76: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Toggle':
+../ECUAL/LED_DRIVER/LED.c:95: warning: type of 'copy_u8portID' defaults to 'int'
+../ECUAL/LED_DRIVER/LED.c:95: warning: type of 'copy_u8pinID' defaults to 'int'
+../ECUAL/LED_DRIVER/LED.c:97: warning: initialization makes integer from pointer without a cast
+Finished building: ../ECUAL/LED_DRIVER/LED.c
+ 
+Building file: ../APP/TASK1_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/TASK1_main.d" -MT"APP/TASK1_main.o" -c -o "APP/TASK1_main.o" "../APP/TASK1_main.c"
+In file included from ../APP/TASK1_main.c:37:
+../APP/../ECUAL/LED_DRIVER/LED.h:73: warning: parameter names (without types) in function declaration
+Finished building: ../APP/TASK1_main.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+Finished building target: TASK1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK1.elf  >"TASK1.lss"
+Finished building: TASK1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK1.elf  "TASK1.hex"
+Finished building: TASK1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK1.elf  "TASK1.eep"
+Finished building: TASK1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2264 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+14:54:32 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../APP/TASK1_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/TASK1_main.d" -MT"APP/TASK1_main.o" -c -o "APP/TASK1_main.o" "../APP/TASK1_main.c"
+In file included from ../APP/TASK1_main.c:20:
+c:/program files/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../APP/TASK1_main.c:37:
+../APP/../ECUAL/LED_DRIVER/LED.h:73: warning: parameter names (without types) in function declaration
+../APP/TASK1_main.c:52: warning: return type of 'main' is not 'int'
+Finished building: ../APP/TASK1_main.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+Finished building target: TASK1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK1.elf  >"TASK1.lss"
+Finished building: TASK1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK1.elf  "TASK1.hex"
+Finished building: TASK1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK1.elf  "TASK1.eep"
+Finished building: TASK1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5700 bytes (17.4% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+14:55:03 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/LED_DRIVER/LED.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"ECUAL/LED_DRIVER/LED.d" -MT"ECUAL/LED_DRIVER/LED.o" -c -o "ECUAL/LED_DRIVER/LED.o" "../ECUAL/LED_DRIVER/LED.c"
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Init':
+../ECUAL/LED_DRIVER/LED.c:27: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_On':
+../ECUAL/LED_DRIVER/LED.c:50: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Off':
+../ECUAL/LED_DRIVER/LED.c:76: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Toggle':
+../ECUAL/LED_DRIVER/LED.c:95: warning: type of 'copy_u8portID' defaults to 'int'
+../ECUAL/LED_DRIVER/LED.c:95: warning: type of 'copy_u8pinID' defaults to 'int'
+../ECUAL/LED_DRIVER/LED.c:95: error: argument 'copy_u8portID' doesn't match prototype
+../ECUAL/LED_DRIVER/LED.h:73: error: prototype declaration
+../ECUAL/LED_DRIVER/LED.c:95: error: argument 'copy_u8pinID' doesn't match prototype
+../ECUAL/LED_DRIVER/LED.h:73: error: prototype declaration
+../ECUAL/LED_DRIVER/LED.c:97: warning: initialization makes integer from pointer without a cast
+make: *** [ECUAL/LED_DRIVER/LED.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:55:30 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/LED_DRIVER/LED.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"ECUAL/LED_DRIVER/LED.d" -MT"ECUAL/LED_DRIVER/LED.o" -c -o "ECUAL/LED_DRIVER/LED.o" "../ECUAL/LED_DRIVER/LED.c"
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Init':
+../ECUAL/LED_DRIVER/LED.c:27: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_On':
+../ECUAL/LED_DRIVER/LED.c:50: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Off':
+../ECUAL/LED_DRIVER/LED.c:76: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Toggle':
+../ECUAL/LED_DRIVER/LED.c:97: warning: initialization makes integer from pointer without a cast
+Finished building: ../ECUAL/LED_DRIVER/LED.c
+ 
+Building file: ../APP/TASK1_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/TASK1_main.d" -MT"APP/TASK1_main.o" -c -o "APP/TASK1_main.o" "../APP/TASK1_main.c"
+In file included from ../APP/TASK1_main.c:20:
+c:/program files/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/TASK1_main.c:52: warning: return type of 'main' is not 'int'
+Finished building: ../APP/TASK1_main.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+Finished building target: TASK1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK1.elf  >"TASK1.lss"
+Finished building: TASK1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK1.elf  "TASK1.hex"
+Finished building: TASK1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK1.elf  "TASK1.eep"
+Finished building: TASK1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5680 bytes (17.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+14:55:43 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../APP/TASK1_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/TASK1_main.d" -MT"APP/TASK1_main.o" -c -o "APP/TASK1_main.o" "../APP/TASK1_main.c"
+In file included from ../APP/TASK1_main.c:20:
+c:/program files/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../APP/TASK1_main.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+Finished building target: TASK1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK1.elf  >"TASK1.lss"
+Finished building: TASK1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK1.elf  "TASK1.hex"
+Finished building: TASK1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK1.elf  "TASK1.eep"
+Finished building: TASK1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5680 bytes (17.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+15:08:57 **** Build of configuration Debug for project TASK1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5680 bytes (17.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+15:11:25 **** Clean-only build of configuration Debug for project TASK1 ****
+make clean 
+rm -rf  TASK1.hex  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o  TASK1.eep  sizedummy  TASK1.lss  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.d  ./ECUAL/LED_DRIVER/LED.d  ./APP/TASK1_main.d  TASK1.elf
+ 
+15:11:26 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/GPIO_DRIVER/GPIO_PROGRAM.d" -MT"MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" -c -o "MCAL/GPIO_DRIVER/GPIO_PROGRAM.o" "../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c"
+Finished building: ../MCAL/GPIO_DRIVER/GPIO_PROGRAM.c
+ 
+Building file: ../ECUAL/LED_DRIVER/LED.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"ECUAL/LED_DRIVER/LED.d" -MT"ECUAL/LED_DRIVER/LED.o" -c -o "ECUAL/LED_DRIVER/LED.o" "../ECUAL/LED_DRIVER/LED.c"
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Init':
+../ECUAL/LED_DRIVER/LED.c:27: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_On':
+../ECUAL/LED_DRIVER/LED.c:50: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Off':
+../ECUAL/LED_DRIVER/LED.c:76: warning: initialization makes integer from pointer without a cast
+../ECUAL/LED_DRIVER/LED.c: In function 'LED_Toggle':
+../ECUAL/LED_DRIVER/LED.c:97: warning: initialization makes integer from pointer without a cast
+Finished building: ../ECUAL/LED_DRIVER/LED.c
+ 
+Building file: ../APP/TASK1_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"APP/TASK1_main.d" -MT"APP/TASK1_main.o" -c -o "APP/TASK1_main.o" "../APP/TASK1_main.c"
+In file included from ../APP/TASK1_main.c:20:
+c:/program files/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../APP/TASK1_main.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+Finished building target: TASK1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK1.elf  >"TASK1.lss"
+Finished building: TASK1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK1.elf  "TASK1.hex"
+Finished building: TASK1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK1.elf  "TASK1.eep"
+Finished building: TASK1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5680 bytes (17.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+15:12:12 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5680 bytes (17.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+15:13:17 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../APP/TASK1_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"APP/TASK1_main.d" -MT"APP/TASK1_main.o" -c -o "APP/TASK1_main.o" "../APP/TASK1_main.c"
+In file included from ../APP/TASK1_main.c:20:
+c:/program files/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../APP/TASK1_main.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+Finished building target: TASK1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK1.elf  >"TASK1.lss"
+Finished building: TASK1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK1.elf  "TASK1.hex"
+Finished building: TASK1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK1.elf  "TASK1.eep"
+Finished building: TASK1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5680 bytes (17.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+15:35:28 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.d" -MT"ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o" -c -o "ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o" "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c"
+In file included from ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:13:
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h:16:48: error: ../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h: No such file or directory
+In file included from ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:13:
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h:48: error: expected ')' before 'copy_u8portID'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h:56: error: expected ')' before 'copy_u8portID'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:22: error: expected ')' before 'copy_u8portID'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:44: error: expected ')' before 'copy_u8portID'
+make: *** [ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+15:39:53 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.d" -MT"ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o" -c -o "ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o" "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c"
+In file included from ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:13:
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h:16:48: error: ../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h: No such file or directory
+In file included from ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:13:
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h:48: error: expected ')' before 'copy_u8portID'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h:56: error: expected ')' before 'copy_u8portID'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:22: error: expected ')' before 'copy_u8portID'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:50: error: expected ')' before 'copy_u8portID'
+make: *** [ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+15:40:44 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.d" -MT"ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o" -c -o "ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o" "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c"
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c: In function 'SEGMENT_Init':
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:28: warning: initialization makes integer from pointer without a cast
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:35: warning: implicit declaration of function 'GPIO_setupPinDirection'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c: In function 'SEGMENT_DISPLAY':
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:56: error: 'uint8_t' undeclared (first use in this function)
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:56: error: (Each undeclared identifier is reported only once
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:56: error: for each function it appears in.)
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:56: error: expected ';' before 'SEGMENT_Driver_Checker'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:59: error: 'SEGMENT_Driver_Checker' undeclared (first use in this function)
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:67: warning: implicit declaration of function 'GPIO_writePin'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:130: warning: control reaches end of non-void function
+make: *** [ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+15:41:10 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.d" -MT"ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o" -c -o "ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o" "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c"
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c: In function 'SEGMENT_Init':
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:28: warning: initialization makes integer from pointer without a cast
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:35: warning: implicit declaration of function 'GPIO_setupPinDirection'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c: In function 'SEGMENT_DISPLAY':
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:56: warning: initialization makes integer from pointer without a cast
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:67: warning: implicit declaration of function 'GPIO_writePin'
+Finished building: ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o: In function `SEGMENT_Init':
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:35: undefined reference to `GPIO_setupPinDirection'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:36: undefined reference to `GPIO_setupPinDirection'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:37: undefined reference to `GPIO_setupPinDirection'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:38: undefined reference to `GPIO_setupPinDirection'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:40: undefined reference to `GPIO_setupPinDirection'
+./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o:../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:41: more undefined references to `GPIO_setupPinDirection' follow
+./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o: In function `SEGMENT_Init':
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:48: undefined reference to `GPIO_writePin'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:48: undefined reference to `GPIO_writePin'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:48: undefined reference to `GPIO_writePin'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:48: undefined reference to `GPIO_writePin'
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:48: undefined reference to `GPIO_writePin'
+./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o:../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:48: more undefined references to `GPIO_writePin' follow
+make: *** [TASK1.elf] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+15:42:32 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.d" -MT"ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o" -c -o "ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o" "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c"
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c: In function 'SEGMENT_Init':
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:28: warning: initialization makes integer from pointer without a cast
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c: In function 'SEGMENT_DISPLAY':
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c:56: warning: initialization makes integer from pointer without a cast
+Finished building: ../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+Finished building target: TASK1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK1.elf  >"TASK1.lss"
+Finished building: TASK1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK1.elf  "TASK1.hex"
+Finished building: TASK1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK1.elf  "TASK1.eep"
+Finished building: TASK1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6434 bytes (19.6% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+15:46:22 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../APP/TASK1_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"APP/TASK1_main.d" -MT"APP/TASK1_main.o" -c -o "APP/TASK1_main.o" "../APP/TASK1_main.c"
+In file included from ../APP/TASK1_main.c:20:
+c:/program files/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/TASK1_main.c: In function 'main':
+../APP/TASK1_main.c:58: warning: implicit declaration of function 'SEGMENT_Init'
+../APP/TASK1_main.c:65: warning: implicit declaration of function 'SEGMENT_DISPLAY'
+../APP/TASK1_main.c:60: warning: unused variable 'value'
+Finished building: ../APP/TASK1_main.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+Finished building target: TASK1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK1.elf  >"TASK1.lss"
+Finished building: TASK1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK1.elf  "TASK1.hex"
+Finished building: TASK1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK1.elf  "TASK1.eep"
+Finished building: TASK1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3082 bytes (9.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+15:46:46 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../APP/TASK1_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"APP/TASK1_main.d" -MT"APP/TASK1_main.o" -c -o "APP/TASK1_main.o" "../APP/TASK1_main.c"
+In file included from ../APP/TASK1_main.c:20:
+c:/program files/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/TASK1_main.c: In function 'main':
+../APP/TASK1_main.c:58: warning: implicit declaration of function 'SEGMENT_Init'
+../APP/TASK1_main.c:65: warning: implicit declaration of function 'SEGMENT_DISPLAY'
+../APP/TASK1_main.c:60: warning: unused variable 'value'
+Finished building: ../APP/TASK1_main.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+Finished building target: TASK1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK1.elf  >"TASK1.lss"
+Finished building: TASK1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK1.elf  "TASK1.hex"
+Finished building: TASK1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK1.elf  "TASK1.eep"
+Finished building: TASK1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3080 bytes (9.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+15:48:16 **** Incremental Build of configuration Debug for project TASK1 ****
+make all 
+Building file: ../APP/TASK1_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"APP/TASK1_main.d" -MT"APP/TASK1_main.o" -c -o "APP/TASK1_main.o" "../APP/TASK1_main.c"
+In file included from ../APP/TASK1_main.c:20:
+c:/program files/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/TASK1_main.c: In function 'main':
+../APP/TASK1_main.c:58: warning: implicit declaration of function 'SEGMENT_Init'
+../APP/TASK1_main.c:65: warning: implicit declaration of function 'SEGMENT_DISPLAY'
+../APP/TASK1_main.c:60: warning: unused variable 'value'
+Finished building: ../APP/TASK1_main.c
+ 
+Building target: TASK1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK1.map -mmcu=atmega32 -o "TASK1.elf"  ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o  ./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o  ./ECUAL/LED_DRIVER/LED.o  ./APP/TASK1_main.o   
+Finished building target: TASK1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK1.elf  >"TASK1.lss"
+Finished building: TASK1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK1.elf  "TASK1.hex"
+Finished building: TASK1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK1.elf  "TASK1.eep"
+Finished building: TASK1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6198 bytes (18.9% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

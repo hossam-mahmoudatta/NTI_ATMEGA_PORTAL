@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;TASK1/APP/HMI_main.c&apos; to &apos;TASK1_main.c&apos;" description="Rename resource &apos;HMI_main.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="APP/HMI_main.c" name="TASK1_main.c" stamp="1697787287798" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;TASK1/MCAL/GPIO_DRIVER/GPIO.c&apos; to &apos;GPIO_PROGRAM.c&apos;" description="Rename resource &apos;GPIO.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MCAL/GPIO_DRIVER/GPIO.c" name="GPIO_PROGRAM.c" stamp="1697790188167" updateReferences="true"/>
+</session>
