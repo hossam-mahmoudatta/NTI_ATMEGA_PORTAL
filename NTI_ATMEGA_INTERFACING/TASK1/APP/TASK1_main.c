@@ -35,10 +35,10 @@
 /*******************************************************************************/
 
 #include "../ECUAL/LED_DRIVER/LED.h" // I will need this driver for this ECU Driver
+#include "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h"
 
 //#include "../ECUAL/EEPROM_DRIVER/EEPROM.h"
 //#include "../ECUAL/LM35_DRIVER/LM35.h"
-//#include "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h"
 //#include "../ECUAL/BUTTON_DRIVER/BUTTON.h"
 
 //#include "../ECUAL/BUZZER_DRIVER/BUZZER.h"
@@ -57,7 +57,7 @@ int main(void) {
 
 	SEGMENT_Init(PORT_B);
 	int i = 0;
-	u8_t value = 0;
+	//u8_t value = 0;
 
 	while (1)
 	{

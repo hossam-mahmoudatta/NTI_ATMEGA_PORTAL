@@ -20,10 +20,23 @@
  *                                								 Definitions                            			           		  	  *
  *******************************************************************************/
 
+// Defines the BCD DATA Pins based on the used Kit
 #define BCD_1								PIN_0
-#define BCD_2								PIN_1
-#define BCD_4								PIN_2
-#define BCD_8								PIN_4
+#define BCD_2							PIN_1
+#define BCD_4							PIN_2
+#define BCD_8							PIN_4
+
+// Defines the BCD COM Pins based on the used Kit
+#define COM_4							PIN_6
+#define COM_3							PIN_5
+#define COM_2							PIN_2
+#define COM_1							PIN_3
+
+// Defines the BCD COM PORTs based on the used Kit
+#define COM_4_PORT					PORT_B
+#define COM_3_PORT					PORT_B
+#define COM_2_PORT					PORT_A
+#define COM_1_PORT					PORT_A
 
 /*******************************************************************************
  *                               							Types Declaration                     							  *
