@@ -1,0 +1,1314 @@
+
+TesterProject.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000570  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000005c4  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  000005c4  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000005f4  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000d0  00000000  00000000  00000630  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000012d2  00000000  00000000  00000700  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000007eb  00000000  00000000  000019d2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000b27  00000000  00000000  000021bd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000140  00000000  00000000  00002ce4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000661  00000000  00000000  00002e24  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000cf2  00000000  00000000  00003485  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000090  00000000  00000000  00004177  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	cd 00       	.word	0x00cd	; ????
+  56:	e2 00       	.word	0x00e2	; ????
+  58:	f7 00       	.word	0x00f7	; ????
+  5a:	0c 01       	movw	r0, r24
+  5c:	21 01       	movw	r4, r2
+  5e:	36 01       	movw	r6, r12
+  60:	4b 01       	movw	r8, r22
+  62:	60 01       	movw	r12, r0
+  64:	75 01       	movw	r14, r10
+  66:	8a 01       	movw	r16, r20
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf e5       	ldi	r28, 0x5F	; 95
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 40 00 	call	0x80	; 0x80 <main>
+  78:	0c 94 b6 02 	jmp	0x56c	; 0x56c <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <main>:
+/*******************************************************************************
+ *                              					Application Execution                              			  *
+ *******************************************************************************/
+
+int main(void) {
+	LED_voidInit(PORT_B, LED_PORTB_KIT_RED);
+  80:	67 e0       	ldi	r22, 0x07	; 7
+  82:	81 e0       	ldi	r24, 0x01	; 1
+  84:	0e 94 6f 00 	call	0xde	; 0xde <LED_voidInit>
+	LED_voidInit(PORT_A, LED_PORTA_KIT_YELLOW);
+  88:	66 e0       	ldi	r22, 0x06	; 6
+  8a:	80 e0       	ldi	r24, 0x00	; 0
+  8c:	0e 94 6f 00 	call	0xde	; 0xde <LED_voidInit>
+	LED_voidInit(PORT_A, LED_PORTA_KIT_BLUE);
+  90:	65 e0       	ldi	r22, 0x05	; 5
+  92:	80 e0       	ldi	r24, 0x00	; 0
+  94:	0e 94 6f 00 	call	0xde	; 0xde <LED_voidInit>
+	LED_voidInit(PORT_A, LED_PORTA_KIT_GREEN);
+  98:	64 e0       	ldi	r22, 0x04	; 4
+  9a:	80 e0       	ldi	r24, 0x00	; 0
+  9c:	0e 94 6f 00 	call	0xde	; 0xde <LED_voidInit>
+
+	SEGMENT_voidInit(PORT_B);
+  a0:	81 e0       	ldi	r24, 0x01	; 1
+  a2:	0e 94 96 00 	call	0x12c	; 0x12c <SEGMENT_voidInit>
+
+	int i = 0;
+	LED_voidOn(PORT_B, LED_PORTB_KIT_RED);
+  a6:	67 e0       	ldi	r22, 0x07	; 7
+  a8:	81 e0       	ldi	r24, 0x01	; 1
+  aa:	0e 94 7c 00 	call	0xf8	; 0xf8 <LED_voidOn>
+	//_delay_ms(1000);
+	LED_voidOff(PORT_B, LED_PORTB_KIT_RED);
+  ae:	67 e0       	ldi	r22, 0x07	; 7
+  b0:	81 e0       	ldi	r24, 0x01	; 1
+  b2:	0e 94 89 00 	call	0x112	; 0x112 <LED_voidOff>
+	//_delay_ms(1000);
+
+	while (1)
+	{
+		for(i = 0 ; i < 10 ; i++)
+  b6:	c0 e0       	ldi	r28, 0x00	; 0
+  b8:	d0 e0       	ldi	r29, 0x00	; 0
+  ba:	0d c0       	rjmp	.+26     	; 0xd6 <main+0x56>
+		{
+			SEGMENT_voidDisplay(PORT_B, i);
+  bc:	6c 2f       	mov	r22, r28
+  be:	81 e0       	ldi	r24, 0x01	; 1
+  c0:	0e 94 bd 00 	call	0x17a	; 0x17a <SEGMENT_voidDisplay>
+			//_delay_ms(1000);
+			LED_voidOn(PORT_B, LED_PORTB_KIT_RED);
+  c4:	67 e0       	ldi	r22, 0x07	; 7
+  c6:	81 e0       	ldi	r24, 0x01	; 1
+  c8:	0e 94 7c 00 	call	0xf8	; 0xf8 <LED_voidOn>
+			//_delay_ms(1000);
+			LED_voidOff(PORT_B, LED_PORTB_KIT_RED);
+  cc:	67 e0       	ldi	r22, 0x07	; 7
+  ce:	81 e0       	ldi	r24, 0x01	; 1
+  d0:	0e 94 89 00 	call	0x112	; 0x112 <LED_voidOff>
+	LED_voidOff(PORT_B, LED_PORTB_KIT_RED);
+	//_delay_ms(1000);
+
+	while (1)
+	{
+		for(i = 0 ; i < 10 ; i++)
+  d4:	21 96       	adiw	r28, 0x01	; 1
+  d6:	ca 30       	cpi	r28, 0x0A	; 10
+  d8:	d1 05       	cpc	r29, r1
+  da:	84 f3       	brlt	.-32     	; 0xbc <main+0x3c>
+  dc:	ec cf       	rjmp	.-40     	; 0xb6 <main+0x36>
+
+000000de <LED_voidInit>:
+	 * Check if the input port number is greater than NUM_OF_PINS_PER_PORT value.
+	 * Or if the input pin number is greater than NUM_OF_PINS_PER_PORT value.
+	 * In this case the input is not valid port/pin number
+	 */
+	u8 LED_Driver_Checker = 0;
+	if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
+  de:	68 30       	cpi	r22, 0x08	; 8
+  e0:	38 f4       	brcc	.+14     	; 0xf0 <LED_voidInit+0x12>
+		LED_Driver_Checker = LED_WRONG_PIN_NUMBER;
+	}
+	else if((copy_u8portID >= NUM_OF_PORTS)) {
+  e2:	84 30       	cpi	r24, 0x04	; 4
+  e4:	38 f4       	brcc	.+14     	; 0xf4 <LED_voidInit+0x16>
+		LED_Driver_Checker = LED_WRONG_PORT_NUMBER;
+	}
+	else {
+		/* Setup the pin direction as required */
+		GPIO_voidSetPinDirection(copy_u8portID, copy_u8pinID, PIN_OUTPUT);
+  e6:	41 e0       	ldi	r20, 0x01	; 1
+  e8:	0e 94 a4 01 	call	0x348	; 0x348 <GPIO_voidSetPinDirection>
+		LED_Driver_Checker = LED_OK;
+  ec:	80 e0       	ldi	r24, 0x00	; 0
+  ee:	08 95       	ret
+	 * Or if the input pin number is greater than NUM_OF_PINS_PER_PORT value.
+	 * In this case the input is not valid port/pin number
+	 */
+	u8 LED_Driver_Checker = 0;
+	if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
+		LED_Driver_Checker = LED_WRONG_PIN_NUMBER;
+  f0:	81 e0       	ldi	r24, 0x01	; 1
+  f2:	08 95       	ret
+	}
+	else if((copy_u8portID >= NUM_OF_PORTS)) {
+		LED_Driver_Checker = LED_WRONG_PORT_NUMBER;
+  f4:	82 e0       	ldi	r24, 0x02	; 2
+		/* Setup the pin direction as required */
+		GPIO_voidSetPinDirection(copy_u8portID, copy_u8pinID, PIN_OUTPUT);
+		LED_Driver_Checker = LED_OK;
+	}
+	return LED_Driver_Checker;
+}
+  f6:	08 95       	ret
+
+000000f8 <LED_voidOn>:
+ * If the pin is input, this function will enable/disable the internal pull-up resistor.
+ */
+LED_Error_t LED_voidOn(u8 copy_u8portID, u8 copy_u8pinID) {
+
+	u8 LED_Driver_Checker = 0;
+		if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
+  f8:	68 30       	cpi	r22, 0x08	; 8
+  fa:	38 f4       	brcc	.+14     	; 0x10a <LED_voidOn+0x12>
+			LED_Driver_Checker = LED_WRONG_PIN_NUMBER;
+		}
+		else if((copy_u8portID >= NUM_OF_PORTS)) {
+  fc:	84 30       	cpi	r24, 0x04	; 4
+  fe:	38 f4       	brcc	.+14     	; 0x10e <LED_voidOn+0x16>
+		else {
+			/* Setup the pin direction as required */
+			#if (LED_MODE == LED_NEGATIVE_LOGIC)
+				GPIO_voidSetPinValue(copy_u8portID, copy_u8pinID, LOGIC_LOW);
+			#elif (LED_MODE == LED_POSITIVE_LOGIC)
+				GPIO_voidSetPinValue(copy_u8portID, copy_u8pinID, LOGIC_HIGH);
+ 100:	41 e0       	ldi	r20, 0x01	; 1
+ 102:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+			#endif
+			LED_Driver_Checker = LED_OK;
+ 106:	80 e0       	ldi	r24, 0x00	; 0
+ 108:	08 95       	ret
+ */
+LED_Error_t LED_voidOn(u8 copy_u8portID, u8 copy_u8pinID) {
+
+	u8 LED_Driver_Checker = 0;
+		if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
+			LED_Driver_Checker = LED_WRONG_PIN_NUMBER;
+ 10a:	81 e0       	ldi	r24, 0x01	; 1
+ 10c:	08 95       	ret
+		}
+		else if((copy_u8portID >= NUM_OF_PORTS)) {
+			LED_Driver_Checker = LED_WRONG_PORT_NUMBER;
+ 10e:	82 e0       	ldi	r24, 0x02	; 2
+				GPIO_voidSetPinValue(copy_u8portID, copy_u8pinID, LOGIC_HIGH);
+			#endif
+			LED_Driver_Checker = LED_OK;
+		}
+		return LED_Driver_Checker;
+}
+ 110:	08 95       	ret
+
+00000112 <LED_voidOff>:
+ * If the input port number or pin number are not correct, The function will return Logic Low.
+ */
+LED_Error_t LED_voidOff(u8 copy_u8portID, u8 copy_u8pinID) {
+
+	u8 LED_Driver_Checker = 0;
+		if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
+ 112:	68 30       	cpi	r22, 0x08	; 8
+ 114:	38 f4       	brcc	.+14     	; 0x124 <LED_voidOff+0x12>
+			LED_Driver_Checker = LED_WRONG_PIN_NUMBER;
+		}
+		else if((copy_u8portID >= NUM_OF_PORTS)) {
+ 116:	84 30       	cpi	r24, 0x04	; 4
+ 118:	38 f4       	brcc	.+14     	; 0x128 <LED_voidOff+0x16>
+		else {
+			/* Setup the pin direction as required */
+			#if (LED_MODE == LED_NEGATIVE_LOGIC)
+				GPIO_voidSetPinValue(copy_u8portID, copy_u8pinID, LOGIC_HIGH);
+			#elif (LED_MODE == LED_POSITIVE_LOGIC)
+				GPIO_voidSetPinValue(copy_u8portID, copy_u8pinID, LOGIC_LOW);
+ 11a:	40 e0       	ldi	r20, 0x00	; 0
+ 11c:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+			#endif
+			LED_Driver_Checker = LED_OK;
+ 120:	80 e0       	ldi	r24, 0x00	; 0
+ 122:	08 95       	ret
+ */
+LED_Error_t LED_voidOff(u8 copy_u8portID, u8 copy_u8pinID) {
+
+	u8 LED_Driver_Checker = 0;
+		if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
+			LED_Driver_Checker = LED_WRONG_PIN_NUMBER;
+ 124:	81 e0       	ldi	r24, 0x01	; 1
+ 126:	08 95       	ret
+		}
+		else if((copy_u8portID >= NUM_OF_PORTS)) {
+			LED_Driver_Checker = LED_WRONG_PORT_NUMBER;
+ 128:	82 e0       	ldi	r24, 0x02	; 2
+				GPIO_voidSetPinValue(copy_u8portID, copy_u8pinID, LOGIC_LOW);
+			#endif
+			LED_Driver_Checker = LED_OK;
+		}
+		return LED_Driver_Checker;
+}
+ 12a:	08 95       	ret
+
+0000012c <SEGMENT_voidInit>:
+/*
+ * Description :
+ * Setup the direction of the required pin input/output.
+ * If the input port number or pin number are not correct, The function will not handle the request.
+ */
+SEGMENT_Error_t SEGMENT_voidInit(u8 copy_u8portID) {
+ 12c:	cf 93       	push	r28
+	 * Or if the input pin number is greater than NUM_OF_PINS_PER_PORT value.
+	 * In this case the input is not valid port/pin number
+	 */
+	u8 SEGMENT_Driver_Checker = 0;
+
+	if((copy_u8portID >= NUM_OF_PORTS)) {
+ 12e:	84 30       	cpi	r24, 0x04	; 4
+ 130:	08 f5       	brcc	.+66     	; 0x174 <SEGMENT_voidInit+0x48>
+ 132:	c8 2f       	mov	r28, r24
+#elif (DIGITS_USED == 3)
+		GPIO_voidSetPinDirection(COM_3_PORT, COM_3, PIN_OUTPUT);
+		GPIO_voidSetPinDirection(COM_2_PORT, COM_2, PIN_OUTPUT);
+		GPIO_voidSetPinDirection(COM_1_PORT, COM_1, PIN_OUTPUT);
+#elif (DIGITS_USED == 2)
+		GPIO_voidSetPinDirection(COM_2_PORT, COM_2, PIN_OUTPUT);
+ 134:	41 e0       	ldi	r20, 0x01	; 1
+ 136:	62 e0       	ldi	r22, 0x02	; 2
+ 138:	80 e0       	ldi	r24, 0x00	; 0
+ 13a:	0e 94 a4 01 	call	0x348	; 0x348 <GPIO_voidSetPinDirection>
+		GPIO_voidSetPinDirection(COM_1_PORT, COM_1, PIN_OUTPUT);
+ 13e:	41 e0       	ldi	r20, 0x01	; 1
+ 140:	63 e0       	ldi	r22, 0x03	; 3
+ 142:	80 e0       	ldi	r24, 0x00	; 0
+ 144:	0e 94 a4 01 	call	0x348	; 0x348 <GPIO_voidSetPinDirection>
+		GPIO_voidSetPinDirection(COM_2_PORT, COM_2, PIN_OUTPUT);
+		GPIO_voidSetPinDirection(COM_1_PORT, COM_1, PIN_OUTPUT);
+#endif
+
+		/* These pins are for the BCD on the FARES Kit */
+		GPIO_voidSetPinDirection(copy_u8portID, BCD_1, PIN_OUTPUT);
+ 148:	41 e0       	ldi	r20, 0x01	; 1
+ 14a:	60 e0       	ldi	r22, 0x00	; 0
+ 14c:	8c 2f       	mov	r24, r28
+ 14e:	0e 94 a4 01 	call	0x348	; 0x348 <GPIO_voidSetPinDirection>
+		GPIO_voidSetPinDirection(copy_u8portID, BCD_2, PIN_OUTPUT);
+ 152:	41 e0       	ldi	r20, 0x01	; 1
+ 154:	61 e0       	ldi	r22, 0x01	; 1
+ 156:	8c 2f       	mov	r24, r28
+ 158:	0e 94 a4 01 	call	0x348	; 0x348 <GPIO_voidSetPinDirection>
+		GPIO_voidSetPinDirection(copy_u8portID, BCD_4, PIN_OUTPUT);
+ 15c:	41 e0       	ldi	r20, 0x01	; 1
+ 15e:	62 e0       	ldi	r22, 0x02	; 2
+ 160:	8c 2f       	mov	r24, r28
+ 162:	0e 94 a4 01 	call	0x348	; 0x348 <GPIO_voidSetPinDirection>
+		GPIO_voidSetPinDirection(copy_u8portID, BCD_8, PIN_OUTPUT);
+ 166:	41 e0       	ldi	r20, 0x01	; 1
+ 168:	64 e0       	ldi	r22, 0x04	; 4
+ 16a:	8c 2f       	mov	r24, r28
+ 16c:	0e 94 a4 01 	call	0x348	; 0x348 <GPIO_voidSetPinDirection>
+
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 170:	80 e0       	ldi	r24, 0x00	; 0
+ 172:	01 c0       	rjmp	.+2      	; 0x176 <SEGMENT_voidInit+0x4a>
+	 * In this case the input is not valid port/pin number
+	 */
+	u8 SEGMENT_Driver_Checker = 0;
+
+	if((copy_u8portID >= NUM_OF_PORTS)) {
+		SEGMENT_Driver_Checker = SEGMENT_WRONG_PORT_NUMBER;
+ 174:	82 e0       	ldi	r24, 0x02	; 2
+		GPIO_voidSetPinDirection(copy_u8portID, BCD_8, PIN_OUTPUT);
+
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+	}
+	return SEGMENT_Driver_Checker;
+}
+ 176:	cf 91       	pop	r28
+ 178:	08 95       	ret
+
+0000017a <SEGMENT_voidDisplay>:
+ * Description :
+ * Write the value Logic High or Logic Low on the required pin.
+ * If the input port number or pin number are not correct, The function will not handle the request.
+ * If the pin is input, this function will enable/disable the internal pull-up resistor.
+ */
+SEGMENT_Error_t SEGMENT_voidDisplay(u8 copy_u8portID, u8 copy_u8pinValue) {
+ 17a:	cf 93       	push	r28
+	 * Or if the input pin number is greater than NUM_OF_PINS_PER_PORT value.
+	 * In this case the input is not valid port/pin number
+	 */
+	u8 SEGMENT_Driver_Checker = 0;
+
+	if((copy_u8portID >= NUM_OF_PORTS)) {
+ 17c:	84 30       	cpi	r24, 0x04	; 4
+ 17e:	08 f0       	brcs	.+2      	; 0x182 <SEGMENT_voidDisplay+0x8>
+ 180:	de c0       	rjmp	.+444    	; 0x33e <SEGMENT_voidDisplay+0x1c4>
+	}
+	else if((copy_u8pinValue < 0 && copy_u8pinValue > 9)) {
+		SEGMENT_Driver_Checker = SEGMENT_WRONG_VALUE;
+	}
+	else {
+		switch(copy_u8pinValue) {
+ 182:	46 2f       	mov	r20, r22
+ 184:	50 e0       	ldi	r21, 0x00	; 0
+ 186:	4a 30       	cpi	r20, 0x0A	; 10
+ 188:	51 05       	cpc	r21, r1
+ 18a:	08 f0       	brcs	.+2      	; 0x18e <SEGMENT_voidDisplay+0x14>
+ 18c:	da c0       	rjmp	.+436    	; 0x342 <SEGMENT_voidDisplay+0x1c8>
+ 18e:	c8 2f       	mov	r28, r24
+ 190:	fa 01       	movw	r30, r20
+ 192:	e6 5d       	subi	r30, 0xD6	; 214
+ 194:	ff 4f       	sbci	r31, 0xFF	; 255
+ 196:	0c 94 b0 02 	jmp	0x560	; 0x560 <__tablejump2__>
+			case 0:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_LOW);
+ 19a:	40 e0       	ldi	r20, 0x00	; 0
+ 19c:	60 e0       	ldi	r22, 0x00	; 0
+ 19e:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+ 1a2:	40 e0       	ldi	r20, 0x00	; 0
+ 1a4:	61 e0       	ldi	r22, 0x01	; 1
+ 1a6:	8c 2f       	mov	r24, r28
+ 1a8:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+ 1ac:	40 e0       	ldi	r20, 0x00	; 0
+ 1ae:	62 e0       	ldi	r22, 0x02	; 2
+ 1b0:	8c 2f       	mov	r24, r28
+ 1b2:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+ 1b6:	40 e0       	ldi	r20, 0x00	; 0
+ 1b8:	64 e0       	ldi	r22, 0x04	; 4
+ 1ba:	8c 2f       	mov	r24, r28
+ 1bc:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 1c0:	80 e0       	ldi	r24, 0x00	; 0
+			case 0:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+				break;
+ 1c2:	c0 c0       	rjmp	.+384    	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+			case 1:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_HIGH);
+ 1c4:	41 e0       	ldi	r20, 0x01	; 1
+ 1c6:	60 e0       	ldi	r22, 0x00	; 0
+ 1c8:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+ 1cc:	40 e0       	ldi	r20, 0x00	; 0
+ 1ce:	61 e0       	ldi	r22, 0x01	; 1
+ 1d0:	8c 2f       	mov	r24, r28
+ 1d2:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+ 1d6:	40 e0       	ldi	r20, 0x00	; 0
+ 1d8:	62 e0       	ldi	r22, 0x02	; 2
+ 1da:	8c 2f       	mov	r24, r28
+ 1dc:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+ 1e0:	40 e0       	ldi	r20, 0x00	; 0
+ 1e2:	64 e0       	ldi	r22, 0x04	; 4
+ 1e4:	8c 2f       	mov	r24, r28
+ 1e6:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 1ea:	80 e0       	ldi	r24, 0x00	; 0
+			case 1:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+				break;
+ 1ec:	ab c0       	rjmp	.+342    	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+			case 2:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_LOW);
+ 1ee:	40 e0       	ldi	r20, 0x00	; 0
+ 1f0:	60 e0       	ldi	r22, 0x00	; 0
+ 1f2:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_HIGH);
+ 1f6:	41 e0       	ldi	r20, 0x01	; 1
+ 1f8:	61 e0       	ldi	r22, 0x01	; 1
+ 1fa:	8c 2f       	mov	r24, r28
+ 1fc:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+ 200:	40 e0       	ldi	r20, 0x00	; 0
+ 202:	62 e0       	ldi	r22, 0x02	; 2
+ 204:	8c 2f       	mov	r24, r28
+ 206:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+ 20a:	40 e0       	ldi	r20, 0x00	; 0
+ 20c:	64 e0       	ldi	r22, 0x04	; 4
+ 20e:	8c 2f       	mov	r24, r28
+ 210:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 214:	80 e0       	ldi	r24, 0x00	; 0
+			case 2:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+				break;
+ 216:	96 c0       	rjmp	.+300    	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+			case 3:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_HIGH);
+ 218:	41 e0       	ldi	r20, 0x01	; 1
+ 21a:	60 e0       	ldi	r22, 0x00	; 0
+ 21c:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_HIGH);
+ 220:	41 e0       	ldi	r20, 0x01	; 1
+ 222:	61 e0       	ldi	r22, 0x01	; 1
+ 224:	8c 2f       	mov	r24, r28
+ 226:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+ 22a:	40 e0       	ldi	r20, 0x00	; 0
+ 22c:	62 e0       	ldi	r22, 0x02	; 2
+ 22e:	8c 2f       	mov	r24, r28
+ 230:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+ 234:	40 e0       	ldi	r20, 0x00	; 0
+ 236:	64 e0       	ldi	r22, 0x04	; 4
+ 238:	8c 2f       	mov	r24, r28
+ 23a:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 23e:	80 e0       	ldi	r24, 0x00	; 0
+			case 3:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+				break;
+ 240:	81 c0       	rjmp	.+258    	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+			case 4:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_LOW);
+ 242:	40 e0       	ldi	r20, 0x00	; 0
+ 244:	60 e0       	ldi	r22, 0x00	; 0
+ 246:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+ 24a:	40 e0       	ldi	r20, 0x00	; 0
+ 24c:	61 e0       	ldi	r22, 0x01	; 1
+ 24e:	8c 2f       	mov	r24, r28
+ 250:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_HIGH);
+ 254:	41 e0       	ldi	r20, 0x01	; 1
+ 256:	62 e0       	ldi	r22, 0x02	; 2
+ 258:	8c 2f       	mov	r24, r28
+ 25a:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+ 25e:	40 e0       	ldi	r20, 0x00	; 0
+ 260:	64 e0       	ldi	r22, 0x04	; 4
+ 262:	8c 2f       	mov	r24, r28
+ 264:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 268:	80 e0       	ldi	r24, 0x00	; 0
+			case 4:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+				break;
+ 26a:	6c c0       	rjmp	.+216    	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+			case 5:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_HIGH);
+ 26c:	41 e0       	ldi	r20, 0x01	; 1
+ 26e:	60 e0       	ldi	r22, 0x00	; 0
+ 270:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+ 274:	40 e0       	ldi	r20, 0x00	; 0
+ 276:	61 e0       	ldi	r22, 0x01	; 1
+ 278:	8c 2f       	mov	r24, r28
+ 27a:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_HIGH);
+ 27e:	41 e0       	ldi	r20, 0x01	; 1
+ 280:	62 e0       	ldi	r22, 0x02	; 2
+ 282:	8c 2f       	mov	r24, r28
+ 284:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+ 288:	40 e0       	ldi	r20, 0x00	; 0
+ 28a:	64 e0       	ldi	r22, 0x04	; 4
+ 28c:	8c 2f       	mov	r24, r28
+ 28e:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 292:	80 e0       	ldi	r24, 0x00	; 0
+			case 5:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+				break;
+ 294:	57 c0       	rjmp	.+174    	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+			case 6:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_LOW);
+ 296:	40 e0       	ldi	r20, 0x00	; 0
+ 298:	60 e0       	ldi	r22, 0x00	; 0
+ 29a:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_HIGH);
+ 29e:	41 e0       	ldi	r20, 0x01	; 1
+ 2a0:	61 e0       	ldi	r22, 0x01	; 1
+ 2a2:	8c 2f       	mov	r24, r28
+ 2a4:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_HIGH);
+ 2a8:	41 e0       	ldi	r20, 0x01	; 1
+ 2aa:	62 e0       	ldi	r22, 0x02	; 2
+ 2ac:	8c 2f       	mov	r24, r28
+ 2ae:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+ 2b2:	40 e0       	ldi	r20, 0x00	; 0
+ 2b4:	64 e0       	ldi	r22, 0x04	; 4
+ 2b6:	8c 2f       	mov	r24, r28
+ 2b8:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 2bc:	80 e0       	ldi	r24, 0x00	; 0
+			case 6:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+				break;
+ 2be:	42 c0       	rjmp	.+132    	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+			case 7:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_HIGH);
+ 2c0:	41 e0       	ldi	r20, 0x01	; 1
+ 2c2:	60 e0       	ldi	r22, 0x00	; 0
+ 2c4:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_HIGH);
+ 2c8:	41 e0       	ldi	r20, 0x01	; 1
+ 2ca:	61 e0       	ldi	r22, 0x01	; 1
+ 2cc:	8c 2f       	mov	r24, r28
+ 2ce:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_HIGH);
+ 2d2:	41 e0       	ldi	r20, 0x01	; 1
+ 2d4:	62 e0       	ldi	r22, 0x02	; 2
+ 2d6:	8c 2f       	mov	r24, r28
+ 2d8:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+ 2dc:	40 e0       	ldi	r20, 0x00	; 0
+ 2de:	64 e0       	ldi	r22, 0x04	; 4
+ 2e0:	8c 2f       	mov	r24, r28
+ 2e2:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 2e6:	80 e0       	ldi	r24, 0x00	; 0
+			case 7:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_LOW);
+				break;
+ 2e8:	2d c0       	rjmp	.+90     	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+			case 8:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_LOW);
+ 2ea:	40 e0       	ldi	r20, 0x00	; 0
+ 2ec:	60 e0       	ldi	r22, 0x00	; 0
+ 2ee:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+ 2f2:	40 e0       	ldi	r20, 0x00	; 0
+ 2f4:	61 e0       	ldi	r22, 0x01	; 1
+ 2f6:	8c 2f       	mov	r24, r28
+ 2f8:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+ 2fc:	40 e0       	ldi	r20, 0x00	; 0
+ 2fe:	62 e0       	ldi	r22, 0x02	; 2
+ 300:	8c 2f       	mov	r24, r28
+ 302:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+ 306:	41 e0       	ldi	r20, 0x01	; 1
+ 308:	64 e0       	ldi	r22, 0x04	; 4
+ 30a:	8c 2f       	mov	r24, r28
+ 30c:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 310:	80 e0       	ldi	r24, 0x00	; 0
+			case 8:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+ 312:	18 c0       	rjmp	.+48     	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+			case 9:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_HIGH);
+ 314:	41 e0       	ldi	r20, 0x01	; 1
+ 316:	60 e0       	ldi	r22, 0x00	; 0
+ 318:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+ 31c:	40 e0       	ldi	r20, 0x00	; 0
+ 31e:	61 e0       	ldi	r22, 0x01	; 1
+ 320:	8c 2f       	mov	r24, r28
+ 322:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+ 326:	40 e0       	ldi	r20, 0x00	; 0
+ 328:	62 e0       	ldi	r22, 0x02	; 2
+ 32a:	8c 2f       	mov	r24, r28
+ 32c:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+ 330:	41 e0       	ldi	r20, 0x01	; 1
+ 332:	64 e0       	ldi	r22, 0x04	; 4
+ 334:	8c 2f       	mov	r24, r28
+ 336:	0e 94 2a 02 	call	0x454	; 0x454 <GPIO_voidSetPinValue>
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 33a:	80 e0       	ldi	r24, 0x00	; 0
+			case 9:
+				GPIO_voidSetPinValue(copy_u8portID, BCD_1, LOGIC_HIGH);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+ 33c:	03 c0       	rjmp	.+6      	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+	 * In this case the input is not valid port/pin number
+	 */
+	u8 SEGMENT_Driver_Checker = 0;
+
+	if((copy_u8portID >= NUM_OF_PORTS)) {
+		SEGMENT_Driver_Checker = SEGMENT_WRONG_PORT_NUMBER;
+ 33e:	82 e0       	ldi	r24, 0x02	; 2
+ 340:	01 c0       	rjmp	.+2      	; 0x344 <SEGMENT_voidDisplay+0x1ca>
+				GPIO_voidSetPinValue(copy_u8portID, BCD_2, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_4, LOGIC_LOW);
+				GPIO_voidSetPinValue(copy_u8portID, BCD_8, LOGIC_HIGH);
+				break;
+		}
+		SEGMENT_Driver_Checker = SEGMENT_OK;
+ 342:	80 e0       	ldi	r24, 0x00	; 0
+	}
+	return SEGMENT_Driver_Checker;
+}
+ 344:	cf 91       	pop	r28
+ 346:	08 95       	ret
+
+00000348 <GPIO_voidSetPinDirection>:
+	 * Or if the input pin number is greater than NUM_OF_PINS_PER_PORT value.
+	 * In this case the input is not valid port/pin number
+	 */
+	u8 GPIO_Driver_Checker = 0;
+
+	if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
+ 348:	68 30       	cpi	r22, 0x08	; 8
+ 34a:	08 f0       	brcs	.+2      	; 0x34e <GPIO_voidSetPinDirection+0x6>
+ 34c:	7b c0       	rjmp	.+246    	; 0x444 <__EEPROM_REGION_LENGTH__+0x44>
+		// Checks if the entered pin number is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_PIN_NUMBER;
+	}
+	else if((copy_u8portID >= NUM_OF_PORTS)) {
+ 34e:	84 30       	cpi	r24, 0x04	; 4
+ 350:	08 f0       	brcs	.+2      	; 0x354 <GPIO_voidSetPinDirection+0xc>
+ 352:	7a c0       	rjmp	.+244    	; 0x448 <__EEPROM_REGION_LENGTH__+0x48>
+		// Checks if the entered port number is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_PORT_NUMBER;
+	}
+	else if((copy_u8pinDIR != PIN_INPUT) && (copy_u8pinDIR != PIN_OUTPUT)) {
+ 354:	42 30       	cpi	r20, 0x02	; 2
+ 356:	08 f0       	brcs	.+2      	; 0x35a <GPIO_voidSetPinDirection+0x12>
+ 358:	79 c0       	rjmp	.+242    	; 0x44c <__EEPROM_REGION_LENGTH__+0x4c>
+		// Checks if the entered direction is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_DIRECTION;
+	}
+	else {
+		// Setup the pin direction as required
+		switch(copy_u8portID) {
+ 35a:	81 30       	cpi	r24, 0x01	; 1
+ 35c:	11 f1       	breq	.+68     	; 0x3a2 <GPIO_voidSetPinDirection+0x5a>
+ 35e:	30 f0       	brcs	.+12     	; 0x36c <GPIO_voidSetPinDirection+0x24>
+ 360:	82 30       	cpi	r24, 0x02	; 2
+ 362:	d1 f1       	breq	.+116    	; 0x3d8 <GPIO_voidSetPinDirection+0x90>
+ 364:	83 30       	cpi	r24, 0x03	; 3
+ 366:	09 f4       	brne	.+2      	; 0x36a <GPIO_voidSetPinDirection+0x22>
+ 368:	52 c0       	rjmp	.+164    	; 0x40e <__EEPROM_REGION_LENGTH__+0xe>
+ 36a:	72 c0       	rjmp	.+228    	; 0x450 <__EEPROM_REGION_LENGTH__+0x50>
+			case PORT_A:
+				if(copy_u8pinDIR == PIN_OUTPUT) {
+ 36c:	41 30       	cpi	r20, 0x01	; 1
+ 36e:	61 f4       	brne	.+24     	; 0x388 <GPIO_voidSetPinDirection+0x40>
+					SET_BIT(DDRA_REG, copy_u8pinID);
+ 370:	2a b3       	in	r18, 0x1a	; 26
+ 372:	81 e0       	ldi	r24, 0x01	; 1
+ 374:	90 e0       	ldi	r25, 0x00	; 0
+ 376:	02 c0       	rjmp	.+4      	; 0x37c <GPIO_voidSetPinDirection+0x34>
+ 378:	88 0f       	add	r24, r24
+ 37a:	99 1f       	adc	r25, r25
+ 37c:	6a 95       	dec	r22
+ 37e:	e2 f7       	brpl	.-8      	; 0x378 <GPIO_voidSetPinDirection+0x30>
+ 380:	82 2b       	or	r24, r18
+ 382:	8a bb       	out	0x1a, r24	; 26
+				else {
+					CLR_BIT(DDRD_REG, copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 384:	80 e0       	ldi	r24, 0x00	; 0
+ 386:	08 95       	ret
+			case PORT_A:
+				if(copy_u8pinDIR == PIN_OUTPUT) {
+					SET_BIT(DDRA_REG, copy_u8pinID);
+				}
+				else {
+					CLR_BIT(DDRA_REG, copy_u8pinID);
+ 388:	2a b3       	in	r18, 0x1a	; 26
+ 38a:	81 e0       	ldi	r24, 0x01	; 1
+ 38c:	90 e0       	ldi	r25, 0x00	; 0
+ 38e:	02 c0       	rjmp	.+4      	; 0x394 <GPIO_voidSetPinDirection+0x4c>
+ 390:	88 0f       	add	r24, r24
+ 392:	99 1f       	adc	r25, r25
+ 394:	6a 95       	dec	r22
+ 396:	e2 f7       	brpl	.-8      	; 0x390 <GPIO_voidSetPinDirection+0x48>
+ 398:	80 95       	com	r24
+ 39a:	82 23       	and	r24, r18
+ 39c:	8a bb       	out	0x1a, r24	; 26
+				else {
+					CLR_BIT(DDRD_REG, copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 39e:	80 e0       	ldi	r24, 0x00	; 0
+ 3a0:	08 95       	ret
+				else {
+					CLR_BIT(DDRA_REG, copy_u8pinID);
+				}
+				break;
+			case PORT_B:
+				if(copy_u8pinDIR == PIN_OUTPUT) {
+ 3a2:	41 30       	cpi	r20, 0x01	; 1
+ 3a4:	61 f4       	brne	.+24     	; 0x3be <GPIO_voidSetPinDirection+0x76>
+					SET_BIT(DDRB_REG, copy_u8pinID);
+ 3a6:	27 b3       	in	r18, 0x17	; 23
+ 3a8:	81 e0       	ldi	r24, 0x01	; 1
+ 3aa:	90 e0       	ldi	r25, 0x00	; 0
+ 3ac:	02 c0       	rjmp	.+4      	; 0x3b2 <GPIO_voidSetPinDirection+0x6a>
+ 3ae:	88 0f       	add	r24, r24
+ 3b0:	99 1f       	adc	r25, r25
+ 3b2:	6a 95       	dec	r22
+ 3b4:	e2 f7       	brpl	.-8      	; 0x3ae <GPIO_voidSetPinDirection+0x66>
+ 3b6:	82 2b       	or	r24, r18
+ 3b8:	87 bb       	out	0x17, r24	; 23
+				else {
+					CLR_BIT(DDRD_REG, copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 3ba:	80 e0       	ldi	r24, 0x00	; 0
+ 3bc:	08 95       	ret
+			case PORT_B:
+				if(copy_u8pinDIR == PIN_OUTPUT) {
+					SET_BIT(DDRB_REG, copy_u8pinID);
+				}
+				else {
+					CLR_BIT(DDRB_REG, copy_u8pinID);
+ 3be:	27 b3       	in	r18, 0x17	; 23
+ 3c0:	81 e0       	ldi	r24, 0x01	; 1
+ 3c2:	90 e0       	ldi	r25, 0x00	; 0
+ 3c4:	02 c0       	rjmp	.+4      	; 0x3ca <GPIO_voidSetPinDirection+0x82>
+ 3c6:	88 0f       	add	r24, r24
+ 3c8:	99 1f       	adc	r25, r25
+ 3ca:	6a 95       	dec	r22
+ 3cc:	e2 f7       	brpl	.-8      	; 0x3c6 <GPIO_voidSetPinDirection+0x7e>
+ 3ce:	80 95       	com	r24
+ 3d0:	82 23       	and	r24, r18
+ 3d2:	87 bb       	out	0x17, r24	; 23
+				else {
+					CLR_BIT(DDRD_REG, copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 3d4:	80 e0       	ldi	r24, 0x00	; 0
+ 3d6:	08 95       	ret
+				else {
+					CLR_BIT(DDRB_REG, copy_u8pinID);
+				}
+				break;
+			case PORT_C:
+				if(copy_u8pinDIR == PIN_OUTPUT) {
+ 3d8:	41 30       	cpi	r20, 0x01	; 1
+ 3da:	61 f4       	brne	.+24     	; 0x3f4 <GPIO_voidSetPinDirection+0xac>
+					SET_BIT(DDRC_REG, copy_u8pinID);
+ 3dc:	24 b3       	in	r18, 0x14	; 20
+ 3de:	81 e0       	ldi	r24, 0x01	; 1
+ 3e0:	90 e0       	ldi	r25, 0x00	; 0
+ 3e2:	02 c0       	rjmp	.+4      	; 0x3e8 <GPIO_voidSetPinDirection+0xa0>
+ 3e4:	88 0f       	add	r24, r24
+ 3e6:	99 1f       	adc	r25, r25
+ 3e8:	6a 95       	dec	r22
+ 3ea:	e2 f7       	brpl	.-8      	; 0x3e4 <GPIO_voidSetPinDirection+0x9c>
+ 3ec:	82 2b       	or	r24, r18
+ 3ee:	84 bb       	out	0x14, r24	; 20
+				else {
+					CLR_BIT(DDRD_REG, copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 3f0:	80 e0       	ldi	r24, 0x00	; 0
+ 3f2:	08 95       	ret
+			case PORT_C:
+				if(copy_u8pinDIR == PIN_OUTPUT) {
+					SET_BIT(DDRC_REG, copy_u8pinID);
+				}
+				else {
+					CLR_BIT(DDRC_REG, copy_u8pinID);
+ 3f4:	24 b3       	in	r18, 0x14	; 20
+ 3f6:	81 e0       	ldi	r24, 0x01	; 1
+ 3f8:	90 e0       	ldi	r25, 0x00	; 0
+ 3fa:	02 c0       	rjmp	.+4      	; 0x400 <__EEPROM_REGION_LENGTH__>
+ 3fc:	88 0f       	add	r24, r24
+ 3fe:	99 1f       	adc	r25, r25
+ 400:	6a 95       	dec	r22
+ 402:	e2 f7       	brpl	.-8      	; 0x3fc <GPIO_voidSetPinDirection+0xb4>
+ 404:	80 95       	com	r24
+ 406:	82 23       	and	r24, r18
+ 408:	84 bb       	out	0x14, r24	; 20
+				else {
+					CLR_BIT(DDRD_REG, copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 40a:	80 e0       	ldi	r24, 0x00	; 0
+ 40c:	08 95       	ret
+				else {
+					CLR_BIT(DDRC_REG, copy_u8pinID);
+				}
+				break;
+			case PORT_D:
+				if(copy_u8pinDIR == PIN_OUTPUT) {
+ 40e:	41 30       	cpi	r20, 0x01	; 1
+ 410:	61 f4       	brne	.+24     	; 0x42a <__EEPROM_REGION_LENGTH__+0x2a>
+					SET_BIT(DDRD_REG, copy_u8pinID);
+ 412:	21 b3       	in	r18, 0x11	; 17
+ 414:	81 e0       	ldi	r24, 0x01	; 1
+ 416:	90 e0       	ldi	r25, 0x00	; 0
+ 418:	02 c0       	rjmp	.+4      	; 0x41e <__EEPROM_REGION_LENGTH__+0x1e>
+ 41a:	88 0f       	add	r24, r24
+ 41c:	99 1f       	adc	r25, r25
+ 41e:	6a 95       	dec	r22
+ 420:	e2 f7       	brpl	.-8      	; 0x41a <__EEPROM_REGION_LENGTH__+0x1a>
+ 422:	82 2b       	or	r24, r18
+ 424:	81 bb       	out	0x11, r24	; 17
+				else {
+					CLR_BIT(DDRD_REG, copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 426:	80 e0       	ldi	r24, 0x00	; 0
+ 428:	08 95       	ret
+			case PORT_D:
+				if(copy_u8pinDIR == PIN_OUTPUT) {
+					SET_BIT(DDRD_REG, copy_u8pinID);
+				}
+				else {
+					CLR_BIT(DDRD_REG, copy_u8pinID);
+ 42a:	21 b3       	in	r18, 0x11	; 17
+ 42c:	81 e0       	ldi	r24, 0x01	; 1
+ 42e:	90 e0       	ldi	r25, 0x00	; 0
+ 430:	02 c0       	rjmp	.+4      	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+ 432:	88 0f       	add	r24, r24
+ 434:	99 1f       	adc	r25, r25
+ 436:	6a 95       	dec	r22
+ 438:	e2 f7       	brpl	.-8      	; 0x432 <__EEPROM_REGION_LENGTH__+0x32>
+ 43a:	80 95       	com	r24
+ 43c:	82 23       	and	r24, r18
+ 43e:	81 bb       	out	0x11, r24	; 17
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 440:	80 e0       	ldi	r24, 0x00	; 0
+ 442:	08 95       	ret
+	 */
+	u8 GPIO_Driver_Checker = 0;
+
+	if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
+		// Checks if the entered pin number is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_PIN_NUMBER;
+ 444:	81 e0       	ldi	r24, 0x01	; 1
+ 446:	08 95       	ret
+	}
+	else if((copy_u8portID >= NUM_OF_PORTS)) {
+		// Checks if the entered port number is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_PORT_NUMBER;
+ 448:	82 e0       	ldi	r24, 0x02	; 2
+ 44a:	08 95       	ret
+	}
+	else if((copy_u8pinDIR != PIN_INPUT) && (copy_u8pinDIR != PIN_OUTPUT)) {
+		// Checks if the entered direction is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_DIRECTION;
+ 44c:	83 e0       	ldi	r24, 0x03	; 3
+ 44e:	08 95       	ret
+				else {
+					CLR_BIT(DDRD_REG, copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 450:	80 e0       	ldi	r24, 0x00	; 0
+	}
+	return GPIO_Driver_Checker;
+}
+ 452:	08 95       	ret
+
+00000454 <GPIO_voidSetPinValue>:
+	 * Or if the input pin number is greater than NUM_OF_PINS_PER_PORT value.
+	 * In this case the input is not valid port/pin number
+	 */
+	u8 GPIO_Driver_Checker = 0;
+
+	if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
+ 454:	68 30       	cpi	r22, 0x08	; 8
+ 456:	08 f0       	brcs	.+2      	; 0x45a <GPIO_voidSetPinValue+0x6>
+ 458:	7b c0       	rjmp	.+246    	; 0x550 <GPIO_voidSetPinValue+0xfc>
+		// Checks if the entered pin number is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_PIN_NUMBER;
+	}
+	else if((copy_u8portID >= NUM_OF_PORTS)) {
+ 45a:	84 30       	cpi	r24, 0x04	; 4
+ 45c:	08 f0       	brcs	.+2      	; 0x460 <GPIO_voidSetPinValue+0xc>
+ 45e:	7a c0       	rjmp	.+244    	; 0x554 <GPIO_voidSetPinValue+0x100>
+		// Checks if the entered port number is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_PORT_NUMBER;
+	}
+	else if((copy_u8pinValue != LOGIC_HIGH) && (copy_u8pinValue != LOGIC_LOW)) {
+ 460:	42 30       	cpi	r20, 0x02	; 2
+ 462:	08 f0       	brcs	.+2      	; 0x466 <GPIO_voidSetPinValue+0x12>
+ 464:	79 c0       	rjmp	.+242    	; 0x558 <GPIO_voidSetPinValue+0x104>
+		// Checks if the entered direction is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_DIRECTION;
+	}
+	else {
+		switch(copy_u8portID)
+ 466:	81 30       	cpi	r24, 0x01	; 1
+ 468:	11 f1       	breq	.+68     	; 0x4ae <GPIO_voidSetPinValue+0x5a>
+ 46a:	30 f0       	brcs	.+12     	; 0x478 <GPIO_voidSetPinValue+0x24>
+ 46c:	82 30       	cpi	r24, 0x02	; 2
+ 46e:	d1 f1       	breq	.+116    	; 0x4e4 <GPIO_voidSetPinValue+0x90>
+ 470:	83 30       	cpi	r24, 0x03	; 3
+ 472:	09 f4       	brne	.+2      	; 0x476 <GPIO_voidSetPinValue+0x22>
+ 474:	52 c0       	rjmp	.+164    	; 0x51a <GPIO_voidSetPinValue+0xc6>
+ 476:	72 c0       	rjmp	.+228    	; 0x55c <GPIO_voidSetPinValue+0x108>
+		{
+			case PORT_A:
+				if(copy_u8pinValue == LOGIC_HIGH) {
+ 478:	41 30       	cpi	r20, 0x01	; 1
+ 47a:	61 f4       	brne	.+24     	; 0x494 <GPIO_voidSetPinValue+0x40>
+					SET_BIT(PORTA_REG ,copy_u8pinID);
+ 47c:	2b b3       	in	r18, 0x1b	; 27
+ 47e:	81 e0       	ldi	r24, 0x01	; 1
+ 480:	90 e0       	ldi	r25, 0x00	; 0
+ 482:	02 c0       	rjmp	.+4      	; 0x488 <GPIO_voidSetPinValue+0x34>
+ 484:	88 0f       	add	r24, r24
+ 486:	99 1f       	adc	r25, r25
+ 488:	6a 95       	dec	r22
+ 48a:	e2 f7       	brpl	.-8      	; 0x484 <GPIO_voidSetPinValue+0x30>
+ 48c:	82 2b       	or	r24, r18
+ 48e:	8b bb       	out	0x1b, r24	; 27
+				else {
+					CLR_BIT(PORTD_REG,copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 490:	80 e0       	ldi	r24, 0x00	; 0
+ 492:	08 95       	ret
+			case PORT_A:
+				if(copy_u8pinValue == LOGIC_HIGH) {
+					SET_BIT(PORTA_REG ,copy_u8pinID);
+				}
+				else {
+					CLR_BIT(PORTA_REG,copy_u8pinID);
+ 494:	2b b3       	in	r18, 0x1b	; 27
+ 496:	81 e0       	ldi	r24, 0x01	; 1
+ 498:	90 e0       	ldi	r25, 0x00	; 0
+ 49a:	02 c0       	rjmp	.+4      	; 0x4a0 <GPIO_voidSetPinValue+0x4c>
+ 49c:	88 0f       	add	r24, r24
+ 49e:	99 1f       	adc	r25, r25
+ 4a0:	6a 95       	dec	r22
+ 4a2:	e2 f7       	brpl	.-8      	; 0x49c <GPIO_voidSetPinValue+0x48>
+ 4a4:	80 95       	com	r24
+ 4a6:	82 23       	and	r24, r18
+ 4a8:	8b bb       	out	0x1b, r24	; 27
+				else {
+					CLR_BIT(PORTD_REG,copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 4aa:	80 e0       	ldi	r24, 0x00	; 0
+ 4ac:	08 95       	ret
+				else {
+					CLR_BIT(PORTA_REG,copy_u8pinID);
+				}
+				break;
+			case PORT_B:
+				if(copy_u8pinValue == LOGIC_HIGH) {
+ 4ae:	41 30       	cpi	r20, 0x01	; 1
+ 4b0:	61 f4       	brne	.+24     	; 0x4ca <GPIO_voidSetPinValue+0x76>
+					SET_BIT(PORTB_REG ,copy_u8pinID);
+ 4b2:	28 b3       	in	r18, 0x18	; 24
+ 4b4:	81 e0       	ldi	r24, 0x01	; 1
+ 4b6:	90 e0       	ldi	r25, 0x00	; 0
+ 4b8:	02 c0       	rjmp	.+4      	; 0x4be <GPIO_voidSetPinValue+0x6a>
+ 4ba:	88 0f       	add	r24, r24
+ 4bc:	99 1f       	adc	r25, r25
+ 4be:	6a 95       	dec	r22
+ 4c0:	e2 f7       	brpl	.-8      	; 0x4ba <GPIO_voidSetPinValue+0x66>
+ 4c2:	82 2b       	or	r24, r18
+ 4c4:	88 bb       	out	0x18, r24	; 24
+				else {
+					CLR_BIT(PORTD_REG,copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 4c6:	80 e0       	ldi	r24, 0x00	; 0
+ 4c8:	08 95       	ret
+			case PORT_B:
+				if(copy_u8pinValue == LOGIC_HIGH) {
+					SET_BIT(PORTB_REG ,copy_u8pinID);
+				}
+				else {
+					CLR_BIT(PORTB_REG,copy_u8pinID);
+ 4ca:	28 b3       	in	r18, 0x18	; 24
+ 4cc:	81 e0       	ldi	r24, 0x01	; 1
+ 4ce:	90 e0       	ldi	r25, 0x00	; 0
+ 4d0:	02 c0       	rjmp	.+4      	; 0x4d6 <GPIO_voidSetPinValue+0x82>
+ 4d2:	88 0f       	add	r24, r24
+ 4d4:	99 1f       	adc	r25, r25
+ 4d6:	6a 95       	dec	r22
+ 4d8:	e2 f7       	brpl	.-8      	; 0x4d2 <GPIO_voidSetPinValue+0x7e>
+ 4da:	80 95       	com	r24
+ 4dc:	82 23       	and	r24, r18
+ 4de:	88 bb       	out	0x18, r24	; 24
+				else {
+					CLR_BIT(PORTD_REG,copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 4e0:	80 e0       	ldi	r24, 0x00	; 0
+ 4e2:	08 95       	ret
+				else {
+					CLR_BIT(PORTB_REG,copy_u8pinID);
+				}
+				break;
+			case PORT_C:
+				if(copy_u8pinValue == LOGIC_HIGH) {
+ 4e4:	41 30       	cpi	r20, 0x01	; 1
+ 4e6:	61 f4       	brne	.+24     	; 0x500 <GPIO_voidSetPinValue+0xac>
+					SET_BIT(PORTC_REG ,copy_u8pinID);
+ 4e8:	25 b3       	in	r18, 0x15	; 21
+ 4ea:	81 e0       	ldi	r24, 0x01	; 1
+ 4ec:	90 e0       	ldi	r25, 0x00	; 0
+ 4ee:	02 c0       	rjmp	.+4      	; 0x4f4 <GPIO_voidSetPinValue+0xa0>
+ 4f0:	88 0f       	add	r24, r24
+ 4f2:	99 1f       	adc	r25, r25
+ 4f4:	6a 95       	dec	r22
+ 4f6:	e2 f7       	brpl	.-8      	; 0x4f0 <GPIO_voidSetPinValue+0x9c>
+ 4f8:	82 2b       	or	r24, r18
+ 4fa:	85 bb       	out	0x15, r24	; 21
+				else {
+					CLR_BIT(PORTD_REG,copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 4fc:	80 e0       	ldi	r24, 0x00	; 0
+ 4fe:	08 95       	ret
+			case PORT_C:
+				if(copy_u8pinValue == LOGIC_HIGH) {
+					SET_BIT(PORTC_REG ,copy_u8pinID);
+				}
+				else {
+					CLR_BIT(PORTC_REG,copy_u8pinID);
+ 500:	25 b3       	in	r18, 0x15	; 21
+ 502:	81 e0       	ldi	r24, 0x01	; 1
+ 504:	90 e0       	ldi	r25, 0x00	; 0
+ 506:	02 c0       	rjmp	.+4      	; 0x50c <GPIO_voidSetPinValue+0xb8>
+ 508:	88 0f       	add	r24, r24
+ 50a:	99 1f       	adc	r25, r25
+ 50c:	6a 95       	dec	r22
+ 50e:	e2 f7       	brpl	.-8      	; 0x508 <GPIO_voidSetPinValue+0xb4>
+ 510:	80 95       	com	r24
+ 512:	82 23       	and	r24, r18
+ 514:	85 bb       	out	0x15, r24	; 21
+				else {
+					CLR_BIT(PORTD_REG,copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 516:	80 e0       	ldi	r24, 0x00	; 0
+ 518:	08 95       	ret
+				else {
+					CLR_BIT(PORTC_REG,copy_u8pinID);
+				}
+				break;
+			case PORT_D:
+				if(copy_u8pinValue == LOGIC_HIGH) {
+ 51a:	41 30       	cpi	r20, 0x01	; 1
+ 51c:	61 f4       	brne	.+24     	; 0x536 <GPIO_voidSetPinValue+0xe2>
+					SET_BIT(PORTD_REG ,copy_u8pinID);
+ 51e:	22 b3       	in	r18, 0x12	; 18
+ 520:	81 e0       	ldi	r24, 0x01	; 1
+ 522:	90 e0       	ldi	r25, 0x00	; 0
+ 524:	02 c0       	rjmp	.+4      	; 0x52a <GPIO_voidSetPinValue+0xd6>
+ 526:	88 0f       	add	r24, r24
+ 528:	99 1f       	adc	r25, r25
+ 52a:	6a 95       	dec	r22
+ 52c:	e2 f7       	brpl	.-8      	; 0x526 <GPIO_voidSetPinValue+0xd2>
+ 52e:	82 2b       	or	r24, r18
+ 530:	82 bb       	out	0x12, r24	; 18
+				else {
+					CLR_BIT(PORTD_REG,copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 532:	80 e0       	ldi	r24, 0x00	; 0
+ 534:	08 95       	ret
+			case PORT_D:
+				if(copy_u8pinValue == LOGIC_HIGH) {
+					SET_BIT(PORTD_REG ,copy_u8pinID);
+				}
+				else {
+					CLR_BIT(PORTD_REG,copy_u8pinID);
+ 536:	22 b3       	in	r18, 0x12	; 18
+ 538:	81 e0       	ldi	r24, 0x01	; 1
+ 53a:	90 e0       	ldi	r25, 0x00	; 0
+ 53c:	02 c0       	rjmp	.+4      	; 0x542 <GPIO_voidSetPinValue+0xee>
+ 53e:	88 0f       	add	r24, r24
+ 540:	99 1f       	adc	r25, r25
+ 542:	6a 95       	dec	r22
+ 544:	e2 f7       	brpl	.-8      	; 0x53e <GPIO_voidSetPinValue+0xea>
+ 546:	80 95       	com	r24
+ 548:	82 23       	and	r24, r18
+ 54a:	82 bb       	out	0x12, r24	; 18
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 54c:	80 e0       	ldi	r24, 0x00	; 0
+ 54e:	08 95       	ret
+	 */
+	u8 GPIO_Driver_Checker = 0;
+
+	if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
+		// Checks if the entered pin number is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_PIN_NUMBER;
+ 550:	81 e0       	ldi	r24, 0x01	; 1
+ 552:	08 95       	ret
+	}
+	else if((copy_u8portID >= NUM_OF_PORTS)) {
+		// Checks if the entered port number is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_PORT_NUMBER;
+ 554:	82 e0       	ldi	r24, 0x02	; 2
+ 556:	08 95       	ret
+	}
+	else if((copy_u8pinValue != LOGIC_HIGH) && (copy_u8pinValue != LOGIC_LOW)) {
+		// Checks if the entered direction is invalid or not
+		GPIO_Driver_Checker = GPIO_WRONG_DIRECTION;
+ 558:	83 e0       	ldi	r24, 0x03	; 3
+ 55a:	08 95       	ret
+				else {
+					CLR_BIT(PORTD_REG,copy_u8pinID);
+				}
+				break;
+		}
+		GPIO_Driver_Checker = GPIO_OK;
+ 55c:	80 e0       	ldi	r24, 0x00	; 0
+	}
+	return GPIO_Driver_Checker;
+}
+ 55e:	08 95       	ret
+
+00000560 <__tablejump2__>:
+ 560:	ee 0f       	add	r30, r30
+ 562:	ff 1f       	adc	r31, r31
+ 564:	05 90       	lpm	r0, Z+
+ 566:	f4 91       	lpm	r31, Z
+ 568:	e0 2d       	mov	r30, r0
+ 56a:	09 94       	ijmp
+
+0000056c <_exit>:
+ 56c:	f8 94       	cli
+
+0000056e <__stop_program>:
+ 56e:	ff cf       	rjmp	.-2      	; 0x56e <__stop_program>
