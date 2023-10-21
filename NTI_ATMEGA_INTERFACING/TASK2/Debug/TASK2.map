@@ -3,17 +3,17 @@ Archive member included because of file (symbol)
 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                               c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o (exit)
 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
-                              ./APP/TASK1_main.o (__fixunssfsi)
+                              ./APP/TASK2_main.o (__fixunssfsi)
 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
                               c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o) (__subsf3)
 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
-                              ./APP/TASK1_main.o (__mulsf3)
+                              ./APP/TASK2_main.o (__mulsf3)
 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
-                              ./APP/TASK1_main.o (__gtsf2)
+                              ./APP/TASK2_main.o (__gtsf2)
 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
                               c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o) (__gesf2)
 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
-                              ./APP/TASK1_main.o (__ltsf2)
+                              ./APP/TASK2_main.o (__ltsf2)
 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
                               c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o) (__fixsfsi)
 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
@@ -48,7 +48,7 @@ LOAD c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/l
 LOAD ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
 LOAD ./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o
 LOAD ./ECUAL/LED_DRIVER/LED.o
-LOAD ./APP/TASK1_main.o
+LOAD ./APP/TASK2_main.o
 LOAD c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 LOAD c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
 LOAD c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
@@ -221,7 +221,7 @@ LOAD c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .text          0x00000082        0x0 ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
  .text          0x00000082        0x0 ./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o
  .text          0x00000082        0x0 ./ECUAL/LED_DRIVER/LED.o
- .text          0x00000082        0x0 ./APP/TASK1_main.o
+ .text          0x00000082        0x0 ./APP/TASK2_main.o
  .text          0x00000082        0x0 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .text          0x00000082       0x58 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
                 0x00000082                __fixunssfsi
@@ -287,7 +287,7 @@ LOAD c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .text.LED_Toggle
                 0x00001628       0x42 ./ECUAL/LED_DRIVER/LED.o
                 0x00001628                LED_Toggle
- .text.main     0x0000166a      0x14a ./APP/TASK1_main.o
+ .text.main     0x0000166a      0x14a ./APP/TASK2_main.o
                 0x0000166a                main
  .text.libgcc   0x000017b4        0x0 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .text.libgcc   0x000017b4       0x38 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
@@ -329,7 +329,7 @@ LOAD c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .data          0x00800060        0x0 ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
  .data          0x00800060        0x0 ./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o
  .data          0x00800060        0x0 ./ECUAL/LED_DRIVER/LED.o
- .data          0x00800060        0x0 ./APP/TASK1_main.o
+ .data          0x00800060        0x0 ./APP/TASK2_main.o
  .data          0x00800060        0x0 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .data          0x00800060        0x0 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
  .data          0x00800060        0x0 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
@@ -361,7 +361,7 @@ LOAD c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .bss           0x00800068        0x0 ./MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
  .bss           0x00800068        0x0 ./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o
  .bss           0x00800068        0x0 ./ECUAL/LED_DRIVER/LED.o
- .bss           0x00800068        0x0 ./APP/TASK1_main.o
+ .bss           0x00800068        0x0 ./APP/TASK2_main.o
  .bss           0x00800068        0x0 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .bss           0x00800068        0x0 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
  .bss           0x00800068        0x0 c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
@@ -413,7 +413,7 @@ LOAD c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                                 0x5a0 (size before relaxing)
  .stab          0x00000c78      0x51c ./ECUAL/LED_DRIVER/LED.o
                                 0x528 (size before relaxing)
- .stab          0x00001194      0x558 ./APP/TASK1_main.o
+ .stab          0x00001194      0x558 ./APP/TASK2_main.o
                                 0x564 (size before relaxing)
 
 .stabstr        0x00000000     0x13c7
@@ -591,7 +591,7 @@ LOAD c:/program files/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 
 .debug_macinfo
  *(.debug_macinfo)
-OUTPUT(TASK1.elf elf32-avr)
+OUTPUT(TASK2.elf elf32-avr)
 LOAD linker stubs
 
 .debug_ranges   0x00000000       0x50
