@@ -63,7 +63,7 @@ int main(void) {
 	{
 		for(i = 0 ; i < 10 ; i++) {
 			SEGMENT_DISPLAY(PORT_B, i);
-			_delay_ms(500);
+			_delay_ms(2000);
 
 		}
 	}
