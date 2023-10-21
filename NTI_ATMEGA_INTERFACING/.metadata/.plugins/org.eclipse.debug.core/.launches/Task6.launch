@@ -19,13 +19,13 @@
     <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="run"/>
     <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
     <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="C:\Users\hossa\Desktop\ITIDA\NTI PROGRAM\ROUND4_PROGRAM\NTI_ATMEGA_INTERFACING\TASK1_TESTING_NTI\MAIN.c"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="TASK1_TESTING_NTI"/>
-    <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="C:\Users\hossa\Desktop\ITIDA\NTI PROGRAM\ROUND4_PROGRAM\NTI_ATMEGA_PORTAL\NTI_ATMEGA_PORTAL\NTI_ATMEGA_INTERFACING\TASK6_DISPLAYCHAR\APP\TASK6_main.c"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="TASK6_DISPLAYCHAR"/>
+    <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
     <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/TASK1_TESTING_NTI"/>
+        <listEntry value="/TASK6_DISPLAYCHAR"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="4"/>
