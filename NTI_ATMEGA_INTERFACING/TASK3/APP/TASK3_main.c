@@ -15,13 +15,12 @@
  *                              					 Application Libraries                      					  *
  *******************************************************************************/
 
-//#include <util/delay.h>
-//#include <avr/io.h>
 #include <util/delay.h>
+//#include <avr/io.h>
 //#include <avr/interrupt.h>
 
 /*******************************************************************************
- *                              						  Modules Drivers                           				  *
+ *                              						  MCAL Drivers                           				  *
  *******************************************************************************/
 
 //#include "../MCAL/ADC_DRIVER/ADC.h"
@@ -32,10 +31,12 @@
 
 #include "../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h" // I will need this driver for this ECU Driver
 
-/*******************************************************************************/
+/*******************************************************************************
+ *                              						  ECUAL Drivers                           				  *
+ *******************************************************************************/
 
-#include "../ECUAL/LED_DRIVER/LED.h" // I will need this driver for this ECU Driver
-#include "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h"
+#include "../ECUAL/LED_DRIVER/LED_INTERFACE.h" // I will need this driver for this ECU Driver
+#include "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT_INTERFACE.h"
 
 //#include "../ECUAL/EEPROM_DRIVER/EEPROM.h"
 //#include "../ECUAL/LM35_DRIVER/LM35.h"
@@ -45,40 +46,32 @@
 //#include "../ECUAL/KEYPAD_DRIVER/KEYPAD.h" // I will need this driver for this ECU Driver
 //#include "../ECUAL/LCD_DRIVER/LCD.h" // I will need this driver for this ECU Driver
 
+
 /*******************************************************************************
  *                              					Application Execution                              			  *
  *******************************************************************************/
 
 int main(void) {
-	LED_Init(PORT_A, PIN_4);
-	LED_Init(PORT_A, PIN_5);
-	LED_Init(PORT_A, PIN_6);
-	LED_Init(PORT_B, PIN_7);
+	LED_voidInit(PORT_B, LED_PORTB_KIT_RED);
+	LED_voidInit(PORT_A, LED_PORTA_KIT_YELLOW);
+	LED_voidInit(PORT_A, LED_PORTA_KIT_BLUE);
+	LED_voidInit(PORT_A, LED_PORTA_KIT_GREEN);
 
-	SEGMENT_Init(PORT_B);
+	SEGMENT_voidInit(PORT_B);
 
-	int i = 0, j = 0;
-	//u8_t value = 0;
+	u8 i = 0;
 
 	while (1)
 	{
 		for(i = 0 ; i < 10 ; i++)
 		{
-			SEGMENT_DISPLAY(PORT_B, i);
+			SEGMENT_voidDisplay(PORT_B, i);
+			_delay_ms(1000);
+			LED_voidOn(PORT_B, LED_PORTB_KIT_RED);
+			_delay_ms(1000);
+			LED_voidOff(PORT_B, LED_PORTB_KIT_RED);
 			_delay_ms(1000);
 		}
 	}
 }
-
-
-//		LED_On(PORT_A, PIN_4);
-//		LED_On(PORT_A, PIN_5);
-//		LED_On(PORT_A, PIN_6);
-//		LED_On(PORT_B, PIN_7);
-//		_delay_ms(1000);
-//		LED_Off(PORT_A, PIN_4);
-//		LED_Off(PORT_A, PIN_5);
-//		LED_Off(PORT_A, PIN_6);
-//		LED_Off(PORT_B, PIN_7);
-//		_delay_ms(1000);
 

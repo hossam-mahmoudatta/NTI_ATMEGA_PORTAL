@@ -10,31 +10,10 @@
  *
  *******************************************************************************/
 
-#ifndef LED_H_
-#define LED_H_
+#ifndef LED_INTERFACE_H_
+#define LED_INTERFACE_H_
 
-#include "../../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h"
-
-
-/*******************************************************************************
- *                                									Definitions                     					           		  *
- *******************************************************************************/
-
-#define LED_NEGATIVE_LOGIC				0
-#define LED_POSITIVE_LOGIC				1
-
-#define LED_MODE								LED_POSITIVE_LOGIC
-
-/*******************************************************************************
- *                               							Types Declaration                 								  *
- *******************************************************************************/
-
-typedef enum LED_Error_t {
-	LED_OK,
-	LED_WRONG_PIN_NUMBER,
-	LED_WRONG_PORT_NUMBER
-} LED_Error_t;
-
+#include "LED_CONFIG.h"
 
 /*******************************************************************************
  *                             							 Functions Prototypes                       	    			      *
@@ -45,7 +24,7 @@ typedef enum LED_Error_t {
  * Setup the direction of the required pin input/output.
  * If the input port number or pin number are not correct, The function will not handle the request.
  */
-LED_Error_t LED_Init(u8_t copy_u8portID, u8_t copy_u8pinID);
+LED_Error_t LED_voidInit(u8 copy_u8portID, u8 copy_u8pinID);
 
 /*
  * Description :
@@ -53,7 +32,7 @@ LED_Error_t LED_Init(u8_t copy_u8portID, u8_t copy_u8pinID);
  * If the input port number or pin number are not correct, The function will not handle the request.
  * If the pin is input, this function will enable/disable the internal pull-up resistor.
  */
-LED_Error_t LED_On(u8_t copy_u8portID, u8_t copy_u8pinID);
+LED_Error_t LED_voidOn(u8 copy_u8portID, u8 copy_u8pinID);
 
 
 /*
@@ -61,7 +40,7 @@ LED_Error_t LED_On(u8_t copy_u8portID, u8_t copy_u8pinID);
  * Read and return the value for the required pin, it should be Logic High or Logic Low.
  * If the input port number or pin number are not correct, The function will return Logic Low.
  */
-LED_Error_t LED_Off(u8_t copy_u8portID, u8_t copy_u8pinID);
+LED_Error_t LED_voidOff(u8 copy_u8portID, u8 copy_u8pinID);
 
 /*
  * Description :
@@ -70,6 +49,6 @@ LED_Error_t LED_Off(u8_t copy_u8portID, u8_t copy_u8pinID);
  * If the direction value is PORT_OUTPUT all pins in this port should be output pins.
  * If the input port number is not correct, The function will not handle the request.
  */
-LED_Error_t LED_Toggle(u8_t copy_u8portID, u8_t copy_u8pinID);
+LED_Error_t LED_voidToggle(u8 copy_u8portID, u8 copy_u8pinID);
 
-#endif /* LED_H_ */
+#endif /* LED_INTERFACE_H_ */

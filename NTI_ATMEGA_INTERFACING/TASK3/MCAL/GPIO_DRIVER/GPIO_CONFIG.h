@@ -14,6 +14,8 @@
 #ifndef GPIO_CONFIG_H_
 #define GPIO_CONFIG_H_
 
+#include "GPIO_PRIVATE.h"
+
 // All internal driver typedefs
 // All driver macros
 // All driver functions prototypes

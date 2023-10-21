@@ -13,11 +13,7 @@
 #ifndef GPIO_INTERFACE_H_
 #define GPIO_INTERFACE_H_
 
-#include "../../LIB/STD_TYPES.h"
-#include "../../LIB/COMMON_MACROS.h"
-#include "GPIO_PRIVATE.h"
 #include "GPIO_CONFIG.h"
-
 
 /*******************************************************************************
  *                              						Functions Prototypes                           					  *
