@@ -28,7 +28,7 @@
  * Setup the direction of the required pin input/output.
  * If the input port number or pin number are not correct, The function will return an error.
  */
-void GPIO_vidSetPinDirection(u8_t copy_u8portID, u8_t copy_u8pinID, u8_t copy_u8pinDIR);
+GPIO_Error_t GPIO_voidSetPinDirection(u8 copy_u8portID, u8 copy_u8pinID, u8 copy_u8pinDIR);
 
 
 /*
@@ -37,15 +37,7 @@ void GPIO_vidSetPinDirection(u8_t copy_u8portID, u8_t copy_u8pinID, u8_t copy_u8
  * If the input port number or pin number are not correct, The function will return an error.
  * If the pin is input, this function will enable/disable the internal pull-up resistor.
  */
-void GPIO_vidSetPinValue(u8_t copy_u8portID, u8_t copy_u8pinID, u8_t copy_u8pinValue);
-
-
-/*
- * Description :
- * Toggles a certain pin when requested.
- * If the input port number or pin number are not correct, The function will return an error.
- */
-void GPIO_vidTogglePin(u8_t copy_u8portID, u8_t copy_u8pinID);
+GPIO_Error_t GPIO_voidSetPinValue(u8 copy_u8portID, u8 copy_u8pinID, u8 copy_u8pinValue);
 
 
 /*
@@ -53,7 +45,15 @@ void GPIO_vidTogglePin(u8_t copy_u8portID, u8_t copy_u8pinID);
  * Read and return the value for the required pin, it should be Logic High or Logic Low.
  * If the input port number or pin number are not correct, The function will return an error.
  */
-u8_t GPIO_u8GetPinValue(u8_t copy_u8portID, u8_t copy_u8pinID);
+u8 GPIO_u8GetPinValue(u8 copy_u8portID, u8 copy_u8pinID);
+
+
+/*
+ * Description :
+ * Toggles a certain pin when requested.
+ * If the input port number or pin number are not correct, The function will return an error.
+ */
+GPIO_Error_t GPIO_voidTogglePin(u8 copy_u8portID, u8 copy_u8pinID);
 
 
 /*
@@ -63,7 +63,7 @@ u8_t GPIO_u8GetPinValue(u8_t copy_u8portID, u8_t copy_u8pinID);
  * If the direction value is PORT_OUTPUT all pins in this port should be output pins.
  * If the input port number is not correct, The function will not handle the request.
  */
-void GPIO_vidSetPortDirection(u8_t copy_u8portID, u8_t copy_u8portDIR);
+GPIO_Error_t GPIO_voidSetPortDirection(u8 copy_u8portID, u8 copy_u8portDIR);
 
 
 /*
@@ -73,7 +73,7 @@ void GPIO_vidSetPortDirection(u8_t copy_u8portID, u8_t copy_u8portDIR);
  * If any pin in the port is input pin this will activate/deactivate the internal pull-up resistor.
  * If the input port number is not correct, The function will not handle the request.
  */
-void GPIO_vidSetPortValue(u8_t copy_u8portID, u8_t copy_u8portValue);
+GPIO_Error_t GPIO_voidSetPortValue(u8 copy_u8portID, u8 copy_u8portValue);
 
 
 /*
@@ -81,7 +81,7 @@ void GPIO_vidSetPortValue(u8_t copy_u8portID, u8_t copy_u8portValue);
  * Read and return the value of the required port.
  * If the input port number is not correct, The function will return ZERO value.
  */
-u8_t GPIO_u8GetPortValue(u8_t copy_u8portID);
+u8 GPIO_u8GetPortValue(u8 copy_u8portID);
 
 
 #endif /* GPIO_INTERFACE_H_ */
