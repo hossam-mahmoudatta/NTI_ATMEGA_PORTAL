@@ -47,6 +47,12 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 LSS += \
 TASK4_TRAFFICLIGHT.lss \
 
+FLASH_IMAGE += \
+TASK4_TRAFFICLIGHT.hex \
+
+EEPROM_IMAGE += \
+TASK4_TRAFFICLIGHT.eep \
+
 SIZEDUMMY += \
 sizedummy \
 
@@ -71,6 +77,18 @@ TASK4_TRAFFICLIGHT.lss: TASK4_TRAFFICLIGHT.elf makefile objects.mk $(OPTIONAL_TO
 	@echo 'Finished building: $@'
 	@echo ' '
 
+TASK4_TRAFFICLIGHT.hex: TASK4_TRAFFICLIGHT.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK4_TRAFFICLIGHT.elf  "TASK4_TRAFFICLIGHT.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+TASK4_TRAFFICLIGHT.eep: TASK4_TRAFFICLIGHT.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+	@echo 'Create eeprom image (ihex format)'
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK4_TRAFFICLIGHT.elf  "TASK4_TRAFFICLIGHT.eep"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 sizedummy: TASK4_TRAFFICLIGHT.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
 	-avr-size --format=avr --mcu=atmega32 TASK4_TRAFFICLIGHT.elf
@@ -79,10 +97,10 @@ sizedummy: TASK4_TRAFFICLIGHT.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 
 # Other Targets
 clean:
-	-$(RM) $(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) TASK4_TRAFFICLIGHT.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) TASK4_TRAFFICLIGHT.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 .PHONY: all clean dependents main-build
 

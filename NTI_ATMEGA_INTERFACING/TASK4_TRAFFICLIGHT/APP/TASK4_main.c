@@ -18,6 +18,8 @@
 
 int main(void) {
 
+	funcInits();
+
 	while (1)
 	{
 		TrafficLights();

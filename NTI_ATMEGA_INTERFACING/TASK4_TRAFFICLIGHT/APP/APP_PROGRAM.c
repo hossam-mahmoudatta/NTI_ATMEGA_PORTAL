@@ -105,21 +105,21 @@ void TrafficLights(void) {
 	}
 	LED_voidOff(PORT_B, LED_PORTB_KIT_RED);
 
-	LED_voidOn(PORT_B, LED_PORTA_KIT_YELLOW);
+	LED_voidOn(PORT_A, LED_PORTA_KIT_YELLOW);
 	for(i = 1 ; i < 4 ; i++)
 	{
 		SEGMENT_voidDisplay(PORT_B, i);
 		_delay_ms(800);
 	}
-	LED_voidOff(PORT_B, LED_PORTA_KIT_YELLOW);
+	LED_voidOff(PORT_A, LED_PORTA_KIT_YELLOW);
 
-	LED_voidOn(PORT_B, LED_PORTA_KIT_GREEN);
+	LED_voidOn(PORT_A, LED_PORTA_KIT_GREEN);
 	for(i = 1 ; i < 4 ; i++)
 	{
 		SEGMENT_voidDisplay(PORT_B, i);
 		_delay_ms(800);
 	}
-	LED_voidOff(PORT_B, LED_PORTA_KIT_GREEN);
+	LED_voidOff(PORT_A, LED_PORTA_KIT_GREEN);
 }
 
 
