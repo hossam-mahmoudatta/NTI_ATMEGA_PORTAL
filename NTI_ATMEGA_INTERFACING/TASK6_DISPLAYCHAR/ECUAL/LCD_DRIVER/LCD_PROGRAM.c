@@ -41,11 +41,13 @@ void LCD_vidInit(void) {
 	_delay_ms(2);
 
 	LCD_vidSendCommand(0x00);
+	_delay_ms(2);
 	LCD_vidSendCommand(0xC0);
 
 	_delay_ms(2);
 
 	LCD_vidSendCommand(0x00);
+	_delay_ms(2);
 	LCD_vidSendCommand(0x10);
 
 	_delay_ms(2);
