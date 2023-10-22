@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../APP/APP_PROGRAM.c \
 ../APP/TASK3_main.c 
 
 OBJS += \
+./APP/APP_PROGRAM.o \
 ./APP/TASK3_main.o 
 
 C_DEPS += \
+./APP/APP_PROGRAM.d \
 ./APP/TASK3_main.d 
 
 

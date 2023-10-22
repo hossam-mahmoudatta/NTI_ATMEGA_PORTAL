@@ -25,9 +25,9 @@
 #define LED_MODE									LED_POSITIVE_LOGIC
 
 #define LED_PORTB_KIT_RED					PIN_7
-#define LED_PORTA_KIT_YELLOW			PIN_6
-#define LED_PORTA_KIT_BLUE				PIN_5
 #define LED_PORTA_KIT_GREEN				PIN_4
+#define LED_PORTA_KIT_BLUE				PIN_5
+#define LED_PORTA_KIT_YELLOW			PIN_6
 
 /*******************************************************************************
  *                               							Types Declaration                 								  *
