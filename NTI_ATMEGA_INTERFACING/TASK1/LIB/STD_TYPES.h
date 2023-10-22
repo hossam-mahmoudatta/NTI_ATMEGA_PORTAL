@@ -29,16 +29,16 @@
 
 
 /* Boolean Data Type */
-typedef unsigned char				boolean;
-typedef unsigned char				u8_t;          /*           0 .. 255              */
-typedef signed char           		s8_t;          /*        -128 .. +127             */
-typedef unsigned short			u16_t;         /*           0 .. 65535            */
-typedef signed short          		s16_t;         /*      -32768 .. +32767           */
-typedef unsigned long         		u32_t;         /*           0 .. 4294967295       */
-typedef signed long           		s32_t;         /* -2147483648 .. +2147483647      */
-typedef unsigned long long		u64_t;         /*       0 .. 18446744073709551615  */
-typedef signed long long			s64_t;         /* -9223372036854775808 .. 9223372036854775807 */
-typedef float							float32_t;
-typedef double							float64_t;
+//typedef unsigned char				boolean;
+typedef unsigned char				u8;          /*           0 .. 255              */
+typedef signed char           		s8;          /*        -128 .. +127             */
+typedef unsigned short			u16;         /*           0 .. 65535            */
+typedef signed short          		s16;         /*      -32768 .. +32767           */
+typedef unsigned long         	u32;         /*           0 .. 4294967295       */
+typedef signed long           		s32;         /* -2147483648 .. +2147483647      */
+typedef unsigned long long		u64;         /*       0 .. 18446744073709551615  */
+typedef signed long long			s64;         /* -9223372036854775808 .. 9223372036854775807 */
+typedef float							float32;
+typedef double						float64;
 
 #endif /* STD_TYPE_H_ */
