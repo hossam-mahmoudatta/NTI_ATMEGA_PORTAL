@@ -9,25 +9,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   2 .stab         00001e0c  00000000  00000000  00001bdc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  3 .stabstr      00001560  00000000  00000000  000039e8  2**0
+  3 .stabstr      00001564  00000000  00000000  000039e8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_aranges 00000140  00000000  00000000  00004f48  2**0
+  4 .debug_aranges 00000140  00000000  00000000  00004f4c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_pubnames 00000170  00000000  00000000  00005088  2**0
+  5 .debug_pubnames 00000170  00000000  00000000  0000508c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001c49  00000000  00000000  000051f8  2**0
+  6 .debug_info   00001c49  00000000  00000000  000051fc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000eeb  00000000  00000000  00006e41  2**0
+  7 .debug_abbrev 00000eeb  00000000  00000000  00006e45  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000dad  00000000  00000000  00007d2c  2**0
+  8 .debug_line   00000dad  00000000  00000000  00007d30  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000160  00000000  00000000  00008adc  2**2
+  9 .debug_frame  00000160  00000000  00000000  00008ae0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000028d  00000000  00000000  00008c3c  2**0
+ 10 .debug_str    0000028d  00000000  00000000  00008c40  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000007ce  00000000  00000000  00008ec9  2**0
+ 11 .debug_loc    000007ce  00000000  00000000  00008ecd  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000050  00000000  00000000  00009697  2**0
+ 12 .debug_ranges 00000050  00000000  00000000  0000969b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:

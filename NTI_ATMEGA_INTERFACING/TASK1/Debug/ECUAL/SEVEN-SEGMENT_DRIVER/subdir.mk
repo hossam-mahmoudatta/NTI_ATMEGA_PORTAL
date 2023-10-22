@@ -4,13 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.c 
+../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT_PROGRAM.c 
 
 OBJS += \
-./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.o 
+./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT_PROGRAM.o 
 
 C_DEPS += \
-./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.d 
+./ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT_PROGRAM.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

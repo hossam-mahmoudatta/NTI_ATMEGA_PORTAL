@@ -46,6 +46,6 @@
 //#include "../ECUAL/KEYPAD_DRIVER/KEYPAD.h" // I will need this driver for this ECU Driver
 //#include "../ECUAL/LCD_DRIVER/LCD.h" // I will need this driver for this ECU Driver
 
-
+void funcInits(void);
 void binaryLEDS(u8 copy_u8pinValue);
-
+void TrafficLights(void);

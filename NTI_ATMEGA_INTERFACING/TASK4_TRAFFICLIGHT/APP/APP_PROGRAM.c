@@ -21,6 +21,14 @@
  *                              					 Application Libraries                      					  *
  *******************************************************************************/
 
+void funcInits(void) {
+	LED_voidInit(PORT_B, LED_PORTB_KIT_RED);
+	LED_voidInit(PORT_A, LED_PORTA_KIT_YELLOW);
+	LED_voidInit(PORT_A, LED_PORTA_KIT_GREEN);
+
+	SEGMENT_voidInit(PORT_B);
+}
+
 void binaryLEDS(u8 copy_u8pinValue) {
 	switch(copy_u8pinValue) {
 		case 0:
@@ -85,6 +93,44 @@ void binaryLEDS(u8 copy_u8pinValue) {
 			break;
 	}
 }
+
+
+void TrafficLights(void) {
+	u8 i = 1;
+	LED_voidOn(PORT_B, LED_PORTB_KIT_RED);
+	for(i = 1 ; i < 4 ; i++)
+	{
+		SEGMENT_voidDisplay(PORT_B, i);
+		_delay_ms(800);
+	}
+	LED_voidOff(PORT_B, LED_PORTB_KIT_RED);
+
+	LED_voidOn(PORT_B, LED_PORTA_KIT_YELLOW);
+	for(i = 1 ; i < 4 ; i++)
+	{
+		SEGMENT_voidDisplay(PORT_B, i);
+		_delay_ms(800);
+	}
+	LED_voidOff(PORT_B, LED_PORTA_KIT_YELLOW);
+
+	LED_voidOn(PORT_B, LED_PORTA_KIT_GREEN);
+	for(i = 1 ; i < 4 ; i++)
+	{
+		SEGMENT_voidDisplay(PORT_B, i);
+		_delay_ms(800);
+	}
+	LED_voidOff(PORT_B, LED_PORTA_KIT_GREEN);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /*

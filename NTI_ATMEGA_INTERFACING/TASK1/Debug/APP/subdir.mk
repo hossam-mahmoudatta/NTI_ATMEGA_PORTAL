@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../APP/TASK1_main.c 
+../APP/APP_PROGRAM.c \
+../APP/TASK3_main.c 
 
 OBJS += \
-./APP/TASK1_main.o 
+./APP/APP_PROGRAM.o \
+./APP/TASK3_main.o 
 
 C_DEPS += \
-./APP/TASK1_main.d 
+./APP/APP_PROGRAM.d \
+./APP/TASK3_main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
