@@ -4,13 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../ECUAL/LED_DRIVER/LED.c 
+../ECUAL/LED_DRIVER/LED_PROGRAM.c 
 
 OBJS += \
-./ECUAL/LED_DRIVER/LED.o 
+./ECUAL/LED_DRIVER/LED_PROGRAM.o 
 
 C_DEPS += \
-./ECUAL/LED_DRIVER/LED.d 
+./ECUAL/LED_DRIVER/LED_PROGRAM.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

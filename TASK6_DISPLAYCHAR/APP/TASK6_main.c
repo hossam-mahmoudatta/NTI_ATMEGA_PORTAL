@@ -2,59 +2,40 @@
  *
  * Application
  *
- * File Name: TASK3_main.c
+ * File Name: TASK4_main.c
  *
- * Description: Application file for testing the gpio driver
+ * Description: Application file for testing the gpio driverg
  *
  * Author: Hossam Mahmoud
  *
  *******************************************************************************/
 
-
-/*******************************************************************************
- *                              					 Application Libraries                      					  *
- *******************************************************************************/
-
-//#include <util/delay.h>
-//#include <avr/io.h>
-#include <util/delay.h>
-//#include <avr/interrupt.h>
-
-/*******************************************************************************
- *                              						  Modules Drivers                           				  *
- *******************************************************************************/
-
-//#include "../MCAL/ADC_DRIVER/ADC.h"
-//#include "../MCAL/I2C_DRIVER/I2C.h"
-//#include "../MCAL/ICU_DRIVER/ICU.h"
-//#include "../MCAL/SPI_DRIVER/SPI.h"
-//#include "../MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT.h"
-
-#include "../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h" // I will need this driver for this ECU Driver
-
-/*******************************************************************************/
-
-#include "../ECUAL/LCD_DRIVER/LCD_INTERFACE.h" // I will need this driver for this ECU Driver
-//#include "../ECUAL/LED_DRIVER/LED.h" // I will need this driver for this ECU Driver
-//#include "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT.h"
-
-//#include "../ECUAL/EEPROM_DRIVER/EEPROM.h"
-//#include "../ECUAL/LM35_DRIVER/LM35.h"
-//#include "../ECUAL/BUTTON_DRIVER/BUTTON.h"
-
-//#include "../ECUAL/BUZZER_DRIVER/BUZZER.h"
-//#include "../ECUAL/KEYPAD_DRIVER/KEYPAD.h" // I will need this driver for this ECU Driver
+#include "APP_INTERFACE.h"
 
 /*******************************************************************************
  *                              					Application Execution                              			  *
  *******************************************************************************/
 
 int main(void) {
-	LCD_vidInit();
-	LCD_vidDisplayCharacter('F');
-	//LCD_vidDisplayString("MY NAME IS HOSA ", 0, 0);
+
+	funcInits();
+
+	//LCD_voidDisplayCharacter('C');
+
+	LCD_voidDisplayString("My name is hossam and this is embedded systems course and this is a test", 0, 0);
+
+//	LCD_voidMoveCursor(0,0);
+//	LCD_voidDisplayCharacter('A');
+//	LCD_voidMoveCursor(1,0);
+//	LCD_voidDisplayCharacter('B');
+//	LCD_voidMoveCursor(2,0);
+//	LCD_voidDisplayCharacter('C');
+//	LCD_voidMoveCursor(3,0);
+//	LCD_voidDisplayCharacter('D');
+
 
 	while (1)
 	{
+		//TrafficLights();
 	}
 }

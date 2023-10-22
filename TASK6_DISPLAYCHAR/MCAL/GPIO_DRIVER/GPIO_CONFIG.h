@@ -14,6 +14,8 @@
 #ifndef GPIO_CONFIG_H_
 #define GPIO_CONFIG_H_
 
+#include "GPIO_PRIVATE.h"
+
 // All internal driver typedefs
 // All driver macros
 // All driver functions prototypes
@@ -45,14 +47,16 @@
  *******************************************************************************/
 
 typedef enum {
-	PIN_INPUT, PIN_OUTPUT
+	PIN_INPUT,
+	PIN_OUTPUT
 } GPIO_PinDirectionType;
 
 typedef enum {
-	PORT_INPUT, PORT_OUTPUT = 0xFF
+	PORT_INPUT,
+	PORT_OUTPUT = 0xFF
 } GPIO_PortDirectionType;
 
-typedef enum GPIO_Error_t {
+typedef enum {
 	GPIO_OK,
 	GPIO_WRONG_PIN_NUMBER,
 	GPIO_WRONG_PORT_NUMBER,
