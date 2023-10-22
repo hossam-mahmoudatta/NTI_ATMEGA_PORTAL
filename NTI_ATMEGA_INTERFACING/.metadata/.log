@@ -2696,3 +2696,133 @@ java.lang.Error: SWT Resource was not properly disposed
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+!SESSION 2023-10-22 03:35:40.592 -----------------------------------------------
+eclipse.buildId=4.29.0.20230907-1200
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -data C:\Users\Administrator\Desktop\ITIDA Embedded System Scholarship\NTI & ITI Preperation\ROUND4_PROGRAM\NTI_ATMEGA_PORTAL\NTI_ATMEGA_INTERFACING -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.jface 2 0 2023-10-22 03:35:48.481
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-10-22 03:35:48.481
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-10-22 03:35:54.536
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-10-22 03:36:38.110
+!MESSAGE Indexed 'TASK6_DISPLAYCHAR' (5 sources, 13 headers) in 0.286 sec: 221 declarations; 1,014 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-10-22 03:36:38.433
+!MESSAGE Indexed 'TASK9_BINARYSEARCH' (1 sources, 22 headers) in 0.322 sec: 2,223 declarations; 3,196 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-10-22 03:36:38.589
+!MESSAGE Indexed 'TASK2' (8 sources, 16 headers) in 0.148 sec: 237 declarations; 1,407 references; 0 unresolved inclusions; 1 syntax errors; 28 unresolved names (1.7%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-10-22 03:36:38.704
+!MESSAGE Indexed 'TASK3' (5 sources, 14 headers) in 0.105 sec: 184 declarations; 1,032 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-10-22 03:39:25.315
+!MESSAGE Indexed 'TASK4_TRAFFICLIGHT' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.egit.ui 4 0 2023-10-22 03:40:38.616
+!MESSAGE The process cannot access the file because another process has locked a portion of the file
+!STACK 0
+java.io.IOException: The process cannot access the file because another process has locked a portion of the file
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:276)
+	at org.eclipse.jgit.util.io.AutoLFInputStream.fillBuffer(AutoLFInputStream.java:251)
+	at org.eclipse.jgit.util.io.AutoLFInputStream.read(AutoLFInputStream.java:207)
+	at java.base/java.io.InputStream.readNBytes(InputStream.java:506)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:212)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:117)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:92)
+	at org.eclipse.jgit.api.AddCommand.call(AddCommand.java:226)
+	at org.eclipse.egit.ui.internal.staging.StagingView$58.run(StagingView.java:3872)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.egit.ui 4 0 2023-10-22 03:41:53.536
+!MESSAGE The process cannot access the file because another process has locked a portion of the file
+!STACK 0
+java.io.IOException: The process cannot access the file because another process has locked a portion of the file
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:276)
+	at org.eclipse.jgit.util.io.AutoLFInputStream.fillBuffer(AutoLFInputStream.java:251)
+	at org.eclipse.jgit.util.io.AutoLFInputStream.read(AutoLFInputStream.java:207)
+	at java.base/java.io.InputStream.readNBytes(InputStream.java:506)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:212)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:117)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:92)
+	at org.eclipse.jgit.api.AddCommand.call(AddCommand.java:226)
+	at org.eclipse.egit.ui.internal.staging.StagingView$58.run(StagingView.java:3872)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.egit.ui 4 0 2023-10-22 03:42:28.465
+!MESSAGE The process cannot access the file because another process has locked a portion of the file
+!STACK 0
+java.io.IOException: The process cannot access the file because another process has locked a portion of the file
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:276)
+	at org.eclipse.jgit.util.io.AutoLFInputStream.fillBuffer(AutoLFInputStream.java:251)
+	at org.eclipse.jgit.util.io.AutoLFInputStream.read(AutoLFInputStream.java:207)
+	at java.base/java.io.InputStream.readNBytes(InputStream.java:506)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:212)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:117)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:92)
+	at org.eclipse.jgit.api.AddCommand.call(AddCommand.java:226)
+	at org.eclipse.egit.ui.internal.staging.StagingView$58.run(StagingView.java:3872)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.egit.ui 4 0 2023-10-22 03:43:41.726
+!MESSAGE The process cannot access the file because another process has locked a portion of the file
+!STACK 0
+java.io.IOException: The process cannot access the file because another process has locked a portion of the file
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:276)
+	at org.eclipse.jgit.util.io.AutoLFInputStream.fillBuffer(AutoLFInputStream.java:251)
+	at org.eclipse.jgit.util.io.AutoLFInputStream.read(AutoLFInputStream.java:207)
+	at java.base/java.io.InputStream.readNBytes(InputStream.java:506)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:212)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:117)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:92)
+	at org.eclipse.jgit.api.AddCommand.call(AddCommand.java:226)
+	at org.eclipse.egit.ui.internal.staging.StagingView$58.run(StagingView.java:3872)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.egit.ui 4 0 2023-10-22 03:44:32.815
+!MESSAGE The process cannot access the file because another process has locked a portion of the file
+!STACK 0
+java.io.IOException: The process cannot access the file because another process has locked a portion of the file
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:276)
+	at org.eclipse.jgit.util.io.AutoLFInputStream.fillBuffer(AutoLFInputStream.java:251)
+	at org.eclipse.jgit.util.io.AutoLFInputStream.read(AutoLFInputStream.java:207)
+	at java.base/java.io.InputStream.readNBytes(InputStream.java:506)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:212)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:117)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:92)
+	at org.eclipse.jgit.api.AddCommand.call(AddCommand.java:226)
+	at org.eclipse.egit.ui.internal.staging.StagingView$58.run(StagingView.java:3872)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
