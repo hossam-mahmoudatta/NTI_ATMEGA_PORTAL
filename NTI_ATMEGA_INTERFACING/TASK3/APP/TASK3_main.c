@@ -4,7 +4,7 @@
  *
  * File Name: TASK3_main.c
  *
- * Description: Application file for testing the gpio driver
+ * Description: Application file for testing the gpio driverg
  *
  * Author: Hossam Mahmoud
  *
