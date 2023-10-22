@@ -21,11 +21,12 @@
  *                              					 Application Libraries                      					  *
  *******************************************************************************/
 
-void funcInits(void) {
+void functionInits(void) {
 	//LED_voidInit(PORT_B, LED_PORTB_KIT_RED);
 	//LED_voidInit(PORT_A, LED_PORTA_KIT_YELLOW);
 	//LED_voidInit(PORT_A, LED_PORTA_KIT_GREEN);
 	LCD_voidInit();
+	KEYPAD_voidInit();
 	//SEGMENT_voidInit(PORT_B);
 }
 
@@ -122,6 +123,11 @@ void TrafficLights(void) {
 	LED_voidOff(PORT_A, LED_PORTA_KIT_GREEN);
 }
 
+void displayKEYPADLCD(void) {
+	u8 keyValue = KEYPAD_u8getPressedKey();
+	LCD_voidDisplayCharacter(keyValue);
+	LCD_voidMoveCursor(0,0);
+}
 
 
 
