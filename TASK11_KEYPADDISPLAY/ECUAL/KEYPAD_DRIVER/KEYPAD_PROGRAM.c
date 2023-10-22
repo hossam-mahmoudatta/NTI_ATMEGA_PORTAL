@@ -10,8 +10,6 @@
  *
  *******************************************************************************/
 
-#include "avr/io.h" /* To use the IO Ports Registers */
-#include <util/delay.h>
 #include "KEYPAD_INTERFACE.h"
 
 #ifndef STD_KEYPAD
@@ -20,47 +18,47 @@
 	 * Function responsible for mapping the switch number in the keypad to
 	 * its corresponding functional number in the proteus for 4x3 keypad
 	 */
-		static uint8 KEYPAD_4x3_adjustKeyNumber(uint8 button_number);
+		static u8 KEYPAD_4x3_adjustKeyNumber(u8 button_number);
 	#elif (KEYPAD_COL_NUM == 4)
 	/*
 	 * Function responsible for mapping the switch number in the keypad to
 	 * its corresponding functional number in the proteus for 4x4 keypad
 	 */
-		static uint8 KEYPAD_4x4_adjustKeyNumber(uint8 button_number);
+		static u8 KEYPAD_4x4_adjustKeyNumber(u8 button_number);
 	#endif
 #endif /* STD_KEYPAD */
 
 
-void KEYPAD_Init(void) {
+void KEYPAD_voidInit(void) {
 	/* Setup PORT and PINS for for KEYPAD Rows*/
-	GPIO_setupPinDirection(KEYPAD_ROW_PORT, KEYPAD_FIRSTROW_PIN, PIN_INPUT);
-	GPIO_setupPinDirection(KEYPAD_ROW_PORT, KEYPAD_FIRSTROW_PIN + 1, PIN_INPUT);
-	GPIO_setupPinDirection(KEYPAD_ROW_PORT, KEYPAD_FIRSTROW_PIN + 2, PIN_INPUT);
-	GPIO_setupPinDirection(KEYPAD_ROW_PORT, KEYPAD_FIRSTROW_PIN + 3, PIN_INPUT);
+	GPIO_voidSetPinDirection(KEYPAD_ROW_PORT, KEYPAD_COL1_PIN, PIN_INPUT);
+	GPIO_voidSetPinDirection(KEYPAD_ROW_PORT, KEYPAD_COL2_PIN, PIN_INPUT);
+	GPIO_voidSetPinDirection(KEYPAD_ROW_PORT, KEYPAD_COL3_PIN, PIN_INPUT);
+	GPIO_voidSetPinDirection(KEYPAD_ROW_PORT, KEYPAD_COL4_PIN, PIN_INPUT);
 
 	/* Setup PORT and PINS for for KEYPAD Columns*/
-	GPIO_setupPinDirection(KEYPAD_COL_PORT, KEYPAD_FIRSTCOL_PIN, PIN_INPUT);
-	GPIO_setupPinDirection(KEYPAD_COL_PORT, KEYPAD_FIRSTCOL_PIN + 1, PIN_INPUT);
-	GPIO_setupPinDirection(KEYPAD_COL_PORT, KEYPAD_FIRSTCOL_PIN + 2, PIN_INPUT);
+	GPIO_voidSetPinDirection(KEYPAD_COL_PORT, KEYPAD_FIRSTCOL_PIN, PIN_INPUT);
+	GPIO_voidSetPinDirection(KEYPAD_COL_PORT, KEYPAD_FIRSTCOL_PIN + 1, PIN_INPUT);
+	GPIO_voidSetPinDirection(KEYPAD_COL_PORT, KEYPAD_FIRSTCOL_PIN + 2, PIN_INPUT);
 
 	#if(KEYPAD_COL_NUM == 4)
-		GPIO_setupPinDirection(KEYPAD_COL_PORT, KEYPAD_FIRSTCOL_PIN + 3, PIN_INPUT);
+	GPIO_voidSetPinDirection(KEYPAD_COL_PORT, KEYPAD_FIRSTCOL_PIN + 3, PIN_INPUT);
 	#endif
 }
 
 
-uint8 KEYPAD_getPressedKey(void) {
-	uint8 row, col;
+u8 KEYPAD_u8getPressedKey(void) {
+	u8 row, col;
 	while(1) {
 		for (row = 0 ; row < KEYPAD_ROW_NUM ; row++) {
 			// I set the pin by '1' for the row, and will iterate
-			GPIO_setupPinDirection(KEYPAD_ROW_PORT, KEYPAD_FIRSTROW_PIN + row, PIN_OUTPUT);
+			GPIO_voidSetPinDirection(KEYPAD_ROW_PORT, KEYPAD_FIRSTROW_PIN + row, PIN_OUTPUT);
 			/* Set/Clear the row output pin */
-			GPIO_writePin(KEYPAD_ROW_PORT, KEYPAD_FIRSTROW_PIN + row, KEYPAD_BUTTON_PRESSED);
+			GPIO_voidSetPinValue(KEYPAD_ROW_PORT, KEYPAD_FIRSTROW_PIN + row, KEYPAD_BUTTON_PRESSED);
 			//_delay_ms(8);
 			for (col = 0 ; col < KEYPAD_COL_NUM ; col++) {
 				/* Check if the switch is pressed in this column */
-				if(GPIO_readPin(KEYPAD_COL_PORT,KEYPAD_FIRSTCOL_PIN + col) == KEYPAD_BUTTON_PRESSED) {
+				if(GPIO_u8GetPinValue(KEYPAD_COL_PORT,KEYPAD_FIRSTCOL_PIN + col) == KEYPAD_BUTTON_PRESSED) {
 					#if (KEYPAD_COL_NUM == 3)
 						#ifdef STD_KEYPAD
 							return ( (row * KEYPAD_COL_NUM) + col + 1);
@@ -76,7 +74,7 @@ uint8 KEYPAD_getPressedKey(void) {
 					#endif
 				}
 			}
-			GPIO_setupPinDirection(KEYPAD_ROW_PORT, KEYPAD_FIRSTROW_PIN + row, PIN_INPUT);
+			GPIO_voidSetPinDirection(KEYPAD_ROW_PORT, KEYPAD_FIRSTROW_PIN + row, PIN_INPUT);
 		}
 	}
 }
@@ -85,8 +83,8 @@ uint8 KEYPAD_getPressedKey(void) {
 #ifndef STD_KEYPAD
 	#if (KEYPAD_COL_NUM == 3)
 	 // Update the keypad pressed button value with the correct one in keypad 4x3 shape
-		static uint8 KEYPAD_4x3_adjustKeyNumber(uint8 button_number) {
-			uint8 keypad_button = 0;
+		static u8 KEYPAD_4x3_adjustKeyNumber(u8 button_number) {
+			u8 keypad_button = 0;
 			switch(button_number) {
 				case 10: keypad_button = '*'; // ASCII Code of *
 						 break;
@@ -102,8 +100,8 @@ uint8 KEYPAD_getPressedKey(void) {
 
 	#elif (KEYPAD_COL_NUM == 4)
 		// Update the keypad pressed button value with the correct one in keypad 4x4 shape
-		static uint8 KEYPAD_4x4_adjustKeyNumber(uint8 button_number) {
-			uint8 keypad_button = 0;
+		static u8 KEYPAD_4x4_adjustKeyNumber(u8 button_number) {
+			u8 keypad_button = 0;
 			switch(button_number) {
 				case 1: keypad_button = 7;
 						break;
