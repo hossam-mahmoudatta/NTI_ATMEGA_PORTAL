@@ -1,4 +1,4 @@
-# Task 3: Display on 7-Segment and LEDs Simultaneously
+# Task 3: Display on 7-Segment and LEDs on binary format Simultaneously
 
 ### Required:
 1. Create 7 Segment Display Drivers
