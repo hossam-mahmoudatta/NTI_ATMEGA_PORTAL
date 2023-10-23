@@ -1,10 +1,10 @@
  /******************************************************************************
  *
- * Module: ADC (Analog to Digital Converter)
+ * Module: LM35 Sensor
  *
- * File Name: ADC_INTERFACE.h
+ * File Name: LM35_INTERFACE.h
  *
- * Description: Header file for the AVR ADC Driver Function Prototypes
+ * Description: Header file for the LM35 Sensor Driver Function Prototypes
  *
  * Author: Hossam Mahmoud
  *
@@ -14,25 +14,18 @@
  *                              							Include Libraries						                       		   *
  *******************************************************************************/
 
-#ifndef ADC_INTERFACE_H_
-#define ADC_INTERFACE_H_
+#ifndef LM35_INTERFACE_H_
+#define LM35_INTERFACE_H_
 
-#include "ADC_CONFIG.h"
-#include "ADC_PRIVATE.h"
-
-#include "../GLOBAL_INTERRUPT_DRIVER/GLOBAL_INTERRUPT_INTERFACE.h"
-#include "../EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_INTERFACE.h"
+#include "LM35_CONFIG.h"
 
 /*******************************************************************************
  *                              						Functions Prototypes                           					  *
  *******************************************************************************/
 
 // Initializes and enables the ADC Module to start functionality
-void ADC_voidInit(void);
-
- // Reads the content written to the selected channel of the ADC
-void ADC_u16readChannel(u8 copy_u8channelSelect);
+u8 LM35_u8getTemperature(void);
 
 
-#endif /* ADC_INTERFACE_H_ */
+#endif /* LM35_INTERFACE_H_ */
 

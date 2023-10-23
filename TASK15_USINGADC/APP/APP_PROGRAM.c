@@ -29,9 +29,9 @@ void systemInit(void) {
 	//SEGMENT_voidInit(PORT_B);
 
 	LED_voidInit(PORT_B, LED_PORTB_KIT_RED);
-	EXT_INTERRUPT_Enable_voidINTx(EXT_INT0, INT_Function);
-	EXT_INTERRUPT_Sense_voidINTx(EXT_INT0, EXT_INTERRUPT_Falling_Edge);
-	GLOBAL_INTERRUPT_voidEnable();
+	EXTINT_voidEnableINTx(EXT_INT0, INT_Function);
+	EXTINT_voidSetSenseINTx(EXT_INT0, EXTINT_Falling_Edge);
+	GLOBINT_voidSetEnableFlag();
 
 	GPIO_voidSetPinDirection(PORT_C, PIN_2, PIN_OUTPUT);
 	GPIO_voidSetPinDirection(PORT_D, PIN_3, PIN_INPUT);

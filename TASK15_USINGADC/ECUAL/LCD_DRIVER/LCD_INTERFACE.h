@@ -18,6 +18,7 @@
 #define LCD_INTERFACE_H_
 
 #include "LCD_CONFIG.h"
+#include <stdlib.h>
 
 /*******************************************************************************
  *                              						Functions Prototypes                  								  *

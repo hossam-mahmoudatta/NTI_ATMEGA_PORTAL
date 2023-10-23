@@ -1,10 +1,10 @@
  /******************************************************************************
  *
- * Module: ADC (Analog to Digital Converter)
+ * Module: LM35 Sensor
  *
- * File Name: ADC_PRIVATE.h
+ * File Name: LM35_CONFIG.h
  *
- * Description: Header file for the AVR ADC Driver Registers
+ * Description: Header file for the LM35 Sensor Driver Macro Definitions
  *
  * Author: Hossam Mahmoud
  *
@@ -14,19 +14,22 @@
  *                              							Include Libraries						                       		   *
  *******************************************************************************/
 
-#ifndef MCAL_ADC_DRIVER_ADC_PRIVATE_H_
-#define MCAL_ADC_DRIVER_ADC_PRIVATE_H_
+#ifndef LM35_CONFIG_H_
+#define LM35_CONFIG_H_
 
-#include "../GPIO_DRIVER/GPIO_INTERFACE.h"
+#include "../../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h"
+#include "../../MCAL/ADC_DRIVER/ADC_INTERFACE.h"
 
 /*******************************************************************************
- *                              					External Interrupts Registers					                   	   *
+ *                              							Macro Definitions						                       		   *
  *******************************************************************************/
 
-#define ADMUX_REG		( *((volatile u8*) 0x27) )
-#define ADCSRA_REG		( *((volatile u8*) 0x26) )
-#define ADCH_REG			( *((volatile u8*) 0x25) )
-#define ADCL_REG			( *((volatile u8*) 0x24) )
-#define SFIOR_REG			( *((volatile u8*) 0x50) )
+#define LM35_CHANNEL_ID	2
+#define LM35_MAX_VOLT		1.5
+#define LM35_MAX_TEMP		150
 
-#endif /* MCAL_ADC_DRIVER_ADC_PRIVATE_H_ */
+#define LM35_PORT					PORT_A
+#define LM35_PIN						PIN_1
+
+
+#endif /* LM35_CONFIG_H_ */
