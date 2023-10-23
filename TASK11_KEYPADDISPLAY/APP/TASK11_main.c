@@ -19,7 +19,6 @@
 int main(void) {
 	//LCD_voidDisplayString("My name is hossam and this is embedded systems course and this is a test", 0, 0);
 	functionInits();
-
 	while (1)
 	{
 		displayKEYPADLCD();

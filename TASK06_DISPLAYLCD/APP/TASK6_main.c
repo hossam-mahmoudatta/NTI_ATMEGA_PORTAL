@@ -22,7 +22,10 @@ int main(void) {
 
 	//LCD_voidDisplayCharacter('C');
 
-	LCD_voidDisplayString("My name is hossam and this is embedded systems course and this is a test", 0, 0);
+	LCD_voidDisplayString("My name is hossam", 0, 0);
+	LCD_voidDisplayString("and this is embedded", 1, 0);
+	LCD_voidDisplayString("systems course", 2, 0);
+	LCD_voidDisplayString("and this is a test", 3, 0);
 
 //	LCD_voidMoveCursor(0,0);
 //	LCD_voidDisplayCharacter('A');

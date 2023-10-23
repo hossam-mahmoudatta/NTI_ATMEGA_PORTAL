@@ -40,7 +40,10 @@
 #define LCD_ENABLE								PIN_2
 
 #define LCD_CLEAR_DISPLAY					0x01
+#define LCD_TWO_LINE_FOUR_BIT_MODE			0x02
 #define LCD_TWO_LINE_FOUR_BIT			0x28
+#define LCD_ENTRY_MODE			0x06
+
 #define LCD_TWO_LINE_FOUR_BIT_INIT1   	0x33
 #define LCD_TWO_LINE_FOUR_BIT_INIT2		0x32
 #define LCD_TWO_LINE_EIGHT_BIT			0x38
@@ -49,7 +52,7 @@
 #define LCD_CURSOR_BLINKING          		0x0F
 #define LCD_CURSOR_LOCATION        		0x80
 
-#define LCD_MAXROW_SIZE        				3
-#define LCD_MAXCOL_SIZE        				19
+#define LCD_MAXROW_SIZE        				4
+#define LCD_MAXCOL_SIZE        				20
 
 #endif /* LCD_CONFIG_H_ */

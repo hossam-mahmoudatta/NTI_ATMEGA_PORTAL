@@ -38,13 +38,13 @@
 #include "../ECUAL/LED_DRIVER/LED_INTERFACE.h" // I will need this driver for this ECU Driver
 #include "../ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT_INTERFACE.h"
 #include "../ECUAL/KEYPAD_DRIVER/KEYPAD_INTERFACE.h" // I will need this driver for this ECU Driver
+#include "../ECUAL/LCD_DRIVER/LCD_INTERFACE.h" // I will need this driver for this ECU Driver
 
 //#include "../ECUAL/EEPROM_DRIVER/EEPROM.h"
 //#include "../ECUAL/LM35_DRIVER/LM35.h"
 //#include "../ECUAL/BUTTON_DRIVER/BUTTON.h"
 
 //#include "../ECUAL/BUZZER_DRIVER/BUZZER.h"
-//#include "../ECUAL/LCD_DRIVER/LCD.h" // I will need this driver for this ECU Driver
 
 void functionInits(void);
 void binaryLEDS(u8 copy_u8pinValue);

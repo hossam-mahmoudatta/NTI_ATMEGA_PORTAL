@@ -37,7 +37,7 @@ void KEYPAD_voidInit(void) {
 
 u8 KEYPAD_u8getPressedKey(void) {
 	u8 row, col, dataValue = 0xff;
-	while(1) {
+	//while(1) {
 		for (row = 0 ; row < KPD_ROW_NUM ; row++) {
 
 			// I set the pin by '1' for the row, and will iterate
@@ -54,7 +54,7 @@ u8 KEYPAD_u8getPressedKey(void) {
 				}
 			}
 			GPIO_voidSetPinValue(KPD_ROW_PORT_VAL[row], KPD_ROW_PIN_VAL[row], KPD_BTN_RELEASED);
-		}
+		//}
 	}
 	return dataValue;
 }

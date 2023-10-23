@@ -38,19 +38,22 @@ void LCD_voidInit(void) {
 		GPIO_voidSetPinDirection(LCD_DATA_PORT, LCD_DATAPIN_D6, PIN_OUTPUT);
 		GPIO_voidSetPinDirection(LCD_DATA_PORT, LCD_DATAPIN_D7, PIN_OUTPUT);
 
+		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT_MODE);
 		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT);
-		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT_INIT1);
-		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT_INIT2);
+
+//		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT_INIT1);
+//		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT_INIT2);
 	}
 
 	LCD_voidSendCommand(LCD_CURSOR_OFF);
 	LCD_voidSendCommand(LCD_CLEAR_DISPLAY);
+	_delay_ms(2);
+	LCD_voidSendCommand(LCD_ENTRY_MODE);
 
 //	LCD_voidSendCommand(0x20);
 //	LCD_voidSendCommand(0x20);
 //	LCD_voidSendCommand(0x80);
 //
-//	_delay_ms(2);
 //
 //	LCD_voidSendCommand(0x00);
 //	_delay_ms(2);
@@ -67,8 +70,6 @@ void LCD_voidInit(void) {
 //	LCD_vidSendCommand(0x00);
 //	LCD_vidSendCommand(0x60);
 
-// Initializing Sending Commands
-//LCD_vidSendCommand(LCD_TWO_LINE_FOUR_BIT);
 }
 
 
@@ -177,10 +178,10 @@ void LCD_voidDisplayString(cu8 *str, u8 copy_u8row, u8 copy_u8_col) {
 		LCD_voidDisplayCharacter(str[i]);
 		i++;
 		copy_u8_col++;
-		if (copy_u8_col >= LCD_MAXCOL_SIZE) {
+		if (copy_u8_col == LCD_MAXCOL_SIZE) {
 			copy_u8_col = 0;
 			copy_u8row++;
-			if (copy_u8row >= LCD_MAXROW_SIZE) {
+			if (copy_u8row == LCD_MAXROW_SIZE) {
 				copy_u8row = 0;
 				LCD_voidMoveCursor(copy_u8row, copy_u8_col);
 			}
