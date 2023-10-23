@@ -2,30 +2,35 @@
  *
  * Module: External Interrupt
  *
- * File Name: EXT_INTERRUPT.h
+ * File Name: GLOBAL_INTERRUPT_INTERFACE.h
  *
- * Description: Header file for the AVR External Interrupt Driver
+ * Description: Header file for the AVR Global Interrupt Driver Protoypes
  *
  * Author: Hossam Mahmoud
  *
  *******************************************************************************/
 
-#ifndef GLOBAL_INTERRUPT_H_
-#define GLOBAL_INTERRUPT_H_
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
+ *******************************************************************************/
+
+#ifndef GLOBAL_INTERRUPT_INTERFACE_H_
+#define GLOBAL_INTERRUPT_INTERFACE_H_
 
 #include "GLOBAL_INTERRUPT_CONFIG.h"
 #include "GLOBAL_INTERRUPT_PRIVATE.h"
 
-
 /*******************************************************************************
- *                              						Functions Prototypes                           					  *
+ *                              						Functions Prototypes                           						  *
  *******************************************************************************/
 
-void GLOBAL_INTERRUPT_voidEnable(void);
+// Enables the Global Interrupt Enable Flag in the Status Register
+void GLOBINT_voidSetEnableFlag(void);
 
-void GLOBAL_INTERRUPT_voidDisable(void);
+// Disables the Global Interrupt Disable Flag in the Status Register
+void GLOBINT_voidSetDisableFlag(void);
 
 
-#endif /* EXT-INTERRUPT_H_ */
+#endif /* GLOBAL_INTERRUPT_INTERFACE_H_ */
 
 

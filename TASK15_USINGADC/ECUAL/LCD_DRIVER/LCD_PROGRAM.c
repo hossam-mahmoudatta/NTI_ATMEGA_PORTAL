@@ -2,7 +2,7 @@
  *
  * Module: LCD Display
  *
- * File Name: LCD.c
+ * File Name: LCD_PROGRAM.c
  *
  * Description: Source file for the AVR LCD Driver
  *
@@ -10,10 +10,15 @@
  *
  *******************************************************************************/
 
-
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
+ *******************************************************************************/
 
 #include "LCD_INTERFACE.h"
 
+/*******************************************************************************
+ *                              						Functions Declarations                     	      				  *
+ *******************************************************************************/
 
 // Initializes and enables the LCD Module to start functionality
 void LCD_voidInit(void) {
@@ -29,7 +34,6 @@ void LCD_voidInit(void) {
 	// Setup the port and pins for the data pins inside the LCD
 	if (LCD_BIT_MODE == LCD_8_BIT) {
 		GPIO_voidSetPortDirection(LCD_DATA_PORT, PORT_OUTPUT);
-
 		LCD_voidSendCommand(LCD_TWO_LINE_EIGHT_BIT);
 	}
 	else {
@@ -41,14 +45,15 @@ void LCD_voidInit(void) {
 		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT_MODE);
 		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT);
 
-//		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT_INIT1);
-//		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT_INIT2);
 	}
-
 	LCD_voidSendCommand(LCD_CURSOR_OFF);
 	LCD_voidSendCommand(LCD_CLEAR_DISPLAY);
 	_delay_ms(2);
 	LCD_voidSendCommand(LCD_ENTRY_MODE);
+
+
+//		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT_INIT1);
+//		LCD_voidSendCommand(LCD_TWO_LINE_FOUR_BIT_INIT2);
 
 //	LCD_voidSendCommand(0x20);
 //	LCD_voidSendCommand(0x20);
@@ -75,7 +80,6 @@ void LCD_voidInit(void) {
 
 // Sends a command to the LCD
 void LCD_voidSendCommand(u8 copy_u8Command) {
-
 	// Set RS Pin to '0'
 	GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_RS, LOGIC_LOW);
 	_delay_ms(1);
@@ -196,7 +200,6 @@ void LCD_voidDisplayString(cu8 *str, u8 copy_u8row, u8 copy_u8_col) {
 
 // Chooses where the cursor would stand on the LCD to type from it
 void LCD_voidMoveCursor(u8 copy_u8row, u8 copy_u8_col) {
-
 	// Calculate the required address in the LCD DDRAM checking
 	// The location of the cursor originally on which line
 	//if(copy_u8row < LCD_MAXROW_SIZE && copy_u8_col < LCD_MAXCOL_SIZE) {

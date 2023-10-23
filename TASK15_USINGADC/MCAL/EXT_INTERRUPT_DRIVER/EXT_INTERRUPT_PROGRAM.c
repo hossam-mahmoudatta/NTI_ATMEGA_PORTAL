@@ -1,74 +1,84 @@
-/*
- * EXT_INTERRUPTS.c
+/******************************************************************************
  *
- * Created: 8/21/2022 12:37:04 AM
- *  Author: Administrator
- */
+ * Module: External Interrupts
+ *
+ * File Name: EXT_INTERRUPT_PROGRAM.c
+ *
+ * Description: Source file for the AVR EXTERNAL INTERRUPT driver
+ *
+ * Author: Hossam Mahmoud
+ *
+ *******************************************************************************/
 
-/************************************************************************/
-/*               External Interrupts Function Declarations              */
-/************************************************************************/
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
+ *******************************************************************************/
 
 #include "EXT_INTERRUPT_INTERFACE.h"
 
-//The function that will be called in the EXT INT
+/*******************************************************************************
+ *                              						Function Declarations					                       		   *
+ *******************************************************************************/
+
+//These are the callBack functions for INT0 & INT1 & INT2
 void (*CallBackPtr_INT0) (void);
 void (*CallBackPtr_INT1) (void);
 void (*CallBackPtr_INT2) (void);
 
 
-// Enable External Interrupt INT0 & INT1 & INT2
-void EXT_INTERRUPT_Sense_voidINTx(u8 copyINTx, u8 CopySense) {
+// Initialize INT0 & INT1 & INT2 Sense Control System
+void EXTINT_voidSetSenseINTx(u8 copyINTx, u8 CopySense) {
 	switch(copyINTx) {
 	case EXT_INT0:
-		if(CopySense == EXT_INTERRUPT_Low_Level) {
+		if(CopySense == EXTINT_Low_Level) {
 			CLR_BIT(MCUCR_REG, MCUCR_ISC01);
 			CLR_BIT(MCUCR_REG, MCUCR_ISC00);
 		}
-		else if(CopySense == EXT_INTERRUPT_Logical_Change) {
+		else if(CopySense == EXTINT_Logical_Change) {
 			CLR_BIT(MCUCR_REG, MCUCR_ISC01);
 			SET_BIT(MCUCR_REG, MCUCR_ISC00);
 		}
-		else if(CopySense == EXT_INTERRUPT_Falling_Edge) {
+		else if(CopySense == EXTINT_Falling_Edge) {
 			SET_BIT(MCUCR_REG, MCUCR_ISC01);
 			CLR_BIT(MCUCR_REG, MCUCR_ISC00);
 		}
-		else if(CopySense == EXT_INTERRUPT_Rising_Edge) {
+		else if(CopySense == EXTINT_Rising_Edge) {
 			SET_BIT(MCUCR_REG, MCUCR_ISC01);
 			SET_BIT(MCUCR_REG, MCUCR_ISC00);
 		}
 		break;
 	case EXT_INT1:
-		if(CopySense == EXT_INTERRUPT_Low_Level) {
+		if(CopySense == EXTINT_Low_Level) {
 			CLR_BIT(MCUCR_REG, MCUCR_ISC11);
 			CLR_BIT(MCUCR_REG, MCUCR_ISC10);
 		}
-		else if(CopySense == EXT_INTERRUPT_Logical_Change) {
+		else if(CopySense == EXTINT_Logical_Change) {
 			CLR_BIT(MCUCR_REG, MCUCR_ISC11);
 			SET_BIT(MCUCR_REG, MCUCR_ISC10);
 		}
-		else if(CopySense == EXT_INTERRUPT_Falling_Edge) {
+		else if(CopySense == EXTINT_Falling_Edge) {
 			SET_BIT(MCUCR_REG, MCUCR_ISC11);
 			CLR_BIT(MCUCR_REG, MCUCR_ISC10);
 		}
-		else if(CopySense == EXT_INTERRUPT_Rising_Edge) {
+		else if(CopySense == EXTINT_Rising_Edge) {
 			SET_BIT(MCUCR_REG, MCUCR_ISC11);
 			SET_BIT(MCUCR_REG, MCUCR_ISC10);
 		}
 		break;
 	case EXT_INT2:
-		if(CopySense == EXT_INTERRUPT_INT2_Falling_Edge) {
+		if(CopySense == EXTINT_INT2_Falling_Edge) {
 			CLR_BIT(MCUCSR_REG, MCUCSR_ISC2);
 		}
-		else if(CopySense == EXT_INTERRUPT_INT2_Rising_Edge) {
+		else if(CopySense == EXTINT_INT2_Rising_Edge) {
 			SET_BIT(MCUCSR_REG, MCUCSR_ISC2);
 		}
 		break;
 	}
 }
 
-// Enable External Interrupt INT0 & INT1 & INT2
-void EXT_INTERRUPT_Enable_voidINTx(u8 copyINTx, void (*copy_PtrtoFunc) (void)) {
+
+// Enable External Interrupt INT0 & INT1 & INT2 and pass a function to ISR
+void EXTINT_voidEnableINTx(u8 copyINTx, void (*copy_PtrtoFunc) (void)) {
 	switch(copyINTx) {
 	case EXT_INT0:
 		SET_BIT(GICR_REG, GICR_INT0);
@@ -89,8 +99,9 @@ void EXT_INTERRUPT_Enable_voidINTx(u8 copyINTx, void (*copy_PtrtoFunc) (void)) {
 	}
 }
 
-// Enable External Interrupt INT0 & INT1 & INT2
-void EXT_INTERRUPT_Disable_voidINTx(u8 copyINTx) {
+
+// Disable External Interrupt INT0 & INT1 & INT2
+void EXTINT_voidDisableINTx(u8 copyINTx) {
 	switch(copyINTx) {
 	case EXT_INT0:
 		CLR_BIT(GICR_REG, GICR_INT0);
@@ -108,11 +119,7 @@ void EXT_INTERRUPT_Disable_voidINTx(u8 copyINTx) {
 }
 
 
-
-
-// Previous prototype __attribute__((signal, used));
-// is to tell the compiler that I will use this function
-// but not now, so don't optimize and delete it.
+// Disables Compiler Optimizations & verifies callback not empty
 void __vector_1(void) __attribute__((signal, used));
 void __vector_1(void) {
 	if(CallBackPtr_INT0 != NULL) {
@@ -133,3 +140,11 @@ void __vector_3(void) {
 		CallBackPtr_INT2();
 	}
 }
+
+
+/*
+  * is to tell the compiler that I will use this function
+  * but not now, so don't optimize and delete it.
+  * And to make sure that The callback function actually has
+  * an address to another function, not empty and pointed to null.
+  */

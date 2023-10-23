@@ -1,13 +1,18 @@
-/*
- * interrupt.h
+/******************************************************************************
  *
- * Created: 8/20/2022 10:34:02 PM
- *  Author: Administrator
- */ 
+ * Module: External Interrupts
+ *
+ * File Name: EXT_INTERRUPT_INTERFACE.h
+ *
+ * Description: Header file for the AVR EXTERNAL INTERRUPT Driver Registers
+ *
+ * Author: Hossam Mahmoud
+ *
+ *******************************************************************************/
 
-/************************************************************************/
-/*                External Interrupts Functions Prototypes              */
-/************************************************************************/
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
+ *******************************************************************************/
 
 #ifndef EXT_INTERRUPT_INTERFACE_H_
 #define EXT_INTERRUPT_INTERFACE_H_
@@ -15,11 +20,18 @@
 #include "EXT_INTERRUPT_CONFIG.h"
 #include "EXT_INTERRUPT_PRIVATE.h"
 
-// Initialize External Interrupt
-void EXT_INTERRUPT_Sense_voidINTx(u8 copyINTx, u8 CopySense);
+/*******************************************************************************
+ *                              						Function Prototypes					               			    	   *
+ *******************************************************************************/
 
-void EXT_INTERRUPT_Enable_voidINTx(u8 copyINTx, void (*copy_PtrtoFunc) (void));
+// Initialize INT0 & INT1 & INT2 Sense Control System
+void EXTINT_voidSetSenseINTx(u8 copyINTx, u8 CopySense);
 
-void EXT_INTERRUPT_Disable_voidINTx(u8 copyINTx);
+// Enable External Interrupt INT0 & INT1 & INT2 and pass a function to ISR
+void EXTINT_voidEnableINTx(u8 copyINTx, void (*copy_PtrtoFunc) (void));
+
+// Disable External Interrupt INT0 & INT1 & INT2
+void EXTINT_voidDisableINTx(u8 copyINTx);
+
 
 #endif /* EXT_INTERRUPT_H_ */

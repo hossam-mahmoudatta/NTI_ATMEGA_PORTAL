@@ -4,21 +4,23 @@
  *
  * File Name: LCD_INTERFACE.h
  *
- * Description: Header file for the AVR LCD Driver
+ * Description: Header file for the AVR LCD Driver Function Prototypes
  *
  * Author: Hossam Mahmoud
  *
  *******************************************************************************/
 
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
+ *******************************************************************************/
+
 #ifndef LCD_INTERFACE_H_
 #define LCD_INTERFACE_H_
 
-
 #include "LCD_CONFIG.h"
 
-
 /*******************************************************************************
- *                              						Functions Prototypes                  					  *
+ *                              						Functions Prototypes                  								  *
  *******************************************************************************/
 
 // Initializes and enables the LCD Module to start functionality
@@ -50,16 +52,3 @@ void LCD_voidClearScreen(void);
 
 
 #endif /* LCD_INTERFACE_H_ */
-
-
-
-
-
-
-
-
-//
-//// Displays a string on the LCD at a chosen cursor and row
-//void LCD_voidDisplayStringRowColumn(u8 copy_u8row,
-//		u8 copy_u8_col,
-//		cu8 *copy_cu8Str);

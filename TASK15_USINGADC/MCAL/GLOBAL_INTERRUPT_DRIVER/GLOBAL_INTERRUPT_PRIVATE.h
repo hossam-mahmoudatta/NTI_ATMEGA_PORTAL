@@ -1,20 +1,28 @@
-/*
- * EXT_INTERRUPTS_PRIVATE.h
+ /******************************************************************************
  *
- * Created: 8/21/2022 12:40:29 AM
- *  Author: Administrator
- */ 
+ * Module: External Interrupt
+ *
+ * File Name: GLOBAL_INTERRUPT_PRIVATE.h
+ *
+ * Description: Header file for the AVR Global Interrupt Driver Registers
+ *
+ * Author: Hossam Mahmoud
+ *
+ *******************************************************************************/
 
-/************************************************************************/
-/*                    External Interrupts Registers                     */
-/************************************************************************/
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
+ *******************************************************************************/
 
 #ifndef GLOBAL_INTERRUPT_PRIVATE_H_
 #define GLOBAL_INTERRUPT_PRIVATE_H_
 
 #include "../GPIO_DRIVER/GPIO_INTERFACE.h"
 
-// External Interrupts
+/*******************************************************************************
+ *                              				External Interrupts Registers                     	      				  *
+ *******************************************************************************/
+
 #define SREG_REG    	(*( (volatile u8*) 0x5F) )
 
 

@@ -2,12 +2,16 @@
  *
  * Module: GPIO (General Purpose I/O)
  *
- * File Name: GPIO.h
- * uPDATED ON: MAY 6TH
- * Description: Header file for the AVR GPIO Driver
+ * File Name: GPIO_INTERFACE.h
+ * UPDATED ON: OCTOBER 2023
+ * Description: Header file for the AVR GPIO Driver TO INCLUDE THE PROTOTYPES
  *
  * Author: Hossam Mahmoud
  *
+ *******************************************************************************/
+
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
  *******************************************************************************/
 
 #ifndef GPIO_INTERFACE_H_
@@ -16,7 +20,7 @@
 #include "GPIO_CONFIG.h"
 
 /*******************************************************************************
- *                              						Functions Prototypes                           					  *
+ *                              						Functions Prototypes                           						  *
  *******************************************************************************/
 
 /*
@@ -55,9 +59,6 @@ GPIO_Error_t GPIO_voidTogglePin(u8 copy_u8portID, u8 copy_u8pinID);
 /*
  * Description :
  * Setup the direction of the required port all pins input/output.
- * If the direction value is PORT_INPUT all pins in this port should be input pins.
- * If the direction value is PORT_OUTPUT all pins in this port should be output pins.
- * If the input port number is not correct, The function will not handle the request.
  */
 GPIO_Error_t GPIO_voidSetPortDirection(u8 copy_u8portID, u8 copy_u8portDIR);
 
@@ -65,9 +66,6 @@ GPIO_Error_t GPIO_voidSetPortDirection(u8 copy_u8portID, u8 copy_u8portDIR);
 /*
  * Description :
  * Write the value on the required port.
- * If any pin in the port is output pin the value will be written.
- * If any pin in the port is input pin this will activate/deactivate the internal pull-up resistor.
- * If the input port number is not correct, The function will not handle the request.
  */
 GPIO_Error_t GPIO_voidSetPortValue(u8 copy_u8portID, u8 copy_u8portValue);
 

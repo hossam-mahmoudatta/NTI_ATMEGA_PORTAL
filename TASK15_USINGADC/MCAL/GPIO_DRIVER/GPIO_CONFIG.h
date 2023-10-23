@@ -3,25 +3,24 @@
  * Module: GPIO (General Purpose I/O)
  *
  * File Name: GPIO_CONFIG.h
- * uPDATED ON: MAY 6TH
+ * uPDATED ON: OCT 2023
  * Description: Header file for the AVR GPIO Driver TO INCLUDE THE INITIAL DEFINITIONS
  *
  * Author: Hossam Mahmoud
  *
  *******************************************************************************/
 
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
+ *******************************************************************************/
 
 #ifndef GPIO_CONFIG_H_
 #define GPIO_CONFIG_H_
 
 #include "GPIO_PRIVATE.h"
 
-// All internal driver typedefs
-// All driver macros
-// All driver functions prototypes
-
 /*******************************************************************************
- *                                								Definitions                                  					      *
+ *                                							MACRO Definitions                                  			      *
  *******************************************************************************/
 
 #define PORT_A								0
@@ -62,5 +61,6 @@ typedef enum {
 	GPIO_WRONG_PORT_NUMBER,
 	GPIO_WRONG_DIRECTION
 } GPIO_Error_t;
+
 
 #endif /* GPIO_CONFIG_H_ */

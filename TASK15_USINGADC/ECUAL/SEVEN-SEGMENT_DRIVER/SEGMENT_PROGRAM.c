@@ -2,7 +2,7 @@
  *
  * Module: Seven Segment Display
  *
- * File Name: SEGMENT.C
+ * File Name: SEGMENT_PROGRAM.C
  *
  * Description: Source file for the AVR Seven Segment Display Driver
  *
@@ -10,15 +10,17 @@
  *
  *******************************************************************************/
 
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
+ *******************************************************************************/
+
 #include "SEGMENT_INTERFACE.h"
 
-//#include "avr/io.h" /* To use the IO Ports Registers */
+/*******************************************************************************
+ *                              						Functions Declarations                     	      				  *
+ *******************************************************************************/
 
-/*
- * Description :
- * Setup the direction of the required pin input/output.
- * If the input port number or pin number are not correct, The function will not handle the request.
- */
+// Initializes the 7 Segment Display Driver
 SEGMENT_Error_t SEGMENT_voidInit(u8 copy_u8portID) {
 	/*
 	 * Check if the input port number is greater than NUM_OF_PINS_PER_PORT value.
@@ -66,18 +68,8 @@ SEGMENT_Error_t SEGMENT_voidInit(u8 copy_u8portID) {
 }
 
 
-/*
- * Description :
- * Write the value Logic High or Logic Low on the required pin.
- * If the input port number or pin number are not correct, The function will not handle the request.
- * If the pin is input, this function will enable/disable the internal pull-up resistor.
- */
+// Displays a value on the 7 Segment Display
 SEGMENT_Error_t SEGMENT_voidDisplay(u8 copy_u8portID, u8 copy_u8pinValue) {
-	/*
-	 * Check if the input port number is greater than NUM_OF_PINS_PER_PORT value.
-	 * Or if the input pin number is greater than NUM_OF_PINS_PER_PORT value.
-	 * In this case the input is not valid port/pin number
-	 */
 	u8 SEGMENT_Driver_Checker = 0;
 
 	if((copy_u8portID >= NUM_OF_PORTS)) {

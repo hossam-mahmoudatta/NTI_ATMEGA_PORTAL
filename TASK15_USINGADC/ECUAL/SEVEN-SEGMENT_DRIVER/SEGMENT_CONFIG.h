@@ -4,10 +4,14 @@
  *
  * File Name: SEGMENT_CONFIG.h
  *
- * Description: Header file for the AVR Seven Segment Display Driver
+ * Description: Header file for the 7 Segment Display Driver Macro Definitions
  *
  * Author: Hossam Mahmoud
  *
+ *******************************************************************************/
+
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
  *******************************************************************************/
 
 #ifndef SEGMENT_CONFIG_H_
@@ -16,11 +20,11 @@
 #include "../../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h"
 
 /*******************************************************************************
- *                                								 Definitions                            			           		  	  *
+ *                                							Macro Definitions                            			     	  		*
  *******************************************************************************/
 
 // Defines the BCD DATA Pins based on the used Kit
-#define BCD_1								PIN_0
+#define BCD_1							PIN_0
 #define BCD_2							PIN_1
 #define BCD_4							PIN_2
 #define BCD_8							PIN_4
@@ -48,5 +52,6 @@ typedef enum SEGMENT_Error_t {
 	SEGMENT_WRONG_VALUE,
 	SEGMENT_WRONG_PORT_NUMBER
 } SEGMENT_Error_t;
+
 
 #endif /* SEVEN-SEGMENT_H_ */

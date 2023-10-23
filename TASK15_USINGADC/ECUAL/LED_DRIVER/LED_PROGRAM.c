@@ -1,29 +1,27 @@
 /******************************************************************************
  *
- * Module: GPIO
+ * Module: LED
  *
- * File Name: GPIO.c
+ * File Name: LED_PROGRAM.c
  *
- * Description: Source file for the AVR GPIO driver
+ * Description: Source file for the LED Driver
  *
  * Author: Hossam Mahmoud
  *
  *******************************************************************************/
 
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
+ *******************************************************************************/
+
 #include "LED_INTERFACE.h"
 
+/*******************************************************************************
+ *                              						Functions Declarations                     	      				  *
+ *******************************************************************************/
 
-/*
- * Description :
- * Setup the direction of the required pin input/output.
- * If the input port number or pin number are not correct, The function will not handle the request.
- */
+// Initializes the LED Driver
 LED_Error_t LED_voidInit(u8 copy_u8portID, u8 copy_u8pinID) {
-	/*
-	 * Check if the input port number is greater than NUM_OF_PINS_PER_PORT value.
-	 * Or if the input pin number is greater than NUM_OF_PINS_PER_PORT value.
-	 * In this case the input is not valid port/pin number
-	 */
 	u8 LED_Driver_Checker = 0;
 	if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
 		LED_Driver_Checker = LED_WRONG_PIN_NUMBER;
@@ -39,14 +37,8 @@ LED_Error_t LED_voidInit(u8 copy_u8portID, u8 copy_u8pinID) {
 	return LED_Driver_Checker;
 }
 
-/*
- * Description :
- * Write the value Logic High or Logic Low on the required pin.
- * If the input port number or pin number are not correct, The function will not handle the request.
- * If the pin is input, this function will enable/disable the internal pull-up resistor.
- */
+// Turns on a LED
 LED_Error_t LED_voidOn(u8 copy_u8portID, u8 copy_u8pinID) {
-
 	u8 LED_Driver_Checker = 0;
 		if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
 			LED_Driver_Checker = LED_WRONG_PIN_NUMBER;
@@ -66,13 +58,8 @@ LED_Error_t LED_voidOn(u8 copy_u8portID, u8 copy_u8pinID) {
 		return LED_Driver_Checker;
 }
 
-/*
- * Description :
- * Read and return the value for the required pin, it should be Logic High or Logic Low.
- * If the input port number or pin number are not correct, The function will return Logic Low.
- */
+// Turns off a LED
 LED_Error_t LED_voidOff(u8 copy_u8portID, u8 copy_u8pinID) {
-
 	u8 LED_Driver_Checker = 0;
 		if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
 			LED_Driver_Checker = LED_WRONG_PIN_NUMBER;
@@ -92,8 +79,8 @@ LED_Error_t LED_voidOff(u8 copy_u8portID, u8 copy_u8pinID) {
 		return LED_Driver_Checker;
 }
 
+// Toggles a LED
 LED_Error_t LED_voidToggle(u8 copy_u8portID, u8 copy_u8pinID) {
-
 	u8 LED_Driver_Checker = 0;
 		if((copy_u8pinID >= NUM_OF_PINS_PER_PORT)) {
 			LED_Driver_Checker = LED_WRONG_PIN_NUMBER;
