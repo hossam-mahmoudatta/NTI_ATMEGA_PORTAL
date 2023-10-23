@@ -1,4 +1,4 @@
-# Task 3: Display on 7-Segment and LEDs Simultaneously
+# Task 3: Simulating a Traffic Light with Delay displayed on a 7-Segment
 
 ### Required:
 1. Create 7 Segment Display Drivers
