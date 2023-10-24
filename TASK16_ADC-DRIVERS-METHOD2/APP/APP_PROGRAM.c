@@ -29,13 +29,12 @@ void systemInit(void) {
 	GPIO_voidSetPinDirection(PORT_A, PIN_1, PIN_INPUT);
 
 	LCD_voidDisplayString("Resistor Value: ", 0, 0);
-	LCD_voidMoveCursor(1, 0);
 }
 
 void readResistorADC(void) {
 	ADC_Result = ADC_voidStartConversionPolling(CHANNEL_1);
 	LCD_voidIntgerToString(ADC_Result, 1, 0);
-	_delay_ms(500);
+	_delay_ms(250);
 
 }
 

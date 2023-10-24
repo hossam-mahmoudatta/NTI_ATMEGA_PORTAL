@@ -18,13 +18,9 @@
 
 int main(void) {
 	systemInit();
-	//u16 Result = 0;
+
 	while (1)
 	{
 		readResistorADC();
-
-//		Result = ADC_voidStartConversionPolling(CHANNEL_1);
-//		LCD_voidIntgerToString(Result, 1, 0);
-//		_delay_ms(500);
 	}
 }
