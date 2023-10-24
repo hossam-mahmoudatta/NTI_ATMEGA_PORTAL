@@ -21,20 +21,40 @@
  *                              					 Application Libraries                      					  *
  *******************************************************************************/
 
-extern u16 ADC_Result = 0;
-
-void systemInit(void) {
+void System_Initialization(void) {
 	LCD_voidInit();
-	ADC_voidInit();
-	GPIO_voidSetPinDirection(PORT_A, PIN_1, PIN_INPUT);
-
-	LCD_voidDisplayString("Resistor Value: ", 0, 0);
+	LCD_voidDisplayString("Welcome to the Bouncing Star !", 0, 0);
+	_delay_ms(3000);
+	LCD_voidClearScreen();
 }
 
-void readResistorADC(void) {
-	ADC_Result = ADC_voidStartConversionPolling(CHANNEL_1);
-	LCD_voidIntgerToString(ADC_Result, 1, 0);
-	_delay_ms(250);
+void dancingStar(void) {
+	u8 Line = 0;
+	u8 Column = 0;
+	u8 Flag = 0;
 
+	LCD_voidSetCursor(Line, Column);
+	LCD_voidSendData('X');
+	_delay_ms(400);
+	LCD_voidSetCursor(Line, Column);
+	LCD_voidSendData(' ');
+
+	if(Flag == 0) {
+		Line++;
+		if(Line > 2) {
+			Flag = 1;
+		}
+	}
+	else {
+		Line--;
+		if(Line < 1) {
+			Flag = 0;
+		}
+	}
+
+	if(Column > 19) {
+		Column = 0;
+		Line = 0;
+	}
 }
 

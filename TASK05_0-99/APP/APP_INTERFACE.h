@@ -26,9 +26,9 @@
 //#include "../MCAL/I2C_DRIVER/I2C.h"
 //#include "../MCAL/ICU_DRIVER/ICU.h"
 //#include "../MCAL/SPI_DRIVER/SPI.h"
-#include "../MCAL/ADC_DRIVER/ADC_INTERFACE.h"
-#include "../MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_INTERFACE.h"
-#include "../MCAL/GLOBAL_INTERRUPT_DRIVER/GLOBAL_INTERRUPT_INTERFACE.h"
+//#include "../MCAL/ADC_DRIVER/ADC_INTERFACE.h"
+//#include "../MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_INTERFACE.h"
+//#include "../MCAL/GLOBAL_INTERRUPT_DRIVER/GLOBAL_INTERRUPT_INTERFACE.h"
 #include "../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h"
 
 /*******************************************************************************
@@ -45,5 +45,5 @@
 //#include "../ECUAL/BUTTON_DRIVER/BUTTON.h"
 //#include "../ECUAL/BUZZER_DRIVER/BUZZER.h"
 
-void systemInit(void);
-void readResistorADC(void);
+void System_Initialization(void);
+void dancingStar(void);

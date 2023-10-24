@@ -33,19 +33,19 @@ void LCD_voidSendCommand(u8 copy_u8Command);
 
 
  // Displays a character on the LCD
-void LCD_voidDisplayCharacter(u8 copy_u8data);
+void LCD_voidSendData(u8 copy_u8data);
+
+
+// Chooses where the cursor would stand on the LCD to type from it
+void LCD_voidSetCursor(u8 copy_u8row, u8 copy_u8_col);
 
 
 // Displays a string on the LCD
 void LCD_voidDisplayString(cu8 *str, u8 copy_u8row, u8 copy_u8_col);
 
 
-// Chooses where the cursor would stand on the LCD to type from it
-void LCD_voidMoveCursor(u8 copy_u8row, u8 copy_u8_col);
-
-
 // LCD only understands ASCII, so this converts Int to a string
-void LCD_voidIntgerToString(u32 copy_u32data, u8 copy_u8row, u8 copy_u8_col);
+void LCD_voidDisplayIntger(u32 copy_u32data, u8 copy_u8row, u8 copy_u8_col);
 
 
 // Clears the LCD from any garbage

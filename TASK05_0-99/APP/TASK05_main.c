@@ -17,10 +17,10 @@
  *******************************************************************************/
 
 int main(void) {
-	systemInit();
+	System_Initialization();
 
 	while (1)
 	{
-		readResistorADC();
+		dancingStar();
 	}
 }
