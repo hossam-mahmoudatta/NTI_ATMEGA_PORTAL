@@ -8821,7 +8821,6 @@ int main(void) {
     3988:	cf 93       	push	r28
     398a:	cd b7       	in	r28, 0x3d	; 61
     398c:	de b7       	in	r29, 0x3e	; 62
-	//LCD_voidDisplayString("My name is hossam and this is embedded systems course and this is a test", 0, 0);
 	systemInit();
     398e:	0e 94 29 19 	call	0x3252	; 0x3252 <systemInit>
     3992:	ff cf       	rjmp	.-2      	; 0x3992 <main+0xc>

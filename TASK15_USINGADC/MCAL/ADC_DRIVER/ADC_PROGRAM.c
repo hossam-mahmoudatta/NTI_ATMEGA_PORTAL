@@ -31,7 +31,7 @@ void ADC_voidInit(void) {
 	/* ADMUX Register Bits Description:
 	 * 7:6, 	REFS1:0 = 01 to choose AVCC = 5v as reference voltage
 	 * 5, 	ADLAR   = 0 right adjusted
-	 * 4:0, 	MUX4:0  = 00000 to choose channel 0 as initialization
+	 * 4:0, 	MUX4:0  = 00000 to choose channel 0 as initializationd
 	 */
 
 	// Sets REFS1:0 to '01'

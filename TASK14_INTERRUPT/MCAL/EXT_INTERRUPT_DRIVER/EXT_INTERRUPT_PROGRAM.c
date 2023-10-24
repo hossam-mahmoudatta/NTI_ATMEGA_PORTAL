@@ -110,9 +110,13 @@ void EXT_INTERRUPT_Disable_voidINTx(u8 copyINTx) {
 
 
 
-// Previous prototype __attribute__((signal, used));
+
 // is to tell the compiler that I will use this function
 // but not now, so don't optimize and delete it.
+/* It turns out that the functions below is my defined ISR
+ * as you can
+ */
+
 void __vector_1(void) __attribute__((signal, used));
 void __vector_1(void) {
 	if(CallBackPtr_INT0 != NULL) {
