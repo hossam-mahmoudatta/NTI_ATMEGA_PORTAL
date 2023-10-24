@@ -20,7 +20,9 @@
  *                              							Global Variables				                   	   		  		   *
  *******************************************************************************/
 
-	volatile u16 glob_ADCResult = 0;
+	//extern volatile u16 glob_ADCResult = 0;
+
+	void (*CallBackPtr_ADC) (void);
 
 /*******************************************************************************
  *                              						Functions Declarations	                     	   		  		   *
@@ -35,7 +37,15 @@ void ADC_voidInit(void) {
 	 */
 
 	// Sets REFS1:0 to '01'
-	SET_BIT(ADMUX_REG, ADMUX_REFS0);
+	ADMUX_REG->REFS = AVCC;
+	ADMUX_REG->ADLAR = RIGHT_ADJUST;
+
+	// Enables ADC & Choose Prescaler of 128
+	ADCSRA_REG->ADEN = ADEN_ENABLE;
+	ADCSRA_REG->ADPS = PRESCALER_128;
+	ADCSRA_REG->ADATE = DISABLE_TRIGGER;
+
+
 
 	/* ADCSRA Register Bits Description:
 	 * 7,	ADEN = 1 Enable ADC
@@ -48,39 +58,44 @@ void ADC_voidInit(void) {
 	 * --> ADC must operate in range 50-200Khz
 	 */
 
-	// Enables ADC & Choose Prescaler of 128
-	ADCSRA_REG |= (1 << ADCSRA_ADEN) | (1 << ADCSRA_ADPS2) | (1 << ADCSRA_ADPS1) | (1 << ADCSRA_ADPS0);
 }
 
 
-// Reads the content written to the selected channel of the ADC
-u16 ADC_u16readChannel(u8 copy_u8channelSelect) {
+// Start ADC Conversion using Polling
+u16 ADC_voidStartConversionPolling(u8 copy_u8channelSelect) {
 	// Insert Channel Number in ADMUX Procedure
-	// Initializes & clears first 5 bits to zero
-	ADMUX_REG &= 0xE0;		// 0b1110 0000
-
-	// Mask the Input Channel ID with Max Channel Numbers, which are 8 channels
-	copy_u8channelSelect &= 0x07; // 0b0000 0111
-
-	// Insert Channel no. into ADMUX Register
-	ADMUX_REG |= copy_u8channelSelect;
+	ADMUX_REG->MUX = copy_u8channelSelect;
 
 	// Starts ADC Conversion
-	SET_BIT(ADCSRA_REG, ADCSRA_ADSC);
+	ADCSRA_REG->ADSC = START_CONVERSION;
 
-#if (ADC_INT_MODE == ADC_POLLING)
 	// Busy wait (Polling) untill ADIF = 1
-	while ( BIT_IS_CLR(ADCSRA_REG, ADCSRA_ADIF) );
+	while ( ADCSRA_REG->ADIF == FLAG_NOTSET );
 
 	// Set Interrupt Flag by 1 by clearing it
-	ADCSRA_REG |= (1 << ADCSRA_ADIF);
+	ADCSRA_REG->ADIF = FLAG_SET;
 
 	// Read Data from ADCL Bits 0 -> 9
-	glob_ADCResult = ADCL_REG;
-#else
-	ADCSRA_REG |= (1 << ADCSRA_ADIE);
-#endif
+	return ADC_DATA_REG;
+}
+
+// Start ADC Conversion using Interrupts
+void ADC_voidStartConversionISR(u8 copy_u8channelSelect) {
+	ADMUX_REG->MUX = copy_u8channelSelect;
+
+	// Starts ADC Conversion
+	ADCSRA_REG->ADSC = START_CONVERSION;
+
+	// Enables the Interrupt
+	ADCSRA_REG->ADIE = ENABLE_INT;
+
+}
 
 
+void __vector_16(void) __attribute__((signal, used));
+void __vector_16(void) {
+	if(CallBackPtr_ADC != NULL) {
+		CallBackPtr_ADC();
+	}
 }
 
