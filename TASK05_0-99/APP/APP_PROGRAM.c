@@ -20,9 +20,6 @@
 /*******************************************************************************
  *                              					 Application Libraries                      					  *
  *******************************************************************************/
-u8 Line = 0;
-u8 Column = 0;
-u8 Flag = 0;
 
 void System_Initialization(void) {
 	LCD_voidInit();
@@ -30,33 +27,40 @@ void System_Initialization(void) {
 	LCD_voidDisplayString("Welcome to the");
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Bouncing Star !");
+	LCD_voidSetCursor(2, 0);
+	LCD_voidDisplayString("Hossam");
+	LCD_voidSetCursor(3, 0);
+	LCD_voidDisplayString("Mahmoud !");
 	_delay_ms(3000);
 	LCD_voidClearScreen();
 }
 
-void dancingStar(void) {
-	LCD_voidSetCursor(Line, Column);
+void dancingStar(u8 Flag, u8 Row, u8 Column) {
+	LCD_voidSetCursor(Row, Column);
 	LCD_voidSendData('X');
-	_delay_ms(400);
-	LCD_voidSetCursor(Line, Column);
+	_delay_ms(500);
+	LCD_voidSetCursor(Row, Column);
 	LCD_voidSendData(' ');
 
-	if(Flag == 0) {
-		Line++;
-		if(Line > 2) {
+	Column++;
+	if(Column > 15) {
+		Column = 0;
+		Row = 0;
+	}
+
+
+	if(Row < 4) {
+		Row++;
+		if(Row > 2) {
 			Flag = 1;
 		}
 	}
 	else {
-		Line--;
-		if(Line < 1) {
+		Row--;
+		if(Row < 1) {
 			Flag = 0;
 		}
 	}
 
-	if(Column > 19) {
-		Column = 0;
-		Line = 0;
-	}
 }
 

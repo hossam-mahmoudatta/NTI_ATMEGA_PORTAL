@@ -53,4 +53,4 @@
 //extern u8 Column;
 //extern u8 Flag;
 void System_Initialization(void);
-void dancingStar(void);
+void dancingStar(u8 Flag, u8 Row, u8 Column);
