@@ -41,11 +41,11 @@ void LCD_voidSetCursor(u8 copy_u8row, u8 copy_u8_col);
 
 
 // Displays a string on the LCD
-void LCD_voidDisplayString(cu8 *str, u8 copy_u8row, u8 copy_u8_col);
+void LCD_voidDisplayString(cu8 *str);
 
 
 // LCD only understands ASCII, so this converts Int to a string
-void LCD_voidDisplayIntger(u32 copy_u32data, u8 copy_u8row, u8 copy_u8_col);
+void LCD_voidDisplayIntger(u32 copy_u32data);
 
 
 // Clears the LCD from any garbage

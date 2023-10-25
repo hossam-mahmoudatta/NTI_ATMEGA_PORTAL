@@ -45,5 +45,12 @@
 //#include "../ECUAL/BUTTON_DRIVER/BUTTON.h"
 //#include "../ECUAL/BUZZER_DRIVER/BUZZER.h"
 
+/*******************************************************************************
+ *                              						Function Prototypes                        			   		    *
+ *******************************************************************************/
+
+extern u8 Line;
+extern u8 Column;
+extern u8 Flag;
 void System_Initialization(void);
 void dancingStar(void);

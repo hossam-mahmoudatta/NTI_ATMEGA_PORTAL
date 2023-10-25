@@ -20,19 +20,21 @@
 /*******************************************************************************
  *                              					 Application Libraries                      					  *
  *******************************************************************************/
+u8 Line = 0;
+u8 Column = 0;
+u8 Flag = 0;
 
 void System_Initialization(void) {
 	LCD_voidInit();
-	LCD_voidDisplayString("Welcome to the Bouncing Star !", 0, 0);
+	LCD_voidSetCursor(0, 0);
+	LCD_voidDisplayString("Welcome to the");
+	LCD_voidSetCursor(1, 0);
+	LCD_voidDisplayString("Bouncing Star !");
 	_delay_ms(3000);
 	LCD_voidClearScreen();
 }
 
 void dancingStar(void) {
-	u8 Line = 0;
-	u8 Column = 0;
-	u8 Flag = 0;
-
 	LCD_voidSetCursor(Line, Column);
 	LCD_voidSendData('X');
 	_delay_ms(400);

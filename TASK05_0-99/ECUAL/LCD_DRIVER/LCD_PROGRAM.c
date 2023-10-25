@@ -42,8 +42,11 @@ void LCD_voidInit(void) {
 		GPIO_voidSetPinDirection(LCD_DATA_PORT, LCD_DATAPIN_D6, PIN_OUTPUT);
 		GPIO_voidSetPinDirection(LCD_DATA_PORT, LCD_DATAPIN_D7, PIN_OUTPUT);
 
-		LCD_voidSendCommand(LCD_2LINES_FOUR_BIT);
+
+		LCD_voidSendCommand(LCD_2LINES_FOUR_BIT_INIT1);
+		LCD_voidSendCommand(LCD_2LINES_FOUR_BIT_INIT2);
 		LCD_voidSendCommand(LCD_2LINES_5x7_DOTS);
+		//LCD_voidSendCommand(LCD_2LINES_FOUR_BIT);
 		_delay_ms(2);
 	}
 
@@ -51,7 +54,7 @@ void LCD_voidInit(void) {
 	_delay_ms(2);
 	LCD_voidSendCommand(LCD_CLEAR_DISPLAY);
 	_delay_ms(2);
-	LCD_voidSendCommand(LCD_ENTRY_MODE);
+	//LCD_voidSendCommand(LCD_ENTRY_MODE);
 
 }
 
@@ -60,6 +63,10 @@ void LCD_voidInit(void) {
 void LCD_voidSendCommand(u8 copy_u8Command) {
 	// Set RS Pin to '0'
 	GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_RS, LOGIC_LOW);
+	_delay_ms(1);
+	// Set Enable Pin to '1'
+	GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_HIGH);
+	_delay_ms(1);
 
 #if (LCD_BIT_MODE == LCD_8_BIT)
 		GPIO_voidSetPortValue(LCD_DATA_PORT, copy_u8Command);
@@ -75,24 +82,23 @@ void LCD_voidSendCommand(u8 copy_u8Command) {
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D6, GET_BIT(copy_u8Command, 6));
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D7, GET_BIT(copy_u8Command, 7));
 
-		// Set Enable Pin to '1'
-		GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_HIGH);
-		_delay_ms(2);
-
+		_delay_ms(1);
 		// Set Enable Pin to '0'
 		GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_LOW);
+		_delay_ms(1);
+		// Set Enable Pin to '1'
+		GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_HIGH);
+		_delay_ms(1);
 
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D4, GET_BIT(copy_u8Command, 0));
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D5, GET_BIT(copy_u8Command, 1));
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D6, GET_BIT(copy_u8Command, 2));
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D7, GET_BIT(copy_u8Command, 3));
 
-		// Set Enable Pin to '1'
-		GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_HIGH);
-		_delay_ms(2);
-
+		_delay_ms(1);
 		// Set Enable Pin to '0'
 		GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_LOW);
+		_delay_ms(1);
 #endif
 }
 
@@ -101,6 +107,10 @@ void LCD_voidSendCommand(u8 copy_u8Command) {
 void LCD_voidSendData(u8 copy_u8data) {
 	// Set RS Pin to '1'
 	GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_RS, LOGIC_HIGH);
+	_delay_ms(1);
+	// Set Enable Pin to '1'
+	GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_HIGH);
+	_delay_ms(1);
 
 #if (LCD_BIT_MODE == LCD_8_BIT)
 		GPIO_voidSetPortValue(LCD_DATA_PORT, copy_u8data);
@@ -116,43 +126,33 @@ void LCD_voidSendData(u8 copy_u8data) {
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D6, GET_BIT(copy_u8data, 6));
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D7, GET_BIT(copy_u8data, 7));
 
-		// Set Enable Pin to '1'
-		GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_HIGH);
-		_delay_ms(2);
+		_delay_ms(1);
 		// Set Enable Pin to '0'
 		GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_LOW);
+		_delay_ms(1);
+		// Set Enable Pin to '1'
+		GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_HIGH);
+		_delay_ms(1);
 
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D4, GET_BIT(copy_u8data, 0));
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D5, GET_BIT(copy_u8data, 1));
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D6, GET_BIT(copy_u8data, 2));
 		GPIO_voidSetPinValue(LCD_DATA_PORT, LCD_DATAPIN_D7, GET_BIT(copy_u8data, 3));
 
-		// Set Enable Pin to '1'
-		GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_HIGH);
-		_delay_ms(2);
+		_delay_ms(1);
 		// Set Enable Pin to '0'
 		GPIO_voidSetPinValue(LCD_INIT_PORT, LCD_ENABLE, LOGIC_LOW);
+		_delay_ms(1);
 #endif
 }
 
 
 // Displays a string on the LCD
-void LCD_voidDisplayString(cu8 *str, u8 copy_u8row, u8 copy_u8_col) {
+void LCD_voidDisplayString(cu8 *str) {
 	u8 i = 0;
-	LCD_voidSetCursor(copy_u8row, copy_u8_col);
-
 	while(str[i] != '\0') {
 		LCD_voidSendData(str[i]);
 		i++;
-		copy_u8_col++;
-		if (copy_u8_col == LCD_MAXCOL_SIZE) {
-			copy_u8_col = 0;
-			copy_u8row++;
-			if (copy_u8row == LCD_MAXROW_SIZE) {
-				copy_u8row = 0;
-				LCD_voidSetCursor(copy_u8row, copy_u8_col);
-			}
-		}
 	}
 }
 
@@ -161,28 +161,47 @@ void LCD_voidDisplayString(cu8 *str, u8 copy_u8row, u8 copy_u8_col) {
 void LCD_voidSetCursor(u8 copy_u8row, u8 copy_u8_col) {
 	// Calculate the required address in the LCD DDRAM checking
 	// The location of the cursor originally on which line
-		switch(copy_u8row) {
-			case LINE0:
-				LCD_voidSendCommand(LINE0_ADDRESS + copy_u8_col);
-					break;
-			case LINE1:
-				LCD_voidSendCommand(LINE1_ADDRESS + copy_u8_col);
-					break;
-			case LINE2:
-				LCD_voidSendCommand(LINE2_ADDRESS + copy_u8_col);
-					break;
-			case LINE3:
-				LCD_voidSendCommand(LINE3_ADDRESS + copy_u8_col);
-					break;
-			default:
-				LCD_voidDisplayString("default", 0, 0);
-				break;
-		}
+	u8 LCD_MEMORY_ADDRESS;
+	switch(copy_u8row) {
+		case LINE0:
+			LCD_MEMORY_ADDRESS = copy_u8_col;
+			break;
+		case LINE1:
+			LCD_MEMORY_ADDRESS = copy_u8_col + 0x40;
+			break;
+		case LINE2:
+			LCD_MEMORY_ADDRESS = copy_u8_col + 0x10;
+			break;
+		case LINE3:
+			LCD_MEMORY_ADDRESS = copy_u8_col + 0x50;
+			break;
+	}
+	/* Move the LCD cursor to this specific address */
+	LCD_voidSendCommand(LCD_MEMORY_ADDRESS | LINE0_ADDRESS);
+
+
+//	switch(copy_u8row) {
+//			case LINE0:
+//				LCD_voidSendCommand(LINE0_ADDRESS + copy_u8_col);
+//					break;
+//			case LINE1:
+//				LCD_voidSendCommand(LINE1_ADDRESS + copy_u8_col);
+//					break;
+//			case LINE2:
+//				LCD_voidSendCommand(LINE2_ADDRESS + copy_u8_col);
+//					break;
+//			case LINE3:
+//				LCD_voidSendCommand(LINE3_ADDRESS + copy_u8_col);
+//					break;
+//			default:
+//				LCD_voidDisplayString("default", 0, 0);
+//				break;
+//		}
 }
 
 
 // LCD only understands ASCII, so this converts Int to a string
-void LCD_voidIntgerToString(u32 copy_u32data, u8 copy_u8row, u8 copy_u8_col) {
+void LCD_voidIntgerToString(u32 copy_u32data) {
 	// A string to hold the ASCII values
 	cu8 buffer[16];
 
@@ -190,7 +209,7 @@ void LCD_voidIntgerToString(u32 copy_u32data, u8 copy_u8row, u8 copy_u8_col) {
 	itoa(copy_u32data, buffer, 10);
 
 	// Display string with the results in the buffer
-	LCD_voidDisplayString(buffer, copy_u8row, copy_u8_col);
+	LCD_voidDisplayString(buffer);
 }
 
 // Clears the LCD from any garbage

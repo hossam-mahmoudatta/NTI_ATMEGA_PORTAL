@@ -53,6 +53,12 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 LSS += \
 TASK05_0-99.lss \
 
+FLASH_IMAGE += \
+TASK05_0-99.hex \
+
+EEPROM_IMAGE += \
+TASK05_0-99.eep \
+
 SIZEDUMMY += \
 sizedummy \
 
@@ -77,6 +83,18 @@ TASK05_0-99.lss: TASK05_0-99.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+TASK05_0-99.hex: TASK05_0-99.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK05_0-99.elf  "TASK05_0-99.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+TASK05_0-99.eep: TASK05_0-99.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+	@echo 'Create eeprom image (ihex format)'
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TASK05_0-99.elf  "TASK05_0-99.eep"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 sizedummy: TASK05_0-99.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
 	-avr-size --format=avr --mcu=atmega32 TASK05_0-99.elf
@@ -85,10 +103,10 @@ sizedummy: TASK05_0-99.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 
 # Other Targets
 clean:
-	-$(RM) $(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) TASK05_0-99.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) TASK05_0-99.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 .PHONY: all clean dependents main-build
 
