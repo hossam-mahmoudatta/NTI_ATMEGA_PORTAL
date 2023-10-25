@@ -49,8 +49,8 @@
  *                              						Function Prototypes                        			   		    *
  *******************************************************************************/
 
-extern u8 Line;
-extern u8 Column;
-extern u8 Flag;
+//extern u8 Line;
+//extern u8 Column;
+//extern u8 Flag;
 void System_Initialization(void);
 void dancingStar(void);
