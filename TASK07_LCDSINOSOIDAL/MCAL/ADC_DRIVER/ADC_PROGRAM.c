@@ -22,14 +22,8 @@
 
 	//extern volatile u16 glob_ADCResult = 0;
 
-void (*CallBackPtr_ADC) (void);
+	void (*CallBackPtr_ADC) (void);
 
-void __vector_16(void) __attribute__((signal, used));
-void __vector_16(void) {
-	if(CallBackPtr_ADC != NULL) {
-		CallBackPtr_ADC();
-	}
-}
 /*******************************************************************************
  *                              						Functions Declarations	                     	   		  		   *
  *******************************************************************************/
@@ -97,14 +91,11 @@ void ADC_voidStartConversionISR(u8 copy_u8channelSelect) {
 
 }
 
-/*
- * Description :
- * Call Back function to use in ISR *
- */
-void ADC_CallBackFunction(void (*Ptr_ADC)(void))
-{
-	CallBackPtr_ADC = Ptr_ADC;
+
+void __vector_16(void) __attribute__((signal, used));
+void __vector_16(void) {
+	if(CallBackPtr_ADC != NULL) {
+		CallBackPtr_ADC();
+	}
 }
-
-
 

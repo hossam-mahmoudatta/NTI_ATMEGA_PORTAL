@@ -36,7 +36,6 @@ u16 ADC_voidStartConversionPolling(u8 copy_u8channelSelect);
 // Starts Conversion
 void ADC_voidStartConversionISR(u8 copy_u8channelSelect);
 
-void ADC_CallBackFunction(void (*Ptr_ADC)(void));
 
 #endif /* ADC_INTERFACE_H_ */
 
