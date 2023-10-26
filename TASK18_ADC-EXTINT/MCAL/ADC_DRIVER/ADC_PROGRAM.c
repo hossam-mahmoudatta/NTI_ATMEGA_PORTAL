@@ -30,12 +30,6 @@ void (*CallBackPtr_ADC) (void);
 
 // Initializes and enables the ADC Module to start functionality
 void ADC_voidInit(void) {
-	/* ADMUX Register Bits Description:
-	 * 7:6, 	REFS1:0 = 01 to choose AVCC = 5v as reference voltage
-	 * 5, 	ADLAR   = 0 right adjusted
-	 * 4:0, 	MUX4:0  = 00000 to choose channel 0 as initializationd
-	 */
-
 	// Sets REFS1:0 to '01'
 	ADMUX_REG->REFS = AVCC;
 	ADMUX_REG->ADLAR = RIGHT_ADJUST;
@@ -43,16 +37,17 @@ void ADC_voidInit(void) {
 	// Enables ADC & Choose Prescaler of 128
 	ADCSRA_REG->ADEN = ADEN_ENABLE;
 	ADCSRA_REG->ADPS = PRESCALER_128;
-	ADCSRA_REG->ADATE = EXT_INTERRUPT;
+	ADCSRA_REG->ADATE = ENABLE_TRIGGER;
+	SFIOR_REG->ADTS = EXT_INTERRUPT;
 
+
+//#if(TRIGGER_STATUS == ENABLE_TRIGGER)
+//	SFIOR_REG->ADTS = TRIGGER_SETTING;
+//#elif(TRIGGER_STATUS == DISABLE_TRIGGER)
+//	SFIOR_REG->ADTS = FREE_RUNNING;
+//#endif
 
 	/* ADCSRA Register Bits Description:
-	 * 7,	ADEN = 1 Enable ADC
-	 * 6,	ADSC = 1 Start Conversion
-	 * 5,	ADATE = 0 Disable Auto Trigger
-	 * 4,	ADIF = 1 Enable ADC Interrupt Flag
-	 * 3,	ADIE = 1 Enable ADC Interrupt
-	 * 2:0, ADPS2:0 = 111 to choose
 	 * ADC_Clock = F_CPU/128 = 16Mhz/128 = 125Khz
 	 * --> ADC must operate in range 50-200Khz
 	 */
@@ -85,7 +80,7 @@ void ADC_voidStartConversionISR(u8 copy_u8channelSelect) {
 	ADCSRA_REG->ADSC = START_CONVERSION;
 
 	// Enables the Interrupt
-	ADCSRA_REG->ADIE = ENABLE_INT;
+	ADCSRA_REG->ADIE = ENABLE_INTERRUPT;
 
 }
 

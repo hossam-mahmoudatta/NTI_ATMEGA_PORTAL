@@ -47,6 +47,7 @@ typedef enum {
 	RIGHT_ADJUST,
 	LEFT_ADJUST
 } ADC_ADLAR;
+#define ADJUST_SETTING 		RIGHT_ADJUST
 
 typedef enum {
 	AREF = 0b00,
@@ -54,6 +55,7 @@ typedef enum {
 	REFS_RESERVED = 0b10,
 	INTERNAL_VOLT = 0b11
 } ADC_REFS;
+#define REFS_SELECT		AVCC
 
 typedef enum {
 	ADEN_DISABLE,
@@ -69,6 +71,7 @@ typedef enum {
 	DISABLE_TRIGGER,
 	ENABLE_TRIGGER
 }ADC_TRIGGER;
+#define TRIGGER_STATUS		DISABLE_TRIGGER
 
 typedef enum {
 	FLAG_NOTSET,
@@ -76,9 +79,10 @@ typedef enum {
 }ADC_FLAG;
 
 typedef enum {
-	DISABLE_INT,
-	ENABLE_INT
+	DISABLE_INTERRUPT,
+	ENABLE_INTERRUPT
 }ADC_INTERRUPT;
+#define INTERRUPT_STATUS		ENABLE_INTERRUPT
 
 typedef enum {
 	PRESCALER_0 = 0b000,
@@ -90,7 +94,7 @@ typedef enum {
 	PRESCALER_64 = 0b110,
 	PRESCALER_128 = 0b111
 } ADC_PRESCALER;
-
+#define PRESCALER		PRESCALER_128
 
 typedef enum {
 	FREE_RUNNING = 0b000,
@@ -102,6 +106,6 @@ typedef enum {
 	TIMER1_OVERFLOW = 0b110,
 	TIMER1_CAPTURE = 0b111
 } ADC_TRIGGER_SOURCE;
-
+#define TRIGGER_SETTING		EXT_INTERRUPT
 
 #endif /* ADC_CONFIG_H_ */

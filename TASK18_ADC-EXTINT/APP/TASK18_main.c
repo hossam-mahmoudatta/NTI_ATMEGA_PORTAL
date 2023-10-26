@@ -2,9 +2,9 @@
  *
  * Application
  *
- * File Name: TASK17_main.c
+ * File Name: TASK18_main.c
  *
- * Description: Application file for testing the ADC with Interrupt
+ * Description: Application file for using the ADC Module with EXT Interrupt
  *
  * Author: Hossam Mahmoud
  *
@@ -17,6 +17,7 @@
  *******************************************************************************/
 
 int main(void) {
+
 	SYSTEM_INITIALIZATION();
 
 	while (1)

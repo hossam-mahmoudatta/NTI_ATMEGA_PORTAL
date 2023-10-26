@@ -30,12 +30,13 @@
 // Initializes and enables the ADC Module to start functionality
 void ADC_voidInit(void);
 
- // Reads the content written to the selected channel of the ADC
+// Reads input Channel & Starts Conversion in Polling Mode
 u16 ADC_voidStartConversionPolling(u8 copy_u8channelSelect);
 
-// Starts Conversion
+// Reads input Channel & Starts Conversion in Interrupt Mode
 void ADC_voidStartConversionISR(u8 copy_u8channelSelect);
 
+// ADC Callback Function
 void ADC_CallBackFunction(void (*Ptr_ADC)(void));
 
 #endif /* ADC_INTERFACE_H_ */

@@ -28,12 +28,13 @@ void SYSTEM_INITIALIZATION(void) {
 	ADC_voidInit();
 	EXTINT_voidSetSenseINTx(EXT_INT0, EXTINT_Falling_Edge);
 	EXTINT_voidEnableINTx(EXT_INT0, NULL);
+	ADC_voidStartConversionISR(CHANNEL_1);
 	GPIO_voidSetPinDirection(PORT_A, PIN_1, PIN_INPUT);
 	GPIO_voidSetPinDirection(PORT_D, PIN_2, PIN_INPUT);
 	LCD_voidSetCursor(0, 0);
 	LCD_voidDisplayString("Resistor Value: ");
 	GLOBINT_voidSetEnableFlag();
-	ADC_voidStartConversionISR(CHANNEL_1);
+	executeISR();
 
 }
 
@@ -47,6 +48,5 @@ void readResistorADC_EXT_ISR(void) {
 }
 
 void executeISR(void) {
-
 	ADC_CallBackFunction(&readResistorADC_EXT_ISR);
 }
