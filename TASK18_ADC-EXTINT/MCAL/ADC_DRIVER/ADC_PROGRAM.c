@@ -43,7 +43,8 @@ void ADC_voidInit(void) {
 	// Enables ADC & Choose Prescaler of 128
 	ADCSRA_REG->ADEN = ADEN_ENABLE;
 	ADCSRA_REG->ADPS = PRESCALER_128;
-	ADCSRA_REG->ADATE = DISABLE_TRIGGER;
+	ADCSRA_REG->ADATE = EXT_INTERRUPT;
+
 
 	/* ADCSRA Register Bits Description:
 	 * 7,	ADEN = 1 Enable ADC

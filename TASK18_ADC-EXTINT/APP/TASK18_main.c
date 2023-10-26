@@ -17,10 +17,10 @@
  *******************************************************************************/
 
 int main(void) {
-	systemInit();
+	SYSTEM_INITIALIZATION();
 
 	while (1)
 	{
-		executeISR();
+
 	}
 }

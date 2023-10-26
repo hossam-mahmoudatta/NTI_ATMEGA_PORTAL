@@ -47,3 +47,4 @@
 
 void systemInit(void);
 void readResistorADC(void);
+void executeISR(void);

@@ -49,6 +49,6 @@
  *                              					 Application Prototypes                      					  *
  *******************************************************************************/
 
-void systemInit(void);
-void readResistorADC_ISR(void);
+void SYSTEM_INITIALIZATION(void);
+void readResistorADC_EXT_ISR(void);
 void executeISR(void);
