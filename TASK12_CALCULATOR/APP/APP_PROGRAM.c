@@ -29,8 +29,6 @@ void systemInit(void) {
 
 void keypadDisplayName(void) {
 	u8 keydata = KEYPAD_u8getPressedKey();
-	u8 variable1 = 0;
-	u8 variable2 = 0;
 	while(keydata==0xff)
 	{
 		keydata = KEYPAD_u8getPressedKey();
