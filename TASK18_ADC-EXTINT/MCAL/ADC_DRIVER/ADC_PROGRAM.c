@@ -55,7 +55,7 @@ void ADC_voidInit(void) {
 
 
 // Start ADC Conversion using Polling
-u16 ADC_voidStartConversionPolling(u8 copy_u8channelSelect) {
+u16 ADC_voidStartConversionPOLLING(u8 copy_u8channelSelect) {
 	// Insert Channel Number in ADMUX Procedure
 	ADMUX_REG->MUX = copy_u8channelSelect;
 
@@ -73,23 +73,18 @@ u16 ADC_voidStartConversionPolling(u8 copy_u8channelSelect) {
 }
 
 // Start ADC Conversion using Interrupts
-void ADC_voidStartConversionISR(u8 copy_u8channelSelect) {
+void ADC_voidStartConversionINTERRUPT(u8 copy_u8channelSelect) {
 	ADMUX_REG->MUX = copy_u8channelSelect;
-
-	// Starts ADC Conversion
-	ADCSRA_REG->ADSC = START_CONVERSION;
 
 	// Enables the Interrupt
 	ADCSRA_REG->ADIE = ENABLE_INTERRUPT;
-
 }
 
 /*
  * Description :
  * Call Back function to use in ISR *
  */
-void ADC_CallBackFunction(void (*Ptr_ADC)(void))
-{
+void ADC_CallBackFunction(void (*Ptr_ADC)(void)) {
 	CallBackPtr_ADC = Ptr_ADC;
 }
 

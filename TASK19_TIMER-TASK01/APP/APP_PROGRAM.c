@@ -20,26 +20,35 @@
 /*******************************************************************************
  *                              					 Application Declarations                      					  *
  *******************************************************************************/
+	//GPIO_voidSetPinDirection(PORT_A, PIN_1, PIN_INPUT);
 
-u16 ADC_Result = 0;
-
-void systemInit(void) {
+void SYSTEM_INITIALIZATION(void) {
 	LCD_voidInit();
-	ADC_voidInit();
-	GPIO_voidSetPinDirection(PORT_A, PIN_1, PIN_INPUT);
-	LCD_voidDisplayString("Resistor Value: ");
+	LED_voidInit(PORT_B, PIN_7);
+	GPIO_voidSetPinDirection(PORT_B, PIN_7, PIN_OUTPUT);
+	LCD_voidSetCursor(0, 0);
+	LCD_voidDisplayString("Testing INT");
 	GLOBINT_voidSetEnableFlag();
-
+	TIMER0_INITIALIZATION();
+	TIMER0_START();
+	TIMER0_setPreload(49);
 }
 
-void readResistorADC_ISR(void) {
-	ADC_Result = ADC_DATA_REG;
-	LCD_voidIntgerToString(ADC_Result);
-	_delay_ms(250);
-	LCD_voidDisplayString("    ");
+void function_ISR(void) {
+	static u8 counter = 0;
+	counter++;
+	//LCD_voidSetCursor(1, 0);
+	//LCD_voidIntgerToString(counter);
+	if(counter == 4)
+	{
+		LED_voidToggle(PORT_B, PIN_7);
+		//LCD_voidSetCursor(1, 0);
+		//LCD_voidDisplayString("Toggled");
+		TIMER0_setPreload(49);
+		counter = 0;
+	}
 }
 
 void executeISR(void) {
-	ADC_voidStartConversionISR(CHANNEL_1);
-	ADC_CallBackFunction(&readResistorADC_ISR);
+	TIMER0_CallBackFunction_OVF(&function_ISR);
 }

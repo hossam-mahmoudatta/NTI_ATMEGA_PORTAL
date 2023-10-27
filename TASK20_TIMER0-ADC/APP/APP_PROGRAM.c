@@ -1,0 +1,56 @@
+/******************************************************************************
+ *
+ * Application
+ *
+ * File Name: TASK17_main.c
+ *
+ * Description: Application file for testing ADC with Interrupts
+ *
+ * Author: Hossam Mahmoud
+ *
+ *******************************************************************************/
+
+
+/*******************************************************************************
+ *                              					 Application Libraries                      					  *
+ *******************************************************************************/
+
+#include "APP_INTERFACE.h"
+
+/*******************************************************************************
+ *                              					 Application Declarations                      					  *
+ *******************************************************************************/
+	//GPIO_voidSetPinDirection(PORT_A, PIN_1, PIN_INPUT);
+u16 ADC_Result = 0;
+
+void SYSTEM_INITIALIZATION(void) {
+	LCD_voidInit();
+	ADC_voidInit();
+	ADC_voidStartConversionISR(CHANNEL_1);
+	LCD_voidSetCursor(0, 0);
+	LCD_voidDisplayString("Testing INT");
+	GLOBINT_voidSetEnableFlag();
+	TIMER0_INITIALIZATION();
+	TIMER0_START();
+	TIMER0_setPreload(49);
+	TIMER0_CallBackFunction_OVF(NULL);
+}
+
+void function_ISR(void) {
+	static u8 counter = 0;
+	counter++;
+	if(counter == 4)
+	{
+		ADC_Result = ADC_DATA_REG;
+		LCD_voidSetCursor(1, 0);
+		LCD_voidIntgerToString(ADC_Result);
+		_delay_ms(250);
+		LCD_voidSetCursor(1, 0);
+		//LCD_voidDisplayString("    ");
+		counter = 0;
+	}
+}
+
+void executeISR(void) {
+	ADC_CallBackFunction(&function_ISR);
+}

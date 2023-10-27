@@ -2,7 +2,7 @@
  *
  * Application
  *
- * File Name: TASK17_main.c
+ * File Name: TASK19_main.c
  *
  * Description: Application file for testing the ADC with Interrupt
  *
@@ -14,13 +14,15 @@
 
 /*******************************************************************************
  *                              					Application Execution                              			  *
+ ************************
  *******************************************************************************/
 
 int main(void) {
-	systemInit();
+	SYSTEM_INITIALIZATION();
+	TIMER0_CallBackFunction_OVF(&function_ISR);
 
 	while (1)
 	{
-		executeISR();
+
 	}
 }
