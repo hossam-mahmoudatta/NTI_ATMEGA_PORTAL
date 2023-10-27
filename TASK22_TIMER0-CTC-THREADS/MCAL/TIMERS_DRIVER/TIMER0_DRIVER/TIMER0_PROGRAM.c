@@ -80,6 +80,26 @@ u8 TIMER0_getTime(void) {
 	return TCNT0_REG;
 }
 
+void TIMER0_setDelay_ms(u16 copy_u16Delay)
+{
+	// Prepare Calculations to calculate OVERFLOWS
+			float Tick_Time = 0;
+			Tick_Time = TIMER0_PRESCALER / (float)F_CPU;
+			float Time_Overflow = Tick_Time * TIMER0_SIZE;
+			float Number_Overflow = floor((copy_u16Delay) / (Time_Overflow));
+
+			static u8 overFlowCounter = 0;
+
+			while (overFlowCounter < Number_Overflow) {
+				// This condition is a Busy Wait
+				while(TIFR_REG->TOV0 == 0);
+
+				// Clear the overflow flag
+				TIFR_REG->TOV0 = 1;
+				overFlowCounter++;
+			}
+			overFlowCounter = 0;
+}
 
 void TIMER0_CallBackFunction_COMP(void (*Ptr_TIMER)(void))
 {

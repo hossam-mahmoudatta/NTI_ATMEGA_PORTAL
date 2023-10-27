@@ -25,7 +25,7 @@
 
 
 #define NUMBITS 8 // no. of bits in the Timer Register
-#define SIZEBITS pow(2, NUMBITS) // Total size of the register
+#define TIMER0_SIZE 	256 // Total size of the register
 
 #define	NORMAL_MODE			1
 #define	PHASEPWM_MODE	0

@@ -32,6 +32,8 @@ void TIMER0_setPreload(u8 preloadValue);
 
 u8 TIMER0_getTime(void);
 
+void TIMER0_voidSetDelay_ms(u16 copy_u16Delay);
+
 void TIMER0_CallBackFunction_COMP(void (*Ptr_TIMER)(void));
 
 void TIMER0_CallBackFunction_OVF(void (*Ptr_TIMER)(void));
