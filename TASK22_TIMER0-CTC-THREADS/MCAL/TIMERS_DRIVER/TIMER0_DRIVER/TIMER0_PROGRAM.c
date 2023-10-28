@@ -86,11 +86,11 @@ void TIMER0_setDelay_ms(u16 copy_u16Delay)
 			float Tick_Time = 0;
 			Tick_Time = TIMER0_PRESCALER / (float)F_CPU;
 			float Time_Overflow = Tick_Time * TIMER0_SIZE;
-			float Number_Overflow = floor((copy_u16Delay) / (Time_Overflow));
+			float Number_Overflow = ceil((copy_u16Delay) / (Time_Overflow));
 
 			static u8 overFlowCounter = 0;
 
-			while (overFlowCounter < Number_Overflow) {
+			while (overFlowCounter != Number_Overflow) {
 				// This condition is a Busy Wait
 				while(TIFR_REG->TOV0 == 0);
 
