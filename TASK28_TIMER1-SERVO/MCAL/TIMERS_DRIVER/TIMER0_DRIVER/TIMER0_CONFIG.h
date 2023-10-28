@@ -27,12 +27,12 @@
 #define NUMBITS 8 // no. of bits in the Timer Register
 #define TIMER0_SIZE 	256 // Total size of the register
 
-#define	NORMAL_MODE		0
-#define	PHASEPWM_MODE	0
-#define	CTC_MODE				0
-#define	FASTPWM_MODE		1
+#define	TIMER0_NORMAL_MODE		0
+#define	TIMER0_PHASEPWM_MODE	0
+#define	TIMER0_CTC_MODE				0
+#define	TIMER0_FASTPWM_MODE		1
 
-#define ISR_ENABLE				1
+#define TIMER0_ISR_ENABLE				1
 
 typedef enum {
 	NO_TIME		 			= 0b000,

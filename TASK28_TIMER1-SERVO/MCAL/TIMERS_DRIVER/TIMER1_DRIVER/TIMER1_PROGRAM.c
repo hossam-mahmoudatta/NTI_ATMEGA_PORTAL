@@ -1,13 +1,107 @@
-/*
- * timer.c
+ /******************************************************************************
  *
- * Created: 8/19/2022 3:44:03 AM
- *  Author: Administrator
- */ 
+ * Module: TIMER1
+ *
+ * File Name: TIMER1_CONFIG.h
+ *
+ * Description: Header file for the TIMER1 Driver MACRO DEFINITIONS
+ *
+ * Author: Hossam Mahmoud
+ *
+ *******************************************************************************/
 
-#include "TIMER_CONFIG.h"
+/*******************************************************************************
+ *                              							Include Libraries						                       		   *
+ *******************************************************************************/
 
-uint8_t TIMER_VERIFER = NULL;
+#include "TIMER1_INTERFACE.h"
+
+/*******************************************************************************
+ *                              							Global Variables				                   	   		  		   *
+ *******************************************************************************/
+
+void (*CallBackPtr_TIMER1_CAPT) (void);
+void (*CallBackPtr_TIMER1_COMPA) (void);
+void (*CallBackPtr_TIMER1_COMPB) (void);
+void (*CallBackPtr_TIMER1_OVF) (void);
+
+/*******************************************************************************
+ *                              						Functions Declarations	                     	   		  		   *
+ *******************************************************************************/
+
+void TIMER1_INITIALIZATION(void) {
+	// Choose Timer Mode
+
+#if (TIMER1_NORMAL_MODE)
+	TCCR1A_REG->FOC1A 	= 1;
+	TCCR1A_REG->FOC1B 	= 1;
+	TCCR1A_REG->WGM1x 	= 0b00;
+	TCCR1B_REG->WGM1x 	= 0b00;
+	TCCR1A_REG->COM1Bx 	= 0b10; // Non Inverting Mode
+	TCCR1A_REG->COM1Ax 	= 0b10; // Non Inverting Mode
+#elif (TIMER1_CTC_MODE)
+	TCCR1A_REG->FOC1A 	= 1;
+	TCCR1A_REG->FOC1B 	= 1;
+	TCCR1A_REG->WGM1x 	= 0b00;
+	TCCR1B_REG->WGM1x 	= 0b01;
+	TCCR1A_REG->COM1Bx 	= 0b10; // Non Inverting Mode
+	TCCR1A_REG->COM1Ax 	= 0b10; // Non Inverting Mode
+#elif (TIMER1_PHASEPWM_MODE)
+	TCCR1A_REG->FOC1A = 0;
+	TCCR1A_REG->FOC1B = 0;
+	TCCR1A_REG->WGM1x = 0b01;
+	TCCR1B_REG->WGM1x = 0b10;
+	TCCR1A_REG->COM1Bx 	= 0b10; // Non Inverting Mode
+	TCCR1A_REG->COM1Ax 	= 0b10; // Non Inverting Mode
+#elif (TIMER1_FASTPWM_MODE)
+	TCCR1A_REG->FOC1A 	= 0;
+	TCCR1A_REG->FOC1B 	= 0;
+	TCCR1A_REG->WGM1x 	= 0b10;
+	TCCR1B_REG->WGM1x 	= 0b11;
+	TCCR1A_REG->COM1Bx 	= 0b10; // Non Inverting Mode
+	TCCR1A_REG->COM1Ax 	= 0b10; // Non Inverting Mode
+#endif
+
+	TCCR1B_REG->CS1x 		= TIMER1_PRESCALER;
+
+#if (TIMER1_ISR_ENABLE)
+	TIMSK_REG->TICIE1 = TIMER1_SET;
+	TIMSK_REG->OCIE1A = TIMER1_SET;
+	TIMSK_REG->OCIE1B = TIMER1_SET;
+	TIMSK_REG->TOIE1 = TIMER1_SET;
+#endif
+}
+
+void TIMER1_voidSTART(void) {
+	// Choose Timer PRESCALER
+	TCCR1B_REG->CS1x = TIMER1_PRESCALER;
+}
+
+
+void TIMER1_voidSTOP(void) {
+	// Choose Timer PRESCALER
+	TCCR1B_REG->CS1x = TIMER1_NO_TIME;
+}
+
+
+void TIMER1_voidSetPreload(u8 copy_u8preloadValue) {
+	// Choose Timer PRESCALER
+	(u16)TCNT1L_REG = copy_u8preloadValue;
+}
+
+
+u16 TIMER1_u16getTime(void) {
+	// Choose Timer PRESCALER
+	return (u16)TCNT1L_REG;
+}
+
+u8 TIMER1_voidSetDutyCycle_FASTPWM(u8 copy_u8Duty)
+{
+	 u8 pwmValue = (u16)(copy_u8Duty * 255) / 100;
+	 GPIO_voidSetPinDirection(PORT_B, PIN_3, PIN_OUTPUT);
+	 OCR0_REG = pwmValue;
+	 return pwmValue;
+}
 
 EN_TIMER_Error_t TIMER_Init(uint32_t prescaler) {
 	
@@ -163,11 +257,53 @@ void TIMER_Start(uint8_t pinNumber, uint8_t portNumber, uint8_t value);
 uint8_t TIMER_Read(uint8_t pinNumber, uint8_t portNumber, uint8_t *value);
 
 
-// if CPU Frequency: 1 MHz, & Prescaler: 1024
-// T_Tick = 1 ms
-// T_Max Delay = 0.262 s
-// No. Overflows = 20
-// I did some calculations on an excel sheet
-// to get the least number of overflows to achieve the delay of 5 seconds
-// I will have to use the 1024 Prescaler, less than that will lead to higher
-// number of overflows
+
+
+void TIMER1_CallBackFunction_CAPT(void (*Ptr_TIMER)(void))
+{
+	CallBackPtr_TIMER1_CAPT = Ptr_TIMER;
+}
+
+void TIMER1_CallBackFunction_COMPA(void (*Ptr_TIMER)(void))
+{
+	CallBackPtr_TIMER1_COMPA = Ptr_TIMER;
+}
+
+void TIMER1_CallBackFunction_COMPB(void (*Ptr_TIMER)(void))
+{
+	CallBackPtr_TIMER1_COMPB = Ptr_TIMER;
+}
+
+void TIMER1_CallBackFunction_OVF(void (*Ptr_TIMER)(void))
+{
+	CallBackPtr_TIMER1_OVF = Ptr_TIMER;
+}
+
+
+void __vector_6(void) __attribute__((signal, used));
+void __vector_6(void) {
+	if(CallBackPtr_TIMER1_CAPT != NULL) {
+		CallBackPtr_TIMER1_CAPT();
+	}
+}
+
+void __vector_7(void) __attribute__((signal, used));
+void __vector_7(void) {
+	if(CallBackPtr_TIMER1_COMPA != NULL) {
+		CallBackPtr_TIMER1_COMPA();
+	}
+}
+
+void __vector_8(void) __attribute__((signal, used));
+void __vector_8(void) {
+	if(CallBackPtr_TIMER1_COMPB != NULL) {
+		CallBackPtr_TIMER1_COMPB();
+	}
+}
+
+void __vector_9(void) __attribute__((signal, used));
+void __vector_9(void) {
+	if(CallBackPtr_TIMER1_OVF != NULL) {
+		CallBackPtr_TIMER1_OVF();
+	}
+}
