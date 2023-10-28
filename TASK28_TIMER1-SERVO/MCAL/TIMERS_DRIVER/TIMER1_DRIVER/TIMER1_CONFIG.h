@@ -32,6 +32,8 @@
 #define TIMER1_SET			1
 #define TIMER1_NOTSET			0
 
+#define TIMER1_SIZE		256
+
 typedef enum {
 	TIMER1_NO_TIME		 			= 0b000,
 	TIMER1_NO_PRESCALER		= 0b001,
@@ -68,15 +70,5 @@ typedef enum {
 } TIMER0_COM_FASTPWM;
 #define TIMER0_COM_FASTPWM_MODE			FASTPWM_NONINVERT
 
-
-EN_TIMER_Error_t TIMER_Init(uint32_t prescaler);
-
-EN_TIMER_Error_t TIMER_DelaySet(uint32_t prescaler, float timeDelay);
-
-void TIMER_CheckStatus(uint8_t pinNumber, uint8_t portNumber);
-
-void TIMER_Start(uint8_t pinNumber, uint8_t portNumber, uint8_t value);
-
-uint8_t TIMER_Read(uint8_t pinNumber, uint8_t portNumber, uint8_t *value);
 
 #endif /* TIMER_H_ */

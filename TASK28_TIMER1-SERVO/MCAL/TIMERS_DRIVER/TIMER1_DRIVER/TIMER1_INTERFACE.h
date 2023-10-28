@@ -23,24 +23,33 @@
  *                              						Functions Prototypes                           					  *
  *******************************************************************************/
 
-void TIMER1_INITIALIZATION(void);
+void TIMER1_Initialization(void);
 
-void TIMER1_voidSTART(void);
+void TIMER1_voidStart(void);
 
-void TIMER1_voidSTOP(void);
+void TIMER1_voidStop(void);
 
 void TIMER1_voidSetPreload(u8 copy_u8preloadValue);
 
-u16 TIMER1_u16getTime(void);
+u16 TIMER1_u16GetTime(void);
 
-EN_TIMER_Error_t TIMER_Init(uint32_t prescaler);
+u16 TIMER1A_SetDutyCycle_FASTPWM(u8 copy_u8Duty);
 
-EN_TIMER_Error_t TIMER_DelaySet(uint32_t prescaler, float timeDelay);
+u16 TIMER1B_SetDutyCycle_FASTPWM(u8 copy_u8Duty);
 
-void TIMER_CheckStatus(uint8_t pinNumber, uint8_t portNumber);
+void TIMER1A_setDelay_ms_CTC(u16 copy_u16Delay);
 
-void TIMER_Start(uint8_t pinNumber, uint8_t portNumber, uint8_t value);
+void TIMER1B_setDelay_ms_CTC(u16 copy_u16Delay);
 
-uint8_t TIMER_Read(uint8_t pinNumber, uint8_t portNumber, uint8_t *value);
+void TIMER1_setDelay_ms_OVF(u16 copy_u16Delay);
+
+void TIMER1_CallBackFunction_CAPT(void (*Ptr_TIMER)(void));
+
+void TIMER1_CallBackFunction_COMPA(void (*Ptr_TIMER)(void));
+
+void TIMER1_CallBackFunction_COMPB(void (*Ptr_TIMER)(void));
+
+void TIMER1_CallBackFunction_OVF(void (*Ptr_TIMER)(void));
+
 
 #endif /* TIMER_H_ */

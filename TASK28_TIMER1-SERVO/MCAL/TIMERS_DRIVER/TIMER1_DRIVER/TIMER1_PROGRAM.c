@@ -29,7 +29,7 @@ void (*CallBackPtr_TIMER1_OVF) (void);
  *                              						Functions Declarations	                     	   		  		   *
  *******************************************************************************/
 
-void TIMER1_INITIALIZATION(void) {
+void TIMER1_Initialization(void) {
 	// Choose Timer Mode
 
 #if (TIMER1_NORMAL_MODE)
@@ -72,13 +72,13 @@ void TIMER1_INITIALIZATION(void) {
 #endif
 }
 
-void TIMER1_voidSTART(void) {
+void TIMER1_voidStart(void) {
 	// Choose Timer PRESCALER
 	TCCR1B_REG->CS1x = TIMER1_PRESCALER;
 }
 
 
-void TIMER1_voidSTOP(void) {
+void TIMER1_voidStop(void) {
 	// Choose Timer PRESCALER
 	TCCR1B_REG->CS1x = TIMER1_NO_TIME;
 }
@@ -86,178 +86,93 @@ void TIMER1_voidSTOP(void) {
 
 void TIMER1_voidSetPreload(u8 copy_u8preloadValue) {
 	// Choose Timer PRESCALER
-	(u16)TCNT1L_REG = copy_u8preloadValue;
+	TCNT1L_REG = copy_u8preloadValue;
 }
 
 
-u16 TIMER1_u16getTime(void) {
+u16 TIMER1_u16GetTime(void) {
 	// Choose Timer PRESCALER
 	return (u16)TCNT1L_REG;
 }
 
-u8 TIMER1_voidSetDutyCycle_FASTPWM(u8 copy_u8Duty)
+u16 TIMER1A_SetDutyCycle_FASTPWM(u8 copy_u8Duty)
 {
-	 u8 pwmValue = (u16)(copy_u8Duty * 255) / 100;
-	 GPIO_voidSetPinDirection(PORT_B, PIN_3, PIN_OUTPUT);
-	 OCR0_REG = pwmValue;
-	 return pwmValue;
+	 u16 PWMValue = (u16)(copy_u8Duty * 255) / 100;
+	 GPIO_voidSetPinDirection(PORT_D, PIN_5, PIN_OUTPUT);
+	 OCR1AL_REG = PWMValue;
+	 return PWMValue;
 }
 
-EN_TIMER_Error_t TIMER_Init(uint32_t prescaler) {
-	
-	// Initializes the Timer0
-	// Sets TCCR0 to 0
-	// Assumption that the Timer is in Normal Mode
-	// This function gets input of the prescaler
-	
-	// Choose Timer Mode
-	TCCR0 = 0x00; // Normal Mode
-	
-	switch(prescaler) {
-		
-		case PRESCALER_NO:
-			CLR_BIT(TCCR0, PIN_0);
-			CLR_BIT(TCCR0, PIN_1);
-			CLR_BIT(TCCR0, PIN_2);
-			TIMER_VERIFER = TIMER_OK;
-		break;
-		
-		case PRESCALER_1024:
-			SET_BIT(TCCR0, PIN_0);
-			CLR_BIT(TCCR0, PIN_1);
-			SET_BIT(TCCR0, PIN_2);
-			TIMER_VERIFER = TIMER_OK;
-		break;
-		
-		case PRESCALER_256:
-			CLR_BIT(TCCR0, PIN_0);
-			CLR_BIT(TCCR0, PIN_1);
-			SET_BIT(TCCR0, PIN_2);
-			TIMER_VERIFER = TIMER_OK;
-		break;
-		
-		case PRESCALER_64:
-			SET_BIT(TCCR0, PIN_0);
-			SET_BIT(TCCR0, PIN_1);
-			CLR_BIT(TCCR0, PIN_2);
-			TIMER_VERIFER = TIMER_OK;
-		break;
-		
-		case PRESCALER_8:
-			CLR_BIT(TCCR0, PIN_0);
-			SET_BIT(TCCR0, PIN_1);
-			CLR_BIT(TCCR0, PIN_2);
-			TIMER_VERIFER = TIMER_OK;
-		break;
-		
-		case PRESCALER_0:
-			SET_BIT(TCCR0, PIN_0);
-			CLR_BIT(TCCR0, PIN_1);
-			CLR_BIT(TCCR0, PIN_2);
-			TIMER_VERIFER = TIMER_OK;
-		break;
-			
-		default:
-			TIMER_VERIFER = TIMER_WRONG_PRESCALER;
-		break;
-	}
-	return TIMER_VERIFER;
+u16 TIMER1B_SetDutyCycle_FASTPWM(u8 copy_u8Duty)
+{
+	 u16 PWMValue = (u16)(copy_u8Duty * 255) / 100;
+	 GPIO_voidSetPinDirection(PORT_D, PIN_4, PIN_OUTPUT);
+	 OCR1BL_REG = PWMValue;
+	 return PWMValue;
 }
 
-EN_TIMER_Error_t TIMER_DelaySet(uint32_t prescaler, float timeDelay) {
-	
-	// Sets the delay of Timer0
-	// Checks if the Timer_Init returns 0, which means Timer is OK
-	// Checks if the entered delay is valid
-	// Calculates the overflow amount
-	// Sets TCNT0 to 0
-	// Sets overflow counter to 0
-	// Compares overflow counter with overflow amount in a loop
-	// Executes a busy wait function
-	// Then clears the TIFR by setting it
-	// Iterates Overflow Counter
-	
-	if ( TIMER_Init(prescaler) != TIMER_OK ) {
-		TIMER_VERIFER = TIMER_WRONG_PRESCALER;
-	}
-	else if ( timeDelay == NULL ) {
-		TIMER_VERIFER = TIMER_WRONG_DELAYVALUE;
-	}
-	else {
-		// Prepare Calculations to calculate OVERFLOWS
-		float Tick_Time = 0;
-		Tick_Time = prescaler / (float)CPU_FREQ;
-		float MaxDelay_Time = Tick_Time * SIZEBITS;
-		float overflowAmount = floor((timeDelay) / (MaxDelay_Time));
+void TIMER1A_setDelay_ms_CTC(u16 copy_u16Delay)
+{
+	// Prepare Calculations to calculate OVERFLOWS
+			float Tick_Time = 0.001;
+			// This will set the Tick Time 1mS
+			u16 compareValue = (Tick_Time * (float)F_CPU) / TIMER1_PRESCALER_64;
+			TCNT1L_REG = compareValue;
 
-		uint8_t overFlowCounter = 0;
-	
-		TCNT0 = 0x00;	
-	
-		//            Algorithm 2(WORKING!)          //
-		while (overFlowCounter < overflowAmount) {
-			// This function is a Busy Wait
-			while ((TIFR & (1 << 0)) == 0);
-		
-			// Clear the overflow flag
-			TIFR |= (1 << 0);
-		
-			overFlowCounter++;
-		}
-		overFlowCounter = 0;
-		TCNT0 = 0x00;
-		
-		TIMER_VERIFER = TIMER_OK;
-	}
-	
-	return TIMER_VERIFER;
-	
-	//             End of Algorithm 2            //
-	
-	
-	/*	
-	//                Algorithm 3                //
-	//TCNT0 Register must be SIZEBITS - overflowAmount, to set delay
-	//TCNT0 = SIZEBITS - overflowAmount;
-	TCNT0 = 0xEB;
-	// This function is a Busy Wait
-	while ((TIFR & (1 << 0)) == 0);	
-	
-	TCCR0 = 0x00;
-	
-	// Clear the overflow flag
-	TIFR |= (1 << 0);
-	//             End of Algorithm 3            //
-	*/
+			static u8 overFlowCounter = 0;
 
-	
-	/*
-	//                Algorithm 1                //
-	// This function is a Busy Wait
-	while ((TIFR & (1 << 0)) == 0);	
-	TCNT0 = 0x00;
-	
-	// Clear the overflow flag
-	TIFR |= (1 << 0);
-	
-	overFlowCounter++;
-	
-	if (overFlowCounter >= overflowAmount) {
-		
-		overFlowCounter = 0;	
-	}
-	//             End of Algorithm 1            //
-	*/
+			while (overFlowCounter != copy_u16Delay) {
+				// This condition is a Busy Wait
+				while(TIFR_REG->OCF1A == TIMER1_NOTSET);
+
+				// Clear the overflow flag
+				TIFR_REG->OCF1A = TIMER1_SET;
+				overFlowCounter++;
+			}
+			overFlowCounter = 0;
 }
 
-void TIMER_CheckStatus(uint8_t pinNumber, uint8_t portNumber);
+void TIMER1B_setDelay_ms_CTC(u16 copy_u16Delay)
+{
+	// Prepare Calculations to calculate OVERFLOWS
+			float Tick_Time = 0.001;
+			// This will set the Tick Time 1mS
+			u16 compareValue = (Tick_Time * (float)F_CPU) / TIMER1_PRESCALER_64;
+			TCNT1L_REG = compareValue;
 
-void TIMER_Start(uint8_t pinNumber, uint8_t portNumber, uint8_t value);
+			static u8 overFlowCounter = 0;
 
-uint8_t TIMER_Read(uint8_t pinNumber, uint8_t portNumber, uint8_t *value);
+			while (overFlowCounter != copy_u16Delay) {
+				// This condition is a Busy Wait
+				while(TIFR_REG->OCF1B == TIMER1_NOTSET);
 
+				// Clear the overflow flag
+				TIFR_REG->OCF1B = TIMER1_SET;
+				overFlowCounter++;
+			}
+			overFlowCounter = 0;
+}
 
+void TIMER1_setDelay_ms_OVF(u16 copy_u16Delay)
+{
+	// Prepare Calculations to calculate OVERFLOWS
+			float Tick_Time = 0;
+			Tick_Time = TIMER1_PRESCALER / (float)F_CPU;
+			float Time_Overflow = Tick_Time * TIMER1_SIZE;
+			float Number_Overflow = ceil((copy_u16Delay) / (Time_Overflow));
 
+			static u8 overFlowCounter = 0;
+
+			while (overFlowCounter != Number_Overflow) {
+				// This condition is a Busy Wait
+				while(TIFR_REG->TOV1 == TIMER1_NOTSET);
+
+				// Clear the overflow flag
+				TIFR_REG->TOV1 = TIMER1_SET;
+				overFlowCounter++;
+			}
+			overFlowCounter = 0;
+}
 
 void TIMER1_CallBackFunction_CAPT(void (*Ptr_TIMER)(void))
 {
