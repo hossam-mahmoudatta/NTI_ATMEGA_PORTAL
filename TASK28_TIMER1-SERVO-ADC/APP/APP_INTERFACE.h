@@ -37,7 +37,7 @@
 
 #include "../ECUAL/LED_DRIVER/LED_INTERFACE.h"
 #include "../ECUAL/LCD_DRIVER/LCD_INTERFACE.h"
-
+#include "../ECUAL/SERVO_DRIVER/SERVO_INTERFACE.h"
 //#include "../ECUAL/LM35_DRIVER/LM35.h"
 //#include "../ECUAL/EEPROM_DRIVER/EEPROM.h"
 //#include "../ECUAL/BUTTON_DRIVER/BUTTON.h"
@@ -50,7 +50,9 @@
  *******************************************************************************/
 
 // Initializing Needed Modules
-void SYSTEM_INITIALIZATION(void);
+void System_Initialization(void);
+void executeMain(void);
+
 void adjustServo(void);
 u16 mapServo(u16 copy_u16ADCValue);
 void functionISR(void);

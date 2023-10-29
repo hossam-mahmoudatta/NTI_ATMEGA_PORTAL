@@ -21,12 +21,12 @@
  *                              					 Application Declarations                      					  *
  *******************************************************************************/
 
-u16 ADC_Result = 0;
-u8 Mapping = 0;
-u16 angleValue = 0;
-u16 CMP_Value = 0;
+//u16 ADC_Result = 0;
+//u8 Mapping = 0;
+//u16 angleValue = 0;
+//u16 CMP_Value = 0;
 
-void SYSTEM_INITIALIZATION(void) {
+void System_Initialization(void) {
 	// Initializing LCD Module
 	LCD_voidInit();
 	LCD_voidSetCursor(0, 0);
@@ -35,28 +35,30 @@ void SYSTEM_INITIALIZATION(void) {
 	LCD_voidDisplayString("Angle: ");
 	GPIO_voidSetPinDirection(PORT_D, PIN_5, PIN_OUTPUT);
 
-	ADC_voidInit();
+	SERVO_voidInit();
 
-	// Initializing Timer0 Module
-	TIMER1_Initialization();
-	TIMER1A_SetTop_FASTPWM();
-
-}
-
-void adjustServo(void){
-	ADC_Result = ADC_voidStartConversionPolling(CHANNEL_1);
-	angleValue = mapServo(ADC_Result);
-	CMP_Value = TIMER1A_SetCOMPAREMATCH_FASTPWM(angleValue);
-	LCD_voidSetCursor(1, 7);
-	LCD_voidIntgerToString(CMP_Value);
+//	// Initializing ADC Module
+//	ADC_voidInit();
+//
+//	// Initializing Timer0 Module
+//	TIMER1_Initialization();
+//	TIMER1A_SetTop_FASTPWM(2000);
 
 }
 
-u16 mapServo(u16 copy_u16ADCValue){
-	u16 servoAngle = (u16)(copy_u16ADCValue * 255) / 100;
-	return servoAngle;
-
+void executeMain(void) {
+	SERVO_voidAdjustAngle();
 }
+//void adjustServo(void){
+//	ADC_Result = ADC_voidStartConversionPolling(CHANNEL_1);
+//	angleValue = mapServo(ADC_Result);
+//	CMP_Value = TIMER1A_SetCOMPAREMATCH_FASTPWM(angleValue);
+//	LCD_voidSetCursor(1, 7);
+//	LCD_voidIntgerToString(CMP_Value);
+//
+//}
+
+
 
 
 

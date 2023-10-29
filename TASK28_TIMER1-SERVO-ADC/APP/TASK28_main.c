@@ -18,11 +18,11 @@
 
 int main(void)
 {
-	SYSTEM_INITIALIZATION();
+	System_Initialization();
 
 	while (1)
 	{
-		adjustServo();
+		executeMain();
 	}
 }
 
