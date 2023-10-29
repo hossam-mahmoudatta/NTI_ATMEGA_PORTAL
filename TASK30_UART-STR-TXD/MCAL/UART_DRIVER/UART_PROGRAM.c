@@ -123,7 +123,7 @@ u8 UART_voidReceiveByte_Polling(void) {
 
 // Responsible for the USART to send an array of bytes, a string
 void UART_voidSendString(const u8 *str) {
-	u8 i = 0;
+	u16 i = 0;
 	while (str[i] != '\0') {
 		UART_voidSendByte_Polling(str[i]);
 		i++;
@@ -133,7 +133,7 @@ void UART_voidSendString(const u8 *str) {
 
 // Responsible for the USART to receive an array of bytes, a string
 void UART_voidReceiveString(u8 *str) {
-	u8 i = 0;
+	u16 i = 0;
 	str[i] = UART_voidReceiveByte_Polling();
 
 	while (str[i] != '#') {

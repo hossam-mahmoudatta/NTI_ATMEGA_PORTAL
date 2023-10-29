@@ -4,7 +4,7 @@
  *
  * File Name: APP_Program.c
  *
- * Description: Application file for testing ADC with Interrupts
+ * Description: Application file for testing UART with Strings
  *
  * Author: Hossam Mahmoud
  *
@@ -48,27 +48,27 @@ void executeMain_TXD(void) {
 	}
 	if(KeyData == '7') {
 		LCD_voidSetCursor(1, 0);
-		LCD_voidDisplayString("Sending..");
-		UART_voidSendByte_Polling('h');
-		//UART_voidSendString((u8*)"Hossam");
+		LCD_voidDisplayString("7Sending..");
+		//UART_voidSendByte_Polling('h');
+		UART_voidSendString((u8*)"Hossam#");
 		LCD_voidClearScreen();
 		LCD_voidSetCursor(1, 0);
 		LCD_voidDisplayString("Done!");
 	}
 	else if(KeyData == '8') {
 		LCD_voidSetCursor(1, 0);
-		LCD_voidDisplayString("Sending..");
-		UART_voidSendByte_Polling('O');
-		//UART_voidSendString((u8*)"Mahmoud");
+		LCD_voidDisplayString("8Sending..");
+		//UART_voidSendByte_Polling('O');
+		UART_voidSendString((u8*)"Mahmoud#");
 		LCD_voidClearScreen();
 		LCD_voidSetCursor(1, 0);
 		LCD_voidDisplayString("Done!");
 	}
 	else if(KeyData == '9') {
 		LCD_voidSetCursor(1, 0);
-		LCD_voidDisplayString("Sending..");
-		UART_voidSendByte_Polling('X');
-		//UART_voidSendString((u8*)"Atta");
+		LCD_voidDisplayString("9Sending..");
+		//UART_voidSendByte_Polling('X');
+		UART_voidSendString((u8*)"Atta#");
 		LCD_voidClearScreen();
 		LCD_voidSetCursor(1, 0);
 		LCD_voidDisplayString("Done!");

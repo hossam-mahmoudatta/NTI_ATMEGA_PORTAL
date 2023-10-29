@@ -4,7 +4,7 @@
  *
  * File Name: APP_Program.c
  *
- * Description: Application file for testing ADC with Interrupts
+ * Description: Application file for testing UART with Strings
  *
  * Author: Hossam Mahmoud
  *
@@ -22,7 +22,7 @@
  *******************************************************************************/
 
 u8 KeyData = 0;
-u8 CHARReceived = 0;
+u8* CHARReceived = 0;
 
 void System_Initialization(void) {
 	// Initializing LCD Module
@@ -42,12 +42,12 @@ void System_Initialization(void) {
 }
 
 void executeMain_RXD(void) {
-	UART_voidReceiveByte_Polling();
+	USART_voidReceiveString(CHARReceived);
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Receiving..");
 	LCD_voidSetCursor(2, 0);
-	LCD_voidSendData(UDR_REG);
-	//LCD_voidDisplayString(stringReceived);
+	LCD_voidDisplayString(CHARReceived);
+	//LCD_voidSendData(UDR_REG);
 	LCD_voidSetCursor(3, 0);
 	LCD_voidDisplayString("Done!");
 
