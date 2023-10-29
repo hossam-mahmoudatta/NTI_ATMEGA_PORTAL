@@ -11012,18 +11012,18 @@ void executeMain_RXD(void) {
     475e:	cf 93       	push	r28
     4760:	cd b7       	in	r28, 0x3d	; 61
     4762:	de b7       	in	r29, 0x3e	; 62
-	UART_voidReceiveString(stringReceived);
-    4764:	80 91 bd 01 	lds	r24, 0x01BD
-    4768:	90 91 be 01 	lds	r25, 0x01BE
-    476c:	0e 94 1f 08 	call	0x103e	; 0x103e <UART_voidReceiveString>
 	LCD_voidSetCursor(1, 0);
-    4770:	81 e0       	ldi	r24, 0x01	; 1
-    4772:	60 e0       	ldi	r22, 0x00	; 0
-    4774:	0e 94 4e 22 	call	0x449c	; 0x449c <LCD_voidSetCursor>
+    4764:	81 e0       	ldi	r24, 0x01	; 1
+    4766:	60 e0       	ldi	r22, 0x00	; 0
+    4768:	0e 94 4e 22 	call	0x449c	; 0x449c <LCD_voidSetCursor>
 	LCD_voidDisplayString("Receiving..");
-    4778:	85 e7       	ldi	r24, 0x75	; 117
-    477a:	90 e0       	ldi	r25, 0x00	; 0
-    477c:	0e 94 25 22 	call	0x444a	; 0x444a <LCD_voidDisplayString>
+    476c:	85 e7       	ldi	r24, 0x75	; 117
+    476e:	90 e0       	ldi	r25, 0x00	; 0
+    4770:	0e 94 25 22 	call	0x444a	; 0x444a <LCD_voidDisplayString>
+	UART_voidReceiveString(stringReceived);
+    4774:	80 91 bd 01 	lds	r24, 0x01BD
+    4778:	90 91 be 01 	lds	r25, 0x01BE
+    477c:	0e 94 1f 08 	call	0x103e	; 0x103e <UART_voidReceiveString>
 	LCD_voidSetCursor(2, 0);
     4780:	82 e0       	ldi	r24, 0x02	; 2
     4782:	60 e0       	ldi	r22, 0x00	; 0

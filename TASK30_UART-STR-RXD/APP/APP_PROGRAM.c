@@ -42,9 +42,9 @@ void System_Initialization(void) {
 }
 
 void executeMain_RXD(void) {
-	UART_voidReceiveString(stringReceived);
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Receiving..");
+	UART_voidReceiveString(stringReceived);
 	LCD_voidSetCursor(2, 0);
 	LCD_voidDisplayString(stringReceived);
 	//LCD_voidSendData(UDR_REG);
