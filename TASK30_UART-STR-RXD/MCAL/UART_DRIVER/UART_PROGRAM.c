@@ -95,6 +95,8 @@ void UART_Initialization(void) {
 // Responsible for the USART to send a byte
 void UART_voidSendByte_Polling(const u8 data) {
 	while(UCSRA_REG->UDRE == 0);
+	//UCSRA_REG->TXC = 1;
+
 	UDR_REG = data;
 
 	/*
@@ -117,6 +119,8 @@ void UART_voidSendByte_Polling(const u8 data) {
 u8 UART_voidReceiveByte_Polling(void) {
 	// This is waiting for the flag to be set to '0' to know that I received data
 	while(UCSRA_REG->RXC == 0);
+	//UCSRA_REG->RXC = 1;
+
 	return UDR_REG;		// When reading
 }
 

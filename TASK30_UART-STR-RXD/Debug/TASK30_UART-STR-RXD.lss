@@ -2061,6 +2061,8 @@ void UART_voidSendByte_Polling(const u8 data) {
      fb6:	80 72       	andi	r24, 0x20	; 32
      fb8:	88 23       	and	r24, r24
      fba:	d1 f3       	breq	.-12     	; 0xfb0 <UART_voidSendByte_Polling+0xc>
+	//UCSRA_REG->TXC = 1;
+
 	UDR_REG = data;
      fbc:	ec e2       	ldi	r30, 0x2C	; 44
      fbe:	f0 e0       	ldi	r31, 0x00	; 0
@@ -2094,6 +2096,8 @@ u8 UART_voidReceiveByte_Polling(void) {
      fda:	80 78       	andi	r24, 0x80	; 128
      fdc:	88 23       	and	r24, r24
      fde:	d1 f3       	breq	.-12     	; 0xfd4 <UART_voidReceiveByte_Polling+0x8>
+	//UCSRA_REG->RXC = 1;
+
 	return UDR_REG;		// When reading
      fe0:	ec e2       	ldi	r30, 0x2C	; 44
      fe2:	f0 e0       	ldi	r31, 0x00	; 0
