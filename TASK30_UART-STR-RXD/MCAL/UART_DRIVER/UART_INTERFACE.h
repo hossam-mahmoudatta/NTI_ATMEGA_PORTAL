@@ -32,6 +32,6 @@ u8 UART_voidReceiveByte_Polling(void);
 void UART_voidSendString(const u8 *str);
 
 // Responsible for the USART to receive an array of bytes, a string
-void USART_voidReceiveString(u8 *str);
+void UART_voidReceiveString(u8 *str);
 
 #endif /* USART_H_ */

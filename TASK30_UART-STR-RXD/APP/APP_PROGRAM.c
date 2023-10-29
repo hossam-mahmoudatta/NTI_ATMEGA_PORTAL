@@ -22,7 +22,7 @@
  *******************************************************************************/
 
 u8 KeyData = 0;
-u8* CHARReceived = 0;
+u8* stringReceived = 0;
 
 void System_Initialization(void) {
 	// Initializing LCD Module
@@ -42,11 +42,11 @@ void System_Initialization(void) {
 }
 
 void executeMain_RXD(void) {
-	USART_voidReceiveString(CHARReceived);
+	UART_voidReceiveString(stringReceived);
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Receiving..");
 	LCD_voidSetCursor(2, 0);
-	LCD_voidDisplayString(CHARReceived);
+	LCD_voidDisplayString(stringReceived);
 	//LCD_voidSendData(UDR_REG);
 	LCD_voidSetCursor(3, 0);
 	LCD_voidDisplayString("Done!");

@@ -31,7 +31,10 @@
 #define UART_9_BITSIZE			7
 #define UART_BITSIZE	UART_8_BITSIZE
 
-#define UBRR_VAL		103
+#define UBRR_16MHz_9600		103
+#define UBRR_8MHz_9600			51
+#define UBRR_1MHz_9600			6
+#define UBRR_VALUE					UBRR_1MHz_9600
 
 typedef enum {
     UART_NORMAL_SPEED,
