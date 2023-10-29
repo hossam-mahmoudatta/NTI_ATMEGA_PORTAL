@@ -28,6 +28,7 @@
 #include "../MCAL/ADC_DRIVER/ADC_INTERFACE.h"
 #include "../MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_INTERFACE.h"
 #include "../MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_INTERFACE.h"
+#include "../MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_INTERFACE.h"
 #include "../MCAL/GLOBAL_INTERRUPT_DRIVER/GLOBAL_INTERRUPT_INTERFACE.h"
 
 /*******************************************************************************
@@ -50,6 +51,8 @@
 
 // Initializing Needed Modules
 void SYSTEM_INITIALIZATION(void);
+void adjustServo(void);
+u16 mapServo(u16 copy_u16ADCValue);
 void functionISR(void);
 void executeISR(void);
 

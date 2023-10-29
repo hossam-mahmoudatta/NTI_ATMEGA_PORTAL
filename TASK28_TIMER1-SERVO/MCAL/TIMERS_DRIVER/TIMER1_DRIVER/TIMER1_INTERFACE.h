@@ -33,6 +33,10 @@ void TIMER1_voidSetPreload(u8 copy_u8preloadValue);
 
 u16 TIMER1_u16GetTime(void);
 
+u16 TIMER1A_SetCOMPAREMATCH_FASTPWM(u16 copy_u16CMP);
+
+void TIMER1A_SetTop_FASTPWM(void);
+
 u16 TIMER1A_SetDutyCycle_FASTPWM(u8 copy_u8Duty);
 
 u16 TIMER1B_SetDutyCycle_FASTPWM(u8 copy_u8Duty);

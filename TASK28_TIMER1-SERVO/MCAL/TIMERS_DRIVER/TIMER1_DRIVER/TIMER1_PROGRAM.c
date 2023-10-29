@@ -63,6 +63,7 @@ void TIMER1_Initialization(void) {
 #endif
 
 	TCCR1B_REG->CS1x 		= TIMER1_PRESCALER;
+	OCR1AL_REG = 500;
 
 #if (TIMER1_ISR_ENABLE)
 	TIMSK_REG->TICIE1 = TIMER1_SET;
@@ -74,7 +75,7 @@ void TIMER1_Initialization(void) {
 
 void TIMER1_voidStart(void) {
 	// Choose Timer PRESCALER
-	TCCR1B_REG->CS1x = TIMER1_PRESCALER;
+	//TCCR1B_REG->CS1x = TIMER1_PRESCALER;
 }
 
 
@@ -93,6 +94,20 @@ void TIMER1_voidSetPreload(u8 copy_u8preloadValue) {
 u16 TIMER1_u16GetTime(void) {
 	// Choose Timer PRESCALER
 	return (u16)TCNT1L_REG;
+}
+
+
+u16 TIMER1A_SetCOMPAREMATCH_FASTPWM(u16 copy_u16CMP)
+{
+	 u16 Value = copy_u16CMP;
+	 GPIO_voidSetPinDirection(PORT_D, PIN_5, PIN_OUTPUT);
+	 OCR1AL_REG = copy_u16CMP;
+	 return Value;
+}
+
+void TIMER1A_SetTop_FASTPWM(void)
+{
+	 ICR1L_REG = 20000;
 }
 
 u16 TIMER1A_SetDutyCycle_FASTPWM(u8 copy_u8Duty)
