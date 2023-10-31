@@ -31,7 +31,7 @@
 #include "../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h"
 #include "../MCAL/SPI_DRIVER/SPI_INTERFACE.h"
 //#include "../MCAL/ADC_DRIVER/ADC_INTERFACE.h"
-//#include "../MCAL/UART_DRIVER/UART_INTERFACE.h"
+#include "../MCAL/UART_DRIVER/UART_INTERFACE.h"
 
 /*******************************************************************************
  *                              						  ECUAL Drivers                           				  *
@@ -39,7 +39,7 @@
 
 //#include "../ECUAL/LED_DRIVER/LED_INTERFACE.h"
 #include "../ECUAL/LCD_DRIVER/LCD_INTERFACE.h"
-#include "../ECUAL/KEYPAD_DRIVER/KEYPAD_INTERFACE.h"
+//#include "../ECUAL/KEYPAD_DRIVER/KEYPAD_INTERFACE.h"
 
 //#include "../ECUAL/SERVO_DRIVER/SERVO_INTERFACE.h"
 //#include "../ECUAL/LM35_DRIVER/LM35.h"

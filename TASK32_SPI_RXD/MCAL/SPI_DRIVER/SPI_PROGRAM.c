@@ -22,17 +22,18 @@
 
 // Initializes and enables the Master mode for the SPI Module to start functionality
 void SPI_voidInitialization_Master(void) {
-	GPIO_voidSetPinDirection(PORT_B, SS, PIN_INPUT);
+	//GPIO_voidSetPinDirection(PORT_B, SS, PIN_INPUT);
 	GPIO_voidSetPinDirection(PORT_B, MOSI, PIN_OUTPUT);
 	GPIO_voidSetPinDirection(PORT_B, MISO, PIN_INPUT);
 	GPIO_voidSetPinDirection(PORT_B, SCK, PIN_OUTPUT);
 
 
-	GPIO_voidSetPinValue(PORT_B, SS, LOGIC_HIGH);
+	//GPIO_voidSetPinValue(PORT_B, SS, LOGIC_HIGH);
 
 	SPCR_REG->MSTR = 1;
 	SPCR_REG->SPE = 1;
 	SPCR_REG->SPRx = SPI_CLOCK_RATE;
+	SPCR_REG->DORD = 1;
 
 
 }
@@ -46,9 +47,10 @@ void SPI_voidInitialization_Slave(void) {
 
 	GPIO_voidSetPinValue(PORT_B, SS, LOGIC_LOW);
 
-	SPCR_REG->MSTR = 0;// Enabling the Master / Slave Mode; I will choose Master
 	SPCR_REG->SPE = 1;// Enabling the SPI Module
-	//SPCR_REG->SPRx = SPI_CLOCK_RATE;// Choosing the SCK rate, Fosc / 4
+	SPCR_REG->MSTR = 0;// Enabling the Master / Slave Mode; I will choose Master
+	SPCR_REG->SPRx = SPI_CLOCK_RATE;// Choosing the SCK rate, Fosc / 4
+	SPCR_REG->DORD = 1;
 }
 
 

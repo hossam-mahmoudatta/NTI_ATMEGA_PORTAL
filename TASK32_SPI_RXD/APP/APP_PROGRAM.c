@@ -30,10 +30,13 @@ void System_Initialization(void) {
 	LCD_voidDisplayString("SPI RECEIVE");
 
 	// Initializing Keypad
-	KEYPAD_voidInit();
+	//KEYPAD_voidInit();
 
 	// Initializing SPI Module Slave
 	SPI_voidInitialization_Slave();
+	UART_Initialization();
+	GPIO_voidSetPinDirection(PORT_D, PIN_0, PIN_INPUT);
+	GPIO_voidSetPinDirection(PORT_D, PIN_1, PIN_OUTPUT);
 	_delay_ms(1000);
 }
 
@@ -48,6 +51,8 @@ void executeMain_RXD(void) {
 	LCD_voidSendData(receivedChar);
 	LCD_voidSetCursor(3, 0);
 	LCD_voidDisplayString("Done!");
+
+	UART_voidSendByte_Polling(receivedChar + '0');
 
 }
 

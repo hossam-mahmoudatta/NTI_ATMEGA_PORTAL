@@ -22,7 +22,7 @@
  *******************************************************************************/
 u8 data = '5';
 u8 KeyData = 0;
-u8 *str = "7oda#";
+//u8 *str = "7oda#";
 
 void System_Initialization(void) {
 	// Initializing LCD Module
@@ -31,7 +31,7 @@ void System_Initialization(void) {
 	LCD_voidDisplayString("SPI TRANSMIT");
 
 	// Initializing Keypad
-	KEYPAD_voidInit();
+	//KEYPAD_voidInit();
 
 	// Initializing SPI Module Master
 	SPI_voidInitialization_Master();
