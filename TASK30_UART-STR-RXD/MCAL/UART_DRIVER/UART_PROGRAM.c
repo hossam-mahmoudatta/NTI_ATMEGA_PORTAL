@@ -119,6 +119,7 @@ void UART_voidSendByte_Polling(const u8 data) {
 u8 UART_voidReceiveByte_Polling(void) {
 	// This is waiting for the flag to be set to '0' to know that I received data
 	while(UCSRA_REG->RXC == 0);
+	//UCSRA_REG->RXC = 1;
 
 	return UDR_REG;		// When reading
 }
@@ -126,11 +127,10 @@ u8 UART_voidReceiveByte_Polling(void) {
 
 // Responsible for the USART to send an array of bytes, a string
 void UART_voidSendString(const u8 *str) {
-	while(*str)
+	u8 i = 0;
+	for(i = 0 ; str[i] ; i++)
 	{
-		while(UCSRA_REG->UDRE == 0);
-		UDR_REG = *str++;
-		while(UCSRA_REG->TXC == 0);
+		UART_voidSendByte_Polling(str[i]);
 	}
 }
 
@@ -138,25 +138,13 @@ void UART_voidSendString(const u8 *str) {
 // Responsible for the USART to receive an array of bytes, a string
 void UART_voidReceiveString(u8 *str) {
 	u8 i = 0;
-	u8 maxLength = 20;
-	u8 receivedCharacter;
-
-	while(i < (maxLength - 1))
+	str[0] = UART_voidReceiveByte_Polling();
+	for(; str[i] != 0x0d ;)
 	{
-		receivedCharacter = UART_voidReceiveByte_Polling();
-
-		if(receivedCharacter == '\n' || receivedCharacter == '#')
-		{
-			str[i] = '\0';
-			return;
-		}
-		else
-		{
-			str[i] = receivedCharacter;
-			i++;
-		}
+		i++;
+		str[i] = UART_voidReceiveByte_Polling();
 	}
-	str[maxLength - 1] = '\0';
+	str[i] = 0;
 }
 
 

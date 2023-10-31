@@ -21,7 +21,7 @@
  *                              					 Application Declarations                      					  *
  *******************************************************************************/
 
-u8 str;
+u8 receivedChar = 0;
 
 void System_Initialization(void) {
 	// Initializing LCD Module
@@ -34,19 +34,18 @@ void System_Initialization(void) {
 
 	// Initializing SPI Module Slave
 	SPI_voidInitialization_Slave();
-
-
+	_delay_ms(1000);
 }
 
 void executeMain_RXD(void) {
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Receiving..");
-	str =SPI_u8SendReceiveByte_Polling();
-	_delay_ms(250);
+	receivedChar = SPI_u8ReceiveByte_Polling();
 	//SPI_voidReceiveString(str);
 	LCD_voidSetCursor(2, 0);
-   LCD_voidSendData(str);
-	//LCD_voidSendData(str);
+	LCD_voidDisplayString("Recv: ");
+	LCD_voidSetCursor(2, 6);
+	LCD_voidSendData(receivedChar);
 	LCD_voidSetCursor(3, 0);
 	LCD_voidDisplayString("Done!");
 

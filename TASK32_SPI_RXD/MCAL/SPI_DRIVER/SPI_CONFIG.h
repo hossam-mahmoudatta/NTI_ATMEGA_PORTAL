@@ -37,7 +37,7 @@ typedef enum {
 	SPI_NORMAL_CLK_64 	= 0b10,
 	SPI_NORMAL_CLK_128 	= 0b11,
 }	SPI_CLOCKRATE;
-#define SPI_CLOCK_RATE		SPI_NORMAL_CLK_16
+#define SPI_CLOCK_RATE		SPI_NORMAL_CLK_64
 
 typedef enum {
 	SPI_SAMPLE	= 0,

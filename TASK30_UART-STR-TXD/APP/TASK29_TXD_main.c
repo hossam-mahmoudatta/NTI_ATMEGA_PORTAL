@@ -25,7 +25,7 @@ int main(void)
 	UART_voidSendString((u8*)"Hossam#");
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("              ");
-	LCD_voidSetCursor(1, 0);
+	LCD_voidSetCursor(2, 0);
 	LCD_voidDisplayString("Done!");
 
 	while (1)

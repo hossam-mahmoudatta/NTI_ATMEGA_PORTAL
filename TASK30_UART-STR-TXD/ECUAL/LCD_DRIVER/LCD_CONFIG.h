@@ -36,7 +36,7 @@
 #define LCD_DATAPIN_D4						PIN_0
 #define LCD_DATAPIN_D5						PIN_1
 #define LCD_DATAPIN_D6						PIN_2
-#define LCD_DATAPIN_D7						PIN_4
+#define LCD_DATAPIN_D7						PIN_3
 
 #define LCD_INIT_PORT							PORT_A
 #define LCD_RS										PIN_3

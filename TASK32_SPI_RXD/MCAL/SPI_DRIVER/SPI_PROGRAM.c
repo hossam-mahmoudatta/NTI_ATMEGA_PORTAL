@@ -22,16 +22,19 @@
 
 // Initializes and enables the Master mode for the SPI Module to start functionality
 void SPI_voidInitialization_Master(void) {
-	GPIO_voidSetPinDirection(PORT_B, SS, PIN_OUTPUT);
+	GPIO_voidSetPinDirection(PORT_B, SS, PIN_INPUT);
 	GPIO_voidSetPinDirection(PORT_B, MOSI, PIN_OUTPUT);
 	GPIO_voidSetPinDirection(PORT_B, MISO, PIN_INPUT);
 	GPIO_voidSetPinDirection(PORT_B, SCK, PIN_OUTPUT);
+
 
 	GPIO_voidSetPinValue(PORT_B, SS, LOGIC_HIGH);
 
 	SPCR_REG->MSTR = 1;
 	SPCR_REG->SPE = 1;
 	SPCR_REG->SPRx = SPI_CLOCK_RATE;
+
+
 }
 
 // Initializes and enables the Slave mode for the SPI Module to start functionality
@@ -41,20 +44,19 @@ void SPI_voidInitialization_Slave(void) {
 	GPIO_voidSetPinDirection(PORT_B, MISO, PIN_OUTPUT);
 	GPIO_voidSetPinDirection(PORT_B, SCK, PIN_INPUT);
 
-	//GPIO_voidSetPinValue(PORT_B, SS, LOGIC_LOW);
+	GPIO_voidSetPinValue(PORT_B, SS, LOGIC_LOW);
 
-	SPCR_REG->MSTR = 0;
+	SPCR_REG->MSTR = 0;// Enabling the Master / Slave Mode; I will choose Master
 	SPCR_REG->SPE = 1;// Enabling the SPI Module
-	// Enabling the Master / Slave Mode; I will choose Master
 	//SPCR_REG->SPRx = SPI_CLOCK_RATE;// Choosing the SCK rate, Fosc / 4
 }
 
 
 // Responsible for the SPI to send & receive a byte
-u8 SPI_u8SendReceiveByte_Polling() {
+u8 SPI_u8SendReceiveByte_Polling(u8 copy_u8Data) {
 
-	//SPDR_REG = copy_u8Data;
-	while(SPSR_REG->SPIF != 1)
+	SPDR_REG = copy_u8Data;
+	while(SPSR_REG->SPIF == 0)
 	{
 		// Polling (Busy Wait)
 		/* Waiting for the flag is set, it is set when data transmission
@@ -66,7 +68,6 @@ u8 SPI_u8SendReceiveByte_Polling() {
 }
 
 void SPI_u8SendByte_Polling(u8 copy_u8Data) {
-
 	SPDR_REG = copy_u8Data;
 	while(SPSR_REG->SPIF == 0)
 	{
