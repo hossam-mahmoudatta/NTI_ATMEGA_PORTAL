@@ -16,6 +16,10 @@
 
 #include "UART_INTERFACE.h"
 
+void (*CallBackPtr_UART_RXC) (void);
+void (*CallBackPtr_UART_UDRE) (void);
+void (*CallBackPtr_UART_TXC) (void);
+
 /*******************************************************************************
  *                              				FUNCTION IMPLEMENTATIONS				                   	   *
  *******************************************************************************/
@@ -149,4 +153,50 @@ void UART_voidReceiveString(u8 *str) {
 	str[i] = 0;
 }
 
+void (*CallBackPtr_UART_RXC) (void);
+void (*CallBackPtr_UART_UDRE) (void);
+void (*CallBackPtr_UART_TXC) (void);
+
+// UART RXC Callback Function
+void UART_CallBackFunction_RXC(void (*Ptr_UART_RXC)(void))
+{
+	CallBackPtr_UART_RXC = Ptr_UART_RXC;
+}
+
+// UART UDRE Callback Function
+void UART_CallBackFunction_UDRE(void (*Ptr_UART_UDRE)(void))
+{
+	CallBackPtr_UART_UDRE = Ptr_UART_UDRE;
+}
+
+// UART TXC Callback Function
+void UART_CallBackFunction_TXC(void (*Ptr_UART_TXC)(void))
+{
+	CallBackPtr_UART_TXC = Ptr_UART_TXC;
+}
+
+
+// The ISR For the UART RXC Callback Function
+void __vector_13(void) __attribute__((signal, used));
+void __vector_13(void) {
+	if(CallBackPtr_UART_RXC != NULL) {
+		CallBackPtr_UART_RXC();
+	}
+}
+
+// The ISR For the UART UDRE Callback Function
+void __vector_14(void) __attribute__((signal, used));
+void __vector_14(void) {
+	if(CallBackPtr_UART_UDRE != NULL) {
+		CallBackPtr_UART_UDRE();
+	}
+}
+
+// The ISR For the UART TXC Callback Function
+void __vector_15(void) __attribute__((signal, used));
+void __vector_15(void) {
+	if(CallBackPtr_UART_TXC != NULL) {
+		CallBackPtr_UART_TXC();
+	}
+}
 

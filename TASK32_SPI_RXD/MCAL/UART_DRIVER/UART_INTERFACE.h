@@ -34,4 +34,13 @@ void UART_voidSendString(const u8 *str);
 // Responsible for the USART to receive an array of bytes, a string
 void UART_voidReceiveString(u8 *str);
 
+// UART RXC Callback Function
+void UART_CallBackFunction_RXC(void (*Ptr_UART_RXC)(void));
+
+// UART UDRE Callback Function
+void UART_CallBackFunction_UDRE(void (*Ptr_UART_UDRE)(void));
+
+// UART TXC Callback Function
+void UART_CallBackFunction_TXC(void (*Ptr_UART_TXC)(void));
+
 #endif /* USART_H_ */
