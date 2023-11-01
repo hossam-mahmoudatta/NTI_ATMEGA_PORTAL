@@ -33,30 +33,34 @@ void System_Initialization(void) {
 	//KEYPAD_voidInit();
 
 	// Initializing SPI Module Slave
+	_delay_ms(50);
 	SPI_voidInitialization_Slave();
+
+	// Initializing UART Module Slave
 	UART_Initialization();
-	GPIO_voidSetPinDirection(PORT_D, PIN_0, PIN_INPUT);
-	GPIO_voidSetPinDirection(PORT_D, PIN_1, PIN_OUTPUT);
-	_delay_ms(1000);
+
+	// Initializing the Global Interrupt Enable
+	GLOBINT_voidSetEnableFlag();
 }
 
 void executeMain_RXD(void) {
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Receiving..");
-	receivedChar = SPI_u8ReceiveByte_Polling();
-	//SPI_voidReceiveString(str);
+	receivedChar = SPI_u8ReceiveByte_ISR();
 	LCD_voidSetCursor(2, 0);
-	LCD_voidDisplayString("Recv: ");
-	LCD_voidSetCursor(2, 6);
+	LCD_voidDisplayString("RxD: ");
+	LCD_voidSetCursor(2, 5);
 	LCD_voidSendData(receivedChar);
 	LCD_voidSetCursor(3, 0);
 	LCD_voidDisplayString("Done!");
 
-	UART_voidSendByte_Polling(receivedChar + '0');
-
+	UART_voidSendByte_Polling(receivedChar);
 }
 
-
+void executeISR(void)
+{
+	SPI_CallBackFunction(executeMain_RXD);
+}
 /*******************************************************************************
  *                              					 					END                      											  *
  *******************************************************************************/

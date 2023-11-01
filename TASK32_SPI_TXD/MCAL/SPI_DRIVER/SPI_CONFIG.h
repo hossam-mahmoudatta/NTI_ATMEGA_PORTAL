@@ -30,7 +30,8 @@
 #define SCK 		PIN_7		// Clock
 
 #define SPI_DEF_DATA_VAL 0xFF // The default data value in the SPDR
-//#define F_CPU 1000000UL
+
+#define SPI_ISR_ENABLE		1
 
 typedef enum {
 	SPI_NORMAL_CLK_4 		= 0b00,
@@ -38,7 +39,7 @@ typedef enum {
 	SPI_NORMAL_CLK_64 	= 0b10,
 	SPI_NORMAL_CLK_128 	= 0b11,
 }	SPI_CLOCKRATE;
-#define SPI_CLOCK_RATE		SPI_NORMAL_CLK_128
+#define SPI_CLOCK_RATE		SPI_NORMAL_CLK_4
 
 typedef enum {
 	SPI_SAMPLE	= 0,

@@ -22,6 +22,11 @@
 /*******************************************************************************
  *                              					MACRO DEFINITIONS				                   	   *
  *******************************************************************************/
+
+#define UART_PORT					PORT_D
+#define UART_RXD						PIN_0
+#define UART_TXD						PIN_1
+
 #define UART_ISR_ENABLE 		0
 
 #define UART_5_BITSIZE			0

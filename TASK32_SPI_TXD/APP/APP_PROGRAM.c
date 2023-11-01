@@ -20,9 +20,8 @@
 /*******************************************************************************
  *                              					 Application Declarations                      					  *
  *******************************************************************************/
-u8 data = '5';
-u8 KeyData = 0;
-//u8 *str = "7oda#";
+u8 data = 'E';
+//u8 KeyData = 0;
 
 void System_Initialization(void) {
 	// Initializing LCD Module
@@ -31,26 +30,34 @@ void System_Initialization(void) {
 	LCD_voidDisplayString("SPI TRANSMIT");
 
 	// Initializing Keypad
-	//KEYPAD_voidInit();
+	KEYPAD_voidInit();
 
 	// Initializing SPI Module Master
+	//_delay_ms(89);
 	SPI_voidInitialization_Master();
-	_delay_ms(1000);
+
+	// Initializing the Global Interrupt Enable
+	//GLOBINT_voidSetEnableFlag();
 }
 
 void executeMain_TXD(void) {
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Sending..");
-	SPI_u8SendByte_Polling(20);
+	SPI_u8SendByte_Polling(data);
 	LCD_voidSetCursor(2, 0);
-	LCD_voidDisplayString("Sent: ");
-	LCD_voidSetCursor(2, 6);
+	LCD_voidDisplayString("TxD: ");
+	LCD_voidSetCursor(2, 5);
 	LCD_voidSendData(data);
-	//SPI_voidSendString_Polling(str);
+//	LCD_voidSetCursor(2, 8);
+//	LCD_voidSendData(KeyData);
 	LCD_voidSetCursor(3, 0);
 	LCD_voidDisplayString("Done!");
 }
 
+void executeISR(void)
+{
+	SPI_CallBackFunction(executeMain_TXD);
+}
 
 /*******************************************************************************
  *                              					 					END                      											  *

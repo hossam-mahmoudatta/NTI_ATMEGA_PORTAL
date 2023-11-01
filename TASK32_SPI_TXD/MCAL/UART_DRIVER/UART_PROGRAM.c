@@ -42,6 +42,8 @@ void UART_Initialization(void) {
 	// The Fcpu must be atleast 8 times larger than the Baud Rate!!!
 	// So if my Fcpu = 16Mhz & Baud = 9600, then the UBBR = 207.
 */
+	GPIO_voidSetPinDirection(UART_PORT, UART_RXD, PIN_INPUT);
+	GPIO_voidSetPinDirection(UART_PORT, UART_TXD, PIN_OUTPUT);
 	UCSRA_REG->U2X = UART_SPEED;
 	UCSRB_REG->TXEN = 1;
 	UCSRB_REG->RXEN = 1;

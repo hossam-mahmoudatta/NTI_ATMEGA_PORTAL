@@ -19,8 +19,7 @@
 int main(void)
 {
 	System_Initialization();
-		executeMain_TXD();
-
+	executeMain_TXD();
 	while (1)
 	{
 	}

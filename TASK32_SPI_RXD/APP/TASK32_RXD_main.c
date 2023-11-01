@@ -19,11 +19,10 @@
 int main(void)
 {
 	System_Initialization();
-		executeMain_RXD();
-
+	executeISR();
+	//executeMain_RXD();
 	while (1)
 	{
-
 	}
 }
 
