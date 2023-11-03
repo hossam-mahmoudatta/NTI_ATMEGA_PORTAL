@@ -27,7 +27,7 @@
 #define UART_RXD						PIN_0
 #define UART_TXD						PIN_1
 
-#define UART_ISR_ENABLE 		0
+#define UART_ISR_ENABLE 		1
 
 #define UART_5_BITSIZE			0
 #define UART_6_BITSIZE			1
@@ -39,7 +39,7 @@
 #define UBRR_16MHz_9600		103
 #define UBRR_8MHz_9600			51
 #define UBRR_1MHz_9600			6
-#define UBRR_VALUE					UBRR_1MHz_9600
+#define UBRR_VALUE					UBRR_8MHz_9600
 
 typedef enum {
     UART_NORMAL_SPEED,

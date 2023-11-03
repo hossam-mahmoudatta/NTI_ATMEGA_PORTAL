@@ -43,7 +43,7 @@ void System_Initialization(void) {
 	GLOBINT_voidSetEnableFlag();
 }
 
-void executeMain_RXD(void) {
+void executeMain_SLAVE1(void) {
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Receiving..");
 	receivedChar = SPI_u8ReceiveByte_ISR();

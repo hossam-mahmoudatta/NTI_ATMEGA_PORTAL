@@ -28,6 +28,9 @@ void UART_voidSendByte_Polling(const u8 data);
 // Responsible for the USART to receive a byte
 u8 UART_voidReceiveByte_Polling(void);
 
+// Responsible for the USART to receive a byte
+u8 UART_voidReceiveByte_ISR(void);
+
 // Responsible for the USART to send an array of bytes, a string
 void UART_voidSendString(const u8 *str);
 

@@ -131,6 +131,13 @@ u8 UART_voidReceiveByte_Polling(void) {
 }
 
 
+// Responsible for the USART to receive a byte
+u8 UART_voidReceiveByte_ISR(void) {
+	// This is waiting for the flag to be set to '0' to know that I received data
+	return UDR_REG;		// When reading
+}
+
+
 // Responsible for the USART to send an array of bytes, a string
 void UART_voidSendString(const u8 *str) {
 	u8 i = 0;
