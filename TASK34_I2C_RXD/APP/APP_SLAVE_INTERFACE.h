@@ -29,7 +29,7 @@
 #include "../MCAL/GLOBAL_INTERRUPT_DRIVER/GLOBAL_INTERRUPT_INTERFACE.h"
 
 #include "../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h"
-//#include "../MCAL/SPI_DRIVER/SPI_INTERFACE.h"
+#include "../MCAL/SPI_DRIVER/SPI_INTERFACE.h"
 //#include "../MCAL/ADC_DRIVER/ADC_INTERFACE.h"
 //#include "../MCAL/UART_DRIVER/UART_INTERFACE.h"
 
@@ -54,7 +54,7 @@
 
 // Initializing Needed Modules
 void System_Initialization(void);
-void executeMain_TXD(void);
+void executeMain_RXD(void);
 
 void functionISR(void);
 void executeISR(void);
