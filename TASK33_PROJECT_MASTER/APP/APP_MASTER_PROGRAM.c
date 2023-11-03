@@ -27,17 +27,16 @@ void System_Initialization(void) {
 	// Initializing LCD Module
 	LCD_voidInit();
 	LCD_voidSetCursor(0, 0);
-	LCD_voidDisplayString("SPI TRANSMIT");
+	LCD_voidDisplayString("MASTER SPI");
 
 	// Initializing Keypad
 	KEYPAD_voidInit();
 
 	// Initializing SPI Module Master
-	//_delay_ms(89);
 	SPI_voidInitialization_Master();
 
 	// Initializing the Global Interrupt Enable
-	//GLOBINT_voidSetEnableFlag();
+	GLOBINT_voidSetEnableFlag();
 }
 
 void executeMain_TXD(void) {
