@@ -15,7 +15,7 @@
  *                              					 Application Libraries                      					  *
  *******************************************************************************/
 
-#include "APP_INTERFACE.h"
+#include "APP_SLAVE2_INTERFACE.h"
 
 /*******************************************************************************
  *                              					 Application Declarations                      					  *

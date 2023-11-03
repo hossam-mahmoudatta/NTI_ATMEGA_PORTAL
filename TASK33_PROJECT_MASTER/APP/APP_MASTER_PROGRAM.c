@@ -15,7 +15,7 @@
  *                              					 Application Libraries                      					  *
  *******************************************************************************/
 
-#include "APP_INTERFACE.h"
+#include "APP_MASTER_INTERFACE.h"
 
 /*******************************************************************************
  *                              					 Application Declarations                      					  *
