@@ -2,9 +2,9 @@
  *
  * Module: TIMER1
  *
- * File Name: TIMER1_CONFIG.h
+ * File Name: TIMER1_INTERFACE.h
  *
- * Description: Header file for the TIMER1 Driver MACRO DEFINITIONS
+ * Description: Header file for the TIMER1 Driver Function Prototypes
  *
  * Author: Hossam Mahmoud
  *

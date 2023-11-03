@@ -20,7 +20,6 @@ int main(void)
 {
 	System_Initialization();
 	executeISR();
-	//executeMain_RXD();
 	while (1)
 	{
 	}
