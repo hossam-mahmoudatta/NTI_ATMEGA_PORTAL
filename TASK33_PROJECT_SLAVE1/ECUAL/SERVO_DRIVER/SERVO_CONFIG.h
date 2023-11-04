@@ -29,7 +29,8 @@
 
 // Defines the SERVO DATA PORT & PIN based on TIMER1A
 #define SERVO_DATA_PORT		PORT_D
-#define SERVO_DATA_PIN			PIN_5
+#define SERVO_DATA_PIN1		PIN_4
+#define SERVO_DATA_PIN	2		PIN_5
 #define SERVO_OP_RANGE		20000
 
 
