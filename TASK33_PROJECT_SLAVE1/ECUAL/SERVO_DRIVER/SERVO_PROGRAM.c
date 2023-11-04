@@ -32,18 +32,48 @@ void SERVO_voidInit(void) {
 	ADC_voidInit();
 }
 
-// Displays a value on the 7 Segment Display
-void SERVO_voidAdjustAngle(void) {
-	ADC_Result = ADC_voidStartConversionPolling(CHANNEL_1);
-	AngleValue = mapServo(ADC_Result);
-	CMP_Value = TIMER1A_SetCOMPAREMATCH_FASTPWM(AngleValue);
-	LCD_voidSetCursor(1, 0);
-	LCD_voidDisplayString("Angle: ");
-	LCD_voidSetCursor(1, 7);
-	LCD_voidIntgerToString(CMP_Value);
+
+// Adjusts the angle for the servo motor
+void SERVO_voidAdjustAngle(u8 copy_u8Angle) {
+	if(copy_u8Angle > 180)
+	{
+		copy_u8Angle = 180;
+	}
+	OCR1B_REG = ((copy_u8Angle * (u32)1000) / (u32) 180) + 999;
 }
 
+
+// Mapping Servo with ADC
 u16 mapServo(u16 copy_u16ADCValue){
 	u16 servoAngle = (u16)(copy_u16ADCValue * 255) / 100;
 	return servoAngle;
 }
+
+DOOR_STATUS SERVO_CarDoor(DOOR_NO doorNum, DOOR_STATUS doorAngle, u8 portNumber, u8 pinNumber)
+{
+	if(doorAngle == Door_Close)
+	{
+		GPIO_voidSetPinDirection(portNumber, pinNumber, PIN_OUTPUT);
+		GPIO_voidSetPinValue(portNumber, pinNumber, LOGIC_HIGH);
+		//_delay_ms(10);
+		SERVO_voidAdjustAngle(Door_Open);
+		doorAngle = Door_Open;
+		_delay_ms(50);
+		GPIO_voidSetPinValue(portNumber, pinNumber, LOGIC_LOW);
+	}
+	else if(doorAngle == Door_Open)
+	{
+		DIO_WritePin(OUT_PIN,HIGH);  // set pin of and gate for d1
+		//delay(10);
+		Servo_SetAngle(Door_Close);
+		Previous_Servo_Angle=Door_Close;
+		delay(50);
+		DIO_WritePin(OUT_PIN,LOW);
+	}
+	return Previous_Servo_Angle;
+}
+
+
+
+
+

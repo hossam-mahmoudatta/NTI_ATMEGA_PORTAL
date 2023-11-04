@@ -1,10 +1,10 @@
  /******************************************************************************
  *
- * Module: Seven Segment Display
+ * Module: Servo Motor
  *
- * File Name: SEGMENT_CONFIG.h
+ * File Name: Servo_CONFIG.h
  *
- * Description: Header file for the 7 Segment Display Driver Macro Definitions
+ * Description: Header file for the Servo Motor Driver Macro Definitions
  *
  * Author: Hossam Mahmoud
  *
@@ -17,6 +17,7 @@
 #ifndef SERVO_CONFIG_H_
 #define SERVO_CONFIG_H_
 
+#include <util/delay.h>
 #include "../../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h"
 #include "../../MCAL/ADC_DRIVER/ADC_INTERFACE.h"
 #include "../../MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_INTERFACE.h"
@@ -36,7 +37,17 @@
  *                               							Types Declaration                     							  *
  *******************************************************************************/
 
+typedef enum {
+	Door_Close = 0,
+	Door_Open =180
+} DOOR_STATUS;
 
+typedef enum {
+	FR_Door = 0,
+	FL_Door = 1,
+	RL_Door = 2,
+	RR_Door = 3
+} DOOR_NO;
 
 
 #endif /* SERVO_CONFIG_H_ */

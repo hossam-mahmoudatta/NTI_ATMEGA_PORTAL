@@ -220,13 +220,13 @@ u8 I2C_voidReceiveSlaveDataByte() {
 	// Busy Wait for TWINT set in TWCR Register
 	// to ensure that start bit is send successfully
 
-	while(I2C_u8GetStatus != I2C_SLAV_RXD_SLA_W_ACK);
+	//while(I2C_u8GetStatus != I2C_SLAV_RXD_SLA_W_ACK);
 	TWCR_REG->TWINT = 1;
 	TWCR_REG->TWEA = 1;
 	TWCR_REG->TWEN = 1;
 	while(TWCR_REG->TWINT == 0);
 
-	while(I2C_u8GetStatus != I2C_SLAV_RXD_DATA_R_NACK);
+	//while(I2C_u8GetStatus != I2C_SLAV_RXD_DATA_R_NACK);
 	Data = TWDR_REG;
 
 	return Data;

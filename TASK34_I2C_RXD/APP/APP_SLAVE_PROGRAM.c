@@ -38,8 +38,9 @@ void System_Initialization(void) {
 void executeMain_RXD(void) {
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Receiving..");
-
-	ReceivedData = I2C_voidReceiveSlaveDataByte();
+	_delay_ms(100);
+//	ReceivedData = I2C_voidReceiveSlaveDataByte();
+	ReceivedData = I2C_u8ReadByteWithACK();
 
 	LCD_voidSetCursor(2, 0);
 	LCD_voidDisplayString("RxD: ");

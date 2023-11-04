@@ -41,6 +41,7 @@ void executeMain_TXD(void) {
 	I2C_voidSendStartCondition();
 	I2C_voidSendSlaveAddressWrite(I2C_SLAVE1_ADDRESS);
 	I2C_voidSendMasterDataByte(data);
+	_delay_ms(100);
 	I2C_voidSendStopCondition();
 
 	LCD_voidSetCursor(2, 0);

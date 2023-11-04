@@ -44,9 +44,13 @@ typedef struct {
 #define TCNT1H_REG 	(*(volatile u8*) 0x4D) // Counter
 #define TCNT1L_REG 	(*(volatile u16*) 0x4C) // Counter
 #define OCR1AH_REG 	(*(volatile u8*) 0x4B) // Output Compare Register High Byte
-#define OCR1AL_REG 	(*(volatile u16*) 0x4A) // Output Compare Register Low Byte
+#define OCR1AL_REG 	(*(volatile u8*) 0x4A) // Output Compare Register Low Byte
+#define OCR1A_REG 	(*(volatile u16*) 0x4A) // Output Compare Register the Two Bytes
+
 #define OCR1BH_REG 	(*(volatile u8*) 0x49) // Output Compare Register High Byte
 #define OCR1BL_REG 	(*(volatile u8*) 0x48) // Output Compare Register Low Byte
+#define OCR1B_REG 	(*(volatile u16*) 0x48) // Output Compare Register the Two Bytes
+
 #define ICR1H_REG 		(*(volatile u8*) 0x47) // Input Capture Register High Byte
 #define ICR1L_REG 		(*(volatile u16*) 0x46) // Input Capture Register Low Byte
 
