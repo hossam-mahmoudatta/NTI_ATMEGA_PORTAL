@@ -21,8 +21,8 @@
  *                              					 Application Declarations                      					  *
  *******************************************************************************/
 u8 data = 'E';
-u8 SPI_Read = 0;
-u8 UART_Read = 0;
+volatile u8 SPI_Read = 0;
+volatile u8 UART_Read = 0;
 u8 ADC_Read = 0;
 
 volatile u8 UART_Flag = 1;
@@ -72,7 +72,6 @@ void SPI_Slave_2_Select(void)
 	GPIO_voidSetPinValue(PORT_C, PIN_0, LOGIC_HIGH);
 }
 
-
 void UARTReceiveFunction(void)
 {
 	UART_Flag = 1;
@@ -110,6 +109,7 @@ void executeMain_MASTER(void) {
 		(UART_Read == 'x') || (UART_Read == 'g') || (UART_Read == 'f') )
 		{
 			SPI_Slave_2_Select();
+
 			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
 			LCD_voidSetCursor(2, 4);
 			LCD_voidSendData(UART_Read);

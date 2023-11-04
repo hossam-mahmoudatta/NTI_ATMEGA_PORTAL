@@ -35,7 +35,7 @@ void System_Initialization(void) {
 	LCD_voidDisplayString("SLAVE1 RECEIVE");
 
 	// Initializing SPI Module Slave
-	_delay_ms(50);
+	_delay_ms(150);
 	SPI_voidInitialization_Slave();
 
 	// Initializing UART Module Slave
@@ -46,9 +46,6 @@ void System_Initialization(void) {
 
 	// Initializing Timer1
 	TIMER1_Initialization();
-
-	// Initializing ADC
-	ADC_voidInit();
 
 }
 
@@ -68,6 +65,7 @@ void executeMain_SLAVE1(void) {
 void SPI_SLAVE1_Receive(void) {
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Receiving..");
+	_delay_ms(15);
 	SPI_Reading = SPI_u8ReceiveByte_ISR();
 	LCD_voidSetCursor(2, 0);
 	LCD_voidDisplayString("RxD: ");

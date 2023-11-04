@@ -29,7 +29,7 @@ void SPI_voidInitialization_Master(void) {
 	GPIO_voidSetPinDirection(PORT_B, MISO, PIN_INPUT);
 	GPIO_voidSetPinDirection(PORT_B, SCK, PIN_OUTPUT);
 
-	GPIO_voidSetPinValue(PORT_B, SS, LOGIC_HIGH);
+	//GPIO_voidSetPinValue(PORT_B, SS, LOGIC_HIGH);
 
 	SPCR_REG->SPE = 1;
 	SPCR_REG->MSTR = 1;
