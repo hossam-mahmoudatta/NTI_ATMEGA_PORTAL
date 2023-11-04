@@ -25,7 +25,7 @@ volatile u8 SPI_Read = 0;
 volatile u8 UART_Read = 0;
 u8 ADC_Read = 0;
 
-volatile u8 UART_Flag = 1;
+volatile u8 UART_Flag = 0;
 
 
 void System_Initialization(void) {
@@ -33,7 +33,7 @@ void System_Initialization(void) {
 	GLOBINT_voidSetEnableFlag();
 
 	// Initializing UART Module
-	//UART_Initialization();
+	UART_Initialization();
 
 	// Initializing LCD Module
 	LCD_voidInit();
@@ -56,8 +56,7 @@ void System_Initialization(void) {
 	// ADC Init
 	ADC_voidInit();
 
-	// ISR Functions
-	executeISR();
+
 }
 
 
@@ -104,8 +103,8 @@ void UARTReceiveFunction(void)
 void executeMain_MASTER(void) {
 	if(UART_Flag == 1)
 	{
-		//UART_Read = UART_voidReceiveByte_ISR();
-		UART_Read = 't';
+		UART_Read = UART_voidReceiveByte_ISR();
+		//UART_Read = 't';
 		if((UART_Read == 'w') || (UART_Read == 's') ||
 		(UART_Read == 'x') || (UART_Read == 'g') || (UART_Read == 'f') )
 		{

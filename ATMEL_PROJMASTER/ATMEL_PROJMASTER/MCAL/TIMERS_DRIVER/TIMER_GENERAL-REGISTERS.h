@@ -18,6 +18,7 @@
 
 #include <math.h>
 #include "../GPIO_DRIVER/GPIO_INTERFACE.h"
+#define F_CPU 8000000UL
 
 /*******************************************************************************
  *                              							Timers Registers					                   				     *

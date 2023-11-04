@@ -21,6 +21,8 @@ int main(void)
 	System_Initialization();
 	while (1)
 	{
+			// ISR Functions
+			executeISR();
 		executeMain_MASTER();
 	}
 }

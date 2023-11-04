@@ -34,6 +34,7 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../APP/ \
+../Debug/ \
 ../ECUAL/ \
 ../ECUAL/DCMOTOR_DRIVER/ \
 ../ECUAL/KEYPAD_DRIVER/ \
