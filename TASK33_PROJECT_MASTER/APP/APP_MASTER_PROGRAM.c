@@ -42,6 +42,7 @@ void System_Initialization(void) {
 
 	// Initializing SPI Module Master
 	SPI_voidInitialization_Master();
+	_delay_ms(100);
 
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("  UART     SPI  ");
@@ -49,7 +50,7 @@ void System_Initialization(void) {
 	// SS Select Pins Initialization
 	GPIO_voidSetPinDirection(PORT_C, PIN_0, PIN_INPUT);
 	GPIO_voidSetPinDirection(PORT_C, PIN_1, PIN_INPUT);
-	GPIO_voidSetPinValue(PORT_C, PIN_0, LOGIC_HIGH);
+	GPIO_voidSetPinValue(PORT_C, PIN_0, LOGIC_LOW);
 	GPIO_voidSetPinValue(PORT_C, PIN_1, LOGIC_HIGH);
 
 	// ADC Init

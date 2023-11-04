@@ -63,7 +63,7 @@ void TIMER1_Initialization(void) {
 #endif
 
 	TCCR1B_REG->CS1x = TIMER1_PRESCALER;
-	OCR1AL_REG = 500;
+	OCR1A_REG = 500;
 
 #if (TIMER1_ISR_ENABLE)
 	TIMSK_REG->TICIE1 = TIMER1_SET;
