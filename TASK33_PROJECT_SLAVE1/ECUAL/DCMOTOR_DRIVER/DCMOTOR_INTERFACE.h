@@ -14,18 +14,24 @@
  *                              							Include Libraries						                       		   *
  *******************************************************************************/
 
-#ifndef SEGMENT_INTERFACE_H_
-#define SEGMENT_INTERFACE_H_
+#ifndef DCMOTOR_INTERFACE_H_
+#define DCMOTOR_INTERFACE_H_
 
-#include "SERVO_CONFIG.h"
+#include "DCMOTOR_CONFIG.h"
 
 /*******************************************************************************
  *                             							 Functions Prototypes            					                  *
  *******************************************************************************/
 
 
-// Initializes the Servo Motor Driver
-void SERVO_voidInit(void);
+// Initializes the DC Motor Driver
+void DCMOTOR_voidInit(void);
+
+// Starts the DC Motor
+void DCMOTOR_voidStart(MOTOR_NAME motorName);
+
+// Stops the DC Motor
+void DCMOTOR_voidStop(MOTOR_NAME motorName);
 
 // Adjusts the angle for the servo motor
 void SERVO_voidAdjustAngle(u8 copy_u8Angle);
@@ -38,4 +44,4 @@ DOOR_STATUS SERVO_CarDoor(DOOR_NO doorNum, DOOR_STATUS doorAngle, u8 portNumber,
 
 
 
-#endif /* SEVEN-SEGMENT_H_ */
+#endif /* DCMOTOR_INTERFACE_H_ */

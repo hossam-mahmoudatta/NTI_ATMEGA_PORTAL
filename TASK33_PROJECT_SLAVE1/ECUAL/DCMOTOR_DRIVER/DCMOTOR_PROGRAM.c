@@ -14,7 +14,7 @@
  *                              							Include Libraries						                       		   *
  *******************************************************************************/
 
-#include "SERVO_INTERFACE.h"
+#include "DCMOTOR_INTERFACE.h"
 
 /*******************************************************************************
  *                              						Functions Declarations                     	      				  *
@@ -25,6 +25,20 @@ u16 AngleValue 	= 0;
 u16 CMP_Value 	= 0;
 
 
+// Initializes the DC Motor Driver
+void DCMOTOR_voidInit(void) {
+
+}
+
+
+// Starts the DC Motor
+void DCMOTOR_voidStart(MOTOR_NAME motorName) {
+
+}
+
+
+// Stops the DC Motor
+void DCMOTOR_voidStop(MOTOR_NAME motorName);
 // Initializes the 7 Segment Display Driver
 void SERVO_voidInit(void) {
 	TIMER1_Initialization();
