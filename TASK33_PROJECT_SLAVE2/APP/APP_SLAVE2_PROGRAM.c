@@ -34,9 +34,6 @@ void System_Initialization(void) {
 	LCD_voidSetCursor(0, 0);
 	LCD_voidDisplayString("SLAVE2 RECEIVE");
 
-	// Initializing Keypad
-	//KEYPAD_voidInit();
-
 	// Initializing SPI Module Slave
 	_delay_ms(50);
 	SPI_voidInitialization_Slave();

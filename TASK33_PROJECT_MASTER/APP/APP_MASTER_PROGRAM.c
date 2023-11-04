@@ -25,7 +25,7 @@ u8 SPI_Read = 0;
 u8 UART_Read = 0;
 u8 ADC_Read = 0;
 
-volatile u8 UART_Flag = 0;
+volatile u8 UART_Flag = 1;
 
 
 void System_Initialization(void) {
@@ -117,7 +117,10 @@ void executeMain_MASTER(void) {
 			LCD_voidSetCursor(2, 12);
 			LCD_voidSendData(SPI_Read);
 
-			UART_Flag = 0;
+			LCD_voidSetCursor(3, 0);
+			LCD_voidDisplayString("SPI 2");
+
+			//UART_Flag = 0;
 			_delay_ms(100);
 		}
 		else if((UART_Read == 't') || (UART_Read == 'r'))
@@ -131,7 +134,10 @@ void executeMain_MASTER(void) {
 			LCD_voidSetCursor(2, 12);
 			LCD_voidSendData(SPI_Read);
 
-			UART_Flag = 0;
+			LCD_voidSetCursor(3, 0);
+			LCD_voidDisplayString("SPI 1");
+
+			//UART_Flag = 0;
 			_delay_ms(100);
 		}
 		SPI_Read = 0;
@@ -146,8 +152,7 @@ void executeMain_MASTER(void) {
 
 void executeISR(void)
 {
-	UART_CallBackFunction_RXC(UARTReceiveFunction);
-
+	//UART_CallBackFunction_RXC(UARTReceiveFunction);
 	//SPI_CallBackFunction(executeMain_MASTER);
 }
 
