@@ -58,7 +58,7 @@ typedef struct {
 
 // 2 Registers but sharing the same address
 #define UDR_REG				( *((volatile u8*)0x2C))
-#define UBRRL_REG		( *((volatile u8*)0x29))
+#define UBRRL_REG			( *((volatile u8*)0x29))
 #define UBRRH_REG		( *((volatile u8*) 0x40))
 
 

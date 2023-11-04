@@ -33,9 +33,16 @@ void ADC_voidInit(void);
  // Reads the content written to the selected channel of the ADC
 u16 ADC_voidStartConversionPolling(u8 copy_u8channelSelect);
 
-// Starts Conversion
+// Starts Conversion in ISR
 void ADC_voidStartConversionISR(u8 copy_u8channelSelect);
 
+// Reads voltage and converts it to mV
+u16 ADC_u16ReadVoltage(u8 copy_u8channelSelect);
+
+// Reads temperature value
+u16 ADC_u16ReadTemperature(u8 copy_u8channelSelect);
+
+// ADC Callback Function
 void ADC_CallBackFunction(void (*Ptr_ADC)(void));
 
 #endif /* ADC_INTERFACE_H_ */

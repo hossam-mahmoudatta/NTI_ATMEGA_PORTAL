@@ -38,8 +38,9 @@
 
 #include "../ECUAL/LED_DRIVER/LED_INTERFACE.h"
 #include "../ECUAL/LCD_DRIVER/LCD_INTERFACE.h"
-#include "../ECUAL/LM35_DRIVER/LM35_INTERFACE.h"
 #include "../ECUAL/SERVO_DRIVER/SERVO_INTERFACE.h"
+#include "../ECUAL/DCMOTOR_DRIVER/DCMOTOR_INTERFACE.h"
+//#include "../ECUAL/LM35_DRIVER/LM35_INTERFACE.h"
 
 //#include "../ECUAL/KEYPAD_DRIVER/KEYPAD_INTERFACE.h"
 //#include "../ECUAL/EEPROM_DRIVER/EEPROM.h"
@@ -55,6 +56,8 @@
 void System_Initialization(void);
 void executeMain_MASTER(void);
 void UARTReceiveFunction(void);
+void SPI_Slave_1_Select(void);
+void SPI_Slave_2_Select(void);
 
 void functionISR(void);
 void executeISR(void);

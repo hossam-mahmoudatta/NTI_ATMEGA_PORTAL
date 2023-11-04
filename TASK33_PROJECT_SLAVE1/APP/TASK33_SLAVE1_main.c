@@ -22,6 +22,7 @@ int main(void)
 	executeISR();
 	while (1)
 	{
+		executeMain_SLAVE1();
 	}
 }
 

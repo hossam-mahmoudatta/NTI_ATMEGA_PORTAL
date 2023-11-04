@@ -48,6 +48,7 @@
 typedef enum {
 	FRONT_MOTORS = 0,
 	REAR_MOTORS,
+	ALL_MOTORS
 } MOTOR_NAME;
 
 typedef enum {

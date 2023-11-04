@@ -27,7 +27,6 @@ u8 receivedChar = 0;
 u8 SPI_Reading = 0;
 u8 DFR_Previous_Angle = Door_Close;
 u8 DFL_Previous_Angle = Door_Close;
-u8 Temperature = 0;
 
 void System_Initialization(void) {
 	// Initializing LCD Module
@@ -40,7 +39,7 @@ void System_Initialization(void) {
 	SPI_voidInitialization_Slave();
 
 	// Initializing UART Module Slave
-	UART_Initialization();
+	//UART_Initialization();
 
 	// Initializing the Global Interrupt Enable
 	GLOBINT_voidSetEnableFlag();
@@ -51,55 +50,31 @@ void System_Initialization(void) {
 	// Initializing ADC
 	ADC_voidInit();
 
-
-
 }
 
 void executeMain_SLAVE1(void) {
-	Temperature = ADC_u16ReadTemperature(CHANNEL_0);
-	SPI_u8SendByte_Polling(Temperature);
-	SPI_Reading = SPI_u8ReceiveByte_Polling();
-
-		if(SPI_Reading == 't') // door1
-		{
-			DFR_Previous_Angle = SERVO_CarDoor(FR_Door, DFR_Previous_Angle, )
-					Car_Door_Command(Door_1, D1_Previous_Angle,PINC0);
-			SPI_Reading=0;
-		}
-		else if(SPI_Reading == 'r')//door2
-		{
-			DFL_Previous_Angle = Car_Door_Command(Door_2, D2_Previous_Angle,PINC1);
-			SPI_Reading=0;
-		}
-		else if(SPI_Reading=='c')// temp sensor
-		{
-			SPI_Reading=0;
-			SPI_Reading=SPI_SendReceive(temp);
-			SPI_Reading=0;
-		}
-	LCD_voidSetCursor(1, 0);
-	LCD_voidDisplayString("Receiving..");
-	receivedChar = SPI_u8ReceiveByte_ISR();
-	LCD_voidSetCursor(2, 0);
-	LCD_voidDisplayString("RxD: ");
-	LCD_voidSetCursor(2, 5);
-	LCD_voidSendData(receivedChar);
-	LCD_voidSetCursor(3, 0);
-	LCD_voidDisplayString("Done!");
-//	UART_voidSendByte_Polling(receivedChar);
+	if(SPI_Reading == 't') // RIGHT FRONT DOOR
+	{
+		DFR_Previous_Angle = SERVO_CarDoor(FR_Door, DFR_Previous_Angle, SERVO_DATA_PORT, SERVO_DATA_PIN1);
+		SPI_Reading=0;
+	}
+	else if(SPI_Reading == 'r') //LEFT FRONT DOOR
+	{
+		DFL_Previous_Angle = SERVO_CarDoor(FL_Door, DFL_Previous_Angle, SERVO_DATA_PORT, SERVO_DATA_PIN2);
+		SPI_Reading=0;
+	}
 }
 
 void SPI_SLAVE1_Receive(void) {
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Receiving..");
-	receivedChar = SPI_u8ReceiveByte_ISR();
+	SPI_Reading = SPI_u8ReceiveByte_ISR();
 	LCD_voidSetCursor(2, 0);
 	LCD_voidDisplayString("RxD: ");
 	LCD_voidSetCursor(2, 5);
-	LCD_voidSendData(receivedChar);
+	LCD_voidSendData(SPI_Reading);
 	LCD_voidSetCursor(3, 0);
 	LCD_voidDisplayString("Done!");
-//	UART_voidSendByte_Polling(receivedChar);
 }
 
 void executeISR(void)

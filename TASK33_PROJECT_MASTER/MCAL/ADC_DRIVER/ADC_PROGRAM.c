@@ -89,6 +89,38 @@ void ADC_voidStartConversionISR(u8 copy_u8channelSelect) {
 
 }
 
+
+// Reads the volt in mV
+u16 ADC_u16ReadVoltage(u8 copy_u8channelSelect)
+{
+	u16 Voltage;
+	u16 ADC_Value;
+
+	//ADC_Value = ADC_voidStartConversionISR(copy_u8channelSelect);
+	ADC_Value = ADC_voidStartConversionPolling(copy_u8channelSelect);
+
+	 //Eqn. to measure voltage in mV
+	Voltage=(((u32)ADC_Value*5000)) / 1023;
+
+	return Voltage;
+}
+
+
+// Reads Temperature
+u16 ADC_u16ReadTemperature(u8 copy_u8channelSelect)
+{
+	u16 Voltage;
+	u16 Temperature;
+
+	Voltage = ADC_u16ReadVoltage(copy_u8channelSelect);
+
+	 //Eqn. to measure Temperature
+	Temperature = Voltage / 10;
+
+	return Temperature;
+}
+
+
 /*
  * Description :
  * Call Back function to use in ISR *

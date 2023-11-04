@@ -26,20 +26,24 @@
 //#include "../MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_INTERFACE.h"
 //#include "../MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_INTERFACE.h"
 //#include "../MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_INTERFACE.h"
-#include "../MCAL/GLOBAL_INTERRUPT_DRIVER/GLOBAL_INTERRUPT_INTERFACE.h"
 
-#include "../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h"
-#include "../MCAL/SPI_DRIVER/SPI_INTERFACE.h"
-//#include "../MCAL/ADC_DRIVER/ADC_INTERFACE.h"
+#include "../MCAL/GLOBAL_INTERRUPT_DRIVER/GLOBAL_INTERRUPT_INTERFACE.h"
+#include "../MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_INTERFACE.h"
+#include "../MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_INTERFACE.h"
 #include "../MCAL/UART_DRIVER/UART_INTERFACE.h"
+#include "../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h"
+#include "../MCAL/ADC_DRIVER/ADC_INTERFACE.h"
+#include "../MCAL/SPI_DRIVER/SPI_INTERFACE.h"
 
 /*******************************************************************************
  *                              						  ECUAL Drivers                           				  *
  *******************************************************************************/
 
-//#include "../ECUAL/LED_DRIVER/LED_INTERFACE.h"
+#include "../ECUAL/LED_DRIVER/LED_INTERFACE.h"
 #include "../ECUAL/LCD_DRIVER/LCD_INTERFACE.h"
-//#include "../ECUAL/KEYPAD_DRIVER/KEYPAD_INTERFACE.h"
+#include "../ECUAL/LM35_DRIVER/LM35_INTERFACE.h"
+#include "../ECUAL/SERVO_DRIVER/SERVO_INTERFACE.h"
+#include "../ECUAL/DCMOTOR_DRIVER/DCMOTOR_INTERFACE.h"
 
 //#include "../ECUAL/SERVO_DRIVER/SERVO_INTERFACE.h"
 //#include "../ECUAL/LM35_DRIVER/LM35.h"
@@ -54,7 +58,7 @@
 
 // Initializing Needed Modules
 void System_Initialization(void);
-void executeMain_RXD(void);
+void executeMain_SLAVE2(void);
 
 void functionISR(void);
 void executeISR(void);

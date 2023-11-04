@@ -31,7 +31,7 @@ void DCMOTOR_voidInit(void);
 void DCMOTOR_voidStart(MOTOR_DIR motorDirection);
 
 // Stops the DC Motor
-void DCMOTOR_voidStop(void);
+void DCMOTOR_voidStop(MOTOR_NAME motorName);
 
 // Controls the DC Motor
 void DCMOTOR_voidControlSpeed(u8 copy_u8Duty);

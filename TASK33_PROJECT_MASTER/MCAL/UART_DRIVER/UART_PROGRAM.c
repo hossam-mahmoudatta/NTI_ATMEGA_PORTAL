@@ -46,14 +46,14 @@ void UART_Initialization(void) {
 	// The Fcpu must be atleast 8 times larger than the Baud Rate!!!
 	// So if my Fcpu = 16Mhz & Baud = 9600, then the UBBR = 207.
 */
-	GPIO_voidSetPinDirection(UART_PORT, UART_RXD, PIN_INPUT);
-	GPIO_voidSetPinDirection(UART_PORT, UART_TXD, PIN_OUTPUT);
-	UCSRA_REG->U2X = UART_SPEED;
+	//GPIO_voidSetPinDirection(UART_PORT, UART_RXD, PIN_INPUT);
+	//GPIO_voidSetPinDirection(UART_PORT, UART_TXD, PIN_OUTPUT);
+	//UCSRA_REG->U2X = UART_SPEED;
 	UCSRB_REG->TXEN = 1;
 	UCSRB_REG->RXEN = 1;
 
-	u8 UCSRC_Value = 0;
-	SET_BIT(UCSRC_Value, UCSRC_URSEL);
+	//u8 UCSRC_Value = 0;
+	//SET_BIT(UCSRC_Value, UCSRC_URSEL);
 
 	// Choose Character Size
 #if (UART_BITSIZE == UART_5_BITSIZE)
@@ -69,10 +69,11 @@ void UART_Initialization(void) {
 	SET_BIT(UCSRC_Value, UCSRC_UCSZ1);
 	SET_BIT(UCSRB_REG, UCSZ2);
 #else
-	SET_BIT(UCSRC_Value, UCSRC_UCSZ0);
-	SET_BIT(UCSRC_Value, UCSRC_UCSZ1);
+	//SET_BIT(UCSRC_Value, UCSRC_UCSZ0);
+	//SET_BIT(UCSRC_Value, UCSRC_UCSZ1);
 #endif
-	UCSRC_REG = UCSRC_Value;
+
+	//UCSRC_REG = UCSRC_Value;
 
 	// For F_CPU: 16 MHz & Baud: 9600, My UBRR: 103
 	UBRRL_REG = (u8)(UBRR_VALUE);
@@ -81,12 +82,12 @@ void UART_Initialization(void) {
 	// UBBRH = 0;
 	// UBBRL = 207;
 	// (0000) (1100 1111) 12 bits, (0000) is for UBBRH, (1100 1111) if for UBBRL
-//	UBRR_Value = (u16) ( ( (F_CPU) / (8 * UART_BaudrateSize * 8UL) ) - 1 );
-//	UBRRH_REG = UBBR_Value >> 8;
-//	// Because I want the 4 Zeroes in it
-//
-//	UBRRL_REG = UBBR_Value;
-//	// Because I want the actual value
+	//	 UBRR_Value = (u16) ( ( (F_CPU) / (8 * UART_BaudrateSize * 8UL) ) - 1 );
+	//	 UBRRH_REG = UBBR_Value >> 8;
+	//	 Because I want the 4 Zeroes in it
+	//
+	//	 UBRRL_REG = UBBR_Value;
+	//	 Because I want the actual value
 
 
 #if (UART_ISR_ENABLE == 1)
@@ -160,9 +161,6 @@ void UART_voidReceiveString(u8 *str) {
 	str[i] = 0;
 }
 
-void (*CallBackPtr_UART_RXC) (void);
-void (*CallBackPtr_UART_UDRE) (void);
-void (*CallBackPtr_UART_TXC) (void);
 
 // UART RXC Callback Function
 void UART_CallBackFunction_RXC(void (*Ptr_UART_RXC)(void))

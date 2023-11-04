@@ -39,30 +39,53 @@ void DCMOTOR_voidStart(MOTOR_DIR motorDirection) {
 		case ACCELERATE:
 			GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_FWD, LOGIC_HIGH);
 			GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_FWD, LOGIC_HIGH);
+
+			GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_BWD, LOGIC_LOW);
+			GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_BWD, LOGIC_LOW);
 		break;
 		case REVERSE:
 			GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_BWD, LOGIC_HIGH);
 			GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_BWD, LOGIC_HIGH);
+
+			GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_FWD, LOGIC_LOW);
+			GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_FWD, LOGIC_LOW);
 		break;
 		case PARK:
 			GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_FWD, LOGIC_LOW);
 			GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_FWD, LOGIC_LOW);
+			GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_BWD, LOGIC_LOW);
+			GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_BWD, LOGIC_LOW);
 		break;
 	}
 }
 
 
 // Stops the DC Motor
-void DCMOTOR_voidStop(void) {
-	GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_FWD, LOGIC_LOW);
-	GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_FWD, LOGIC_LOW);
+void DCMOTOR_voidStop(MOTOR_NAME motorName) {
+	switch(motorName)
+	{
+		case FRONT_MOTORS:
+			GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_FWD, LOGIC_LOW);
+			GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_BWD, LOGIC_LOW);
+		break;
+		case REAR_MOTORS:
+			GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_FWD, LOGIC_LOW);
+			GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_BWD, LOGIC_LOW);
+		break;
+		case ALL_MOTORS:
+			GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_FWD, LOGIC_LOW);
+			GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_BWD, LOGIC_LOW);
+			GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_FWD, LOGIC_LOW);
+			GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_BWD, LOGIC_LOW);
+		break;
+	}
 }
 
 
 // Stops the DC Motor
 void DCMOTOR_voidControlSpeed(u8 copy_u8Duty) {
 	u8 Speed = 0;
-	Speed = TIMER1B_SetDutyCycle_FASTPWM(copy_u8Duty);
+	Speed = TIMER0_voidSetDutyCycle_FASTPWM(copy_u8Duty);
 	GPIO_voidSetPinValue(MOTOR_PORT, FRONT_MOTORS_CTRL, Speed);
 	GPIO_voidSetPinValue(MOTOR_PORT, REAR_MOTORS_CTRL, Speed);
 }
