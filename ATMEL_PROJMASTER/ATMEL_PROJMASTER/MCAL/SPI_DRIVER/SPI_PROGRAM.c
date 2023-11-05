@@ -31,14 +31,18 @@ void SPI_voidInitialization_Master(void) {
 
 	//GPIO_voidSetPinValue(PORT_B, SS, LOGIC_HIGH);
 
-	SPCR_REG->SPE = 1;
-	SPCR_REG->MSTR = 1;
-	SPCR_REG->SPRx = SPI_CLOCK_RATE;
-	SPCR_REG->DORD = 0;
-	SPSR_REG->SPI2x = 0;
+	/*Set master node*/
+	SET_BIT(SPCR_REG,SPCR_MSTR);
+	
+	/*clock speed: system frequency divided by 16*/
+	SET_BIT(SPCR_REG,SPCR_SPR0);
+	CLR_BIT(SPCR_REG,SPCR_SPR1);
+
+	/*SPI enable*/
+	SET_BIT(SPCR_REG,SPCR_SPE);
 
 #if (SPI_ISR_ENABLE)
-	SPCR_REG->SPIE = 1;
+	SET_BIT(SPCR_REG,SPCR_SPIE);
 #endif
 }
 
@@ -51,14 +55,14 @@ void SPI_voidInitialization_Slave(void) {
 
 	GPIO_voidSetPinValue(PORT_B, SS, LOGIC_LOW);
 
-	SPCR_REG->SPE = 1;// Enabling the SPI Module
-	SPCR_REG->MSTR = 0;// Enabling the Master / Slave Mode; I will choose Master
-	SPCR_REG->SPRx = SPI_CLOCK_RATE;
-	SPCR_REG->DORD = 0;
-	SPSR_REG->SPI2x = 0;
+	/*Set master node*/
+	CLR_BIT(SPCR_REG,SPCR_MSTR);	
+
+	/*SPI enable*/
+	SET_BIT(SPCR_REG,SPCR_SPE);
 
 #if (SPI_ISR_ENABLE)
-	SPCR_REG->SPIE = 1;
+	SET_BIT(SPCR_REG,SPCR_SPIE);
 #endif
 }
 
@@ -66,7 +70,7 @@ void SPI_voidInitialization_Slave(void) {
 // Responsible for the SPI to send & receive a byte
 u8 SPI_u8SendReceiveByte_Polling(u8 copy_u8Data) {
 	SPDR_REG = copy_u8Data;
-	while(SPSR_REG->SPIF == 0)
+	while((GET_BIT(SPSR_REG,SPSR_SPIF)) == 0)
 	{
 		// Polling (Busy Wait)
 		/* Waiting for the flag is set, it is set when data transmission
@@ -81,7 +85,7 @@ u8 SPI_u8SendReceiveByte_Polling(u8 copy_u8Data) {
 u8 SPI_u8SendByte_Polling(u8 copy_u8Data) {
 	u8 flushBuffer;
 	SPDR_REG = copy_u8Data;
-	while(SPSR_REG->SPIF == 0)
+	while((GET_BIT(SPSR_REG,SPSR_SPIF) == 0)
 	{
 		// Polling (Busy Wait)
 		/* Waiting for the flag is set, it is set when data transmission

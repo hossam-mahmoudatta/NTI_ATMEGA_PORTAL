@@ -46,14 +46,28 @@ void UART_Initialization(void) {
 	// The Fcpu must be atleast 8 times larger than the Baud Rate!!!
 	// So if my Fcpu = 16Mhz & Baud = 9600, then the UBBR = 207.
 */
-	//GPIO_voidSetPinDirection(UART_PORT, UART_RXD, PIN_INPUT);
-	//GPIO_voidSetPinDirection(UART_PORT, UART_TXD, PIN_OUTPUT);
-	//UCSRA_REG->U2X = UART_SPEED;
-	UCSRB_REG->TXEN = 1;
-	UCSRB_REG->RXEN = 1;
-
-	//u8 UCSRC_Value = 0;
-	//SET_BIT(UCSRC_Value, UCSRC_URSEL);
+	
+	u8 Local_u8UCSRC_Value = 0;
+	
+	SET_BIT(Local_u8UCSRC_Value, UCSRC_URSEL);
+	SET_BIT(Local_u8UCSRC_Value, UCSRC_UCSZ0);
+	SET_BIT(Local_u8UCSRC_Value, UCSRC_UCSZ1);
+	CLR_BIT(UCSRB_REG, UCSRB_UCSZ2);
+	SET_BIT(UCSRB_REG, UCSRB_TXEN);
+	SET_BIT(UCSRB_REG, UCSRB_RXEN);
+	
+	UCSRC_REG = Local_u8UCSRC_Value;
+	
+	UBRRL_REG = (u8)(UBRR_VALUE);
+	UBRRH_REG = (u8)(UBRR_VALUE >> 8);
+	
+	
+#if (UART_ISR_ENABLE == 1)
+	SET_BIT(UCSRB_REG, UCSRB_RXCIE);
+	SET_BIT(UCSRB_REG, UCSRB_TXCIE);
+	SET_BIT(UCSRB_REG, UCSRB_UDRIE);
+#endif
+	
 
 	// Choose Character Size
 #if (UART_BITSIZE == UART_5_BITSIZE)
@@ -73,12 +87,7 @@ void UART_Initialization(void) {
 	//SET_BIT(UCSRC_Value, UCSRC_UCSZ1);
 #endif
 
-	//UCSRC_REG = UCSRC_Value;
-
 	// For F_CPU: 16 MHz & Baud: 9600, My UBRR: 103
-	UBRRL_REG = (u8)(UBRR_VALUE);
-	UBRRH_REG = (u8)(UBRR_VALUE >> 8);
-
 	// UBBRH = 0;
 	// UBBRL = 207;
 	// (0000) (1100 1111) 12 bits, (0000) is for UBBRH, (1100 1111) if for UBBRL
@@ -88,23 +97,14 @@ void UART_Initialization(void) {
 	//
 	//	 UBRRL_REG = UBBR_Value;
 	//	 Because I want the actual value
-
-
-#if (UART_ISR_ENABLE == 1)
-	UCSRB_REG->RXCIE = 1;
-	UCSRB_REG->TXCIE = 1;
-	UCSRB_REG->UDRIE = 1;
-#endif
-
 }
 
 
 // Responsible for the USART to send a byte
-void UART_voidSendByte_Polling(const u8 data) {
-	while(UCSRA_REG->UDRE == 0);
-	//UCSRA_REG->TXC = 1;
+void UART_voidSendByte_Polling(u8 copy_u8Data) {
+	while(GET_BIT(UCSRA_REG, UCSRA_UDRE) == 0);
 
-	UDR_REG = data;
+	UDR_REG = copy_u8Data;
 
 	/*
 	 * Put the required data in the UDR register and also clear the UDRE flag as
@@ -125,10 +125,16 @@ void UART_voidSendByte_Polling(const u8 data) {
 // Responsible for the USART to receive a byte
 u8 UART_voidReceiveByte_Polling(void) {
 	// This is waiting for the flag to be set to '0' to know that I received data
-	while(UCSRA_REG->RXC == 0);
-	//UCSRA_REG->RXC = 1;
+	while(GET_BIT(UCSRA_REG, UCSRA_UDRE) == 0);
 
 	return UDR_REG;		// When reading
+}
+
+
+// Responsible for the USART to sEND a byte using isr
+void UART_voidSendByte_ISR(u8 copy_u8Data) {
+	// This is waiting for the flag to be set to '0' to know that I received data
+	UDR_REG = u8 copy_u8Data;		// When reading
 }
 
 
