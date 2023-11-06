@@ -27,14 +27,14 @@
 #define SS 		PIN_4		// Slave Select
 #define MOSI 	PIN_5		// Master O/P Slave I/P
 #define MISO 	PIN_6		// Master I/P Slave O/P
-#define SCK 		PIN_7		// Clock
+#define SCK 	PIN_7		// Clock
 
 #define SPI_DEF_DATA_VAL 0xFF // The default data value in the SPDR
 
 #define SPI_ISR_ENABLE		1
 
 typedef enum {
-	SPI_NORMAL_CLK_4 		= 0b00,
+	SPI_NORMAL_CLK_4 	= 0b00,
 	SPI_NORMAL_CLK_16 	= 0b01,
 	SPI_NORMAL_CLK_64 	= 0b10,
 	SPI_NORMAL_CLK_128 	= 0b11,

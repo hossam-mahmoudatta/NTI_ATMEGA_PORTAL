@@ -27,8 +27,8 @@ u16 CMP_Value 	= 0;
 
 // Initializes the 7 Segment Display Driver
 void SERVO_voidInit(void) {
-	TIMER1_Initialization();
-	TIMER1A_SetTop_FASTPWM(SERVO_OP_RANGE);
+	TIMER1_voidInitialization();
+	TIMER1_voidSetTop_FASTPWM(SERVO_OP_RANGE);
 	ADC_voidInit();
 }
 

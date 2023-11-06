@@ -59,10 +59,6 @@ CallBackPtr_UART_RXC
 CallBackPtr_SPI     0x2               MCAL/SPI_DRIVER/SPI_PROGRAM.o
 CallBackPtr_UART_TXC
                     0x2               MCAL/UART_DRIVER/UART_PROGRAM.o
-CallBackPtr_TIMER0_COMP
-                    0x2               MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
-CallBackPtr_TIMER0_OVF
-                    0x2               MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
 CallBackPtr_TIMER1_COMPB
                     0x2               MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
 CallBackPtr_INT2    0x2               MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_PROGRAM.o
@@ -205,7 +201,7 @@ Discarded input sections
                 0x00000000       0x38 ECUAL/SERVO_DRIVER/SERVO_PROGRAM.o
  .debug_ranges  0x00000000       0x28 ECUAL/SERVO_DRIVER/SERVO_PROGRAM.o
  .debug_line    0x00000000      0x317 ECUAL/SERVO_DRIVER/SERVO_PROGRAM.o
- .debug_str     0x00000000      0x39f ECUAL/SERVO_DRIVER/SERVO_PROGRAM.o
+ .debug_str     0x00000000      0x3a6 ECUAL/SERVO_DRIVER/SERVO_PROGRAM.o
  .comment       0x00000000       0x31 ECUAL/SERVO_DRIVER/SERVO_PROGRAM.o
  .debug_frame   0x00000000       0x64 ECUAL/SERVO_DRIVER/SERVO_PROGRAM.o
  .text          0x00000000        0x0 ECUAL/SEVEN-SEGMENT_DRIVER/SEGMENT_PROGRAM.o
@@ -265,7 +261,7 @@ Discarded input sections
  .data          0x00000000        0x0 MCAL/SPI_DRIVER/SPI_PROGRAM.o
  .bss           0x00000000        0x0 MCAL/SPI_DRIVER/SPI_PROGRAM.o
  .text.SPI_voidInitialization_Slave
-                0x00000000       0x58 MCAL/SPI_DRIVER/SPI_PROGRAM.o
+                0x00000000       0x46 MCAL/SPI_DRIVER/SPI_PROGRAM.o
  .text.SPI_u8SendReceiveByte_Polling
                 0x00000000        0xa MCAL/SPI_DRIVER/SPI_PROGRAM.o
  .text.SPI_u8SendByte_ISR
@@ -284,7 +280,7 @@ Discarded input sections
  .data          0x00000000        0x0 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
  .bss           0x00000000        0x0 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
  .text.TIMER0_INITIALIZATION
-                0x00000000       0x1c MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
+                0x00000000       0x22 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
  .text.TIMER0_START
                 0x00000000        0xa MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
  .text.TIMER0_STOP
@@ -314,24 +310,26 @@ Discarded input sections
  .text          0x00000000        0x0 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .data          0x00000000        0x0 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .bss           0x00000000        0x0 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .text.TIMER1_Initialization
-                0x00000000       0x3c MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+ .text.TIMER1_voidInitialization
+                0x00000000       0x2c MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .text.TIMER1_voidStart
-                0x00000000        0x2 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+                0x00000000        0xa MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .text.TIMER1_voidStop
                 0x00000000        0x8 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .text.TIMER1_voidSetPreload
-                0x00000000        0x8 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+                0x00000000        0x6 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .text.TIMER1_u16GetTime
                 0x00000000        0x6 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .text.TIMER1A_SetCOMPAREMATCH_FASTPWM
-                0x00000000       0x1e MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .text.TIMER1A_SetTop_FASTPWM
+ .text.TIMER1A_u16SetCompareMatch_FASTPWM
+                0x00000000       0x1c MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+ .text.TIMER1B_u16SetCompareMatch_FASTPWM
+                0x00000000       0x1c MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+ .text.TIMER1_voidSetTop_FASTPWM
                 0x00000000        0x6 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .text.TIMER1A_SetDutyCycle_FASTPWM
-                0x00000000       0x38 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+                0x00000000       0x3c MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .text.TIMER1B_SetDutyCycle_FASTPWM
-                0x00000000       0x38 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+                0x00000000       0x3c MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .text.TIMER1A_setDelay_ms_CTC
                 0x00000000       0x34 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .text.TIMER1B_setDelay_ms_CTC
@@ -346,11 +344,11 @@ Discarded input sections
                 0x00000000        0xa MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .text.TIMER1_CallBackFunction_OVF
                 0x00000000        0xa MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .bss.overFlowCounter.1862
+ .bss.overFlowCounter.1868
                 0x00000000        0x1 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .bss.overFlowCounter.1849
+ .bss.overFlowCounter.1855
                 0x00000000        0x1 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .bss.overFlowCounter.1837
+ .bss.overFlowCounter.1843
                 0x00000000        0x1 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .text          0x00000000        0x0 MCAL/UART_DRIVER/UART_PROGRAM.o
  .data          0x00000000        0x0 MCAL/UART_DRIVER/UART_PROGRAM.o
@@ -359,6 +357,8 @@ Discarded input sections
                 0x00000000        0x8 MCAL/UART_DRIVER/UART_PROGRAM.o
  .text.UART_voidReceiveByte_Polling
                 0x00000000        0x8 MCAL/UART_DRIVER/UART_PROGRAM.o
+ .text.UART_voidSendByte_ISR
+                0x00000000        0x4 MCAL/UART_DRIVER/UART_PROGRAM.o
  .text.UART_voidSendString
                 0x00000000       0x26 MCAL/UART_DRIVER/UART_PROGRAM.o
  .text.UART_voidReceiveString
@@ -692,7 +692,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xde4
+.text           0x00000000      0xdde
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -829,68 +829,68 @@ END GROUP
                 0x00000848      0x10c MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
                 0x00000848                GPIO_voidSetPinValue
  .text.SPI_voidInitialization_Master
-                0x00000954       0x4e MCAL/SPI_DRIVER/SPI_PROGRAM.o
+                0x00000954       0x48 MCAL/SPI_DRIVER/SPI_PROGRAM.o
                 0x00000954                SPI_voidInitialization_Master
  .text.SPI_u8SendByte_Polling
-                0x000009a2       0x10 MCAL/SPI_DRIVER/SPI_PROGRAM.o
-                0x000009a2                SPI_u8SendByte_Polling
+                0x0000099c        0xa MCAL/SPI_DRIVER/SPI_PROGRAM.o
+                0x0000099c                SPI_u8SendByte_Polling
  .text.__vector_12
-                0x000009b2       0x52 MCAL/SPI_DRIVER/SPI_PROGRAM.o
-                0x000009b2                __vector_12
+                0x000009a6       0x52 MCAL/SPI_DRIVER/SPI_PROGRAM.o
+                0x000009a6                __vector_12
  .text.__vector_10
-                0x00000a04       0x52 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
-                0x00000a04                __vector_10
+                0x000009f8       0x52 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
+                0x000009f8                __vector_10
  .text.__vector_11
-                0x00000a56       0x52 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
-                0x00000a56                __vector_11
+                0x00000a4a       0x52 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
+                0x00000a4a                __vector_11
  .text.__vector_6
-                0x00000aa8       0x52 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
-                0x00000aa8                __vector_6
+                0x00000a9c       0x52 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+                0x00000a9c                __vector_6
  .text.__vector_7
-                0x00000afa       0x52 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
-                0x00000afa                __vector_7
+                0x00000aee       0x52 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+                0x00000aee                __vector_7
  .text.__vector_8
-                0x00000b4c       0x52 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
-                0x00000b4c                __vector_8
+                0x00000b40       0x52 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+                0x00000b40                __vector_8
  .text.__vector_9
-                0x00000b9e       0x52 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
-                0x00000b9e                __vector_9
+                0x00000b92       0x52 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+                0x00000b92                __vector_9
  .text.UART_Initialization
-                0x00000bf0       0x2a MCAL/UART_DRIVER/UART_PROGRAM.o
-                0x00000bf0                UART_Initialization
+                0x00000be4       0x30 MCAL/UART_DRIVER/UART_PROGRAM.o
+                0x00000be4                UART_Initialization
  .text.UART_voidReceiveByte_ISR
-                0x00000c1a        0x4 MCAL/UART_DRIVER/UART_PROGRAM.o
-                0x00000c1a                UART_voidReceiveByte_ISR
+                0x00000c14        0x4 MCAL/UART_DRIVER/UART_PROGRAM.o
+                0x00000c14                UART_voidReceiveByte_ISR
  .text.__vector_13
-                0x00000c1e       0x52 MCAL/UART_DRIVER/UART_PROGRAM.o
-                0x00000c1e                __vector_13
+                0x00000c18       0x52 MCAL/UART_DRIVER/UART_PROGRAM.o
+                0x00000c18                __vector_13
  .text.__vector_14
-                0x00000c70       0x52 MCAL/UART_DRIVER/UART_PROGRAM.o
-                0x00000c70                __vector_14
+                0x00000c6a       0x52 MCAL/UART_DRIVER/UART_PROGRAM.o
+                0x00000c6a                __vector_14
  .text.__vector_15
-                0x00000cc2       0x52 MCAL/UART_DRIVER/UART_PROGRAM.o
-                0x00000cc2                __vector_15
+                0x00000cbc       0x52 MCAL/UART_DRIVER/UART_PROGRAM.o
+                0x00000cbc                __vector_15
  .text.libgcc.div
-                0x00000d14       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00000d14                __udivmodsi4
+                0x00000d0e       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000d0e                __udivmodsi4
  .text.libgcc.mul
-                0x00000d58       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                0x00000d58                __umulhisi3
+                0x00000d52       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00000d52                __umulhisi3
  .text.avr-libc
-                0x00000d76       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
-                0x00000d76                __itoa_ncheck
+                0x00000d70       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
+                0x00000d70                __itoa_ncheck
  .text.avr-libc
-                0x00000d8c       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
-                0x00000d8c                __utoa_ncheck
-                0x00000d8e                __utoa_common
+                0x00000d86       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
+                0x00000d86                __utoa_ncheck
+                0x00000d88                __utoa_common
  .text.avr-libc
-                0x00000dc0       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x00000dc0                strrev
-                0x00000de0                . = ALIGN (0x2)
+                0x00000dba       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00000dba                strrev
+                0x00000dda                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000de0        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000de0                _exit
-                0x00000de0                exit
+ .fini9         0x00000dda        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000dda                _exit
+                0x00000dda                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -909,11 +909,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000de0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000dda        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000de4                _etext = .
+                0x00000dde                _etext = .
 
-.data           0x00800060       0x30 load address 0x00000de4
+.data           0x00800060       0x30 load address 0x00000dde
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -942,18 +942,19 @@ END GROUP
                 0x00800092                UART_Read
  .bss.SPI_Read  0x00800093        0x1 APP/APP_MASTER_PROGRAM.o
                 0x00800093                SPI_Read
+ .bss.CallBackPtr_TIMER0_OVF
+                0x00800094        0x2 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
+ .bss.CallBackPtr_TIMER0_COMP
+                0x00800096        0x2 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
  *(COMMON)
- COMMON         0x00800094        0x2 MCAL/ADC_DRIVER/ADC_PROGRAM.o
-                0x00800094                CallBackPtr_ADC
- COMMON         0x00800096        0x6 MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_PROGRAM.o
-                0x00800096                CallBackPtr_INT2
-                0x00800098                CallBackPtr_INT0
-                0x0080009a                CallBackPtr_INT1
- COMMON         0x0080009c        0x2 MCAL/SPI_DRIVER/SPI_PROGRAM.o
-                0x0080009c                CallBackPtr_SPI
- COMMON         0x0080009e        0x4 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
-                0x0080009e                CallBackPtr_TIMER0_COMP
-                0x008000a0                CallBackPtr_TIMER0_OVF
+ COMMON         0x00800098        0x2 MCAL/ADC_DRIVER/ADC_PROGRAM.o
+                0x00800098                CallBackPtr_ADC
+ COMMON         0x0080009a        0x6 MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_PROGRAM.o
+                0x0080009a                CallBackPtr_INT2
+                0x0080009c                CallBackPtr_INT0
+                0x0080009e                CallBackPtr_INT1
+ COMMON         0x008000a0        0x2 MCAL/SPI_DRIVER/SPI_PROGRAM.o
+                0x008000a0                CallBackPtr_SPI
  COMMON         0x008000a2        0x8 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
                 0x008000a2                CallBackPtr_TIMER1_COMPB
                 0x008000a4                CallBackPtr_TIMER1_OVF
@@ -964,8 +965,8 @@ END GROUP
                 0x008000ac                CallBackPtr_UART_TXC
                 0x008000ae                CallBackPtr_UART_UDRE
                 0x008000b0                PROVIDE (__bss_end, .)
-                0x00000de4                __data_load_start = LOADADDR (.data)
-                0x00000e14                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000dde                __data_load_start = LOADADDR (.data)
+                0x00000e0e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008000b0        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -1046,7 +1047,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x3f0
+.debug_aranges  0x00000000      0x400
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x48 APP/APP_MASTER_PROGRAM.o
@@ -1067,14 +1068,14 @@ END GROUP
  .debug_aranges
                 0x00000238       0x88 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
  .debug_aranges
-                0x000002c0       0xb8 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+                0x000002c0       0xc0 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
  .debug_aranges
-                0x00000378       0x78 MCAL/UART_DRIVER/UART_PROGRAM.o
+                0x00000380       0x80 MCAL/UART_DRIVER/UART_PROGRAM.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x35fc
+.debug_info     0x00000000     0x3450
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_info    0x000004e6      0x677 APP/APP_MASTER_PROGRAM.o
@@ -1084,12 +1085,12 @@ END GROUP
  .debug_info    0x00001c68      0x19e MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_PROGRAM.o
  .debug_info    0x00001e06       0xad MCAL/GLOBAL_INTERRUPT_DRIVER/GLOBAL_INTERRUPT_PROGRAM.o
  .debug_info    0x00001eb3      0x316 MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
- .debug_info    0x000021c9      0x4bd MCAL/SPI_DRIVER/SPI_PROGRAM.o
- .debug_info    0x00002686      0x508 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
- .debug_info    0x00002b8e      0x68b MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .debug_info    0x00003219      0x3e3 MCAL/UART_DRIVER/UART_PROGRAM.o
+ .debug_info    0x000021c9      0x3c6 MCAL/SPI_DRIVER/SPI_PROGRAM.o
+ .debug_info    0x0000258f      0x506 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
+ .debug_info    0x00002a95      0x6e6 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+ .debug_info    0x0000317b      0x2d5 MCAL/UART_DRIVER/UART_PROGRAM.o
 
-.debug_abbrev   0x00000000     0x1292
+.debug_abbrev   0x00000000     0x11f9
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_abbrev  0x000004a3      0x151 APP/APP_MASTER_PROGRAM.o
@@ -1099,12 +1100,12 @@ END GROUP
  .debug_abbrev  0x000009e2       0x9f MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_PROGRAM.o
  .debug_abbrev  0x00000a81       0x46 MCAL/GLOBAL_INTERRUPT_DRIVER/GLOBAL_INTERRUPT_PROGRAM.o
  .debug_abbrev  0x00000ac7      0x11d MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
- .debug_abbrev  0x00000be4      0x1cf MCAL/SPI_DRIVER/SPI_PROGRAM.o
- .debug_abbrev  0x00000db3      0x1da MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
- .debug_abbrev  0x00000f8d      0x1be MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .debug_abbrev  0x0000114b      0x147 MCAL/UART_DRIVER/UART_PROGRAM.o
+ .debug_abbrev  0x00000be4      0x18b MCAL/SPI_DRIVER/SPI_PROGRAM.o
+ .debug_abbrev  0x00000d6f      0x1c9 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
+ .debug_abbrev  0x00000f38      0x1be MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+ .debug_abbrev  0x000010f6      0x103 MCAL/UART_DRIVER/UART_PROGRAM.o
 
-.debug_line     0x00000000     0x2102
+.debug_line     0x00000000     0x20fd
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x116 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_line    0x00000116      0x484 APP/APP_MASTER_PROGRAM.o
@@ -1114,12 +1115,12 @@ END GROUP
  .debug_line    0x00000c08      0x258 MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_PROGRAM.o
  .debug_line    0x00000e60       0xcc MCAL/GLOBAL_INTERRUPT_DRIVER/GLOBAL_INTERRUPT_PROGRAM.o
  .debug_line    0x00000f2c      0x448 MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
- .debug_line    0x00001374      0x2f0 MCAL/SPI_DRIVER/SPI_PROGRAM.o
- .debug_line    0x00001664      0x3a5 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
- .debug_line    0x00001a09      0x49a MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .debug_line    0x00001ea3      0x25f MCAL/UART_DRIVER/UART_PROGRAM.o
+ .debug_line    0x00001374      0x2b1 MCAL/SPI_DRIVER/SPI_PROGRAM.o
+ .debug_line    0x00001625      0x3ab MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
+ .debug_line    0x000019d0      0x4c3 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+ .debug_line    0x00001e93      0x26a MCAL/UART_DRIVER/UART_PROGRAM.o
 
-.debug_frame    0x00000000      0xb7c
+.debug_frame    0x00000000      0xba8
  *(.debug_frame)
  .debug_frame   0x00000000       0x74 APP/APP_MASTER_PROGRAM.o
  .debug_frame   0x00000074       0x24 APP/TASK33_MASTER_main.o
@@ -1130,10 +1131,10 @@ END GROUP
  .debug_frame   0x00000398       0x84 MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
  .debug_frame   0x0000041c      0x138 MCAL/SPI_DRIVER/SPI_PROGRAM.o
  .debug_frame   0x00000554      0x1a4 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
- .debug_frame   0x000006f8      0x2ac MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .debug_frame   0x000009a4      0x1d8 MCAL/UART_DRIVER/UART_PROGRAM.o
+ .debug_frame   0x000006f8      0x2c8 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+ .debug_frame   0x000009c0      0x1e8 MCAL/UART_DRIVER/UART_PROGRAM.o
 
-.debug_str      0x00000000     0x1584
+.debug_str      0x00000000     0x1520
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_str     0x00000196      0x406 APP/APP_MASTER_PROGRAM.o
@@ -1150,26 +1151,26 @@ END GROUP
                                 0x21e (size before relaxing)
  .debug_str     0x00000a73      0x15b MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
                                 0x369 (size before relaxing)
- .debug_str     0x00000bce      0x1a6 MCAL/SPI_DRIVER/SPI_PROGRAM.o
-                                0x3d9 (size before relaxing)
- .debug_str     0x00000d74      0x326 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
+ .debug_str     0x00000bce      0x126 MCAL/SPI_DRIVER/SPI_PROGRAM.o
+                                0x359 (size before relaxing)
+ .debug_str     0x00000cf4      0x333 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
                                 0x524 (size before relaxing)
- .debug_str     0x0000109a      0x369 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
-                                0x5ea (size before relaxing)
- .debug_str     0x00001403      0x181 MCAL/UART_DRIVER/UART_PROGRAM.o
-                                0x39b (size before relaxing)
+ .debug_str     0x00001027      0x397 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+                                0x618 (size before relaxing)
+ .debug_str     0x000013be      0x162 MCAL/UART_DRIVER/UART_PROGRAM.o
+                                0x37e (size before relaxing)
 
-.debug_loc      0x00000000     0x2443
+.debug_loc      0x00000000     0x24be
  *(.debug_loc)
  .debug_loc     0x00000000       0xd8 APP/APP_MASTER_PROGRAM.o
  .debug_loc     0x000000d8      0x777 ECUAL/LCD_DRIVER/LCD_PROGRAM.o
  .debug_loc     0x0000084f      0x1b6 MCAL/ADC_DRIVER/ADC_PROGRAM.o
  .debug_loc     0x00000a05      0x43b MCAL/EXT_INTERRUPT_DRIVER/EXT_INTERRUPT_PROGRAM.o
  .debug_loc     0x00000e40      0x6fe MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
- .debug_loc     0x0000153e      0x286 MCAL/SPI_DRIVER/SPI_PROGRAM.o
- .debug_loc     0x000017c4      0x32c MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
- .debug_loc     0x00001af0      0x5b6 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .debug_loc     0x000020a6      0x39d MCAL/UART_DRIVER/UART_PROGRAM.o
+ .debug_loc     0x0000153e      0x278 MCAL/SPI_DRIVER/SPI_PROGRAM.o
+ .debug_loc     0x000017b6      0x32c MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
+ .debug_loc     0x00001ae2      0x63f MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+ .debug_loc     0x00002121      0x39d MCAL/UART_DRIVER/UART_PROGRAM.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1189,7 +1190,7 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x340
+.debug_ranges   0x00000000      0x350
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x38 APP/APP_MASTER_PROGRAM.o
  .debug_ranges  0x00000038       0x10 APP/TASK33_MASTER_main.o
@@ -1200,8 +1201,8 @@ END GROUP
  .debug_ranges  0x00000118       0x40 MCAL/GPIO_DRIVER/GPIO_PROGRAM.o
  .debug_ranges  0x00000158       0x60 MCAL/SPI_DRIVER/SPI_PROGRAM.o
  .debug_ranges  0x000001b8       0x78 MCAL/TIMERS_DRIVER/TIMER0_DRIVER/TIMER0_PROGRAM.o
- .debug_ranges  0x00000230       0xa8 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
- .debug_ranges  0x000002d8       0x68 MCAL/UART_DRIVER/UART_PROGRAM.o
+ .debug_ranges  0x00000230       0xb0 MCAL/TIMERS_DRIVER/TIMER1_DRIVER/TIMER1_PROGRAM.o
+ .debug_ranges  0x000002e0       0x70 MCAL/UART_DRIVER/UART_PROGRAM.o
 
 .debug_macro
  *(.debug_macro)

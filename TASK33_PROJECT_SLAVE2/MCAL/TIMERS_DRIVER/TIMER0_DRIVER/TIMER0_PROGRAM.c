@@ -20,8 +20,8 @@
  *                              							Global Variables				                   	   		  		   *
  *******************************************************************************/
 
-void (*CallBackPtr_TIMER0_COMP) (void);
-void (*CallBackPtr_TIMER0_OVF) (void);
+static void (*CallBackPtr_TIMER0_COMP) (void);
+static void (*CallBackPtr_TIMER0_OVF) (void);
 
 /*******************************************************************************
  *                              						Functions Declarations	                     	   		  		   *
@@ -29,27 +29,27 @@ void (*CallBackPtr_TIMER0_OVF) (void);
 
 void TIMER0_INITIALIZATION(void) {
 	// Choose Timer Mode
-
-#if (NORMAL_MODE)
+#if (TIMER0_NORMAL_MODE)
 	TCCR0_REG->FOC0 = 0;
 	TCCR0_REG->WGM01 = 0;
 	TCCR0_REG->WGM00 = 0;
-#elif (CTC_MODE)
+#elif (TIMER0_CTC_MODE)
 	TCCR0_REG->FOC0 = 1;
-	TCCR0_REG->WGM01 = 1;
 	TCCR0_REG->WGM00 = 0;
+	TCCR0_REG->WGM01 = 1;
 	TCCR0_REG->COM0x = TIMER0_COM_CTC_MODE;
-#elif (PHASEPWM_MODE)
+#elif (TIMER0_PHASEPWM_MODE)
 	TCCR0_REG->FOC0 = 0;
 	TCCR0_REG->WGM01 = 0;
 	TCCR0_REG->WGM00 = 1;
 	TCCR0_REG->COM0x = TIMER0_COM_PHASEPWM_MODE;
-#elif (FASTPWM_MODE)
+#elif (TIMER0_FASTPWM_MODE)
 	TCCR0_REG->FOC0 	= 	0;
 	TCCR0_REG->WGM01 = 1;
 	TCCR0_REG->WGM00 = 1;
 	TCCR0_REG->COM0x 	= TIMER0_COM_FASTPWM_MODE;
 #endif
+	TCCR0_REG->CS0x = 0b000;
 
 #if (ISR_ENABLE)
 	TIMSK_REG->TOIE0 = 1;
@@ -80,6 +80,7 @@ u8 TIMER0_getTime(void) {
 	return TCNT0_REG;
 }
 
+
 u8 TIMER0_voidSetDutyCycle_FASTPWM(u8 copy_u8Duty)
 {
 	 u8 pwmValue = (u16)(copy_u8Duty * 255) / 100;
@@ -87,6 +88,14 @@ u8 TIMER0_voidSetDutyCycle_FASTPWM(u8 copy_u8Duty)
 	 OCR0_REG = pwmValue;
 	 return pwmValue;
 }
+
+
+u16 DutyCycle_ADC_Mapping(u16 copy_u16Data)
+{
+	u8 dutyCycleValue = ((u32)copy_u16Data * 100) / 1023;
+	return  dutyCycleValue ;
+}
+
 
 void TIMER0_setDelay_ms_CTC(u16 copy_u16Delay)
 {
@@ -109,6 +118,14 @@ void TIMER0_setDelay_ms_CTC(u16 copy_u16Delay)
 			overFlowCounter = 0;
 }
 
+void TIMER0_setDelay_ms_CTC_ISR(u16 copy_u16Delay)
+{
+	// Prepare Calculations to calculate OVERFLOWS
+			float Tick_Time = 0.001;
+			// This will set the Tick Time 1mS
+			u8 compareValue = (Tick_Time * (float)F_CPU) / TIMER0_PRESCALER;
+			TCNT0_REG = compareValue;
+}
 
 void TIMER0_setDelay_ms_OVF(u16 copy_u16Delay)
 {
@@ -131,11 +148,7 @@ void TIMER0_setDelay_ms_OVF(u16 copy_u16Delay)
 			overFlowCounter = 0;
 }
 
-u16 DutyCycle_ADC_Mapping(u16 copy_u16Data)
-{
-	u8 dutyCycleValue = ((u32)copy_u16Data * 100) / 1023;
-	return  dutyCycleValue ;
-}
+
 
 void TIMER0_CallBackFunction_COMP(void (*Ptr_TIMER)(void))
 {

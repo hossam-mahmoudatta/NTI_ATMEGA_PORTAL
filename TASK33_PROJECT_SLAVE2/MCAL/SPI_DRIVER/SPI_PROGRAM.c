@@ -29,16 +29,20 @@ void SPI_voidInitialization_Master(void) {
 	GPIO_voidSetPinDirection(PORT_B, MISO, PIN_INPUT);
 	GPIO_voidSetPinDirection(PORT_B, SCK, PIN_OUTPUT);
 
-	GPIO_voidSetPinValue(PORT_B, SS, LOGIC_HIGH);
+	//GPIO_voidSetPinValue(PORT_B, SS, LOGIC_HIGH);
 
-	SPCR_REG->SPE = 1;
-	SPCR_REG->MSTR = 1;
-	SPCR_REG->SPRx = SPI_CLOCK_RATE;
-	SPCR_REG->DORD = 0;
-	SPSR_REG->SPI2x = 0;
+	/*Set master node*/
+	SET_BIT(SPCR_REG,SPCR_MSTR);
+	
+	/*clock speed: system frequency divided by 16*/
+	SET_BIT(SPCR_REG,SPCR_SPR0);
+	CLR_BIT(SPCR_REG,SPCR_SPR1);
+
+	/*SPI enable*/
+	SET_BIT(SPCR_REG,SPCR_SPE);
 
 #if (SPI_ISR_ENABLE)
-	SPCR_REG->SPIE = 1;
+	SET_BIT(SPCR_REG,SPCR_SPIE);
 #endif
 }
 
@@ -51,14 +55,14 @@ void SPI_voidInitialization_Slave(void) {
 
 	GPIO_voidSetPinValue(PORT_B, SS, LOGIC_LOW);
 
-	SPCR_REG->SPE = 1;// Enabling the SPI Module
-	SPCR_REG->MSTR = 0;// Enabling the Master / Slave Mode; I will choose Master
-	SPCR_REG->SPRx = SPI_CLOCK_RATE;
-	SPCR_REG->DORD = 0;
-	SPSR_REG->SPI2x = 0;
+	/*Set master node*/
+	CLR_BIT(SPCR_REG,SPCR_MSTR);	
+
+	/*SPI enable*/
+	SET_BIT(SPCR_REG,SPCR_SPE);
 
 #if (SPI_ISR_ENABLE)
-	SPCR_REG->SPIE = 1;
+	SET_BIT(SPCR_REG,SPCR_SPIE);
 #endif
 }
 
@@ -66,7 +70,7 @@ void SPI_voidInitialization_Slave(void) {
 // Responsible for the SPI to send & receive a byte
 u8 SPI_u8SendReceiveByte_Polling(u8 copy_u8Data) {
 	SPDR_REG = copy_u8Data;
-	while(SPSR_REG->SPIF == 0)
+	while((GET_BIT(SPSR_REG,SPSR_SPIF)) == 0)
 	{
 		// Polling (Busy Wait)
 		/* Waiting for the flag is set, it is set when data transmission
@@ -81,15 +85,13 @@ u8 SPI_u8SendReceiveByte_Polling(u8 copy_u8Data) {
 u8 SPI_u8SendByte_Polling(u8 copy_u8Data) {
 	u8 flushBuffer;
 	SPDR_REG = copy_u8Data;
-	while(SPSR_REG->SPIF == 0)
+	while((GET_BIT(SPSR_REG,SPSR_SPIF) == 0))
 	{
 		// Polling (Busy Wait)
 		/* Waiting for the flag is set, it is set when data transmission
 		 * flag is set, Master will set SS to low to generate clock on SCK pin
 		 */
 	}
-	SPSR_REG->SPIF = 1;
-
 	flushBuffer = SPDR_REG;
 	return flushBuffer;
 }
@@ -102,14 +104,13 @@ void SPI_u8SendByte_ISR(u8 copy_u8Data) {
 // Use the SPI to receive a byte using Polling
 u8 SPI_u8ReceiveByte_Polling(void) {
 	SPDR_REG = 0xFF;
-	while(SPSR_REG->SPIF == 0)
+	while((GET_BIT(SPSR_REG,SPSR_SPIF) == 0))
 	{
 		// Polling (Busy Wait)
 		/* Waiting for the flag is set, it is set when data transmission
 		 * flag is set, Master will set SS to low to generate clock on SCK pin
 		 */
 	}
-	SPSR_REG->SPIF = 1;
 	return SPDR_REG;
 }
 
@@ -140,7 +141,7 @@ void SPI_voidReceiveString(u8 *str) {
 	str[i] = SPI_u8ReceiveByte_Polling();
 
 	while (str[i] != '#') {
-		i++; // why the incrementer above?
+		i++; // why the incremented above?
 		str[i] =SPI_u8ReceiveByte_Polling() ;
 	}
 	str[i] = '\0'; // replacing the '#' with '\0'

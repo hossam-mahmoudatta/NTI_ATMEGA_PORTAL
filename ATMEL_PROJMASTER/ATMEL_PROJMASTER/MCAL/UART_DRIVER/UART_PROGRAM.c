@@ -134,7 +134,7 @@ u8 UART_voidReceiveByte_Polling(void) {
 // Responsible for the USART to sEND a byte using isr
 void UART_voidSendByte_ISR(u8 copy_u8Data) {
 	// This is waiting for the flag to be set to '0' to know that I received data
-	UDR_REG = u8 copy_u8Data;		// When reading
+	UDR_REG = copy_u8Data;		// When reading
 }
 
 

@@ -2,9 +2,9 @@
  *
  * Module: TIMER1
  *
- * File Name: TIMER1_CONFIG.h
+ * File Name: TIMER1_INTERFACE.h
  *
- * Description: Header file for the TIMER1 Driver MACRO DEFINITIONS
+ * Description: Header file for the TIMER1 Driver Function Prototypes
  *
  * Author: Hossam Mahmoud
  *
@@ -29,7 +29,7 @@ void (*CallBackPtr_TIMER1_OVF) (void);
  *                              						Functions Declarations	                     	   		  		   *
  *******************************************************************************/
 
-void TIMER1_Initialization(void) {
+void TIMER1_voidInitialization(void) {
 	// Choose Timer Mode
 
 #if (TIMER1_NORMAL_MODE)
@@ -39,21 +39,21 @@ void TIMER1_Initialization(void) {
 	TCCR1B_REG->WGM1x 	= 0b00;
 	TCCR1A_REG->COM1Bx 	= 0b10; // Non Inverting Mode
 	TCCR1A_REG->COM1Ax 	= 0b10; // Non Inverting Mode
-#elif (TIMER1_CTC_MODE)
+#elif (TIMER1_CTC_OCR1A_MODE)
 	TCCR1A_REG->FOC1A 	= 1;
 	TCCR1A_REG->FOC1B 	= 1;
 	TCCR1A_REG->WGM1x 	= 0b00;
 	TCCR1B_REG->WGM1x 	= 0b01;
 	TCCR1A_REG->COM1Bx 	= 0b10; // Non Inverting Mode
 	TCCR1A_REG->COM1Ax 	= 0b10; // Non Inverting Mode
-#elif (TIMER1_PHASEPWM_MODE)
+#elif (TIMER1_PHASEPWM_OCR1A_MODE)
 	TCCR1A_REG->FOC1A = 0;
 	TCCR1A_REG->FOC1B = 0;
 	TCCR1A_REG->WGM1x = 0b01;
 	TCCR1B_REG->WGM1x = 0b10;
 	TCCR1A_REG->COM1Bx 	= 0b10; // Non Inverting Mode
 	TCCR1A_REG->COM1Ax 	= 0b10; // Non Inverting Mode
-#elif (TIMER1_FASTPWM_MODE)
+#elif (TIMER1_FASTPWM_ICR1_MODE)
 	TCCR1A_REG->FOC1A 	= 0;
 	TCCR1A_REG->FOC1B 	= 0;
 	TCCR1A_REG->WGM1x 	= 0b10;
@@ -62,8 +62,10 @@ void TIMER1_Initialization(void) {
 	TCCR1A_REG->COM1Ax 	= 0b10; // Non Inverting Mode
 #endif
 
-	TCCR1B_REG->CS1x = TIMER1_PRESCALER;
-	OCR1AL_REG = 500;
+	//TCCR1B_REG->CS1x = TIMER1_PRESCALER;
+	//OCR1A_REG = 750;
+	//OCR1B_REG = 750;
+	//ICR1_REG  = 20000;
 
 #if (TIMER1_ISR_ENABLE)
 	TIMSK_REG->TICIE1 = TIMER1_SET;
@@ -75,7 +77,7 @@ void TIMER1_Initialization(void) {
 
 void TIMER1_voidStart(void) {
 	// Choose Timer PRESCALER
-	//TCCR1B_REG->CS1x = TIMER1_PRESCALER;
+	TCCR1B_REG->CS1x = TIMER1_PRESCALER;
 }
 
 
@@ -85,46 +87,57 @@ void TIMER1_voidStop(void) {
 }
 
 
-void TIMER1_voidSetPreload(u8 copy_u8preloadValue) {
+void TIMER1_voidSetPreload(u16 copy_u16PreloadValue) {
 	// Choose Timer PRESCALER
-	TCNT1L_REG = copy_u8preloadValue;
+	TCNT1_REG = copy_u16PreloadValue;
 }
 
 
 u16 TIMER1_u16GetTime(void) {
 	// Choose Timer PRESCALER
-	return (u16)TCNT1L_REG;
+	return TCNT1_REG;
 }
 
 
-u16 TIMER1A_SetCOMPAREMATCH_FASTPWM(u16 copy_u16CMP)
+u16 TIMER1A_u16SetCompareMatch_FASTPWM(u16 copy_u16CMP)
 {
 	 u16 Value = copy_u16CMP;
 	 GPIO_voidSetPinDirection(PORT_D, PIN_5, PIN_OUTPUT);
-	 OCR1AL_REG = copy_u16CMP;
+	 OCR1A_REG = copy_u16CMP;
 	 return Value;
 }
 
-void TIMER1A_SetTop_FASTPWM(u16 copy_u16ICRValue)
+
+u16 TIMER1B_u16SetCompareMatch_FASTPWM(u16 copy_u16CMP)
 {
-	 ICR1L_REG = copy_u16ICRValue;
+	u16 Value = copy_u16CMP;
+	GPIO_voidSetPinDirection(PORT_D, PIN_4, PIN_OUTPUT);
+	OCR1B_REG = copy_u16CMP;
+	return Value;
+}
+
+
+void TIMER1_voidSetTop_FASTPWM(u16 copy_u16ICRValue)
+{
+	 ICR1_REG = copy_u16ICRValue;
 }
 
 u16 TIMER1A_SetDutyCycle_FASTPWM(u8 copy_u8Duty)
 {
 	 u16 PWMValue = (u16)(copy_u8Duty * 255) / 100;
 	 GPIO_voidSetPinDirection(PORT_D, PIN_5, PIN_OUTPUT);
-	 OCR1AL_REG = PWMValue;
-	 return PWMValue;
+	 OCR1A_REG = PWMValue;
+	 return OCR1A_REG;
 }
 
 u16 TIMER1B_SetDutyCycle_FASTPWM(u8 copy_u8Duty)
 {
 	 u16 PWMValue = (u16)(copy_u8Duty * 255) / 100;
 	 GPIO_voidSetPinDirection(PORT_D, PIN_4, PIN_OUTPUT);
-	 OCR1BL_REG = PWMValue;
-	 return PWMValue;
+	 OCR1B_REG = PWMValue;
+	 return OCR1B_REG;
 }
+
 
 void TIMER1A_setDelay_ms_CTC(u16 copy_u16Delay)
 {
@@ -132,7 +145,7 @@ void TIMER1A_setDelay_ms_CTC(u16 copy_u16Delay)
 			float Tick_Time = 0.001;
 			// This will set the Tick Time 1mS
 			u16 compareValue = (Tick_Time * (float)F_CPU) / TIMER1_PRESCALER_64;
-			TCNT1L_REG = compareValue;
+			TCNT1_REG = compareValue;
 
 			static u8 overFlowCounter = 0;
 
@@ -153,7 +166,7 @@ void TIMER1B_setDelay_ms_CTC(u16 copy_u16Delay)
 			float Tick_Time = 0.001;
 			// This will set the Tick Time 1mS
 			u16 compareValue = (Tick_Time * (float)F_CPU) / TIMER1_PRESCALER_64;
-			TCNT1L_REG = compareValue;
+			TCNT1_REG = compareValue;
 
 			static u8 overFlowCounter = 0;
 

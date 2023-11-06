@@ -23,19 +23,21 @@
  *                              						Functions Prototypes                           					  *
  *******************************************************************************/
 
-void TIMER1_Initialization(void);
+void TIMER1_voidInitialization(void);
 
 void TIMER1_voidStart(void);
 
 void TIMER1_voidStop(void);
 
-void TIMER1_voidSetPreload(u8 copy_u8preloadValue);
+void TIMER1_voidSetPreload(u16 copy_u16PreloadValue);
 
 u16 TIMER1_u16GetTime(void);
 
-u16 TIMER1A_SetCOMPAREMATCH_FASTPWM(u16 copy_u16CMP);
+u16 TIMER1A_u16SetCompareMatch_FASTPWM(u16 copy_u16CMP);
 
-void TIMER1A_SetTop_FASTPWM(u16 copy_u16ICRValue);
+u16 TIMER1B_u16SetCompareMatch_FASTPWM(u16 copy_u16CMP);
+
+void TIMER1_voidSetTop_FASTPWM(u16 copy_u16ICRValue);
 
 u16 TIMER1A_SetDutyCycle_FASTPWM(u8 copy_u8Duty);
 

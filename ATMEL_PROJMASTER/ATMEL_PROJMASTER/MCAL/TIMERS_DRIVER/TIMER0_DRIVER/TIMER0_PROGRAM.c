@@ -20,8 +20,8 @@
  *                              							Global Variables				                   	   		  		   *
  *******************************************************************************/
 
-void (*CallBackPtr_TIMER0_COMP) (void);
-void (*CallBackPtr_TIMER0_OVF) (void);
+static void (*CallBackPtr_TIMER0_COMP) (void);
+static void (*CallBackPtr_TIMER0_OVF) (void);
 
 /*******************************************************************************
  *                              						Functions Declarations	                     	   		  		   *
@@ -35,8 +35,8 @@ void TIMER0_INITIALIZATION(void) {
 	TCCR0_REG->WGM00 = 0;
 #elif (TIMER0_CTC_MODE)
 	TCCR0_REG->FOC0 = 1;
-	TCCR0_REG->WGM01 = 1;
 	TCCR0_REG->WGM00 = 0;
+	TCCR0_REG->WGM01 = 1;
 	TCCR0_REG->COM0x = TIMER0_COM_CTC_MODE;
 #elif (TIMER0_PHASEPWM_MODE)
 	TCCR0_REG->FOC0 = 0;
@@ -49,6 +49,7 @@ void TIMER0_INITIALIZATION(void) {
 	TCCR0_REG->WGM00 = 1;
 	TCCR0_REG->COM0x 	= TIMER0_COM_FASTPWM_MODE;
 #endif
+	TCCR0_REG->CS0x = 0b000;
 
 #if (ISR_ENABLE)
 	TIMSK_REG->TOIE0 = 1;

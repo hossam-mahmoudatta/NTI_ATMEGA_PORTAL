@@ -23,24 +23,21 @@
  *                              								SPI Registers					              			     	   *
  *******************************************************************************/
 
-typedef struct {
-	u8 SPRx: 	2;		// SPI Clock Rate Select
-	u8 CPHA: 	1;		// Clock Phase
-	u8 CPOL: 	1;		// Clock Polarity
-	u8 MSTR: 	1;		// Master Slave Select
-	u8 DORD:	1;		// Data Order
-	u8 SPE: 		1;		// SPI Enable
-	u8 SPIE: 		1;		// Interrupt Enable
-} SPCR;
-#define SPCR_REG		((volatile SPCR*) 0x2D)
 
-typedef struct {
-	u8 SPI2x: 	1;		// SPI Double Speed
-	u8           : 	5;		// Reserved
-	u8 WCOL: 	1;		// Write Collision Flag
-	u8 SPIF: 		1;		// SPI Interrupt Flag
-} SPSR;
-#define SPSR_REG		((volatile SPSR*) 0x2E)
+#define SPCR_SPR0	0		// SPI Clock Rate Select
+#define SPCR_SPR1	1		// SPI Clock Rate Select
+#define SPCR_CPHA 	2		// Clock Phase
+#define SPCR_CPOL 	3		// Clock Polarity
+#define SPCR_MSTR 	4		// Master Slave Select
+#define SPCR_DORD	5		// Data Order
+#define SPCR_SPE 	6		// SPI Enable
+#define SPCR_SPIE 	7		// Interrupt Enable
+#define SPCR_REG		*((volatile u8*) 0x2D)
+
+
+#define SPSR_SPI2x 	0		// SPI Double Speed
+#define SPSR_SPIF	7		// SPI Interrupt Flag
+#define SPSR_REG		*((volatile u8*) 0x2E)
 
 #define SPDR_REG		(*((volatile u8*) 0x2F))
 

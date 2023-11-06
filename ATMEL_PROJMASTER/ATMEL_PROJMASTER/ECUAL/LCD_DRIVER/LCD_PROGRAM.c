@@ -178,25 +178,6 @@ void LCD_voidSetCursor(u8 copy_u8row, u8 copy_u8_col) {
 	}
 	/* Move the LCD cursor to this specific address */
 	LCD_voidSendCommand(LCD_MEMORY_ADDRESS | LINE0_ADDRESS);
-
-
-//	switch(copy_u8row) {
-//			case LINE0:
-//				LCD_voidSendCommand(LINE0_ADDRESS + copy_u8_col);
-//					break;
-//			case LINE1:
-//				LCD_voidSendCommand(LINE1_ADDRESS + copy_u8_col);
-//					break;
-//			case LINE2:
-//				LCD_voidSendCommand(LINE2_ADDRESS + copy_u8_col);
-//					break;
-//			case LINE3:
-//				LCD_voidSendCommand(LINE3_ADDRESS + copy_u8_col);
-//					break;
-//			default:
-//				LCD_voidDisplayString("default", 0, 0);
-//				break;
-//		}
 }
 
 

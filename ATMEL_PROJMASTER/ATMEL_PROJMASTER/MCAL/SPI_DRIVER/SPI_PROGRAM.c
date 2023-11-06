@@ -85,15 +85,13 @@ u8 SPI_u8SendReceiveByte_Polling(u8 copy_u8Data) {
 u8 SPI_u8SendByte_Polling(u8 copy_u8Data) {
 	u8 flushBuffer;
 	SPDR_REG = copy_u8Data;
-	while((GET_BIT(SPSR_REG,SPSR_SPIF) == 0)
+	while((GET_BIT(SPSR_REG,SPSR_SPIF) == 0))
 	{
 		// Polling (Busy Wait)
 		/* Waiting for the flag is set, it is set when data transmission
 		 * flag is set, Master will set SS to low to generate clock on SCK pin
 		 */
 	}
-	SPSR_REG->SPIF = 1;
-
 	flushBuffer = SPDR_REG;
 	return flushBuffer;
 }
@@ -106,7 +104,7 @@ void SPI_u8SendByte_ISR(u8 copy_u8Data) {
 // Use the SPI to receive a byte using Polling
 u8 SPI_u8ReceiveByte_Polling(void) {
 	SPDR_REG = 0xFF;
-	while(SPSR_REG->SPIF == 0)
+	while((GET_BIT(SPSR_REG,SPSR_SPIF) == 0))
 	{
 		// Polling (Busy Wait)
 		/* Waiting for the flag is set, it is set when data transmission
@@ -143,7 +141,7 @@ void SPI_voidReceiveString(u8 *str) {
 	str[i] = SPI_u8ReceiveByte_Polling();
 
 	while (str[i] != '#') {
-		i++; // why the incrementer above?
+		i++; // why the incremented above?
 		str[i] =SPI_u8ReceiveByte_Polling() ;
 	}
 	str[i] = '\0'; // replacing the '#' with '\0'

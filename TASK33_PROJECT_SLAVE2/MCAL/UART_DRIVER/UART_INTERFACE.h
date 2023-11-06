@@ -23,10 +23,16 @@
 void UART_Initialization(void);
 
 // Responsible for the USART to send a byte
-void UART_voidSendByte_Polling(const u8 data);
+void UART_voidSendByte_Polling(u8 copy_u8Data);
 
 // Responsible for the USART to receive a byte
 u8 UART_voidReceiveByte_Polling(void);
+
+// Responsible for the USART to send a byte using ISR
+void UART_voidSendByte_ISR(u8 copy_u8Data);
+
+// Responsible for the USART to receive a byte
+u8 UART_voidReceiveByte_ISR(void);
 
 // Responsible for the USART to send an array of bytes, a string
 void UART_voidSendString(const u8 *str);
