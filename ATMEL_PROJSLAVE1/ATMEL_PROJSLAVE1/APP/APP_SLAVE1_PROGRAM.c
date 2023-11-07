@@ -44,21 +44,34 @@ void System_Initialization(void) {
 	// Initializing the Global Interrupt Enable
 	GLOBINT_voidSetEnableFlag();
 
-	// Initializing Timer1
-	TIMER1_Initialization();
+	// Initializing sERVO
+	SERVO_voidInit();
+	
+	// sTARTING tIMER1
+	TIMER1_voidStart();
 
 }
 
 void executeMain_SLAVE1(void) {
-	if(SPI_Reading == 't') // RIGHT FRONT DOOR
+	if(SPI_Reading == 't') // RIGHT FRONT DOOR Open
 	{
-		DFR_Previous_Angle = SERVO_CarDoor(FR_Door, DFR_Previous_Angle, SERVO_DATA_PORT, SERVO_DATA_PIN1);
-		SPI_Reading=0;
+		SERVO_CarDoor_FR_Open();
+		//SPI_Reading=0;
 	}
-	else if(SPI_Reading == 'r') //LEFT FRONT DOOR
+	else if(SPI_Reading == 'r') //LEFT FRONT DOOR Close
 	{
-		DFL_Previous_Angle = SERVO_CarDoor(FL_Door, DFL_Previous_Angle, SERVO_DATA_PORT, SERVO_DATA_PIN2);
-		SPI_Reading=0;
+		SERVO_CarDoor_FR_Close();
+		//SPI_Reading=0;
+	}
+	else if(SPI_Reading == 'g') // RIGHT FRONT DOOR Open
+	{
+		SERVO_CarDoor_FL_Open();
+		//SPI_Reading=0;
+	}
+	else if(SPI_Reading == 'f') //LEFT FRONT DOOR Close
+	{
+		SERVO_CarDoor_FL_Close();
+		//SPI_Reading=0;
 	}
 }
 

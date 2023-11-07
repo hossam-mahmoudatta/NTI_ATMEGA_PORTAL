@@ -22,8 +22,8 @@
 	#define TRUE        (1u)
 #endif
 
-#define LOGIC_HIGH					1 //(1u)
-#define LOGIC_LOW					0 //(0u)
+#define LOGIC_HIGH					1u //(1u)
+#define LOGIC_LOW					0u //(0u)
 
 #define NULL							(void*) 0
 

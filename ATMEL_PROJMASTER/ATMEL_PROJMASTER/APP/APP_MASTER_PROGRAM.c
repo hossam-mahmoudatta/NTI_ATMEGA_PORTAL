@@ -23,18 +23,18 @@
 u8 data = 'E';
 volatile u8 SPI_Read = 0;
 volatile u8 UART_Read = 0;
-u8 ADC_Read = 0;
+volatile u8 ADC_Read = 0;
 
 volatile u8 UART_Flag = 0;
 
 
 void System_Initialization(void) {
 	// Initializing the Global Interrupt Enable
-	GLOBINT_voidSetEnableFlag();
+	//GLOBINT_voidSetEnableFlag();
 
 	// Initializing UART Module
 	UART_Initialization();
-
+	
 	// Initializing LCD Module
 	LCD_voidInit();
 	LCD_voidSetCursor(0, 0);
@@ -44,8 +44,11 @@ void System_Initialization(void) {
 	SPI_voidInitialization_Master();
 	_delay_ms(100);
 
+	// LCD Stamp
 	LCD_voidSetCursor(1, 0);
-	LCD_voidDisplayString("  UART     SPI  ");
+	LCD_voidDisplayString("FR FL RL RR  CAR");
+	LCD_voidSetCursor(2, 0);
+	LCD_voidDisplayString("DC DC DC DC  PRK");
 
 	// SS Select Pins Initialization
 	GPIO_voidSetPinDirection(PORT_C, PIN_0, PIN_INPUT);
@@ -101,58 +104,145 @@ void UARTReceiveFunction(void)
  */
 
 void executeMain_MASTER(void) {
-	if(UART_Flag == 1)
+	UART_Read = UART_voidReceiveByte_ISR();
+	//UART_Read = 't';
+	switch(UART_Read)
 	{
-		UART_Read = UART_voidReceiveByte_ISR();
-		//UART_Read = 't';
-		if((UART_Read == 'w') || (UART_Read == 's') ||
-		(UART_Read == 'x') || (UART_Read == 'g') || (UART_Read == 'f') )
-		{
-			SPI_Slave_2_Select();
-
-			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
-			LCD_voidSetCursor(2, 4);
-			LCD_voidSendData(UART_Read);
-
-			LCD_voidSetCursor(2, 12);
-			LCD_voidSendData(SPI_Read);
-
-			LCD_voidSetCursor(3, 0);
-			LCD_voidDisplayString("SPI 2");
-
-			//UART_Flag = 0;
-			_delay_ms(100);
-		}
-		else if((UART_Read == 't') || (UART_Read == 'r'))
-		{
+		// For Slave 1 Operations: Front Doors
+		case 't':
 			SPI_Slave_1_Select();
 			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
 
-			LCD_voidSetCursor(2, 4);
-			LCD_voidSendData(UART_Read);
+			LCD_voidSetCursor(2, 0);
+			LCD_voidDisplayString("DO");
 
-			LCD_voidSetCursor(2, 12);
-			LCD_voidSendData(SPI_Read);
-
-			LCD_voidSetCursor(3, 0);
-			LCD_voidDisplayString("SPI 1");
-
-			//UART_Flag = 0;
+			UART_Flag = 0;
 			_delay_ms(100);
-		}
-		SPI_Read = 0;
-	}
+		break;
+		case 'r':
+			SPI_Slave_1_Select();
+			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
 
+			LCD_voidSetCursor(2, 0);
+			LCD_voidDisplayString("DC");
+
+			UART_Flag = 0;
+			_delay_ms(100);
+		break;
+		case 'g':
+			SPI_Slave_1_Select();
+			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
+
+			LCD_voidSetCursor(2, 3);
+			LCD_voidDisplayString("DO");
+
+			UART_Flag = 0;
+			_delay_ms(100);
+		break;
+		case 'f':
+			SPI_Slave_1_Select();
+			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
+
+			LCD_voidSetCursor(2, 3);
+			LCD_voidDisplayString("DC");
+
+			UART_Flag = 0;
+			_delay_ms(100);
+		break;
+
+
+		// For Slave 2 Operations: Rear Doors
+		case 'u':
+			SPI_Slave_2_Select();
+			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
+
+			LCD_voidSetCursor(2, 0);
+			LCD_voidDisplayString("DO");
+
+			UART_Flag = 0;
+			_delay_ms(100);
+		break;
+		case 'y':
+			SPI_Slave_2_Select();
+			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
+
+			LCD_voidSetCursor(2, 0);
+			LCD_voidDisplayString("DC");
+
+			UART_Flag = 0;
+			_delay_ms(100);
+		break;
+		case 'j':
+			SPI_Slave_2_Select();
+			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
+
+			LCD_voidSetCursor(2, 3);
+			LCD_voidDisplayString("DO");
+
+			UART_Flag = 0;
+			_delay_ms(100);
+		break;
+		case 'h':
+			SPI_Slave_2_Select();
+			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
+
+			LCD_voidSetCursor(2, 3);
+			LCD_voidDisplayString("DC");
+
+			UART_Flag = 0;
+			_delay_ms(100);
+		break;
+
+
+		// For Car Movement Operations
+		case 'w':
+			SPI_Slave_2_Select();
+			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
+
+			LCD_voidSetCursor(2, 13);
+			LCD_voidDisplayString("FWD");
+
+			UART_Flag = 0;
+			_delay_ms(100);
+		break;
+		case 's':
+			SPI_Slave_2_Select();
+			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
+
+			LCD_voidSetCursor(2, 13);
+			LCD_voidDisplayString("PRK");
+
+			UART_Flag = 0;
+			_delay_ms(100);
+		break;
+		case 'x':
+			SPI_Slave_2_Select();
+			SPI_Read = SPI_u8SendByte_Polling(UART_Read);
+
+			LCD_voidSetCursor(2, 13);
+			LCD_voidDisplayString("REV");
+
+			UART_Flag = 0;
+			_delay_ms(100);
+		break;
+
+	}
+	SPI_Read = 0;
+	//UART_Read = 0;
 	LCD_voidSetCursor(3, 0);
-	LCD_voidDisplayString("Temp: ");
-	LCD_voidSetCursor(3, 6);
+	LCD_voidDisplayString("Temperature: ");
+	LCD_voidSetCursor(3, 13);
 	ADC_Read = ADC_u16ReadTemperature(CHANNEL_0);
 	LCD_voidIntgerToString(ADC_Read);
 }
+	
+
+
+
 
 void executeISR(void)
 {
-	//UART_CallBackFunction_RXC(UARTReceiveFunction);
+	UART_CallBackFunction_RXC(UARTReceiveFunction);
 	//SPI_CallBackFunction(executeMain_MASTER);
 }
 

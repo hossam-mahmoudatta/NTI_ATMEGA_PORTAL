@@ -63,8 +63,8 @@ void TIMER1_voidInitialization(void) {
 #endif
 
 	//TCCR1B_REG->CS1x = TIMER1_PRESCALER;
-	//OCR1A_REG = 750;
-	//OCR1B_REG = 750;
+	OCR1A_REG = 750;
+	OCR1B_REG = 750;
 	//ICR1_REG  = 20000;
 
 #if (TIMER1_ISR_ENABLE)

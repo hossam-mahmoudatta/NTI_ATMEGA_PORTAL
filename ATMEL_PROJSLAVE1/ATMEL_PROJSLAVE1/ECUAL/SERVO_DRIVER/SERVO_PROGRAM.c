@@ -29,7 +29,7 @@ u16 CMP_Value 	= 0;
 void SERVO_voidInit(void) {
 	TIMER1_voidInitialization();
 	TIMER1_voidSetTop_FASTPWM(SERVO_OP_RANGE);
-	ADC_voidInit();
+	//ADC_voidInit();
 }
 
 
@@ -49,30 +49,54 @@ u16 mapServo(u16 copy_u16ADCValue){
 	return servoAngle;
 }
 
-DOOR_STATUS SERVO_CarDoor(DOOR_NO doorNum, DOOR_STATUS doorAngle, u8 portNumber, u8 pinNumber)
-{
-	GPIO_voidSetPinDirection(portNumber, pinNumber, PIN_OUTPUT);
-	if(doorAngle == Door_Close)
-	{
-		GPIO_voidSetPinValue(portNumber, pinNumber, LOGIC_HIGH);
-		//_delay_ms(10);
-		SERVO_voidAdjustAngle(Door_Open);
-		doorAngle = Door_Open;
-		_delay_ms(50);
-		GPIO_voidSetPinValue(portNumber, pinNumber, LOGIC_LOW);
-	}
-	else if(doorAngle == Door_Open)
-	{
-		GPIO_voidSetPinValue(portNumber, pinNumber, LOGIC_HIGH);
-		//_delay_ms(10);
-		SERVO_voidAdjustAngle(Door_Close);
-		doorAngle = Door_Close;
-		_delay_ms(50);
-		GPIO_voidSetPinValue(portNumber, pinNumber, LOGIC_LOW);
-	}
-	return doorAngle;
+
+// Open Front Right Door
+void SERVO_CarDoor_FR_Open(void)
+{	
+	TIMER1A_u16SetCompareMatch_FASTPWM(750);
 }
 
+// Close Front Right Door
+void SERVO_CarDoor_FR_Close(void)
+{
+	TIMER1A_u16SetCompareMatch_FASTPWM(1499);
+}
+
+// Open Front Left Door
+void SERVO_CarDoor_FL_Open(void)
+{
+	TIMER1B_u16SetCompareMatch_FASTPWM(750);
+}
+
+// Close Front Left Door
+void SERVO_CarDoor_FL_Close(void)
+{
+	TIMER1B_u16SetCompareMatch_FASTPWM(1499);
+}
+
+// Open Rear Left Door
+void SERVO_CarDoor_RL_Open(void)
+{
+	TIMER1A_u16SetCompareMatch_FASTPWM(750);
+}
+
+// Close Rear Left Door
+void SERVO_CarDoor_RL_Close(void)
+{
+	TIMER1A_u16SetCompareMatch_FASTPWM(1499);
+}
+
+// Open Rear Right Door
+void SERVO_CarDoor_RR_Open(void)
+{
+	TIMER1B_u16SetCompareMatch_FASTPWM(750);
+}
+
+// Close Rear Right Door
+void SERVO_CarDoor_RR_Close(void)
+{
+	TIMER1B_u16SetCompareMatch_FASTPWM(1499);
+}
 
 
 

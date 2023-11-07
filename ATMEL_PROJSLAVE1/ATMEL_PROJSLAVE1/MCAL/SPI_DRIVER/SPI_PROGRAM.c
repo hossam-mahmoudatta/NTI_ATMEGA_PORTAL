@@ -53,10 +53,14 @@ void SPI_voidInitialization_Slave(void) {
 	GPIO_voidSetPinDirection(PORT_B, MISO, PIN_OUTPUT);
 	GPIO_voidSetPinDirection(PORT_B, SCK, PIN_INPUT);
 
-	GPIO_voidSetPinValue(PORT_B, SS, LOGIC_LOW);
+	//GPIO_voidSetPinValue(PORT_B, SS, LOGIC_LOW);
 
 	/*Set master node*/
-	CLR_BIT(SPCR_REG,SPCR_MSTR);	
+	CLR_BIT(SPCR_REG,SPCR_MSTR);
+	
+	/*clock speed: system frequency divided by 16*/
+	SET_BIT(SPCR_REG,SPCR_SPR0);
+	CLR_BIT(SPCR_REG,SPCR_SPR1);
 
 	/*SPI enable*/
 	SET_BIT(SPCR_REG,SPCR_SPE);

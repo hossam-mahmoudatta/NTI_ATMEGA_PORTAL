@@ -20,6 +20,7 @@ int main(void)
 {
 	System_Initialization();
 	executeISR();
+
 	while (1)
 	{
 		executeMain_SLAVE1();
