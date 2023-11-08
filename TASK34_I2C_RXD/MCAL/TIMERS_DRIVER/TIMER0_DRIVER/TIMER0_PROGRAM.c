@@ -27,7 +27,7 @@ void (*CallBackPtr_TIMER0_OVF) (void);
  *                              						Functions Declarations	                     	   		  		   *
  *******************************************************************************/
 
-void TIMER0_INITIALIZATION(void) {
+void TIMER0_voidInitialization(void) {
 	// Choose Timer Mode
 
 #if (NORMAL_MODE)
@@ -57,38 +57,38 @@ void TIMER0_INITIALIZATION(void) {
 }
 
 
-void TIMER0_START(void) {
+void TIMER0_voidStart(void) {
 	// Choose Timer PRESCALER
 	TCCR0_REG->CS0x = TIMER0_PRESCALER;
 }
 
 
-void TIMER0_STOP(void) {
+void TIMER0_voidStop(void) {
 	// Choose Timer PRESCALER
 	TCCR0_REG->CS0x = NO_TIME;
 }
 
 
-void TIMER0_setPreload(u8 preloadValue) {
+void TIMER0_voidSetPreload(u8 copy_u8PreloadValue) {
 	// Choose Timer PRESCALER
-	TCNT0_REG = preloadValue;
+	TCNT0_REG = copy_u8PreloadValue;
 }
 
 
-u8 TIMER0_getTime(void) {
+u8 TIMER0_u8GetTime(void) {
 	// Choose Timer PRESCALER
 	return TCNT0_REG;
 }
 
-u8 TIMER0_voidSetDutyCycle_FASTPWM(u8 copy_u8Duty)
+u8 TIMER0_u8SetDutyCycle_PWM(u8 copy_u8DutyCycle)
 {
-	 u8 pwmValue = (u16)(copy_u8Duty * 255) / 100;
+	 u8 pwmValue = (u16)(copy_u8DutyCycle * 255) / 100;
 	 GPIO_voidSetPinDirection(PORT_B, PIN_3, PIN_OUTPUT);
 	 OCR0_REG = pwmValue;
 	 return pwmValue;
 }
 
-void TIMER0_setDelay_ms_CTC(u16 copy_u16Delay)
+void TIMER0_voidSetDelay_ms_CTC(u16 copy_u16Delay)
 {
 	// Prepare Calculations to calculate OVERFLOWS
 			float Tick_Time = 0.001;
@@ -110,7 +110,7 @@ void TIMER0_setDelay_ms_CTC(u16 copy_u16Delay)
 }
 
 
-void TIMER0_setDelay_ms_OVF(u16 copy_u16Delay)
+void TIMER0_voidSetDelay_ms_OVF(u16 copy_u16Delay)
 {
 	// Prepare Calculations to calculate OVERFLOWS
 			float Tick_Time = 0;
@@ -131,7 +131,7 @@ void TIMER0_setDelay_ms_OVF(u16 copy_u16Delay)
 			overFlowCounter = 0;
 }
 
-u16 DutyCycle_ADC_Mapping(u16 copy_u16Data)
+u16 TIMER0_u16ADC_Mapping(u16 copy_u16Data)
 {
 	u8 dutyCycleValue = ((u32)copy_u16Data * 100) / 1023;
 	return  dutyCycleValue ;

@@ -14,8 +14,8 @@
  *                              							Include Libraries						                       		   *
  *******************************************************************************/
 
-#ifndef TIMER_CONFIG_H_
-#define TIMER_CONFIG_H_
+#ifndef TIMER0_CONFIG_H_
+#define TIMER0_CONFIG_H_
 
 #include "TIMER0_PRIVATE.h"
 

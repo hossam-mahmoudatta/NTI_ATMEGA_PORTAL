@@ -26,7 +26,6 @@ u8 EEPROM_u8WriteByte(u16 copy_u16Address, u8 copy_u8Data){
 	if (I2C_u8GetStatus() != I2C_START) {
 	        return ERROR;
 	}
-
 	/*
 	 * EEPROM address is 11 bits, the 3 MSB is the device address
 	 * The other bits are the word address

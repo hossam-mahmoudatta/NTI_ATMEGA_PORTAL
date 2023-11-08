@@ -16,7 +16,7 @@
 #ifndef TIMER0_PRIVATE_H_
 #define TIMER0_PRIVATE_H_
 
-#include "../TIMER_GENERAL-REGISTERS.h"
+#include "../TIMER_GENERAL_PRIVATE.h"
 
 /*******************************************************************************
  *                              							Timer0 Registers					                   				     *

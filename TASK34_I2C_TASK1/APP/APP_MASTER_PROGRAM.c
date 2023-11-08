@@ -31,7 +31,6 @@ void System_Initialization(void) {
 
 	// Initializing SPI Module Master
 	I2C_voidMasterInit(I2C_SLAVE1_ADDRESS);
-
 }
 
 void executeMain_TXD(void) {

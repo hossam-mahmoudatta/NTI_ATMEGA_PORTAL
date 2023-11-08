@@ -14,8 +14,8 @@
  *                              							Include Libraries						                       		   *
  *******************************************************************************/
 
-#ifndef SEGMENT_INTERFACE_H_
-#define SEGMENT_INTERFACE_H_
+#ifndef SERVO_INTERFACE_H_
+#define SERVO_INTERFACE_H_
 
 #include "SERVO_CONFIG.h"
 
@@ -33,4 +33,4 @@ void SERVO_voidAdjustAngle(void);
 u16 mapServo(u16 copy_u16ADCValue);
 
 
-#endif /* SEVEN-SEGMENT_H_ */
+#endif /* SERVO_INTERFACE_H_ */

@@ -18,7 +18,7 @@
 
 #include "../../MCAL/GPIO_DRIVER/GPIO_INTERFACE.h"
 
-#define ERROR 			0
+#define ERROR 		0
 #define SUCCESS 	1
 
 /*******************************************************************************

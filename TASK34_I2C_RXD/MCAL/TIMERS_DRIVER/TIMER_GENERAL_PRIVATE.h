@@ -13,8 +13,8 @@
 /*******************************************************************************
  *                              							Include Libraries						                       		   *
  *******************************************************************************/
-#ifndef TIMER_GENERAL_H_
-#define TIMER_GENERAL_H_
+#ifndef TIMER_GENERAL_PRIVATE_H_
+#define TIMER_GENERAL_PRIVATE_H_
 
 #include <math.h>
 #include "../GPIO_DRIVER/GPIO_INTERFACE.h"
@@ -22,6 +22,8 @@
 /*******************************************************************************
  *                              							Timers Registers					                   				     *
  *******************************************************************************/
+
+#define F_CPU 8000000UL
 
 // TIMSK Register
 typedef struct {

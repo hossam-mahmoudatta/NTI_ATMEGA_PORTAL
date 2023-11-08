@@ -2,9 +2,9 @@
  *
  * Module: TIMER1
  *
- * File Name: TIMER1_CONFIG.h
+ * File Name: TIMER1_PROGRAM.c
  *
- * Description: Header file for the TIMER1 Driver MACRO DEFINITIONS
+ * Description: Source file for the TIMER1 Driver Function Implementations
  *
  * Author: Hossam Mahmoud
  *
@@ -29,7 +29,7 @@ void (*CallBackPtr_TIMER1_OVF) (void);
  *                              						Functions Declarations	                     	   		  		   *
  *******************************************************************************/
 
-void TIMER1_Initialization(void) {
+void TIMER1_voidInitialization(void) {
 	// Choose Timer Mode
 
 #if (TIMER1_NORMAL_MODE)
@@ -97,42 +97,42 @@ u16 TIMER1_u16GetTime(void) {
 }
 
 
-u16 TIMER1A_SetCOMPAREMATCH_FASTPWM(u16 copy_u16CMP)
+u16 TIMER1A_u16SetCompareMatch_PWM(u16 copy_u16CMP)
 {
 	 u16 Value = copy_u16CMP;
 	 GPIO_voidSetPinDirection(PORT_D, PIN_5, PIN_OUTPUT);
-	 OCR1AL_REG = copy_u16CMP;
+	 OCR1A_REG = copy_u16CMP;
 	 return Value;
 }
 
-void TIMER1A_SetTop_FASTPWM(u16 copy_u16ICRValue)
+void TIMER1A_voidSetCounterTopValue_PWM(u16 copy_u16ICRValue)
 {
-	 ICR1L_REG = copy_u16ICRValue;
+	 ICR1_REG = copy_u16ICRValue;
 }
 
-u16 TIMER1A_SetDutyCycle_FASTPWM(u8 copy_u8Duty)
+u16 TIMER1A_u16SetDutyCycle_PWM(u8 copy_u8Duty)
 {
 	 u16 PWMValue = (u16)(copy_u8Duty * 255) / 100;
 	 GPIO_voidSetPinDirection(PORT_D, PIN_5, PIN_OUTPUT);
-	 OCR1AL_REG = PWMValue;
+	 OCR1A_REG = PWMValue;
 	 return PWMValue;
 }
 
-u16 TIMER1B_SetDutyCycle_FASTPWM(u8 copy_u8Duty)
+u16 TIMER1B_u16SetDutyCycle_PWM(u8 copy_u8Duty)
 {
 	 u16 PWMValue = (u16)(copy_u8Duty * 255) / 100;
 	 GPIO_voidSetPinDirection(PORT_D, PIN_4, PIN_OUTPUT);
-	 OCR1BL_REG = PWMValue;
+	 OCR1B_REG = PWMValue;
 	 return PWMValue;
 }
 
-void TIMER1A_setDelay_ms_CTC(u16 copy_u16Delay)
+void TIMER1A_voidSetDelay_ms_CTC(u16 copy_u16Delay)
 {
 	// Prepare Calculations to calculate OVERFLOWS
 			float Tick_Time = 0.001;
 			// This will set the Tick Time 1mS
 			u16 compareValue = (Tick_Time * (float)F_CPU) / TIMER1_PRESCALER_64;
-			TCNT1L_REG = compareValue;
+			TCNT1_REG = compareValue;
 
 			static u8 overFlowCounter = 0;
 
@@ -147,13 +147,13 @@ void TIMER1A_setDelay_ms_CTC(u16 copy_u16Delay)
 			overFlowCounter = 0;
 }
 
-void TIMER1B_setDelay_ms_CTC(u16 copy_u16Delay)
+void TIMER1B_voidSetDelay_ms_CTC(u16 copy_u16Delay)
 {
 	// Prepare Calculations to calculate OVERFLOWS
 			float Tick_Time = 0.001;
 			// This will set the Tick Time 1mS
 			u16 compareValue = (Tick_Time * (float)F_CPU) / TIMER1_PRESCALER_64;
-			TCNT1L_REG = compareValue;
+			TCNT1_REG = compareValue;
 
 			static u8 overFlowCounter = 0;
 
@@ -168,7 +168,7 @@ void TIMER1B_setDelay_ms_CTC(u16 copy_u16Delay)
 			overFlowCounter = 0;
 }
 
-void TIMER1_setDelay_ms_OVF(u16 copy_u16Delay)
+void TIMER1_voidSetDelay_ms_OVF(u16 copy_u16Delay)
 {
 	// Prepare Calculations to calculate OVERFLOWS
 			float Tick_Time = 0;
@@ -194,12 +194,12 @@ void TIMER1_CallBackFunction_CAPT(void (*Ptr_TIMER)(void))
 	CallBackPtr_TIMER1_CAPT = Ptr_TIMER;
 }
 
-void TIMER1_CallBackFunction_COMPA(void (*Ptr_TIMER)(void))
+void TIMER1_CallBackFunction_COMPAREA(void (*Ptr_TIMER)(void))
 {
 	CallBackPtr_TIMER1_COMPA = Ptr_TIMER;
 }
 
-void TIMER1_CallBackFunction_COMPB(void (*Ptr_TIMER)(void))
+void TIMER1_CallBackFunction_COMPAREB(void (*Ptr_TIMER)(void))
 {
 	CallBackPtr_TIMER1_COMPB = Ptr_TIMER;
 }

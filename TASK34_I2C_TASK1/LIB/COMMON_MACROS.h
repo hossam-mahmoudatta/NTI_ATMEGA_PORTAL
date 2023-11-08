@@ -10,8 +10,8 @@
  *
  *******************************************************************************/
 
-#ifndef COMMON_MACROS
-#define COMMON_MACROS
+#ifndef COMMON_MACROS_H_
+#define COMMON_MACROS_H_
 
 /* Set a certain bit in any register */
 #define SET_BIT(VAR, BIT) (VAR |= (1 << BIT))

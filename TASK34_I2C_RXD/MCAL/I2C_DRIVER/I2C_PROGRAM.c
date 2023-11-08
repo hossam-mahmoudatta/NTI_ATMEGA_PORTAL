@@ -56,23 +56,19 @@ I2C_ErrorStatus I2C_voidSendStartCondition(void) {
 	/* But why I'm not using the normal set bit technique?
 	 * Because I don't want to keep old data, & I want the information always set by me
 	 */
-
 	I2C_ErrorStatus LocalError = NoError;
-
 	TWCR_REG->TWEN = 1;
 	TWCR_REG->TWSTA = 1;
 	TWCR_REG->TWINT = 1;
 
 	while(TWCR_REG->TWINT == 0);
-	// Busy Wait for TWINT set in TWCR Register
-	// to ensure that start bit is send successfully
+	// Busy Wait for TWINT set in TWCR Register to ensure that start bit is send successfully
 
 	if(I2C_u8GetStatus != I2C_START)
 	{
 		LocalError = StartConditionErr;
 	}
 	else {
-
 	}
 	return LocalError;
 }
@@ -83,7 +79,6 @@ I2C_ErrorStatus I2C_voidSendRepeatedStart(void) {
 	/* But why I'm not using the normal set bit technique?
 	 * Because I don't want to keep old data, & I want the information always set by me
 	 */
-
 	I2C_ErrorStatus LocalError = NoError;
 
 	TWCR_REG->TWEN = 1;
@@ -92,7 +87,6 @@ I2C_ErrorStatus I2C_voidSendRepeatedStart(void) {
 
 	while(TWCR_REG->TWINT == 0);
 	// Busy Wait for TWINT set in TWCR Register
-	// to ensure that start bit is send successfully
 
 	if(I2C_u8GetStatus != I2C_REP_START)
 	{
@@ -220,13 +214,13 @@ u8 I2C_voidReceiveSlaveDataByte() {
 	// Busy Wait for TWINT set in TWCR Register
 	// to ensure that start bit is send successfully
 
-	//while(I2C_u8GetStatus != I2C_SLAV_RXD_SLA_W_ACK);
+	while(I2C_u8GetStatus != I2C_SLAV_RXD_SLA_W_ACK);
 	TWCR_REG->TWINT = 1;
 	TWCR_REG->TWEA = 1;
 	TWCR_REG->TWEN = 1;
 	while(TWCR_REG->TWINT == 0);
 
-	//while(I2C_u8GetStatus != I2C_SLAV_RXD_DATA_R_NACK);
+	while(I2C_u8GetStatus != I2C_SLAV_RXD_DATA_R_NACK);
 	Data = TWDR_REG;
 
 	return Data;

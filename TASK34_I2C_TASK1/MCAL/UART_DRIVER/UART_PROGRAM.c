@@ -24,7 +24,7 @@ void (*CallBackPtr_UART_TXC) (void);
  *                              				FUNCTION IMPLEMENTATIONS				                   	   *
  *******************************************************************************/
 
-void UART_Initialization(void) {
+void UART_voidInitialization(void) {
 /*
 	// why uint32? to support the largest baud rate
 	// to create a UART driver, I have 4 main parameters
