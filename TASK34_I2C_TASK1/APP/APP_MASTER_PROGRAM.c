@@ -20,7 +20,7 @@
 /*******************************************************************************
  *                              					 Application Declarations                      					  *
  *******************************************************************************/
-u8 data = 'E';
+u8 data = 'K';
 //u8 KeyData = 0;
 
 void System_Initialization(void) {
@@ -29,8 +29,9 @@ void System_Initialization(void) {
 	LCD_voidSetCursor(0, 0);
 	LCD_voidDisplayString("I2C TRANSMIT");
 
-	// Initializing SPI Module Master
-	I2C_voidMasterInit(I2C_SLAVE1_ADDRESS);
+	// Initializing I2C Module Master
+	_delay_ms(1500);
+	I2C_voidMasterInit();
 }
 
 void executeMain_TXD(void) {
@@ -38,8 +39,8 @@ void executeMain_TXD(void) {
 	LCD_voidDisplayString("Sending..");
 
 	I2C_voidSendStartCondition();
-	I2C_voidSendSlaveAddressWrite(I2C_SLAVE1_ADDRESS);
-	I2C_voidSendMasterDataByte(data);
+	I2C_voidMasterSendSlaveAddressWrite(I2C_SLAVE1_ADDRESS);
+	I2C_voidMasterSendDataByte(data);
 	_delay_ms(100);
 	I2C_voidSendStopCondition();
 

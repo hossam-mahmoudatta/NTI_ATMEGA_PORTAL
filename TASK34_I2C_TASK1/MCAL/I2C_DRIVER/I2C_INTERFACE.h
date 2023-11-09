@@ -24,7 +24,7 @@
  *******************************************************************************/
 
 // Initializes and enables the SPI Module to start functionality
-void I2C_voidMasterInit(u8 copy_u8Address);
+void I2C_voidMasterInit(void);
 
 // Initializes and enables the SPI Module to start functionality
 void I2C_voidSlaveInit(u8 copy_u8Address);
@@ -36,18 +36,18 @@ I2C_ErrorStatus I2C_voidSendStartCondition(void);
 I2C_ErrorStatus I2C_voidSendRepeatedStart(void);
 
 // Responsible for the SPI to send an array of bytes, a string
-I2C_ErrorStatus I2C_voidSendSlaveAddressWrite(u8 copy_u8Address);
+I2C_ErrorStatus I2C_voidMasterSendSlaveAddressWrite(u8 copy_u8Address);
 
 // Responsible for the SPI to send an array of bytes, a string
-I2C_ErrorStatus I2C_voidSendSlaveAddressRead(u8 copy_u8Address);
+I2C_ErrorStatus I2C_voidMasterSendSlaveAddressRead(u8 copy_u8Address);
 
 // Responsible for the SPI to send an array of bytes, a string
-I2C_ErrorStatus I2C_voidSendMasterDataByte(u8 copy_u8DataByte);
+I2C_ErrorStatus I2C_voidMasterSendDataByte(u8 copy_u8DataByte);
 
 // Responsible for the SPI to send an array of bytes, a string
-I2C_ErrorStatus I2C_voidReceiveMasterDataByte(u8 *copy_u8DataByte);
+I2C_ErrorStatus I2C_voidMasterReceiveDataByte(u8 *copy_u8DataByte);
 
-u8 I2C_voidReceiveSlaveDataByte(void);
+u8 I2C_u8SlaveReceiveDataByte(void);
 
 // Responsible for the SPI to receive an array of bytes, a string
 void I2C_voidSendStopCondition(void);

@@ -30,7 +30,7 @@ void System_Initialization(void) {
 	LCD_voidDisplayString("I2C RECEIVE");
 
 	// Initializing I2C SLAVE Module
-	_delay_ms(250);
+	//_delay_ms(250);
 	I2C_voidSlaveInit(I2C_SLAVE1_ADDRESS);
 
 }
@@ -39,7 +39,7 @@ void executeMain_RXD(void) {
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Receiving..");
 	_delay_ms(100);
-//	ReceivedData = I2C_voidReceiveSlaveDataByte();
+	ReceivedData = I2C_u8SlaveReceiveDataByte();
 	ReceivedData = I2C_u8ReadByteWithACK();
 
 	LCD_voidSetCursor(2, 0);

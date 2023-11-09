@@ -27,8 +27,8 @@ u16 CMP_Value 	= 0;
 
 // Initializes the 7 Segment Display Driver
 void SERVO_voidInit(void) {
-	TIMER1_Initialization();
-	TIMER1A_SetTop_FASTPWM(SERVO_OP_RANGE);
+	TIMER1_voidInitialization();
+	TIMER1A_voidSetCounterTopValue_PWM(SERVO_OP_RANGE);
 	ADC_voidInit();
 }
 
@@ -36,7 +36,7 @@ void SERVO_voidInit(void) {
 void SERVO_voidAdjustAngle(void) {
 	ADC_Result = ADC_voidStartConversionPolling(CHANNEL_1);
 	AngleValue = mapServo(ADC_Result);
-	CMP_Value = TIMER1A_SetCOMPAREMATCH_FASTPWM(AngleValue);
+	CMP_Value = TIMER1A_u16SetCompareMatch_PWM(AngleValue);
 	LCD_voidSetCursor(1, 0);
 	LCD_voidDisplayString("Angle: ");
 	LCD_voidSetCursor(1, 7);

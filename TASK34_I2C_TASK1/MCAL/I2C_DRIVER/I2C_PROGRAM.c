@@ -21,7 +21,7 @@
  *******************************************************************************/
 
 // Initializes and enables the Master mode for the TWI Module to start functionality
-void I2C_voidMasterInit(u8 copy_u8Address) {
+void I2C_voidMasterInit(void) {
 	/* For TWBR
 	 * SCL Freq = (F_CPU) / (16 + 2 * TWBR * 4^TWPS)
 	 * In the previous equation, I have two unknowns, the TWBR & TWPS
@@ -31,22 +31,15 @@ void I2C_voidMasterInit(u8 copy_u8Address) {
 	 */
 
 	TWBR_REG = 0x02; // Configuring with no Prescaler
-	TWSR_REG->TWPS = 0;
-	TWSR_REG->TWS = 0;
-	TWCR_REG->TWEN = 1; // Enabling the I2C Module
-	TWCR_REG->TWEA = 1; // Enabling the Acknowledge bit
-
-	TWAR_REG = copy_u8Address << 1; // Slave1 Address
-
+	TWSR_REG->TWPS = 0; // Configuring no prescaler
+	TWSR_REG->TWS = 0; // Initializing the the status by zero
 }
 
-// Initializes and enables the SPI Module to start functionality
+
+// Initializes and enables the I2C Slave Module to start functionality
 void I2C_voidSlaveInit(u8 copy_u8Address)
 {
-	TWCR_REG->TWEA = 1; // Enabling the Acknowledge bit
-	TWCR_REG->TWEN = 1; // Enabling the I2C Module
 	TWAR_REG = copy_u8Address << 1; // Slave1 Address
-
 }
 
 
@@ -57,19 +50,21 @@ I2C_ErrorStatus I2C_voidSendStartCondition(void) {
 	 * Because I don't want to keep old data, & I want the information always set by me
 	 */
 	I2C_ErrorStatus LocalError = NoError;
-	TWCR_REG->TWEN = 1;
-	TWCR_REG->TWSTA = 1;
+
 	TWCR_REG->TWINT = 1;
+
+	TWCR_REG->TWSTA = 1;
+
+	TWCR_REG->TWEN = 1;
 
 	while(TWCR_REG->TWINT == 0);
 	// Busy Wait for TWINT set in TWCR Register to ensure that start bit is send successfully
 
-	if(I2C_u8GetStatus != I2C_START)
+	while(((TWSR_REG->TWS) << 3) != I2C_START)
 	{
 		LocalError = StartConditionErr;
 	}
-	else {
-	}
+
 	return LocalError;
 }
 
@@ -81,102 +76,113 @@ I2C_ErrorStatus I2C_voidSendRepeatedStart(void) {
 	 */
 	I2C_ErrorStatus LocalError = NoError;
 
-	TWCR_REG->TWEN = 1;
-	TWCR_REG->TWSTA = 1;
 	TWCR_REG->TWINT = 1;
+
+	TWCR_REG->TWSTA = 1;
+
+	TWCR_REG->TWEN = 1;
 
 	while(TWCR_REG->TWINT == 0);
 	// Busy Wait for TWINT set in TWCR Register
 
-	if(I2C_u8GetStatus != I2C_REP_START)
+	while(((TWSR_REG->TWS) << 3) != I2C_REP_START)
 	{
 		LocalError = RepeatedStartErr;
 	}
-	else {}
+
 	return LocalError;
 }
 
 // Responsible for the SPI to send an array of bytes, a string
-I2C_ErrorStatus I2C_voidSendSlaveAddressWrite(u8 copy_u8Address) {
+I2C_ErrorStatus I2C_voidMasterSendSlaveAddressWrite(u8 copy_u8Address) {
 	// Again enabling the I2C Module, Set the Start Condition, Clearing the TWINT Flag
 	/* But why I'm not using the normal set bit technique?
 	 * Because I don't want to keep old data, & I want the information always set by me
 	 */
 	I2C_ErrorStatus LocalError = NoError;
-	TWCR_REG->TWEN = 1;
-	TWCR_REG->TWSTA = 0;
 
+	// Puts the Slave address on the data bus
 	TWDR_REG = copy_u8Address << 1;
+
+	// Sets the 1st bit to zero to write
 	CLR_BIT(TWDR_REG, 0);
 
 	TWCR_REG->TWINT = 1;
 
+	TWCR_REG->TWEN = 1;
+
 	while(TWCR_REG->TWINT == 0);
 	// Busy Wait for TWINT set in TWCR Register
 	// to ensure that start bit is send successfully
 
-	if(I2C_u8GetStatus != I2C_MSTR_TXD_SLA_W_ACK)
+	while(((TWSR_REG->TWS) << 3) != I2C_MSTR_TXD_SLA_W_ACK)
 	{
 		LocalError = SlaveAddressWithWriteErr;
 	}
-	else {}
+
 	return LocalError;
 }
 
 
 // Responsible for the SPI to send an array of bytes, a string
-I2C_ErrorStatus I2C_voidSendSlaveAddressRead(u8 copy_u8Address) {
+I2C_ErrorStatus I2C_voidMasterSendSlaveAddressRead(u8 copy_u8Address) {
 	// Again enabling the I2C Module, Set the Start Condition, Clearing the TWINT Flag
 	/* But why I'm not using the normal set bit technique?
 	 * Because I don't want to keep old data, & I want the information always set by me
 	 */
 	I2C_ErrorStatus LocalError = NoError;
-	TWCR_REG->TWEN = 1;
-	TWCR_REG->TWSTA = 0;
-
+	// Puts the Slave address on the data bus
 	TWDR_REG = copy_u8Address << 1;
-	SET_BIT(TWDR_REG, 0);
+
+	// Sets the 1st bit to zero to write
+	CLR_BIT(TWDR_REG, 0);
 
 	TWCR_REG->TWINT = 1;
+
+	TWCR_REG->TWEN = 1;
 
 	while(TWCR_REG->TWINT == 0);
 	// Busy Wait for TWINT set in TWCR Register
 	// to ensure that start bit is send successfully
 
-	if(I2C_u8GetStatus != I2C_MSTR_RXD_SLA_R_ACK)
+	while(((TWSR_REG->TWS) << 3) != I2C_MSTR_RXD_SLA_R_ACK)
 	{
 		LocalError = SlaveAddressWithReadErr;
 	}
-	else {}
+
 	return LocalError;
 }
 
 
 // Responsible for the SPI to send an array of bytes, a string
-I2C_ErrorStatus I2C_voidSendMasterDataByte(u8 copy_u8DataByte) {
+I2C_ErrorStatus I2C_voidMasterSendDataByte(u8 copy_u8DataByte) {
 	// Again enabling the I2C Module, Set the Start Condition, Clearing the TWINT Flag
 	/* But why I'm not using the normal set bit technique?
 	 * Because I don't want to keep old data, & I want the information always set by me
 	 */
 	I2C_ErrorStatus LocalError = NoError;
+
 	TWDR_REG = copy_u8DataByte;
 
 	TWCR_REG->TWINT = 1;
 
+	TWCR_REG->TWEN = 1;
+
 	while(TWCR_REG->TWINT == 0);
 	// Busy Wait for TWINT set in TWCR Register
 	// to ensure that start bit is send successfully
 
-	if(I2C_u8GetStatus != I2C_MSTR_TXD_DATA_ACK)
+	while(((TWSR_REG->TWS) << 3) != I2C_MSTR_TXD_DATA_ACK)
 	{
 		LocalError = MasterWriteByteErr;
 	}
-	else {}
+
 	return LocalError;
 }
 
+
 // Responsible for the SPI to send an array of bytes, a string
-I2C_ErrorStatus I2C_voidReceiveMasterDataByte(u8 *copy_u8DataByte) {
+I2C_ErrorStatus I2C_voidMasterReceiveDataByte(u8 *copy_u8DataByte) {
 	// Again enabling the I2C Module, Set the Start Condition, Clearing the TWINT Flag
 	/* But why I'm not using the normal set bit technique?
 	 * Because I don't want to keep old data, & I want the information always set by me
@@ -188,39 +194,36 @@ I2C_ErrorStatus I2C_voidReceiveMasterDataByte(u8 *copy_u8DataByte) {
 	// Busy Wait for TWINT set in TWCR Register
 	// to ensure that start bit is send successfully
 
-	if(I2C_u8GetStatus != I2C_MSTR_RXD_DATA_ACK)
+	while(((TWSR_REG->TWS) << 3) != I2C_MSTR_RXD_DATA_ACK)
 	{
 		LocalError = MasterReadByteErr;
 	}
-	else {
-		*copy_u8DataByte = TWDR_REG;
-	}
+
+	*copy_u8DataByte = TWDR_REG;
 	return LocalError;
 }
 
 
 // Responsible for the SPI to send an array of bytes, a string
-u8 I2C_voidReceiveSlaveDataByte() {
-	// Again enabling the I2C Module, Set the Start Condition, Clearing the TWINT Flag
-	/* But why I'm not using the normal set bit technique?
-	 * Because I don't want to keep old data, & I want the information always set by me
-	 */
+u8 I2C_u8SlaveReceiveDataByte() {
 	u8 Data;
 	TWCR_REG->TWINT = 1;
-	TWCR_REG->TWEA = 1;
-	TWCR_REG->TWEN = 1;
 
 	while(TWCR_REG->TWINT == 0);
 	// Busy Wait for TWINT set in TWCR Register
 	// to ensure that start bit is send successfully
 
-	while(I2C_u8GetStatus != I2C_SLAV_RXD_SLA_W_ACK);
-	TWCR_REG->TWINT = 1;
-	TWCR_REG->TWEA = 1;
-	TWCR_REG->TWEN = 1;
-	while(TWCR_REG->TWINT == 0);
+	while( ((TWSR_REG->TWS) << 3) != I2C_SLAV_RXD_SLA_W_ACK)
+	{
+		TWCR_REG->TWEA = 1;
+		TWCR_REG->TWINT = 1;
+		TWCR_REG->TWEN = 1;
+
+		while(TWCR_REG->TWINT == 0);
+	}
 
 	while(I2C_u8GetStatus != I2C_SLAV_RXD_DATA_R_NACK);
+
 	Data = TWDR_REG;
 
 	return Data;
@@ -230,7 +233,13 @@ u8 I2C_voidReceiveSlaveDataByte() {
 // Responsible for the SPI to receive an array of bytes, a string
 void I2C_voidSendStopCondition(void) {
 	TWCR_REG->TWSTO = 1;
+
 	TWCR_REG->TWINT = 1;
+
+	TWCR_REG->TWEN = 1;
+
+	// Wait for the TWSTO to be cleared to ensure the stop condition transmitted
+	while(TWCR_REG->TWSTO == 0);
 }
 
 // Responsible for the SPI to receive an array of bytes, a string
