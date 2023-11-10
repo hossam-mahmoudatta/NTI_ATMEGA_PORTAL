@@ -21,7 +21,7 @@
 /*******************************************************************************
  *                              					 Application Declarations                      					  *
  *******************************************************************************/
-u8 data = 'K';
+u8 data = 'P';
 //u8 KeyData = 0;
 
 void System_Initialization(void) {
@@ -31,8 +31,9 @@ void System_Initialization(void) {
 	LCD_voidDisplayString("I2C TRANSMIT");
 
 	// Initializing I2C Module Master
-	//_delay_ms(1500);
+	_delay_ms(250);
 	I2C_voidMasterInit();
+	_delay_ms(250);
 }
 
 void executeMain_TXD(void) {
@@ -42,7 +43,7 @@ void executeMain_TXD(void) {
 	I2C_voidSendStartCondition();
 		LCD_voidSetCursor(1, 0);
 		LCD_voidDisplayString("1Sending..");
-	I2C_voidMasterSendSlaveAddressWrite(I2C_SLAVE1_ADDRESS);
+	I2C_voidMasterSendSlaveAddressWrite(0x02);
 		LCD_voidSetCursor(1, 0);
 		LCD_voidDisplayString("2Sending..");
 	I2C_voidMasterSendDataByte(data);

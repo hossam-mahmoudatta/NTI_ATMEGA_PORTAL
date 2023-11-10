@@ -31,8 +31,8 @@ void System_Initialization(void) {
 	LCD_voidDisplayString("I2C RECEIVE");
 
 	// Initializing I2C SLAVE Module
-	//_delay_ms(250);
-	I2C_voidSlaveInit(I2C_SLAVE1_ADDRESS);
+	_delay_ms(250);
+	I2C_voidSlaveInit(0x02);
 
 }
 

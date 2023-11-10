@@ -32,7 +32,8 @@ void I2C_voidMasterInit(void) {
 
 	TWBR_REG = 0x02; // Configuring with no Prescaler
 	TWSR_REG->TWPS = 0; // Configuring no prescaler
-	TWSR_REG->TWS = 0; // Initializing the the status by zero
+	TWSR_REG->TWS = 0; // Initializing the status by zero
+	TWCR_REG->TWEA = 1; // Enabling the acknowledge bit
 }
 
 
@@ -40,6 +41,11 @@ void I2C_voidMasterInit(void) {
 void I2C_voidSlaveInit(u8 copy_u8Address)
 {
 	TWAR_REG = copy_u8Address << 1; // Slave1 Address
+	
+	TWCR_REG->TWEN = 1; // Enabling the I2C Module
+	
+	TWCR_REG->TWEA = 1; // Enabling the Acknowledge bit
+		
 }
 
 
@@ -51,15 +57,16 @@ I2C_ErrorStatus I2C_voidSendStartCondition(void) {
 	 */
 	I2C_ErrorStatus LocalError = NoError;
 
-	TWCR_REG->TWINT = 1;
+	TWCR_REG->TWINT = 1; // Clears the Flag
 
-	TWCR_REG->TWSTA = 1;
+	TWCR_REG->TWSTA = 1; // Start Condition Bit
 
-	TWCR_REG->TWEN = 1;
+	TWCR_REG->TWEN = 1; // Enabling the I2C Module
 
 	while(TWCR_REG->TWINT == 0);
 	// Busy Wait for TWINT set in TWCR Register to ensure that start bit is send successfully
 
+	// Checks the status register if its not returning the correct status
 	while(((TWSR_REG->TWS) << 3) != I2C_START)
 	{
 		LocalError = StartConditionErr;
@@ -104,8 +111,10 @@ I2C_ErrorStatus I2C_voidMasterSendSlaveAddressWrite(u8 copy_u8Address) {
 	// Puts the Slave address on the data bus
 	TWDR_REG = copy_u8Address << 1;
 
-	// Sets the 1st bit to zero to write
+	// Sets the 1st bit to zero to "write"
 	CLR_BIT(TWDR_REG, 0);
+	
+	TWCR_REG->TWSTA = 0;
 
 	TWCR_REG->TWINT = 1;
 
@@ -213,16 +222,15 @@ u8 I2C_u8SlaveReceiveDataByte() {
 	// Busy Wait for TWINT set in TWCR Register
 	// to ensure that start bit is send successfully
 
-	while( ((TWSR_REG->TWS) << 3) != I2C_SLAV_RXD_SLA_W_ACK)
-	{
-		TWCR_REG->TWEA = 1;
-		TWCR_REG->TWINT = 1;
-		TWCR_REG->TWEN = 1;
+	while( ((TWSR_REG->TWS) << 3) != I2C_SLAV_RXD_SLA_W_ACK);
+	
+	TWCR_REG->TWEA = 1;
+	TWCR_REG->TWINT = 1;
+	TWCR_REG->TWEN = 1;
 
-		while(TWCR_REG->TWINT == 0);
-	}
+	while(TWCR_REG->TWINT == 0);
 
-	while(I2C_u8GetStatus != I2C_SLAV_RXD_DATA_R_NACK);
+	//if(((TWSR_REG->TWS) << 3) != I2C_SLAV_RXD_DATA_R_NACK);
 
 	Data = TWDR_REG;
 
@@ -239,7 +247,7 @@ void I2C_voidSendStopCondition(void) {
 	TWCR_REG->TWEN = 1;
 
 	// Wait for the TWSTO to be cleared to ensure the stop condition transmitted
-	while(TWCR_REG->TWSTO == 0);
+	//while(TWCR_REG->TWSTO == 0);
 }
 
 // Responsible for the SPI to receive an array of bytes, a string
