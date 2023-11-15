@@ -34,6 +34,7 @@ void I2C_voidMasterInit(void) {
 	TWSR_REG->TWPS = 0; // Configuring no prescaler
 	TWSR_REG->TWS = 0; // Initializing the status by zero
 	TWCR_REG->TWEA = 1; // Enabling the acknowledge bit
+	// Random COmment
 }
 
 
