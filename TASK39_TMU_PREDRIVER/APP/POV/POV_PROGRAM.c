@@ -14,7 +14,6 @@
 #include "../TMU/TMU_int.h"
 #include "../HAL/HexaDecoder/HexaDecoder_int.h"
 
-static u8 LOC_u8POVState;
 static u8 LOC_u8DisplayNumber;
 
 typedef enum
@@ -26,6 +25,8 @@ typedef enum
 	POV_STOP
 } POV_STATE;
 
+static POV_STATE LOC_enuPOVStateMachine = POV_WRITE_FIRST;
+
 ES_t POV_enuInit(void)
 {
 	return HexaDec_enuInit();
@@ -33,7 +34,7 @@ ES_t POV_enuInit(void)
 
 void POV_vidDisplayTask(void)
 {
-	switch(LOC_u8POVState)
+	switch(LOC_enuPOVStateMachine)
 	{
 		case POV_WRITE_FIRST:
 			HexaDec_enuDisableSSG(SSG_LEFT);
@@ -42,23 +43,25 @@ void POV_vidDisplayTask(void)
 
 			HexaDec_enuEnableSSG(SSG_RIGHT);
 
-			LOC_u8POVState = POV_DELAY_FIRST;
+			LOC_enuPOVStateMachine = POV_DELAY_FIRST;
 		break;
 		case POV_DELAY_FIRST:
-			LOC_u8POVState = POV_WRITE_SECOND;
+			LOC_enuPOVStateMachine = POV_WRITE_SECOND;
 		break;
 		case POV_WRITE_SECOND:
+			HexaDec_enuDisableSSG(SSG_LEFT);
+			HexaDec_enuDisableSSG(SSG_RIGHT);
 			HexaDec_enuDisplayNum(LOC_u8DisplayNumber / 10);
-
 			HexaDec_enuEnableSSG(SSG_LEFT);
 
-			LOC_u8POVState = POV_DELAY_SECOND;
+			LOC_enuPOVStateMachine = POV_DELAY_SECOND;
 		break;
 		case POV_DELAY_SECOND:
-			LOC_u8POVState = POV_WRITE_FIRST;
+			LOC_enuPOVStateMachine = POV_WRITE_FIRST;
 		break;
 		case POV_STOP:
-			POV_vidStopDisplay();
+			HexaDec_enuDisableSSG(SSG_LEFT);
+			HexaDec_enuDisableSSG(SSG_RIGHT);
 		break;
 	}
 }
@@ -70,13 +73,12 @@ void POV_vidSetDisplayedNumber(u8 Copy_u8Number)
 
 void POV_vidStopDisplay(void)
 {
-	HexaDec_enuDisableSSG(SSG_LEFT);
-	HexaDec_enuDisableSSG(SSG_RIGHT);
+	LOC_enuPOVStateMachine = POV_STOP;
 }
 
 void POV_vidResumeDisplay(void)
 {
-	LOC_u8POVState = POV_WRITE_FIRST;
+	LOC_enuPOVStateMachine = POV_WRITE_FIRST;
 }
 
 

@@ -44,16 +44,15 @@ main(int argc, char const *argv[])
 	Update_vidInit();
 	TMU_vidInit();
 
-
-//	TMU_vidCreateTask((void(*)(void*))Comm_vidTask, NULL , 1 , 0);
-
-	//  TMU_vidCreateTask(POV_vidDisplayTask,  1 , 0);
-	//  TMU_vidCreateTask(Light_vidTrafficTask,  50 , 1);
-	//  TMU_vidCreateTask(Update_vidDecreaseTask, 1 , 2);
-	//  TMU_vidCreateTask(Update_vidIncreaseTask , 1 , 3);
+	TMU_vidCreateTask(POV_vidDisplayTask,  1 , 0);
+	TMU_vidCreateTask(Light_vidTrafficTask,  50 , 1);
+	TMU_vidCreateTask(Update_vidDecreaseTask, 1 , 2);
+	TMU_vidCreateTask(Update_vidIncreaseTask , 1 , 3);
 
 	TMU_vidStartScheduler();
 
 	return 0;
 }
 
+
+	//TMU_vidCreateTask((void(*)(void*))Comm_vidTask, NULL , 1 , 0);
