@@ -25,7 +25,7 @@ volatile u8 SPI_Read = 0;
 volatile u8 UART_Read = 0;
 u8 ADC_Read = 0;
 
-volatile u8 UART_Flag = 0;
+volatile u8 UART_Flag = 1;
 
 
 void System_Initialization(void) {
@@ -103,8 +103,8 @@ void UARTReceiveFunction(void)
 void executeMain_MASTER(void) {
 	if(UART_Flag == 1)
 	{
-		UART_Read = UART_voidReceiveByte_ISR();
-		//UART_Read = 't';
+		//UART_Read = UART_voidReceiveByte_ISR();
+		UART_Read = 't';
 		if((UART_Read == 'w') || (UART_Read == 's') ||
 		(UART_Read == 'x') || (UART_Read == 'g') || (UART_Read == 'f') )
 		{
@@ -121,7 +121,7 @@ void executeMain_MASTER(void) {
 			LCD_voidDisplayString("SPI 2");
 
 			//UART_Flag = 0;
-			_delay_ms(100);
+			//_delay_ms(100);
 		}
 		else if((UART_Read == 't') || (UART_Read == 'r'))
 		{

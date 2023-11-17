@@ -52,9 +52,6 @@ void UART_Initialization(void) {
 	UCSRB_REG->TXEN = 1;
 	UCSRB_REG->RXEN = 1;
 
-	//u8 UCSRC_Value = 0;
-	//SET_BIT(UCSRC_Value, UCSRC_URSEL);
-
 	// Choose Character Size
 #if (UART_BITSIZE == UART_5_BITSIZE)
 	CLR_BIT(UCSRC_Value, UCSRC_UCSZ0);
@@ -69,11 +66,10 @@ void UART_Initialization(void) {
 	SET_BIT(UCSRC_Value, UCSRC_UCSZ1);
 	SET_BIT(UCSRB_REG, UCSZ2);
 #else
-	//SET_BIT(UCSRC_Value, UCSRC_UCSZ0);
-	//SET_BIT(UCSRC_Value, UCSRC_UCSZ1);
+	UCSRC_REG = (1 << UCSRC_URSEL) | (1 << UCSRC_UCSZ1) | (1 << UCSRC_UCSZ0);
 #endif
 
-	//UCSRC_REG = UCSRC_Value;
+	
 
 	// For F_CPU: 16 MHz & Baud: 9600, My UBRR: 103
 	UBRRL_REG = (u8)(UBRR_VALUE);
