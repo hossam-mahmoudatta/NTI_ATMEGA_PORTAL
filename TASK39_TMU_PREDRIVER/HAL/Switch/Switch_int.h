@@ -8,6 +8,8 @@
 #ifndef SWITCH_INT_H_
 #define SWITCH_INT_H_
 
+#include "Switch_config.h"
+
 ES_t Switch_enuInit(void);
 
 ES_t Switch_enuGetSwitchState(u8 Copy_u8SwitchID , u8 *Copy_pu8SwitchState);

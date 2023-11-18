@@ -6,11 +6,9 @@
  */
 #include "../../LIB/stdTypes.h"
 #include "../../LIB/errorState.h"
-
 #include "../../MCAL/DIO/DIO_int.h"
+#include "Switch_int.h"
 
-#include "Switch_config.h"
-#include "Switch_priv.h"
 
 extern u8 Switch_u8MaxSwitchNum;
 extern Switch_t Switch_astrSwitchConfig [];

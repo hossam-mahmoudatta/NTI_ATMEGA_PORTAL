@@ -13,22 +13,22 @@
 #define SSG_HW_CONFIG             HEXA_DECODER
 /***********************************************/
 
-#define HEX_DEC_A_GRP             DIO_GROUP_B
+#define HEX_DEC_A_GRP             DIO_GROUP_C
 #define HEX_DEC_A_PIN             DIO_PIN_0
   
-#define HEX_DEC_B_GRP             DIO_GROUP_B
+#define HEX_DEC_B_GRP             DIO_GROUP_C
 #define HEX_DEC_B_PIN             DIO_PIN_1
   
-#define HEX_DEC_C_GRP             DIO_GROUP_B
+#define HEX_DEC_C_GRP             DIO_GROUP_C
 #define HEX_DEC_C_PIN             DIO_PIN_2
   
-#define HEX_DEC_D_GRP             DIO_GROUP_B
-#define HEX_DEC_D_PIN             DIO_PIN_4
+#define HEX_DEC_D_GRP             DIO_GROUP_C
+#define HEX_DEC_D_PIN             DIO_PIN_3
 
-#define HEX_DEC_EN1_GRP           DIO_GROUP_B
+#define HEX_DEC_EN1_GRP           DIO_GROUP_C
 #define HEX_DEC_EN1_PIN           DIO_PIN_5
 
-#define HEX_DEC_EN2_GRP           DIO_GROUP_A
+#define HEX_DEC_EN2_GRP           DIO_GROUP_C
 #define HEX_DEC_EN2_PIN           DIO_PIN_2
 /***********************************************/
 /***********************************************/

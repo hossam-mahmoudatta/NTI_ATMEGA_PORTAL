@@ -18,7 +18,7 @@ static TCB_t LOC_astrAllTasks [ TMU_MAX_NUM_TASKS ] ={{0}};
 
 void TMU_vidInit(void)
 {
-    *((u8*)0x3A) = 0xff;
+//    *((u8*)0x3A) = 0xff;
     #if TMU_TIMER_CHANNEL == TIMER0
         #if TMU_OS_TICK >=1 && TMU_OS_TICK <=200
             //OVf, 1024 , Dis OC0

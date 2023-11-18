@@ -6,7 +6,7 @@
  */
 
 #include "light_int.h"
-#include "light_config.h"
+
 #include "../../MCAL/DIO/DIO_int.h"
 
 typedef enum

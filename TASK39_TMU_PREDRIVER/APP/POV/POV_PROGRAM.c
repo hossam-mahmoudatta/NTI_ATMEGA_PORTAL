@@ -5,14 +5,8 @@
  *      Author: hossa
  */
 
-#include "../LIB/stdTypes.h"
-#include "../LIB/errorState.h"
-
 #include "POV_int.h"
-#include "../MCAL/DIO/DIO_int.h"
-#include "../HAL/Switch/Switch_int.h"
-#include "../TMU/TMU_int.h"
-#include "../HAL/HexaDecoder/HexaDecoder_int.h"
+
 
 static u8 LOC_u8DisplayNumber;
 

@@ -8,6 +8,13 @@
 #ifndef POV_INT_H_
 #define POV_INT_H_
 
+#include "../../HAL/HexaDecoder/HexaDecoder_int.h"
+#include "../../LIB/stdTypes.h"
+#include "../../LIB/errorState.h"
+#include "../../MCAL/DIO/DIO_int.h"
+#include "../../TMU/TMU_int.h"
+
+
 ES_t POV_enuInit(void);
 
 void POV_vidDisplayTask(void);
